@@ -1,0 +1,82 @@
+[
+  {
+    "address": "0x016066e2573941B69576dDeE81663baCDfd8DcC2",
+    "name": "Erling Haaland",
+    "symbol": "HAALAND"
+  },
+  {
+    "address": "0x13272e15389b6c9bA3B8ced484E52b12c0Ad2463",
+    "name": "Bruno Fernandes",
+    "symbol": "FERNANDES"
+  },
+  {
+    "address": "0x1dFD808Bb26825a103e83C03aC7Af8125addF1d3",
+    "name": "Florian Wirtz",
+    "symbol": "WIRTZ"
+  },
+  {
+    "address": "0x231358875310bab582787b8AE2F97A534df8262c",
+    "name": "Jude Bellingham",
+    "symbol": "BELLINGHAM"
+  },
+  {
+    "address": "0x3386B20a3614980849f254f767d8d6e797df125E",
+    "name": "Romelu Lukaku",
+    "symbol": "LUKAKU"
+  },
+  {
+    "address": "0x37E723BF5e78E5610F589B0D8b15c997B00388C0",
+    "name": "Harry Kane",
+    "symbol": "KANE"
+  },
+  {
+    "address": "0x5Df7770dAf70fcd816A6a94Bba80cA2df4972001",
+    "name": "Virgil van Dijk",
+    "symbol": "VANDIJK"
+  },
+  {
+    "address": "0x6A69efb1AE5C484173895DE52756843F3a321595",
+    "name": "Kevin De Bruyne",
+    "symbol": "DEBRUYNE"
+  },
+  {
+    "address": "0x6F8CC323F428009C2B6Fd9CC619769Aa36Ad32A7",
+    "name": "Aur\u00e9lien Tchouam\u00e9ni",
+    "symbol": "TCHOUAMENI"
+  },
+  {
+    "address": "0x88D8f14785Aa87E7020B3Ce243E814500047283C",
+    "name": "Rodri",
+    "symbol": "RODRI"
+  },
+  {
+    "address": "0x96a215573eD29Cd1Fb91C53d95DBdc61ACf9B736",
+    "name": "Pau Cubars\u00ed",
+    "symbol": "CUBARSI"
+  },
+  {
+    "address": "0xBA5fE6Cde4b876486dE6ae7041dC936F48618fcf",
+    "name": "Lamine Yamal",
+    "symbol": "YAMAL"
+  },
+  {
+    "address": "0xa2c4Bd034f8D8a8C2dedd7Bf3b7F432dC24CaAcc",
+    "name": "Vin\u00edcius J\u00fanior",
+    "symbol": "VINICIUS"
+  },
+  {
+    "address": "0xe1314DFA4E8D5E58e2A961c10951938e85B29f1B",
+    "name": "Luis D\u00edaz",
+    "symbol": "DIAZ"
+  },
+  {
+    "address": "0xe863318ec289750B43AbF7fa77A4Ccd1514c17E2",
+    "name": "Kylian Mbapp\u00e9",
+    "symbol": "MBAPPE"
+  },
+  {
+    "address": "0xeBfE18D8c52f5185f7d003598f9b1f6102a2c6f2",
+    "name": "Warren Za\u00efre-Emery",
+    "symbol": "ZAIREEMERY"
+  }
+]

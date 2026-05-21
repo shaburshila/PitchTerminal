@@ -1,0 +1,27 @@
+[     673ms] [ERROR] Failed to load resource: the server responded with a status of 404 (NOT FOUND) @ http://localhost:5555/favicon.ico:0
+[ 1080632ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:5555/api/players:0
+[ 1080632ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:5555/api/chart/0xe863318ec289750B43AbF7fa77A4Ccd1514c17E2:0
+[ 1080632ms] TypeError: Failed to fetch
+    at http://localhost:5555/:406:25
+[ 1085631ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:5555/api/players:0
+[ 1090631ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:5555/api/players:0
+[ 1095631ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:5555/api/players:0
+[ 1100631ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:5555/api/players:0
+[ 1105631ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:5555/api/players:0
+[ 1110631ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:5555/api/players:0
+[ 1110631ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:5555/api/chart/0xe863318ec289750B43AbF7fa77A4Ccd1514c17E2:0
+[ 1110631ms] TypeError: Failed to fetch
+    at http://localhost:5555/:406:25
+[ 1115631ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:5555/api/players:0
+[ 1120631ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:5555/api/players:0
+[ 1125631ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:5555/api/players:0
+[ 1130631ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:5555/api/players:0
+[ 1135631ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:5555/api/players:0
+[ 1140631ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:5555/api/players:0
+[ 1140631ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:5555/api/chart/0xe863318ec289750B43AbF7fa77A4Ccd1514c17E2:0
+[ 1140631ms] TypeError: Failed to fetch
+    at http://localhost:5555/:406:25
+[ 1145631ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:5555/api/players:0
+[ 1170638ms] TypeError: Cannot read properties of undefined (reading 'length')
+    at renderChart (http://localhost:5555/:264:14)
+    at http://localhost:5555/:409:7

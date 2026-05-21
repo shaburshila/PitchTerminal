@@ -1,0 +1,1651 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - heading "PITCH Markets" [level=1] [ref=e3]
+    - generic [ref=e4]: 144 players | 9:07:41 PM
+  - generic [ref=e6]:
+    - generic [ref=e7]:
+      - generic [ref=e8]: Player Markets
+      - textbox "Search player or country..." [ref=e10]
+      - generic [ref=e11]:
+        - button "All" [ref=e12] [cursor=pointer]
+        - button "Best" [ref=e13] [cursor=pointer]
+        - button "Captain" [ref=e14] [cursor=pointer]
+        - button "Rookie" [ref=e15] [cursor=pointer]
+        - button "All" [ref=e17] [cursor=pointer]
+        - button "1D" [ref=e18] [cursor=pointer]
+        - button "12H" [ref=e19] [cursor=pointer]
+        - button "6H" [ref=e20] [cursor=pointer]
+        - button "1H" [active] [ref=e21] [cursor=pointer]
+        - button "15M" [ref=e22] [cursor=pointer]
+      - generic [ref=e23]:
+        - generic [ref=e24]: Player
+        - generic [ref=e25]: Supply
+        - generic [ref=e26]: Price
+        - generic [ref=e27]: Chg%
+      - generic [ref=e28]:
+        - generic [ref=e5884] [cursor=pointer]:
+          - generic [ref=e5885]:
+            - generic [ref=e5886]:
+              - text: Lionel Messi
+              - generic [ref=e5887]: B
+            - generic [ref=e5888]: ARG — Argentina
+          - generic [ref=e5889]: "359.0"
+          - generic [ref=e5890]:
+            - generic [ref=e5891]: 12.3913 ARG
+            - generic [ref=e5892]: 18.8955 PITCH
+          - generic [ref=e5894]: +4.1%
+        - generic [ref=e5895] [cursor=pointer]:
+          - generic [ref=e5896]:
+            - generic [ref=e5897]:
+              - text: Kylian Mbapp\xe9
+              - generic [ref=e5898]: B
+            - generic [ref=e5899]: FRA — France
+          - generic [ref=e5900]: "342.0"
+          - generic [ref=e5901]:
+            - generic [ref=e5902]: 9.8651 FRA
+            - generic [ref=e5903]: 23.3763 PITCH
+          - generic [ref=e5905]: +4.8%
+        - generic [ref=e5906] [cursor=pointer]:
+          - generic [ref=e5907]:
+            - generic [ref=e5908]:
+              - text: Lamine Yamal
+              - generic [ref=e5909]: B
+            - generic [ref=e5910]: ESP — Spain
+          - generic [ref=e5911]: "319.1"
+          - generic [ref=e5912]:
+            - generic [ref=e5913]: 7.5270 ESP
+            - generic [ref=e5914]: 15.6593 PITCH
+          - generic [ref=e5916]: +4.4%
+        - generic [ref=e5917] [cursor=pointer]:
+          - generic [ref=e5918]:
+            - generic [ref=e5919]:
+              - text: Jude Bellingham
+              - generic [ref=e5920]: B
+            - generic [ref=e5921]: ENG — England
+          - generic [ref=e5922]: "304.8"
+          - generic [ref=e5923]:
+            - generic [ref=e5924]: 6.4675 ENG
+            - generic [ref=e5925]: 9.2065 PITCH
+          - generic [ref=e5927]: —
+        - generic [ref=e5928] [cursor=pointer]:
+          - generic [ref=e5929]:
+            - generic [ref=e5930]:
+              - text: Vin\xedcius J\xfanior
+              - generic [ref=e5931]: B
+            - generic [ref=e5932]: BRA — Brazil
+          - generic [ref=e5933]: "304.4"
+          - generic [ref=e5934]:
+            - generic [ref=e5935]: 6.4409 BRA
+            - generic [ref=e5936]: 8.7004 PITCH
+          - generic [ref=e5938]: "-4.6%"
+        - generic [ref=e5939] [cursor=pointer]:
+          - generic [ref=e5940]:
+            - generic [ref=e5941]:
+              - text: Harry Kane
+              - generic [ref=e5942]: C
+            - generic [ref=e5943]: ENG — England
+          - generic [ref=e5944]: "459.4"
+          - generic [ref=e5945]:
+            - generic [ref=e5946]: 2.0475 ENG
+            - generic [ref=e5947]: 2.9146 PITCH
+          - generic [ref=e5949]: +4.8%
+        - generic [ref=e5950] [cursor=pointer]:
+          - generic [ref=e5951]:
+            - generic [ref=e5952]:
+              - text: Bruno Fernandes
+              - generic [ref=e5953]: B
+            - generic [ref=e5954]: POR — Portugal
+          - generic [ref=e5955]: "257.7"
+          - generic [ref=e5956]:
+            - generic [ref=e5957]: 4.1957 POR
+            - generic [ref=e5958]: 5.3713 PITCH
+          - generic [ref=e5960]: "-4.7%"
+        - generic [ref=e5961] [cursor=pointer]:
+          - generic [ref=e5962]:
+            - generic [ref=e5963]:
+              - text: Florian Wirtz
+              - generic [ref=e5964]: B
+            - generic [ref=e5965]: GER — Germany
+          - generic [ref=e5966]: "195.2"
+          - generic [ref=e5967]:
+            - generic [ref=e5968]: 2.6512 GER
+            - generic [ref=e5969]: 3.1726 PITCH
+          - generic [ref=e5971]: "-4.5%"
+        - generic [ref=e5972] [cursor=pointer]:
+          - generic [ref=e5973]:
+            - generic [ref=e5974]:
+              - text: Warren Za\xefre-Emery
+              - generic [ref=e5975]: R
+            - generic [ref=e5976]: FRA — France
+          - generic [ref=e5977]: "95.5"
+          - generic [ref=e5978]:
+            - generic [ref=e5979]: 1.0653 FRA
+            - generic [ref=e5980]: 2.5243 PITCH
+          - generic [ref=e5982]: "-4.5%"
+        - generic [ref=e5983] [cursor=pointer]:
+          - generic [ref=e5984]:
+            - generic [ref=e5985]:
+              - text: Rodri
+              - generic [ref=e5986]: C
+            - generic [ref=e5987]: ESP — Spain
+          - generic [ref=e5988]: "164.0"
+          - generic [ref=e5989]:
+            - generic [ref=e5990]: 1.2423 ESP
+            - generic [ref=e5991]: 2.5845 PITCH
+          - generic [ref=e5993]: "-3.9%"
+        - generic [ref=e5994] [cursor=pointer]:
+          - generic [ref=e5995]:
+            - generic [ref=e5996]:
+              - text: Pau Cubars\xed
+              - generic [ref=e5997]: R
+            - generic [ref=e5998]: ESP — Spain
+          - generic [ref=e5999]: "89.8"
+          - generic [ref=e6000]:
+            - generic [ref=e6001]: 1.0603 ESP
+            - generic [ref=e6002]: 2.2059 PITCH
+          - generic [ref=e6004]: "-5.0%"
+        - generic [ref=e6005] [cursor=pointer]:
+          - generic [ref=e6006]:
+            - generic [ref=e6007]:
+              - text: Est\xeav\xe3o
+              - generic [ref=e6008]: R
+            - generic [ref=e6009]: BRA — Brazil
+          - generic [ref=e6010]: "107.1"
+          - generic [ref=e6011]:
+            - generic [ref=e6012]: 1.0757 BRA
+            - generic [ref=e6013]: 1.4531 PITCH
+          - generic [ref=e6015]: "-5.0%"
+        - generic [ref=e6016] [cursor=pointer]:
+          - generic [ref=e6017]:
+            - generic [ref=e6018]:
+              - text: Erling Haaland
+              - generic [ref=e6019]: B
+            - generic [ref=e6020]: NOR — Norway
+          - generic [ref=e6021]: "245.7"
+          - generic [ref=e6022]:
+            - generic [ref=e6023]: 3.8083 NOR
+            - generic [ref=e6024]: 4.4322 PITCH
+          - generic [ref=e6026]: "-1.7%"
+        - generic [ref=e6027] [cursor=pointer]:
+          - generic [ref=e6028]:
+            - generic [ref=e6029]:
+              - text: Ethan Nwaneri
+              - generic [ref=e6030]: R
+            - generic [ref=e6031]: ENG — England
+          - generic [ref=e6032]: "81.9"
+          - generic [ref=e6033]:
+            - generic [ref=e6034]: 1.0534 ENG
+            - generic [ref=e6035]: 1.4995 PITCH
+          - generic [ref=e6037]: "-4.8%"
+        - generic [ref=e6038] [cursor=pointer]:
+          - generic [ref=e6039]:
+            - generic [ref=e6040]:
+              - text: Aur\xe9lien Tchouam\xe9ni
+              - generic [ref=e6041]: C
+            - generic [ref=e6042]: FRA — France
+          - generic [ref=e6043]: "104.7"
+          - generic [ref=e6044]:
+            - generic [ref=e6045]: 1.1390 FRA
+            - generic [ref=e6046]: 2.6990 PITCH
+          - generic [ref=e6048]: "-3.9%"
+        - generic [ref=e6049] [cursor=pointer]:
+          - generic [ref=e6050]:
+            - generic [ref=e6051]:
+              - text: Nico Paz
+              - generic [ref=e6052]: R
+            - generic [ref=e6053]: ARG — Argentina
+          - generic [ref=e6054]: "101.9"
+          - generic [ref=e6055]:
+            - generic [ref=e6056]: 1.0710 ARG
+            - generic [ref=e6057]: 1.6332 PITCH
+          - generic [ref=e6059]: +5.2%
+        - generic [ref=e6060] [cursor=pointer]:
+          - generic [ref=e6061]:
+            - generic [ref=e6062]:
+              - text: Christian Pulisic
+              - generic [ref=e6063]: B
+            - generic [ref=e6064]: USA — USA
+          - generic [ref=e6065]: "93.5"
+          - generic [ref=e6066]:
+            - generic [ref=e6067]: 1.4912 USA
+            - generic [ref=e6068]: 1.5945 PITCH
+          - generic [ref=e6070]: +5.1%
+        - generic [ref=e6071] [cursor=pointer]:
+          - generic [ref=e6072]:
+            - generic [ref=e6073]:
+              - text: Cristian Romero
+              - generic [ref=e6074]: C
+            - generic [ref=e6075]: ARG — Argentina
+          - generic [ref=e6076]: "97.5"
+          - generic [ref=e6077]:
+            - generic [ref=e6078]: 1.1272 ARG
+            - generic [ref=e6079]: 1.7189 PITCH
+          - generic [ref=e6081]: "-5.0%"
+        - generic [ref=e6082] [cursor=pointer]:
+          - generic [ref=e6083]:
+            - generic [ref=e6084]:
+              - text: Marquinhos
+              - generic [ref=e6085]: C
+            - generic [ref=e6086]: BRA — Brazil
+          - generic [ref=e6087]: "69.1"
+          - generic [ref=e6088]:
+            - generic [ref=e6089]: 1.0830 BRA
+            - generic [ref=e6090]: 1.4629 PITCH
+          - generic [ref=e6092]: "-5.0%"
+        - generic [ref=e6093] [cursor=pointer]:
+          - generic [ref=e6094]:
+            - generic [ref=e6095]:
+              - text: Cavan Sullivan
+              - generic [ref=e6096]: R
+            - generic [ref=e6097]: USA — USA
+          - generic [ref=e6098]: "49.0"
+          - generic [ref=e6099]:
+            - generic [ref=e6100]: 1.0253 USA
+            - generic [ref=e6101]: 1.0964 PITCH
+          - generic [ref=e6103]: +5.1%
+        - generic [ref=e6104] [cursor=pointer]:
+          - generic [ref=e6105]:
+            - generic [ref=e6106]:
+              - text: Joshua Kimmich
+              - generic [ref=e6107]: C
+            - generic [ref=e6108]: GER — Germany
+          - generic [ref=e6109]: "61.3"
+          - generic [ref=e6110]:
+            - generic [ref=e6111]: 1.0713 GER
+            - generic [ref=e6112]: 1.2820 PITCH
+          - generic [ref=e6114]: "-4.4%"
+        - generic [ref=e6115] [cursor=pointer]:
+          - generic [ref=e6116]:
+            - generic [ref=e6117]:
+              - text: R\xfaben Dias
+              - generic [ref=e6118]: C
+            - generic [ref=e6119]: POR — Portugal
+          - generic [ref=e6120]: "82.3"
+          - generic [ref=e6121]:
+            - generic [ref=e6122]: 1.1032 POR
+            - generic [ref=e6123]: 1.4123 PITCH
+          - generic [ref=e6125]: "-4.4%"
+        - generic [ref=e6126] [cursor=pointer]:
+          - generic [ref=e6127]:
+            - generic [ref=e6128]:
+              - text: Rodrigo Mora
+              - generic [ref=e6129]: R
+            - generic [ref=e6130]: POR — Portugal
+          - generic [ref=e6131]: "57.3"
+          - generic [ref=e6132]:
+            - generic [ref=e6133]: 1.0322 POR
+            - generic [ref=e6134]: 1.3214 PITCH
+          - generic [ref=e6136]: +5.2%
+        - generic [ref=e6137] [cursor=pointer]:
+          - generic [ref=e6138]:
+            - generic [ref=e6139]:
+              - text: Brajan Gruda
+              - generic [ref=e6140]: R
+            - generic [ref=e6141]: GER — Germany
+          - generic [ref=e6142]: "63.0"
+          - generic [ref=e6143]:
+            - generic [ref=e6144]: 1.0371 GER
+            - generic [ref=e6145]: 1.2410 PITCH
+          - generic [ref=e6147]: +5.2%
+        - generic [ref=e6148] [cursor=pointer]:
+          - generic [ref=e6149]:
+            - generic [ref=e6150]:
+              - text: Tyler Adams
+              - generic [ref=e6151]: C
+            - generic [ref=e6152]: USA — USA
+          - generic [ref=e6153]: "70.6"
+          - generic [ref=e6154]:
+            - generic [ref=e6155]: 1.0853 USA
+            - generic [ref=e6156]: 1.1605 PITCH
+          - generic [ref=e6158]: +5.2%
+        - generic [ref=e6159] [cursor=pointer]:
+          - generic [ref=e6160]:
+            - generic [ref=e6161]:
+              - text: Sindre Walle Egeli
+              - generic [ref=e6162]: R
+            - generic [ref=e6163]: NOR — Norway
+          - generic [ref=e6164]: "202.8"
+          - generic [ref=e6165]:
+            - generic [ref=e6166]: 1.1672 NOR
+            - generic [ref=e6167]: 1.3584 PITCH
+          - generic [ref=e6169]: +5.2%
+        - generic [ref=e6170] [cursor=pointer]:
+          - generic [ref=e6171]:
+            - generic [ref=e6172]:
+              - text: Martin \xd8degaard
+              - generic [ref=e6173]: C
+            - generic [ref=e6174]: NOR — Norway
+          - generic [ref=e6175]: "116.9"
+          - generic [ref=e6176]:
+            - generic [ref=e6177]: 1.1591 NOR
+            - generic [ref=e6178]: 1.3490 PITCH
+          - generic [ref=e6180]: "-4.6%"
+        - generic [ref=e6181] [cursor=pointer]:
+          - generic [ref=e6182]:
+            - generic [ref=e6183]:
+              - text: Kevin De Bruyne
+              - generic [ref=e6184]: B
+            - generic [ref=e6185]: BEL — Belgium
+          - generic [ref=e6186]: "197.7"
+          - generic [ref=e6187]:
+            - generic [ref=e6188]: 2.6952 BEL
+            - generic [ref=e6189]: 3.0172 PITCH
+          - generic [ref=e6191]: "-5.0%"
+        - generic [ref=e6192] [cursor=pointer]:
+          - generic [ref=e6193]:
+            - generic [ref=e6194]:
+              - text: Virgil van Dijk
+              - generic [ref=e6195]: B
+            - generic [ref=e6196]: NED — Netherlands
+          - generic [ref=e6197]: "164.1"
+          - generic [ref=e6198]:
+            - generic [ref=e6199]: 2.1840 NED
+            - generic [ref=e6200]: 2.3895 PITCH
+          - generic [ref=e6202]: "-4.5%"
+        - generic [ref=e6203] [cursor=pointer]:
+          - generic [ref=e6204]:
+            - generic [ref=e6205]:
+              - text: Jorrel Hato
+              - generic [ref=e6206]: R
+            - generic [ref=e6207]: NED — Netherlands
+          - generic [ref=e6208]: "112.7"
+          - generic [ref=e6209]:
+            - generic [ref=e6210]: 1.0808 NED
+            - generic [ref=e6211]: 1.1825 PITCH
+          - generic [ref=e6213]: +5.2%
+        - generic [ref=e6214] [cursor=pointer]:
+          - generic [ref=e6215]:
+            - generic [ref=e6216]:
+              - text: Frenkie de Jong
+              - generic [ref=e6217]: C
+            - generic [ref=e6218]: NED — Netherlands
+          - generic [ref=e6219]: "122.5"
+          - generic [ref=e6220]:
+            - generic [ref=e6221]: 1.1686 NED
+            - generic [ref=e6222]: 1.2785 PITCH
+          - generic [ref=e6224]: "-4.6%"
+        - generic [ref=e6225] [cursor=pointer]:
+          - generic [ref=e6226]:
+            - generic [ref=e6227]:
+              - text: Luis D\xedaz
+              - generic [ref=e6228]: B
+            - generic [ref=e6229]: COL — Colombia
+          - generic [ref=e6230]: "58.2"
+          - generic [ref=e6231]:
+            - generic [ref=e6232]: 1.2625 COL
+            - generic [ref=e6233]: 1.3134 PITCH
+          - generic [ref=e6235]: +5.0%
+        - generic [ref=e6236] [cursor=pointer]:
+          - generic [ref=e6237]:
+            - generic [ref=e6238]:
+              - text: Granit Xhaka
+              - generic [ref=e6239]: B
+            - generic [ref=e6240]: SUI — Switzerland
+          - generic [ref=e6241]: "62.6"
+          - generic [ref=e6242]:
+            - generic [ref=e6243]: 1.2881 SUI
+            - generic [ref=e6244]: 1.3598 PITCH
+          - generic [ref=e6246]: +5.0%
+        - generic [ref=e6247] [cursor=pointer]:
+          - generic [ref=e6248]:
+            - generic [ref=e6249]:
+              - text: Manuel Akanji
+              - generic [ref=e6250]: C
+            - generic [ref=e6251]: SUI — Switzerland
+          - generic [ref=e6252]: "119.7"
+          - generic [ref=e6253]:
+            - generic [ref=e6254]: 1.1638 SUI
+            - generic [ref=e6255]: 1.2286 PITCH
+          - generic [ref=e6257]: +5.2%
+        - generic [ref=e6258] [cursor=pointer]:
+          - generic [ref=e6259]:
+            - generic [ref=e6260]:
+              - text: Ardon Jashari
+              - generic [ref=e6261]: R
+            - generic [ref=e6262]: SUI — Switzerland
+          - generic [ref=e6263]: "69.0"
+          - generic [ref=e6264]:
+            - generic [ref=e6265]: 1.0422 SUI
+            - generic [ref=e6266]: 1.1002 PITCH
+          - generic [ref=e6268]: +5.2%
+        - generic [ref=e6269] [cursor=pointer]:
+          - generic [ref=e6270]:
+            - generic [ref=e6271]:
+              - text: Romelu Lukaku
+              - generic [ref=e6272]: C
+            - generic [ref=e6273]: BEL — Belgium
+          - generic [ref=e6274]: "144.1"
+          - generic [ref=e6275]:
+            - generic [ref=e6276]: 1.2061 BEL
+            - generic [ref=e6277]: 1.3502 PITCH
+          - generic [ref=e6279]: +5.2%
+        - generic [ref=e6280] [cursor=pointer]:
+          - generic [ref=e6281]:
+            - generic [ref=e6282]:
+              - text: Mika Godts
+              - generic [ref=e6283]: R
+            - generic [ref=e6284]: BEL — Belgium
+          - generic [ref=e6285]: "161.0"
+          - generic [ref=e6286]:
+            - generic [ref=e6287]: 1.1258 BEL
+            - generic [ref=e6288]: 1.2603 PITCH
+          - generic [ref=e6290]: +3.6%
+        - generic [ref=e6291] [cursor=pointer]:
+          - generic [ref=e6292]:
+            - generic [ref=e6293]:
+              - text: James Rodr\xedguez
+              - generic [ref=e6294]: C
+            - generic [ref=e6295]: COL — Colombia
+          - generic [ref=e6296]: "42.0"
+          - generic [ref=e6297]:
+            - generic [ref=e6298]: 1.0431 COL
+            - generic [ref=e6299]: 1.0851 PITCH
+          - generic [ref=e6301]: +5.1%
+        - generic [ref=e6302] [cursor=pointer]:
+          - generic [ref=e6303]:
+            - generic [ref=e6304]:
+              - text: Y\xe1ser Asprilla
+              - generic [ref=e6305]: R
+            - generic [ref=e6306]: COL — Colombia
+          - generic [ref=e6307]: "55.0"
+          - generic [ref=e6308]:
+            - generic [ref=e6309]: 1.0303 COL
+            - generic [ref=e6310]: 1.0718 PITCH
+          - generic [ref=e6312]: +5.2%
+        - generic [ref=e6313] [cursor=pointer]:
+          - generic [ref=e6314]:
+            - generic [ref=e6315]:
+              - text: Santiago Gim\xe9nez
+              - generic [ref=e6316]: B
+            - generic [ref=e6317]: MEX — Mexico
+          - generic [ref=e6318]: "50.0"
+          - generic [ref=e6319]:
+            - generic [ref=e6320]: 1.2167 MEX
+            - generic [ref=e6321]: 1.3222 PITCH
+          - generic [ref=e6323]: —
+        - generic [ref=e6324] [cursor=pointer]:
+          - generic [ref=e6325]:
+            - generic [ref=e6326]:
+              - text: Edson \xc1lvarez
+              - generic [ref=e6327]: C
+            - generic [ref=e6328]: MEX — Mexico
+          - generic [ref=e6329]: "150.0"
+          - generic [ref=e6330]:
+            - generic [ref=e6331]: 1.2167 MEX
+            - generic [ref=e6332]: 1.3222 PITCH
+          - generic [ref=e6334]: —
+        - generic [ref=e6335] [cursor=pointer]:
+          - generic [ref=e6336]:
+            - generic [ref=e6337]:
+              - text: Gilberto Mora
+              - generic [ref=e6338]: R
+            - generic [ref=e6339]: MEX — Mexico
+          - generic [ref=e6340]: "249.0"
+          - generic [ref=e6341]:
+            - generic [ref=e6342]: 1.2157 MEX
+            - generic [ref=e6343]: 1.3212 PITCH
+          - generic [ref=e6345]: —
+        - generic [ref=e6346] [cursor=pointer]:
+          - generic [ref=e6347]:
+            - generic [ref=e6348]:
+              - text: Alphonso Davies
+              - generic [ref=e6349]: B
+            - generic [ref=e6350]: CAN — Canada
+          - generic [ref=e6351]: "50.0"
+          - generic [ref=e6352]:
+            - generic [ref=e6353]: 1.2167 CAN
+            - generic [ref=e6354]: 1.2666 PITCH
+          - generic [ref=e6356]: —
+        - generic [ref=e6357] [cursor=pointer]:
+          - generic [ref=e6358]:
+            - generic [ref=e6359]:
+              - text: Jonathan David
+              - generic [ref=e6360]: C
+            - generic [ref=e6361]: CAN — Canada
+          - generic [ref=e6362]: "58.0"
+          - generic [ref=e6363]:
+            - generic [ref=e6364]: 1.0784 CAN
+            - generic [ref=e6365]: 1.1226 PITCH
+          - generic [ref=e6367]: —
+        - generic [ref=e6368] [cursor=pointer]:
+          - generic [ref=e6369]:
+            - generic [ref=e6370]:
+              - text: Luc de Fougerolles
+              - generic [ref=e6371]: R
+            - generic [ref=e6372]: CAN — Canada
+          - generic [ref=e6373]: "60.0"
+          - generic [ref=e6374]:
+            - generic [ref=e6375]: 1.0480 CAN
+            - generic [ref=e6376]: 1.0910 PITCH
+          - generic [ref=e6378]: —
+        - generic [ref=e6379] [cursor=pointer]:
+          - generic [ref=e6380]:
+            - generic [ref=e6381]:
+              - text: Mois\xe9s Caicedo
+              - generic [ref=e6382]: B
+            - generic [ref=e6383]: ECU — Ecuador
+          - generic [ref=e6384]: "28.0"
+          - generic [ref=e6385]:
+            - generic [ref=e6386]: 1.1157 ECU
+            - generic [ref=e6387]: 1.1537 PITCH
+          - generic [ref=e6389]: —
+        - generic [ref=e6390] [cursor=pointer]:
+          - generic [ref=e6391]:
+            - generic [ref=e6392]:
+              - text: Enner Valencia
+              - generic [ref=e6393]: C
+            - generic [ref=e6394]: ECU — Ecuador
+          - generic [ref=e6395]: "18.0"
+          - generic [ref=e6396]:
+            - generic [ref=e6397]: 1.0237 ECU
+            - generic [ref=e6398]: 1.0585 PITCH
+          - generic [ref=e6400]: —
+        - generic [ref=e6401] [cursor=pointer]:
+          - generic [ref=e6402]:
+            - generic [ref=e6403]:
+              - text: Kendry P\xe1ez
+              - generic [ref=e6404]: R
+            - generic [ref=e6405]: ECU — Ecuador
+          - generic [ref=e6406]: "29.0"
+          - generic [ref=e6407]:
+            - generic [ref=e6408]: 1.0229 ECU
+            - generic [ref=e6409]: 1.0577 PITCH
+          - generic [ref=e6411]: —
+        - generic [ref=e6412] [cursor=pointer]:
+          - generic [ref=e6413]:
+            - generic [ref=e6414]:
+              - text: Federico Valverde
+              - generic [ref=e6415]: B
+            - generic [ref=e6416]: URU — Uruguay
+          - generic [ref=e6417]: "50.0"
+          - generic [ref=e6418]:
+            - generic [ref=e6419]: 1.2167 URU
+            - generic [ref=e6420]: 1.2760 PITCH
+          - generic [ref=e6422]: —
+        - generic [ref=e6423] [cursor=pointer]:
+          - generic [ref=e6424]:
+            - generic [ref=e6425]:
+              - text: Jos\xe9 Mar\xeda Gim\xe9nez
+              - generic [ref=e6426]: C
+            - generic [ref=e6427]: URU — Uruguay
+          - generic [ref=e6428]: "62.0"
+          - generic [ref=e6429]:
+            - generic [ref=e6430]: 1.0841 URU
+            - generic [ref=e6431]: 1.1370 PITCH
+          - generic [ref=e6433]: —
+        - generic [ref=e6434] [cursor=pointer]:
+          - generic [ref=e6435]:
+            - generic [ref=e6436]:
+              - text: Luciano Rodr\xedguez
+              - generic [ref=e6437]: R
+            - generic [ref=e6438]: URU — Uruguay
+          - generic [ref=e6439]: "78.0"
+          - generic [ref=e6440]:
+            - generic [ref=e6441]: 1.0628 URU
+            - generic [ref=e6442]: 1.1146 PITCH
+          - generic [ref=e6444]: —
+        - generic [ref=e6445] [cursor=pointer]:
+          - generic [ref=e6446]:
+            - generic [ref=e6447]:
+              - text: Miguel Almir\xf3n
+              - generic [ref=e6448]: B
+            - generic [ref=e6449]: PAR — Paraguay
+          - generic [ref=e6450]: "26.0"
+          - generic [ref=e6451]:
+            - generic [ref=e6452]: 1.1070 PAR
+            - generic [ref=e6453]: 1.1414 PITCH
+          - generic [ref=e6455]: —
+        - generic [ref=e6456] [cursor=pointer]:
+          - generic [ref=e6457]:
+            - generic [ref=e6458]:
+              - text: Gustavo G\xf3mez
+              - generic [ref=e6459]: C
+            - generic [ref=e6460]: PAR — Paraguay
+          - generic [ref=e6461]: "13.0"
+          - generic [ref=e6462]:
+            - generic [ref=e6463]: 1.0170 PAR
+            - generic [ref=e6464]: 1.0486 PITCH
+          - generic [ref=e6466]: —
+        - generic [ref=e6467] [cursor=pointer]:
+          - generic [ref=e6468]:
+            - generic [ref=e6469]:
+              - text: Julio Enciso
+              - generic [ref=e6470]: R
+            - generic [ref=e6471]: PAR — Paraguay
+          - generic [ref=e6472]: "21.0"
+          - generic [ref=e6473]:
+            - generic [ref=e6474]: 1.0165 PAR
+            - generic [ref=e6475]: 1.0481 PITCH
+          - generic [ref=e6477]: —
+        - generic [ref=e6478] [cursor=pointer]:
+          - generic [ref=e6479]:
+            - generic [ref=e6480]:
+              - text: Joško Gvardiol
+              - generic [ref=e6481]: B
+            - generic [ref=e6482]: CRO — Croatia
+          - generic [ref=e6483]: "50.0"
+          - generic [ref=e6484]:
+            - generic [ref=e6485]: 1.2167 CRO
+            - generic [ref=e6486]: 1.2821 PITCH
+          - generic [ref=e6488]: —
+        - generic [ref=e6489] [cursor=pointer]:
+          - generic [ref=e6490]:
+            - generic [ref=e6491]:
+              - text: Luka Modrić
+              - generic [ref=e6492]: C
+            - generic [ref=e6493]: CRO — Croatia
+          - generic [ref=e6494]: "103.0"
+          - generic [ref=e6495]:
+            - generic [ref=e6496]: 1.1438 CRO
+            - generic [ref=e6497]: 1.2053 PITCH
+          - generic [ref=e6499]: —
+        - generic [ref=e6500] [cursor=pointer]:
+          - generic [ref=e6501]:
+            - generic [ref=e6502]:
+              - text: Luka Vušković
+              - generic [ref=e6503]: R
+            - generic [ref=e6504]: CRO — Croatia
+          - generic [ref=e6505]: "98.0"
+          - generic [ref=e6506]:
+            - generic [ref=e6507]: 1.0796 CRO
+            - generic [ref=e6508]: 1.1376 PITCH
+          - generic [ref=e6510]: —
+        - generic [ref=e6511] [cursor=pointer]:
+          - generic [ref=e6512]:
+            - generic [ref=e6513]:
+              - text: Andrew Robertson
+              - generic [ref=e6514]: B
+            - generic [ref=e6515]: SCO — Scotland
+          - generic [ref=e6516]: "35.0"
+          - generic [ref=e6517]:
+            - generic [ref=e6518]: 1.1468 SCO
+            - generic [ref=e6519]: 1.1884 PITCH
+          - generic [ref=e6521]: —
+        - generic [ref=e6522] [cursor=pointer]:
+          - generic [ref=e6523]:
+            - generic [ref=e6524]:
+              - text: John McGinn
+              - generic [ref=e6525]: C
+            - generic [ref=e6526]: SCO — Scotland
+          - generic [ref=e6527]: "31.0"
+          - generic [ref=e6528]:
+            - generic [ref=e6529]: 1.0412 SCO
+            - generic [ref=e6530]: 1.0789 PITCH
+          - generic [ref=e6532]: —
+        - generic [ref=e6533] [cursor=pointer]:
+          - generic [ref=e6534]:
+            - generic [ref=e6535]:
+              - text: Ben Doak
+              - generic [ref=e6536]: R
+            - generic [ref=e6537]: SCO — Scotland
+          - generic [ref=e6538]: "34.0"
+          - generic [ref=e6539]:
+            - generic [ref=e6540]: 1.0269 SCO
+            - generic [ref=e6541]: 1.0641 PITCH
+          - generic [ref=e6543]: —
+        - generic [ref=e6544] [cursor=pointer]:
+          - generic [ref=e6545]:
+            - generic [ref=e6546]:
+              - text: David Alaba
+              - generic [ref=e6547]: B
+            - generic [ref=e6548]: AUT — Austria
+          - generic [ref=e6549]: "50.0"
+          - generic [ref=e6550]:
+            - generic [ref=e6551]: 1.2167 AUT
+            - generic [ref=e6552]: 1.2707 PITCH
+          - generic [ref=e6554]: —
+        - generic [ref=e6555] [cursor=pointer]:
+          - generic [ref=e6556]:
+            - generic [ref=e6557]:
+              - text: Marcel Sabitzer
+              - generic [ref=e6558]: C
+            - generic [ref=e6559]: AUT — Austria
+          - generic [ref=e6560]: "64.0"
+          - generic [ref=e6561]:
+            - generic [ref=e6562]: 1.0869 AUT
+            - generic [ref=e6563]: 1.1351 PITCH
+          - generic [ref=e6565]: —
+        - generic [ref=e6566] [cursor=pointer]:
+          - generic [ref=e6567]:
+            - generic [ref=e6568]:
+              - text: Oghenetejiri Adejenughure
+              - generic [ref=e6569]: R
+            - generic [ref=e6570]: AUT — Austria
+          - generic [ref=e6571]: "48.0"
+          - generic [ref=e6572]:
+            - generic [ref=e6573]: 1.0382 AUT
+            - generic [ref=e6574]: 1.0843 PITCH
+          - generic [ref=e6576]: —
+        - generic [ref=e6577] [cursor=pointer]:
+          - generic [ref=e6578]:
+            - generic [ref=e6579]:
+              - text: Edin Džeko
+              - generic [ref=e6580]: B
+            - generic [ref=e6581]: BIH — Bosnia and Herzegovina
+          - generic [ref=e6582]: "40.0"
+          - generic [ref=e6583]:
+            - generic [ref=e6584]: 1.1696 BIH
+            - generic [ref=e6585]: 1.2165 PITCH
+          - generic [ref=e6587]: —
+        - generic [ref=e6588] [cursor=pointer]:
+          - generic [ref=e6589]:
+            - generic [ref=e6590]:
+              - text: Sead Kolašinac
+              - generic [ref=e6591]: C
+            - generic [ref=e6592]: BIH — Bosnia and Herzegovina
+          - generic [ref=e6593]: "37.0"
+          - generic [ref=e6594]:
+            - generic [ref=e6595]: 1.0493 BIH
+            - generic [ref=e6596]: 1.0914 PITCH
+          - generic [ref=e6598]: —
+        - generic [ref=e6599] [cursor=pointer]:
+          - generic [ref=e6600]:
+            - generic [ref=e6601]:
+              - text: Kerim Alajbegović
+              - generic [ref=e6602]: R
+            - generic [ref=e6603]: BIH — Bosnia and Herzegovina
+          - generic [ref=e6604]: "50.0"
+          - generic [ref=e6605]:
+            - generic [ref=e6606]: 1.0398 BIH
+            - generic [ref=e6607]: 1.0815 PITCH
+          - generic [ref=e6609]: —
+        - generic [ref=e6610] [cursor=pointer]:
+          - generic [ref=e6611]:
+            - generic [ref=e6612]:
+              - text: Alexander Isak
+              - generic [ref=e6613]: B
+            - generic [ref=e6614]: SWE — Sweden
+          - generic [ref=e6615]: "30.0"
+          - generic [ref=e6616]:
+            - generic [ref=e6617]: 1.1245 SWE
+            - generic [ref=e6618]: 1.1687 PITCH
+          - generic [ref=e6620]: —
+        - generic [ref=e6621] [cursor=pointer]:
+          - generic [ref=e6622]:
+            - generic [ref=e6623]:
+              - text: Victor Lindel\xf6f
+              - generic [ref=e6624]: C
+            - generic [ref=e6625]: SWE — Sweden
+          - generic [ref=e6626]: "39.0"
+          - generic [ref=e6627]:
+            - generic [ref=e6628]: 1.0521 SWE
+            - generic [ref=e6629]: 1.0934 PITCH
+          - generic [ref=e6631]: —
+        - generic [ref=e6632] [cursor=pointer]:
+          - generic [ref=e6633]:
+            - generic [ref=e6634]:
+              - text: Roony Bardghji
+              - generic [ref=e6635]: R
+            - generic [ref=e6636]: SWE — Sweden
+          - generic [ref=e6637]: "29.0"
+          - generic [ref=e6638]:
+            - generic [ref=e6639]: 1.0229 SWE
+            - generic [ref=e6640]: 1.0631 PITCH
+          - generic [ref=e6642]: —
+        - generic [ref=e6643] [cursor=pointer]:
+          - generic [ref=e6644]:
+            - generic [ref=e6645]:
+              - text: Hakan \xc7alhanoğlu
+              - generic [ref=e6646]: B
+            - generic [ref=e6647]: TUR — Turkey
+          - generic [ref=e6648]: "50.0"
+          - generic [ref=e6649]:
+            - generic [ref=e6650]: 1.2167 TUR
+            - generic [ref=e6651]: 1.2729 PITCH
+          - generic [ref=e6653]: —
+        - generic [ref=e6654] [cursor=pointer]:
+          - generic [ref=e6655]:
+            - generic [ref=e6656]:
+              - text: \xc7ağlar S\xf6y\xfcnc\xfc
+              - generic [ref=e6657]: C
+            - generic [ref=e6658]: TUR — Turkey
+          - generic [ref=e6659]: "41.0"
+          - generic [ref=e6660]:
+            - generic [ref=e6661]: 1.0548 TUR
+            - generic [ref=e6662]: 1.1035 PITCH
+          - generic [ref=e6664]: —
+        - generic [ref=e6665] [cursor=pointer]:
+          - generic [ref=e6666]:
+            - generic [ref=e6667]:
+              - text: Arda G\xfcler
+              - generic [ref=e6668]: R
+            - generic [ref=e6669]: TUR — Turkey
+          - generic [ref=e6670]: "62.0"
+          - generic [ref=e6671]:
+            - generic [ref=e6672]: 1.0496 TUR
+            - generic [ref=e6673]: 1.0981 PITCH
+          - generic [ref=e6675]: —
+        - generic [ref=e6676] [cursor=pointer]:
+          - generic [ref=e6677]:
+            - generic [ref=e6678]:
+              - text: Tom\xe1š Souček
+              - generic [ref=e6679]: B
+            - generic [ref=e6680]: CZE — Czechia
+          - generic [ref=e6681]: "27.0"
+          - generic [ref=e6682]:
+            - generic [ref=e6683]: 1.1113 CZE
+            - generic [ref=e6684]: 1.1547 PITCH
+          - generic [ref=e6686]: —
+        - generic [ref=e6687] [cursor=pointer]:
+          - generic [ref=e6688]:
+            - generic [ref=e6689]:
+              - text: Vladim\xedr Coufal
+              - generic [ref=e6690]: C
+            - generic [ref=e6691]: CZE — Czechia
+          - generic [ref=e6692]: "36.0"
+          - generic [ref=e6693]:
+            - generic [ref=e6694]: 1.0480 CZE
+            - generic [ref=e6695]: 1.0890 PITCH
+          - generic [ref=e6697]: —
+        - generic [ref=e6698] [cursor=pointer]:
+          - generic [ref=e6699]:
+            - generic [ref=e6700]:
+              - text: Adam Karabec
+              - generic [ref=e6701]: R
+            - generic [ref=e6702]: CZE — Czechia
+          - generic [ref=e6703]: "29.0"
+          - generic [ref=e6704]:
+            - generic [ref=e6705]: 1.0229 CZE
+            - generic [ref=e6706]: 1.0629 PITCH
+          - generic [ref=e6708]: —
+        - generic [ref=e6709] [cursor=pointer]:
+          - generic [ref=e6710]:
+            - generic [ref=e6711]:
+              - text: Achraf Hakimi
+              - generic [ref=e6712]: B
+            - generic [ref=e6713]: MAR — Morocco
+          - generic [ref=e6714]: "50.0"
+          - generic [ref=e6715]:
+            - generic [ref=e6716]: 1.2167 MAR
+            - generic [ref=e6717]: 1.3225 PITCH
+          - generic [ref=e6719]: —
+        - generic [ref=e6720] [cursor=pointer]:
+          - generic [ref=e6721]:
+            - generic [ref=e6722]:
+              - text: Hakim Ziyech
+              - generic [ref=e6723]: C
+            - generic [ref=e6724]: MAR — Morocco
+          - generic [ref=e6725]: "150.0"
+          - generic [ref=e6726]:
+            - generic [ref=e6727]: 1.2167 MAR
+            - generic [ref=e6728]: 1.3225 PITCH
+          - generic [ref=e6730]: —
+        - generic [ref=e6731] [cursor=pointer]:
+          - generic [ref=e6732]:
+            - generic [ref=e6733]:
+              - text: Eliesse Ben Seghir
+              - generic [ref=e6734]: R
+            - generic [ref=e6735]: MAR — Morocco
+          - generic [ref=e6736]: "248.0"
+          - generic [ref=e6737]:
+            - generic [ref=e6738]: 1.2147 MAR
+            - generic [ref=e6739]: 1.3204 PITCH
+          - generic [ref=e6741]: —
+        - generic [ref=e6742] [cursor=pointer]:
+          - generic [ref=e6743]:
+            - generic [ref=e6744]:
+              - text: Youssef Msakni
+              - generic [ref=e6745]: B
+            - generic [ref=e6746]: TUN — Tunisia
+          - generic [ref=e6747]: "19.0"
+          - generic [ref=e6748]:
+            - generic [ref=e6749]: 1.0770 TUN
+            - generic [ref=e6750]: 1.1098 PITCH
+          - generic [ref=e6752]: —
+        - generic [ref=e6753] [cursor=pointer]:
+          - generic [ref=e6754]:
+            - generic [ref=e6755]:
+              - text: Montassar Talbi
+              - generic [ref=e6756]: C
+            - generic [ref=e6757]: TUN — Tunisia
+          - generic [ref=e6758]: "33.0"
+          - generic [ref=e6759]:
+            - generic [ref=e6760]: 1.0439 TUN
+            - generic [ref=e6761]: 1.0757 PITCH
+          - generic [ref=e6763]: —
+        - generic [ref=e6764] [cursor=pointer]:
+          - generic [ref=e6765]:
+            - generic [ref=e6766]:
+              - text: Mohamed Ali Ben Romdhane
+              - generic [ref=e6767]: R
+            - generic [ref=e6768]: TUN — Tunisia
+          - generic [ref=e6769]: "34.0"
+          - generic [ref=e6770]:
+            - generic [ref=e6771]: 1.0269 TUN
+            - generic [ref=e6772]: 1.0581 PITCH
+          - generic [ref=e6774]: —
+        - generic [ref=e6775] [cursor=pointer]:
+          - generic [ref=e6776]:
+            - generic [ref=e6777]:
+              - text: Mohamed Salah
+              - generic [ref=e6778]: B
+            - generic [ref=e6779]: EGY — Egypt
+          - generic [ref=e6780]: "50.0"
+          - generic [ref=e6781]:
+            - generic [ref=e6782]: 1.2167 EGY
+            - generic [ref=e6783]: 1.2734 PITCH
+          - generic [ref=e6785]: —
+        - generic [ref=e6786] [cursor=pointer]:
+          - generic [ref=e6787]:
+            - generic [ref=e6788]:
+              - text: Ahmed Hegazi
+              - generic [ref=e6789]: C
+            - generic [ref=e6790]: EGY — Egypt
+          - generic [ref=e6791]: "73.0"
+          - generic [ref=e6792]:
+            - generic [ref=e6793]: 1.0998 EGY
+            - generic [ref=e6794]: 1.1510 PITCH
+          - generic [ref=e6796]: —
+        - generic [ref=e6797] [cursor=pointer]:
+          - generic [ref=e6798]:
+            - generic [ref=e6799]:
+              - text: Omar Faied
+              - generic [ref=e6800]: R
+            - generic [ref=e6801]: EGY — Egypt
+          - generic [ref=e6802]: "70.0"
+          - generic [ref=e6803]:
+            - generic [ref=e6804]: 1.0562 EGY
+            - generic [ref=e6805]: 1.1054 PITCH
+          - generic [ref=e6807]: —
+        - generic [ref=e6808] [cursor=pointer]:
+          - generic [ref=e6809]:
+            - generic [ref=e6810]:
+              - text: Riyad Mahrez
+              - generic [ref=e6811]: B
+            - generic [ref=e6812]: ALG — Algeria
+          - generic [ref=e6813]: "38.0"
+          - generic [ref=e6814]:
+            - generic [ref=e6815]: 1.1604 ALG
+            - generic [ref=e6816]: 1.2020 PITCH
+          - generic [ref=e6818]: —
+        - generic [ref=e6819] [cursor=pointer]:
+          - generic [ref=e6820]:
+            - generic [ref=e6821]:
+              - text: Isma\xebl Bennacer
+              - generic [ref=e6822]: C
+            - generic [ref=e6823]: ALG — Algeria
+          - generic [ref=e6824]: "28.0"
+          - generic [ref=e6825]:
+            - generic [ref=e6826]: 1.0371 ALG
+            - generic [ref=e6827]: 1.0743 PITCH
+          - generic [ref=e6829]: —
+        - generic [ref=e6830] [cursor=pointer]:
+          - generic [ref=e6831]:
+            - generic [ref=e6832]:
+              - text: Ibrahim Maza
+              - generic [ref=e6833]: R
+            - generic [ref=e6834]: ALG — Algeria
+          - generic [ref=e6835]: "37.0"
+          - generic [ref=e6836]:
+            - generic [ref=e6837]: 1.0293 ALG
+            - generic [ref=e6838]: 1.0662 PITCH
+          - generic [ref=e6840]: —
+        - generic [ref=e6841] [cursor=pointer]:
+          - generic [ref=e6842]:
+            - generic [ref=e6843]:
+              - text: Mohammed Kudus
+              - generic [ref=e6844]: B
+            - generic [ref=e6845]: GHA — Ghana
+          - generic [ref=e6846]: "15.0"
+          - generic [ref=e6847]:
+            - generic [ref=e6848]: 1.0603 GHA
+            - generic [ref=e6849]: 1.0987 PITCH
+          - generic [ref=e6851]: —
+        - generic [ref=e6852] [cursor=pointer]:
+          - generic [ref=e6853]:
+            - generic [ref=e6854]:
+              - text: Thomas Partey
+              - generic [ref=e6855]: C
+            - generic [ref=e6856]: GHA — Ghana
+          - generic [ref=e6857]: "26.0"
+          - generic [ref=e6858]:
+            - generic [ref=e6859]: 1.0344 GHA
+            - generic [ref=e6860]: 1.0719 PITCH
+          - generic [ref=e6862]: —
+        - generic [ref=e6863] [cursor=pointer]:
+          - generic [ref=e6864]:
+            - generic [ref=e6865]:
+              - text: Ernest Nuamah
+              - generic [ref=e6866]: R
+            - generic [ref=e6867]: GHA — Ghana
+          - generic [ref=e6868]: "36.0"
+          - generic [ref=e6869]:
+            - generic [ref=e6870]: 1.0285 GHA
+            - generic [ref=e6871]: 1.0658 PITCH
+          - generic [ref=e6873]: —
+        - generic [ref=e6874] [cursor=pointer]:
+          - generic [ref=e6875]:
+            - generic [ref=e6876]:
+              - text: Ryan Mendes
+              - generic [ref=e6877]: B
+            - generic [ref=e6878]: CPV — Cape Verde
+          - generic [ref=e6879]: "50.0"
+          - generic [ref=e6880]:
+            - generic [ref=e6881]: 1.2167 CPV
+            - generic [ref=e6882]: 1.2704 PITCH
+          - generic [ref=e6884]: —
+        - generic [ref=e6885] [cursor=pointer]:
+          - generic [ref=e6886]:
+            - generic [ref=e6887]:
+              - text: Vozinha
+              - generic [ref=e6888]: C
+            - generic [ref=e6889]: CPV — Cape Verde
+          - generic [ref=e6890]: "54.0"
+          - generic [ref=e6891]:
+            - generic [ref=e6892]: 1.0728 CPV
+            - generic [ref=e6893]: 1.1201 PITCH
+          - generic [ref=e6895]: —
+        - generic [ref=e6896] [cursor=pointer]:
+          - generic [ref=e6897]:
+            - generic [ref=e6898]:
+              - text: Deroy Duarte
+              - generic [ref=e6899]: R
+            - generic [ref=e6900]: CPV — Cape Verde
+          - generic [ref=e6901]: "46.0"
+          - generic [ref=e6902]:
+            - generic [ref=e6903]: 1.0366 CPV
+            - generic [ref=e6904]: 1.0823 PITCH
+          - generic [ref=e6906]: —
+        - generic [ref=e6907] [cursor=pointer]:
+          - generic [ref=e6908]:
+            - generic [ref=e6909]:
+              - text: Percy Tau
+              - generic [ref=e6910]: B
+            - generic [ref=e6911]: RSA — South Africa
+          - generic [ref=e6912]: "21.0"
+          - generic [ref=e6913]:
+            - generic [ref=e6914]: 1.0855 RSA
+            - generic [ref=e6915]: 1.1182 PITCH
+          - generic [ref=e6917]: —
+        - generic [ref=e6918] [cursor=pointer]:
+          - generic [ref=e6919]:
+            - generic [ref=e6920]:
+              - text: Ronwen Williams
+              - generic [ref=e6921]: C
+            - generic [ref=e6922]: RSA — South Africa
+          - generic [ref=e6923]: "24.0"
+          - generic [ref=e6924]:
+            - generic [ref=e6925]: 1.0317 RSA
+            - generic [ref=e6926]: 1.0628 PITCH
+          - generic [ref=e6928]: —
+        - generic [ref=e6929] [cursor=pointer]:
+          - generic [ref=e6930]:
+            - generic [ref=e6931]:
+              - text: Shandre Campbell
+              - generic [ref=e6932]: R
+            - generic [ref=e6933]: RSA — South Africa
+          - generic [ref=e6934]: "12.0"
+          - generic [ref=e6935]:
+            - generic [ref=e6936]: 1.0094 RSA
+            - generic [ref=e6937]: 1.0398 PITCH
+          - generic [ref=e6939]: —
+        - generic [ref=e6940] [cursor=pointer]:
+          - generic [ref=e6941]:
+            - generic [ref=e6942]:
+              - text: Franck Kessi\xe9
+              - generic [ref=e6943]: B
+            - generic [ref=e6944]: CIV — Ivory Coast
+          - generic [ref=e6945]: "16.0"
+          - generic [ref=e6946]:
+            - generic [ref=e6947]: 1.0645 CIV
+            - generic [ref=e6948]: 1.0981 PITCH
+          - generic [ref=e6950]: —
+        - generic [ref=e6951] [cursor=pointer]:
+          - generic [ref=e6952]:
+            - generic [ref=e6953]:
+              - text: S\xe9bastien Haller
+              - generic [ref=e6954]: C
+            - generic [ref=e6955]: CIV — Ivory Coast
+          - generic [ref=e6956]: "13.0"
+          - generic [ref=e6957]:
+            - generic [ref=e6958]: 1.0170 CIV
+            - generic [ref=e6959]: 1.0491 PITCH
+          - generic [ref=e6961]: —
+        - generic [ref=e6962] [cursor=pointer]:
+          - generic [ref=e6963]:
+            - generic [ref=e6964]:
+              - text: Yan Diomande
+              - generic [ref=e6965]: R
+            - generic [ref=e6966]: CIV — Ivory Coast
+          - generic [ref=e6967]: "15.0"
+          - generic [ref=e6968]:
+            - generic [ref=e6969]: 1.0118 CIV
+            - generic [ref=e6970]: 1.0438 PITCH
+          - generic [ref=e6972]: —
+        - generic [ref=e6973] [cursor=pointer]:
+          - generic [ref=e6974]:
+            - generic [ref=e6975]:
+              - text: Sadio Man\xe9
+              - generic [ref=e6976]: B
+            - generic [ref=e6977]: SEN — Senegal
+          - generic [ref=e6978]: "50.0"
+          - generic [ref=e6979]:
+            - generic [ref=e6980]: 1.2167 SEN
+            - generic [ref=e6981]: 1.2713 PITCH
+          - generic [ref=e6983]: —
+        - generic [ref=e6984] [cursor=pointer]:
+          - generic [ref=e6985]:
+            - generic [ref=e6986]:
+              - text: Kalidou Koulibaly
+              - generic [ref=e6987]: C
+            - generic [ref=e6988]: SEN — Senegal
+          - generic [ref=e6989]: "59.0"
+          - generic [ref=e6990]:
+            - generic [ref=e6991]: 1.0798 SEN
+            - generic [ref=e6992]: 1.1282 PITCH
+          - generic [ref=e6994]: —
+        - generic [ref=e6995] [cursor=pointer]:
+          - generic [ref=e6996]:
+            - generic [ref=e6997]:
+              - text: Amara Diouf
+              - generic [ref=e6998]: R
+            - generic [ref=e6999]: SEN — Senegal
+          - generic [ref=e7000]: "70.0"
+          - generic [ref=e7001]:
+            - generic [ref=e7002]: 1.0562 SEN
+            - generic [ref=e7003]: 1.1036 PITCH
+          - generic [ref=e7005]: —
+        - generic [ref=e7006] [cursor=pointer]:
+          - generic [ref=e7007]:
+            - generic [ref=e7008]:
+              - text: Takefusa Kubo
+              - generic [ref=e7009]: B
+            - generic [ref=e7010]: JPN — Japan
+          - generic [ref=e7011]: "35.0"
+          - generic [ref=e7012]:
+            - generic [ref=e7013]: 1.1468 JPN
+            - generic [ref=e7014]: 1.1951 PITCH
+          - generic [ref=e7016]: —
+        - generic [ref=e7017] [cursor=pointer]:
+          - generic [ref=e7018]:
+            - generic [ref=e7019]:
+              - text: Wataru Endō
+              - generic [ref=e7020]: C
+            - generic [ref=e7021]: JPN — Japan
+          - generic [ref=e7022]: "35.0"
+          - generic [ref=e7023]:
+            - generic [ref=e7024]: 1.0466 JPN
+            - generic [ref=e7025]: 1.0907 PITCH
+          - generic [ref=e7027]: —
+        - generic [ref=e7028] [cursor=pointer]:
+          - generic [ref=e7029]:
+            - generic [ref=e7030]:
+              - text: Kota Takai
+              - generic [ref=e7031]: R
+            - generic [ref=e7032]: JPN — Japan
+          - generic [ref=e7033]: "43.0"
+          - generic [ref=e7034]:
+            - generic [ref=e7035]: 1.0341 JPN
+            - generic [ref=e7036]: 1.0777 PITCH
+          - generic [ref=e7038]: —
+        - generic [ref=e7039] [cursor=pointer]:
+          - generic [ref=e7040]:
+            - generic [ref=e7041]:
+              - text: Mehdi Taremi
+              - generic [ref=e7042]: B
+            - generic [ref=e7043]: IRN — Iran
+          - generic [ref=e7044]: "39.0"
+          - generic [ref=e7045]:
+            - generic [ref=e7046]: 1.1650 IRN
+            - generic [ref=e7047]: 1.2023 PITCH
+          - generic [ref=e7049]: —
+        - generic [ref=e7050] [cursor=pointer]:
+          - generic [ref=e7051]:
+            - generic [ref=e7052]:
+              - text: Alireza Jahanbakhsh
+              - generic [ref=e7053]: C
+            - generic [ref=e7054]: IRN — Iran
+          - generic [ref=e7055]: "32.0"
+          - generic [ref=e7056]:
+            - generic [ref=e7057]: 1.0425 IRN
+            - generic [ref=e7058]: 1.0759 PITCH
+          - generic [ref=e7060]: —
+        - generic [ref=e7061] [cursor=pointer]:
+          - generic [ref=e7062]:
+            - generic [ref=e7063]:
+              - text: Mohammad Ghorbani
+              - generic [ref=e7064]: R
+            - generic [ref=e7065]: IRN — Iran
+          - generic [ref=e7066]: "29.0"
+          - generic [ref=e7067]:
+            - generic [ref=e7068]: 1.0229 IRN
+            - generic [ref=e7069]: 1.0557 PITCH
+          - generic [ref=e7071]: —
+        - generic [ref=e7072] [cursor=pointer]:
+          - generic [ref=e7073]:
+            - generic [ref=e7074]:
+              - text: Abbosbek Fayzullaev
+              - generic [ref=e7075]: B
+            - generic [ref=e7076]: UZB — Uzbekistan
+          - generic [ref=e7077]: "16.0"
+          - generic [ref=e7078]:
+            - generic [ref=e7079]: 1.0645 UZB
+            - generic [ref=e7080]: 1.0989 PITCH
+          - generic [ref=e7082]: —
+        - generic [ref=e7083] [cursor=pointer]:
+          - generic [ref=e7084]:
+            - generic [ref=e7085]:
+              - text: Eldor Shomurodov
+              - generic [ref=e7086]: C
+            - generic [ref=e7087]: UZB — Uzbekistan
+          - generic [ref=e7088]: "24.0"
+          - generic [ref=e7089]:
+            - generic [ref=e7090]: 1.0317 UZB
+            - generic [ref=e7091]: 1.0650 PITCH
+          - generic [ref=e7093]: —
+        - generic [ref=e7094] [cursor=pointer]:
+          - generic [ref=e7095]:
+            - generic [ref=e7096]:
+              - text: Abdukodir Khusanov
+              - generic [ref=e7097]: R
+            - generic [ref=e7098]: UZB — Uzbekistan
+          - generic [ref=e7099]: "27.0"
+          - generic [ref=e7100]:
+            - generic [ref=e7101]: 1.0213 UZB
+            - generic [ref=e7102]: 1.0543 PITCH
+          - generic [ref=e7104]: —
+        - generic [ref=e7105] [cursor=pointer]:
+          - generic [ref=e7106]:
+            - generic [ref=e7107]:
+              - text: Son Heung-min
+              - generic [ref=e7108]: B
+            - generic [ref=e7109]: KOR — South Korea
+          - generic [ref=e7110]: "22.0"
+          - generic [ref=e7111]:
+            - generic [ref=e7112]: 1.0897 KOR
+            - generic [ref=e7113]: 1.1314 PITCH
+          - generic [ref=e7115]: —
+        - generic [ref=e7116] [cursor=pointer]:
+          - generic [ref=e7117]:
+            - generic [ref=e7118]:
+              - text: Kim Min-jae
+              - generic [ref=e7119]: C
+            - generic [ref=e7120]: KOR — South Korea
+          - generic [ref=e7121]: "25.0"
+          - generic [ref=e7122]:
+            - generic [ref=e7123]: 1.0331 KOR
+            - generic [ref=e7124]: 1.0727 PITCH
+          - generic [ref=e7126]: —
+        - generic [ref=e7127] [cursor=pointer]:
+          - generic [ref=e7128]:
+            - generic [ref=e7129]:
+              - text: Yang Min-hyeok
+              - generic [ref=e7130]: R
+            - generic [ref=e7131]: KOR — South Korea
+          - generic [ref=e7132]: "21.0"
+          - generic [ref=e7133]:
+            - generic [ref=e7134]: 1.0165 KOR
+            - generic [ref=e7135]: 1.0554 PITCH
+          - generic [ref=e7137]: —
+        - generic [ref=e7138] [cursor=pointer]:
+          - generic [ref=e7139]:
+            - generic [ref=e7140]:
+              - text: Mousa Al-Tamari
+              - generic [ref=e7141]: B
+            - generic [ref=e7142]: JOR — Jordan
+          - generic [ref=e7143]: "11.0"
+          - generic [ref=e7144]:
+            - generic [ref=e7145]: 1.0439 JOR
+            - generic [ref=e7146]: 1.0727 PITCH
+          - generic [ref=e7148]: —
+        - generic [ref=e7149] [cursor=pointer]:
+          - generic [ref=e7150]:
+            - generic [ref=e7151]:
+              - text: Ehsan Haddad
+              - generic [ref=e7152]: C
+            - generic [ref=e7153]: JOR — Jordan
+          - generic [ref=e7154]: "14.0"
+          - generic [ref=e7155]:
+            - generic [ref=e7156]: 1.0184 JOR
+            - generic [ref=e7157]: 1.0465 PITCH
+          - generic [ref=e7159]: —
+        - generic [ref=e7160] [cursor=pointer]:
+          - generic [ref=e7161]:
+            - generic [ref=e7162]:
+              - text: Mahmoud Al-Mardi
+              - generic [ref=e7163]: R
+            - generic [ref=e7164]: JOR — Jordan
+          - generic [ref=e7165]: "7.0"
+          - generic [ref=e7166]:
+            - generic [ref=e7167]: 1.0055 JOR
+            - generic [ref=e7168]: 1.0333 PITCH
+          - generic [ref=e7170]: —
+        - generic [ref=e7171] [cursor=pointer]:
+          - generic [ref=e7172]:
+            - generic [ref=e7173]:
+              - text: Harry Souttar
+              - generic [ref=e7174]: B
+            - generic [ref=e7175]: AUS — Australia
+          - generic [ref=e7176]: "24.0"
+          - generic [ref=e7177]:
+            - generic [ref=e7178]: 1.0983 AUS
+            - generic [ref=e7179]: 1.1334 PITCH
+          - generic [ref=e7181]: —
+        - generic [ref=e7182] [cursor=pointer]:
+          - generic [ref=e7183]:
+            - generic [ref=e7184]:
+              - text: Mat Ryan
+              - generic [ref=e7185]: C
+            - generic [ref=e7186]: AUS — Australia
+          - generic [ref=e7187]: "20.0"
+          - generic [ref=e7188]:
+            - generic [ref=e7189]: 1.0264 AUS
+            - generic [ref=e7190]: 1.0592 PITCH
+          - generic [ref=e7192]: —
+        - generic [ref=e7193] [cursor=pointer]:
+          - generic [ref=e7194]:
+            - generic [ref=e7195]:
+              - text: Nestory Irankunda
+              - generic [ref=e7196]: R
+            - generic [ref=e7197]: AUS — Australia
+          - generic [ref=e7198]: "20.0"
+          - generic [ref=e7199]:
+            - generic [ref=e7200]: 1.0157 AUS
+            - generic [ref=e7201]: 1.0481 PITCH
+          - generic [ref=e7203]: —
+        - generic [ref=e7204] [cursor=pointer]:
+          - generic [ref=e7205]:
+            - generic [ref=e7206]:
+              - text: Akram Afif
+              - generic [ref=e7207]: B
+            - generic [ref=e7208]: QAT — Qatar
+          - generic [ref=e7209]: "13.0"
+          - generic [ref=e7210]:
+            - generic [ref=e7211]: 1.0521 QAT
+            - generic [ref=e7212]: 1.0816 PITCH
+          - generic [ref=e7214]: —
+        - generic [ref=e7215] [cursor=pointer]:
+          - generic [ref=e7216]:
+            - generic [ref=e7217]:
+              - text: Hassan Al-Haydos
+              - generic [ref=e7218]: C
+            - generic [ref=e7219]: QAT — Qatar
+          - generic [ref=e7220]: "8.0"
+          - generic [ref=e7221]:
+            - generic [ref=e7222]: 1.0105 QAT
+            - generic [ref=e7223]: 1.0388 PITCH
+          - generic [ref=e7225]: —
+        - generic [ref=e7226] [cursor=pointer]:
+          - generic [ref=e7227]:
+            - generic [ref=e7228]:
+              - text: Ahmed Al-Rawi
+              - generic [ref=e7229]: R
+            - generic [ref=e7230]: QAT — Qatar
+          - generic [ref=e7231]: "6.0"
+          - generic [ref=e7232]:
+            - generic [ref=e7233]: 1.0047 QAT
+            - generic [ref=e7234]: 1.0329 PITCH
+          - generic [ref=e7236]: —
+        - generic [ref=e7237] [cursor=pointer]:
+          - generic [ref=e7238]:
+            - generic [ref=e7239]:
+              - text: Salem Al-Dawsari
+              - generic [ref=e7240]: B
+            - generic [ref=e7241]: SAU — Saudi Arabia
+          - generic [ref=e7242]: "16.0"
+          - generic [ref=e7243]:
+            - generic [ref=e7244]: 1.0645 SAU
+            - generic [ref=e7245]: 1.0987 PITCH
+          - generic [ref=e7247]: —
+        - generic [ref=e7248] [cursor=pointer]:
+          - generic [ref=e7249]:
+            - generic [ref=e7250]:
+              - text: Ali Al-Bulaihi
+              - generic [ref=e7251]: C
+            - generic [ref=e7252]: SAU — Saudi Arabia
+          - generic [ref=e7253]: "15.0"
+          - generic [ref=e7254]:
+            - generic [ref=e7255]: 1.0197 SAU
+            - generic [ref=e7256]: 1.0524 PITCH
+          - generic [ref=e7258]: —
+        - generic [ref=e7259] [cursor=pointer]:
+          - generic [ref=e7260]:
+            - generic [ref=e7261]:
+              - text: Talal Haji
+              - generic [ref=e7262]: R
+            - generic [ref=e7263]: SAU — Saudi Arabia
+          - generic [ref=e7264]: "18.0"
+          - generic [ref=e7265]:
+            - generic [ref=e7266]: 1.0141 SAU
+            - generic [ref=e7267]: 1.0466 PITCH
+          - generic [ref=e7269]: —
+        - generic [ref=e7270] [cursor=pointer]:
+          - generic [ref=e7271]:
+            - generic [ref=e7272]:
+              - text: Adalberto Carrasquilla
+              - generic [ref=e7273]: B
+            - generic [ref=e7274]: PAN — Panama
+          - generic [ref=e7275]: "13.0"
+          - generic [ref=e7276]:
+            - generic [ref=e7277]: 1.0521 PAN
+            - generic [ref=e7278]: 1.0832 PITCH
+          - generic [ref=e7280]: —
+        - generic [ref=e7281] [cursor=pointer]:
+          - generic [ref=e7282]:
+            - generic [ref=e7283]:
+              - text: An\xedbal Godoy
+              - generic [ref=e7284]: C
+            - generic [ref=e7285]: PAN — Panama
+          - generic [ref=e7286]: "16.0"
+          - generic [ref=e7287]:
+            - generic [ref=e7288]: 1.0210 PAN
+            - generic [ref=e7289]: 1.0512 PITCH
+          - generic [ref=e7291]: —
+        - generic [ref=e7292] [cursor=pointer]:
+          - generic [ref=e7293]:
+            - generic [ref=e7294]:
+              - text: Kahiser Lenis
+              - generic [ref=e7295]: R
+            - generic [ref=e7296]: PAN — Panama
+          - generic [ref=e7297]: "19.0"
+          - generic [ref=e7298]:
+            - generic [ref=e7299]: 1.0149 PAN
+            - generic [ref=e7300]: 1.0449 PITCH
+          - generic [ref=e7302]: —
+        - generic [ref=e7303] [cursor=pointer]:
+          - generic [ref=e7304]:
+            - generic [ref=e7305]:
+              - text: Leandro Bacuna
+              - generic [ref=e7306]: B
+            - generic [ref=e7307]: CUW — Curacao
+          - generic [ref=e7308]: "27.0"
+          - generic [ref=e7309]:
+            - generic [ref=e7310]: 1.1113 CUW
+            - generic [ref=e7311]: 1.1452 PITCH
+          - generic [ref=e7313]: —
+        - generic [ref=e7314] [cursor=pointer]:
+          - generic [ref=e7315]:
+            - generic [ref=e7316]:
+              - text: Cuco Martina
+              - generic [ref=e7317]: C
+            - generic [ref=e7318]: CUW — Curacao
+          - generic [ref=e7319]: "13.0"
+          - generic [ref=e7320]:
+            - generic [ref=e7321]: 1.0170 CUW
+            - generic [ref=e7322]: 1.0481 PITCH
+          - generic [ref=e7324]: —
+        - generic [ref=e7325] [cursor=pointer]:
+          - generic [ref=e7326]:
+            - generic [ref=e7327]:
+              - text: Jearl Margaritha
+              - generic [ref=e7328]: R
+            - generic [ref=e7329]: CUW — Curacao
+          - generic [ref=e7330]: "23.0"
+          - generic [ref=e7331]:
+            - generic [ref=e7332]: 1.0181 CUW
+            - generic [ref=e7333]: 1.0492 PITCH
+          - generic [ref=e7335]: —
+        - generic [ref=e7336] [cursor=pointer]:
+          - generic [ref=e7337]:
+            - generic [ref=e7338]:
+              - text: Duckens Nazon
+              - generic [ref=e7339]: B
+            - generic [ref=e7340]: HAI — Haiti
+          - generic [ref=e7341]: "6.0"
+          - generic [ref=e7342]:
+            - generic [ref=e7343]: 1.0237 HAI
+            - generic [ref=e7344]: 1.0495 PITCH
+          - generic [ref=e7346]: —
+        - generic [ref=e7347] [cursor=pointer]:
+          - generic [ref=e7348]:
+            - generic [ref=e7349]:
+              - text: Johnny Placide
+              - generic [ref=e7350]: C
+            - generic [ref=e7351]: HAI — Haiti
+          - generic [ref=e7352]: "12.0"
+          - generic [ref=e7353]:
+            - generic [ref=e7354]: 1.0157 HAI
+            - generic [ref=e7355]: 1.0413 PITCH
+          - generic [ref=e7357]: —
+        - generic [ref=e7358] [cursor=pointer]:
+          - generic [ref=e7359]:
+            - generic [ref=e7360]:
+              - text: Louicius Don Deedson
+              - generic [ref=e7361]: R
+            - generic [ref=e7362]: HAI — Haiti
+          - generic [ref=e7363]: "9.0"
+          - generic [ref=e7364]:
+            - generic [ref=e7365]: 1.0070 HAI
+            - generic [ref=e7366]: 1.0323 PITCH
+          - generic [ref=e7368]: —
+        - generic [ref=e7369] [cursor=pointer]:
+          - generic [ref=e7370]:
+            - generic [ref=e7371]:
+              - text: Chris Wood
+              - generic [ref=e7372]: B
+            - generic [ref=e7373]: NZL — New Zealand
+          - generic [ref=e7374]: "20.0"
+          - generic [ref=e7375]:
+            - generic [ref=e7376]: 1.0813 NZL
+            - generic [ref=e7377]: 1.1166 PITCH
+          - generic [ref=e7379]: —
+        - generic [ref=e7380] [cursor=pointer]:
+          - generic [ref=e7381]:
+            - generic [ref=e7382]:
+              - text: Liberato Cacace
+              - generic [ref=e7383]: C
+            - generic [ref=e7384]: NZL — New Zealand
+          - generic [ref=e7385]: "25.0"
+          - generic [ref=e7386]:
+            - generic [ref=e7387]: 1.0331 NZL
+            - generic [ref=e7388]: 1.0669 PITCH
+          - generic [ref=e7390]: —
+        - generic [ref=e7391] [cursor=pointer]:
+          - generic [ref=e7392]:
+            - generic [ref=e7393]:
+              - text: Tyler Bindon
+              - generic [ref=e7394]: R
+            - generic [ref=e7395]: NZL — New Zealand
+          - generic [ref=e7396]: "23.0"
+          - generic [ref=e7397]:
+            - generic [ref=e7398]: 1.0181 NZL
+            - generic [ref=e7399]: 1.0514 PITCH
+          - generic [ref=e7401]: —
+        - generic [ref=e7402] [cursor=pointer]:
+          - generic [ref=e7403]:
+            - generic [ref=e7404]:
+              - text: Chancel Mbemba
+              - generic [ref=e7405]: B
+            - generic [ref=e7406]: COD — DR Congo
+          - generic [ref=e7407]: "14.0"
+          - generic [ref=e7408]:
+            - generic [ref=e7409]: 1.0562 COD
+            - generic [ref=e7410]: 1.0863 PITCH
+          - generic [ref=e7412]: —
+        - generic [ref=e7413] [cursor=pointer]:
+          - generic [ref=e7414]:
+            - generic [ref=e7415]:
+              - text: C\xe9dric Bakambu
+              - generic [ref=e7416]: C
+            - generic [ref=e7417]: COD — DR Congo
+          - generic [ref=e7418]: "20.0"
+          - generic [ref=e7419]:
+            - generic [ref=e7420]: 1.0264 COD
+            - generic [ref=e7421]: 1.0557 PITCH
+          - generic [ref=e7423]: —
+        - generic [ref=e7424] [cursor=pointer]:
+          - generic [ref=e7425]:
+            - generic [ref=e7426]:
+              - text: Noah Sadiki
+              - generic [ref=e7427]: R
+            - generic [ref=e7428]: COD — DR Congo
+          - generic [ref=e7429]: "20.0"
+          - generic [ref=e7430]:
+            - generic [ref=e7431]: 1.0157 COD
+            - generic [ref=e7432]: 1.0447 PITCH
+          - generic [ref=e7434]: —
+        - generic [ref=e7435] [cursor=pointer]:
+          - generic [ref=e7436]:
+            - generic [ref=e7437]:
+              - text: Aymen Hussein
+              - generic [ref=e7438]: B
+            - generic [ref=e7439]: IRQ — Iraq
+          - generic [ref=e7440]: "20.0"
+          - generic [ref=e7441]:
+            - generic [ref=e7442]: 1.0813 IRQ
+            - generic [ref=e7443]: 1.1086 PITCH
+          - generic [ref=e7445]: —
+        - generic [ref=e7446] [cursor=pointer]:
+          - generic [ref=e7447]:
+            - generic [ref=e7448]:
+              - text: Jalal Hassan
+              - generic [ref=e7449]: C
+            - generic [ref=e7450]: IRQ — Iraq
+          - generic [ref=e7451]: "20.0"
+          - generic [ref=e7452]:
+            - generic [ref=e7453]: 1.0264 IRQ
+            - generic [ref=e7454]: 1.0523 PITCH
+          - generic [ref=e7456]: —
+        - generic [ref=e7457] [cursor=pointer]:
+          - generic [ref=e7458]:
+            - generic [ref=e7459]:
+              - text: Ali Jasim
+              - generic [ref=e7460]: R
+            - generic [ref=e7461]: IRQ — Iraq
+          - generic [ref=e7462]: "13.0"
+          - generic [ref=e7463]:
+            - generic [ref=e7464]: 1.0102 IRQ
+            - generic [ref=e7465]: 1.0357 PITCH
+          - generic [ref=e7467]: —
+    - generic [ref=e1613]:
+      - generic [ref=e1614]:
+        - generic [ref=e1615]:
+          - generic [ref=e1616]: Select a player
+          - generic [ref=e1617]: Click on a player to view chart
+        - generic [ref=e1619]: —
+      - generic [ref=e1620]:
+        - button "Line" [ref=e1621] [cursor=pointer]
+        - button "Candles" [ref=e1622] [cursor=pointer]
+        - button "Country" [ref=e1624] [cursor=pointer]
+        - button "PITCH" [ref=e1625] [cursor=pointer]
+        - button "1m" [ref=e1627] [cursor=pointer]
+        - button "5m" [ref=e1628] [cursor=pointer]
+        - button "15m" [ref=e1629] [cursor=pointer]
+        - button "1h" [ref=e1630] [cursor=pointer]
+        - button "4h" [ref=e1631] [cursor=pointer]
+        - button "1D" [ref=e1632] [cursor=pointer]
+      - generic [ref=e1634]:
+        - generic [ref=e1635]:
+          - generic [ref=e1636]: Supply
+          - generic [ref=e1637]: —
+        - generic [ref=e1638]:
+          - generic [ref=e1639]: Country
+          - generic [ref=e1640]: —
+        - generic [ref=e1641]:
+          - generic [ref=e1642]: Role
+          - generic [ref=e1643]: —
+        - generic [ref=e1644]:
+          - generic [ref=e1645]: Trades
+          - generic [ref=e1646]: —
+        - generic [ref=e1647]:
+          - generic [ref=e1648]: High
+          - generic [ref=e1649]: —
+        - generic [ref=e1650]:
+          - generic [ref=e1651]: Low
+          - generic [ref=e1652]: —
+        - generic [ref=e1653]:
+          - generic [ref=e1654]: Contract
+          - generic [ref=e1655]: —
+      - generic [ref=e1656]:
+        - generic [ref=e1657]: Recent Trades
+        - generic [ref=e1659]: Select a player

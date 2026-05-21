@@ -1,0 +1,7 @@
+[  597098ms] [ERROR] Failed to load resource: net::ERR_INCOMPLETE_CHUNKED_ENCODING @ http://localhost:5555/api/stream:0
+[  600021ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:5555/api/chart/0x44ac72BB161B1f8B2ff294d938C4869D681D258b?tf=5m:0
+[  600021ms] TypeError: Failed to fetch
+    at loadChart (http://localhost:5555/:465:21)
+    at http://localhost:5555/:697:21
+[  600099ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:5555/api/stream:0
+[  603100ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:5555/api/stream:0

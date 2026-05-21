@@ -1,0 +1,350 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - heading "PITCH Markets" [level=1] [ref=e3]
+    - generic [ref=e4]: 33 players | 8:44:07 PM
+  - generic [ref=e6]:
+    - generic [ref=e7]:
+      - generic [ref=e8]: Player Markets
+      - textbox "Search player or country..." [ref=e10]
+      - generic [ref=e11]:
+        - generic [ref=e12]: Player
+        - generic [ref=e13]: Supply
+        - generic [ref=e14]: Price
+        - generic [ref=e15]: Chg%
+      - generic [ref=e16]:
+        - generic [ref=e17] [cursor=pointer]:
+          - generic [ref=e18]:
+            - generic [ref=e19]: Lionel Messi
+            - generic [ref=e20]: ARG — Argentina
+          - generic [ref=e21]: "359.0"
+          - generic [ref=e22]:
+            - generic [ref=e23]: 12.3913 ARG
+            - generic [ref=e24]: 18.8955 PITCH
+          - generic [ref=e26]: +681.7%
+        - generic [ref=e27] [cursor=pointer]:
+          - generic [ref=e28]:
+            - generic [ref=e29]: Kylian Mbappé
+            - generic [ref=e30]: FRA — France
+          - generic [ref=e31]: "342.0"
+          - generic [ref=e32]:
+            - generic [ref=e33]: 9.8651 FRA
+            - generic [ref=e34]: 21.3625 PITCH
+          - generic [ref=e36]: +409.5%
+        - generic [ref=e37] [cursor=pointer]:
+          - generic [ref=e38]:
+            - generic [ref=e39]: Lamine Yamal
+            - generic [ref=e40]: ESP — Spain
+          - generic [ref=e41]: "319.1"
+          - generic [ref=e42]:
+            - generic [ref=e43]: 7.5270 ESP
+            - generic [ref=e44]: 14.9818 PITCH
+          - generic [ref=e46]: +277.9%
+        - generic [ref=e47] [cursor=pointer]:
+          - generic [ref=e48]:
+            - generic [ref=e49]: Jude Bellingham
+            - generic [ref=e50]: ENG — England
+          - generic [ref=e51]: "304.8"
+          - generic [ref=e52]:
+            - generic [ref=e53]: 6.4675 ENG
+            - generic [ref=e54]: 9.2065 PITCH
+          - generic [ref=e56]: +207.5%
+        - generic [ref=e57] [cursor=pointer]:
+          - generic [ref=e58]:
+            - generic [ref=e59]: Vinícius Júnior
+            - generic [ref=e60]: BRA — Brazil
+          - generic [ref=e61]: "304.4"
+          - generic [ref=e62]:
+            - generic [ref=e63]: 6.4409 BRA
+            - generic [ref=e64]: 8.7004 PITCH
+          - generic [ref=e66]: +203.1%
+        - generic [ref=e67] [cursor=pointer]:
+          - generic [ref=e68]:
+            - generic [ref=e69]: Harry Kane
+            - generic [ref=e70]: ENG — England
+          - generic [ref=e71]: "459.4"
+          - generic [ref=e72]:
+            - generic [ref=e73]: 2.0475 ENG
+            - generic [ref=e74]: 2.9146 PITCH
+          - generic [ref=e76]: +58.0%
+        - generic [ref=e77] [cursor=pointer]:
+          - generic [ref=e78]:
+            - generic [ref=e79]: Bruno Fernandes
+            - generic [ref=e80]: POR — Portugal
+          - generic [ref=e81]: "257.7"
+          - generic [ref=e82]:
+            - generic [ref=e83]: 4.1957 POR
+            - generic [ref=e84]: 5.3646 PITCH
+          - generic [ref=e86]: +175.5%
+        - generic [ref=e87] [cursor=pointer]:
+          - generic [ref=e88]:
+            - generic [ref=e89]: Florian Wirtz
+            - generic [ref=e90]: GER — Germany
+          - generic [ref=e91]: "195.2"
+          - generic [ref=e92]:
+            - generic [ref=e93]: 2.6512 GER
+            - generic [ref=e94]: 3.1720 PITCH
+          - generic [ref=e96]: +105.2%
+        - generic [ref=e97] [cursor=pointer]:
+          - generic [ref=e98]:
+            - generic [ref=e99]: Rodri
+            - generic [ref=e100]: ESP — Spain
+          - generic [ref=e101]: "164.0"
+          - generic [ref=e102]:
+            - generic [ref=e103]: 1.2423 ESP
+            - generic [ref=e104]: 2.4727 PITCH
+          - generic [ref=e106]: "-3.9%"
+        - generic [ref=e107] [cursor=pointer]:
+          - generic [ref=e108]:
+            - generic [ref=e109]: Warren Zaïre-Emery
+            - generic [ref=e110]: FRA — France
+          - generic [ref=e111]: "95.5"
+          - generic [ref=e112]:
+            - generic [ref=e113]: 1.0653 FRA
+            - generic [ref=e114]: 2.3069 PITCH
+          - generic [ref=e116]: "-5.8%"
+        - generic [ref=e117] [cursor=pointer]:
+          - generic [ref=e118]:
+            - generic [ref=e119]: Pau Cubarsí
+            - generic [ref=e120]: ESP — Spain
+          - generic [ref=e121]: "89.8"
+          - generic [ref=e122]:
+            - generic [ref=e123]: 1.0603 ESP
+            - generic [ref=e124]: 2.1104 PITCH
+          - generic [ref=e126]: "-7.4%"
+        - generic [ref=e127] [cursor=pointer]:
+          - generic [ref=e128]:
+            - generic [ref=e129]: Erling Haaland
+            - generic [ref=e130]: NOR — Norway
+          - generic [ref=e131]: "245.7"
+          - generic [ref=e132]:
+            - generic [ref=e133]: 3.8083 NOR
+            - generic [ref=e134]: 4.4322 PITCH
+          - generic [ref=e136]: +120.8%
+        - generic [ref=e137] [cursor=pointer]:
+          - generic [ref=e138]:
+            - generic [ref=e139]: Estêvão
+            - generic [ref=e140]: BRA — Brazil
+          - generic [ref=e141]: "106.8"
+          - generic [ref=e142]:
+            - generic [ref=e143]: 1.0754 BRA
+            - generic [ref=e144]: 1.4527 PITCH
+          - generic [ref=e146]: "-6.0%"
+        - generic [ref=e147] [cursor=pointer]:
+          - generic [ref=e148]:
+            - generic [ref=e149]: Aurélien Tchouaméni
+            - generic [ref=e150]: FRA — France
+          - generic [ref=e151]: "104.7"
+          - generic [ref=e152]:
+            - generic [ref=e153]: 1.1390 FRA
+            - generic [ref=e154]: 2.4665 PITCH
+          - generic [ref=e156]: "-1.4%"
+        - generic [ref=e157] [cursor=pointer]:
+          - generic [ref=e158]:
+            - generic [ref=e159]: Ethan Nwaneri
+            - generic [ref=e160]: ENG — England
+          - generic [ref=e161]: "81.9"
+          - generic [ref=e162]:
+            - generic [ref=e163]: 1.0534 ENG
+            - generic [ref=e164]: 1.4995 PITCH
+          - generic [ref=e166]: "-8.7%"
+        - generic [ref=e167] [cursor=pointer]:
+          - generic [ref=e168]:
+            - generic [ref=e169]: Nico Paz
+            - generic [ref=e170]: ARG — Argentina
+          - generic [ref=e171]: "101.9"
+          - generic [ref=e172]:
+            - generic [ref=e173]: 1.0710 ARG
+            - generic [ref=e174]: 1.6332 PITCH
+          - generic [ref=e176]: "-4.0%"
+        - generic [ref=e177] [cursor=pointer]:
+          - generic [ref=e178]:
+            - generic [ref=e179]: Christian Pulisic
+            - generic [ref=e180]: USA — USA
+          - generic [ref=e181]: "93.5"
+          - generic [ref=e182]:
+            - generic [ref=e183]: 1.4912 USA
+            - generic [ref=e184]: 1.5945 PITCH
+          - generic [ref=e186]: "-3.4%"
+        - generic [ref=e187] [cursor=pointer]:
+          - generic [ref=e188]:
+            - generic [ref=e189]: Cristian Romero
+            - generic [ref=e190]: ARG — Argentina
+          - generic [ref=e191]: "97.2"
+          - generic [ref=e192]:
+            - generic [ref=e193]: 1.1269 ARG
+            - generic [ref=e194]: 1.7184 PITCH
+          - generic [ref=e196]: "-12.6%"
+        - generic [ref=e197] [cursor=pointer]:
+          - generic [ref=e198]:
+            - generic [ref=e199]: Joshua Kimmich
+            - generic [ref=e200]: GER — Germany
+          - generic [ref=e201]: "61.3"
+          - generic [ref=e202]:
+            - generic [ref=e203]: 1.0713 GER
+            - generic [ref=e204]: 1.2817 PITCH
+          - generic [ref=e206]: "-7.2%"
+        - generic [ref=e207] [cursor=pointer]:
+          - generic [ref=e208]:
+            - generic [ref=e209]: Rúben Dias
+            - generic [ref=e210]: POR — Portugal
+          - generic [ref=e211]: "82.3"
+          - generic [ref=e212]:
+            - generic [ref=e213]: 1.1032 POR
+            - generic [ref=e214]: 1.4105 PITCH
+          - generic [ref=e216]: "-4.5%"
+        - generic [ref=e217] [cursor=pointer]:
+          - generic [ref=e218]:
+            - generic [ref=e219]: Sindre Walle Egeli
+            - generic [ref=e220]: NOR — Norway
+          - generic [ref=e221]: "202.8"
+          - generic [ref=e222]:
+            - generic [ref=e223]: 1.1672 NOR
+            - generic [ref=e224]: 1.3584 PITCH
+          - generic [ref=e226]: +2.5%
+        - generic [ref=e227] [cursor=pointer]:
+          - generic [ref=e228]:
+            - generic [ref=e229]: Martin Ødegaard
+            - generic [ref=e230]: NOR — Norway
+          - generic [ref=e231]: "116.9"
+          - generic [ref=e232]:
+            - generic [ref=e233]: 1.1591 NOR
+            - generic [ref=e234]: 1.3490 PITCH
+          - generic [ref=e236]: +1.8%
+        - generic [ref=e237] [cursor=pointer]:
+          - generic [ref=e238]:
+            - generic [ref=e239]: Kevin De Bruyne
+            - generic [ref=e240]: BEL — Belgium
+          - generic [ref=e241]: "197.7"
+          - generic [ref=e242]:
+            - generic [ref=e243]: 2.6952 BEL
+            - generic [ref=e244]: 3.0176 PITCH
+          - generic [ref=e246]: +69.3%
+        - generic [ref=e247] [cursor=pointer]:
+          - generic [ref=e248]:
+            - generic [ref=e249]: Virgil van Dijk
+            - generic [ref=e250]: NED — Netherlands
+          - generic [ref=e251]: "164.1"
+          - generic [ref=e252]:
+            - generic [ref=e253]: 2.1840 NED
+            - generic [ref=e254]: 2.3895 PITCH
+          - generic [ref=e256]: +45.3%
+        - generic [ref=e257] [cursor=pointer]:
+          - generic [ref=e258]:
+            - generic [ref=e259]: Jorrel Hato
+            - generic [ref=e260]: NED — Netherlands
+          - generic [ref=e261]: "112.7"
+          - generic [ref=e262]:
+            - generic [ref=e263]: 1.0808 NED
+            - generic [ref=e264]: 1.1825 PITCH
+          - generic [ref=e266]: "-6.5%"
+        - generic [ref=e267] [cursor=pointer]:
+          - generic [ref=e268]:
+            - generic [ref=e269]: Frenkie de Jong
+            - generic [ref=e270]: NED — Netherlands
+          - generic [ref=e271]: "122.5"
+          - generic [ref=e272]:
+            - generic [ref=e273]: 1.1686 NED
+            - generic [ref=e274]: 1.2785 PITCH
+          - generic [ref=e276]: +1.2%
+        - generic [ref=e277] [cursor=pointer]:
+          - generic [ref=e278]:
+            - generic [ref=e279]: Luis Díaz
+            - generic [ref=e280]: COL — Colombia
+          - generic [ref=e281]: "58.2"
+          - generic [ref=e282]:
+            - generic [ref=e283]: 1.2625 COL
+            - generic [ref=e284]: 1.3135 PITCH
+          - generic [ref=e286]: "-1.6%"
+        - generic [ref=e287] [cursor=pointer]:
+          - generic [ref=e288]:
+            - generic [ref=e289]: Granit Xhaka
+            - generic [ref=e290]: SUI — Switzerland
+          - generic [ref=e291]: "62.6"
+          - generic [ref=e292]:
+            - generic [ref=e293]: 1.2881 SUI
+            - generic [ref=e294]: 1.3598 PITCH
+          - generic [ref=e296]: "-12.7%"
+        - generic [ref=e297] [cursor=pointer]:
+          - generic [ref=e298]:
+            - generic [ref=e299]: Romelu Lukaku
+            - generic [ref=e300]: BEL — Belgium
+          - generic [ref=e301]: "144.1"
+          - generic [ref=e302]:
+            - generic [ref=e303]: 1.2061 BEL
+            - generic [ref=e304]: 1.3504 PITCH
+          - generic [ref=e306]: +4.5%
+        - generic [ref=e307] [cursor=pointer]:
+          - generic [ref=e308]:
+            - generic [ref=e309]: Mika Godts
+            - generic [ref=e310]: BEL — Belgium
+          - generic [ref=e311]: "161.0"
+          - generic [ref=e312]:
+            - generic [ref=e313]: 1.1258 BEL
+            - generic [ref=e314]: 1.2604 PITCH
+          - generic [ref=e316]: "-0.7%"
+        - generic [ref=e317] [cursor=pointer]:
+          - generic [ref=e318]:
+            - generic [ref=e319]: Ardon Jashari
+            - generic [ref=e320]: SUI — Switzerland
+          - generic [ref=e321]: "69.0"
+          - generic [ref=e322]:
+            - generic [ref=e323]: 1.0422 SUI
+            - generic [ref=e324]: 1.1002 PITCH
+          - generic [ref=e326]: "-9.4%"
+        - generic [ref=e327] [cursor=pointer]:
+          - generic [ref=e328]:
+            - generic [ref=e329]: Manuel Akanji
+            - generic [ref=e330]: SUI — Switzerland
+          - generic [ref=e331]: "119.7"
+          - generic [ref=e332]:
+            - generic [ref=e333]: 1.1638 SUI
+            - generic [ref=e334]: 1.2286 PITCH
+          - generic [ref=e336]: +2.9%
+        - generic [ref=e337] [cursor=pointer]:
+          - generic [ref=e338]:
+            - generic [ref=e339]: Yáser Asprilla
+            - generic [ref=e340]: COL — Colombia
+          - generic [ref=e341]: "55.0"
+          - generic [ref=e342]:
+            - generic [ref=e343]: 1.0303 COL
+            - generic [ref=e344]: 1.0719 PITCH
+          - generic [ref=e346]: "-3.3%"
+    - generic [ref=e347]:
+      - generic [ref=e348]:
+        - generic [ref=e349]:
+          - generic [ref=e350]: Select a player
+          - generic [ref=e351]: Click on a player to view chart
+        - generic [ref=e353]: —
+      - generic [ref=e354]:
+        - button "Line" [ref=e355] [cursor=pointer]
+        - button "Candles" [ref=e356] [cursor=pointer]
+        - button "Country" [ref=e358] [cursor=pointer]
+        - button "PITCH" [ref=e359] [cursor=pointer]
+        - button "1m" [ref=e361] [cursor=pointer]
+        - button "5m" [ref=e362] [cursor=pointer]
+        - button "15m" [ref=e363] [cursor=pointer]
+        - button "1h" [ref=e364] [cursor=pointer]
+        - button "4h" [ref=e365] [cursor=pointer]
+        - button "1D" [ref=e366] [cursor=pointer]
+      - generic [ref=e368]:
+        - generic [ref=e369]:
+          - generic [ref=e370]: Supply
+          - generic [ref=e371]: —
+        - generic [ref=e372]:
+          - generic [ref=e373]: Country
+          - generic [ref=e374]: —
+        - generic [ref=e375]:
+          - generic [ref=e376]: Trades
+          - generic [ref=e377]: —
+        - generic [ref=e378]:
+          - generic [ref=e379]: High
+          - generic [ref=e380]: —
+        - generic [ref=e381]:
+          - generic [ref=e382]: Low
+          - generic [ref=e383]: —
+        - generic [ref=e384]:
+          - generic [ref=e385]: Contract
+          - generic [ref=e386]: —
+      - generic [ref=e387]:
+        - generic [ref=e388]: Recent Trades
+        - generic [ref=e390]: Select a player

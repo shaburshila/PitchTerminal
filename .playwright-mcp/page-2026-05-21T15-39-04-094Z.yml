@@ -1,0 +1,2445 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - heading "PITCH Markets" [level=1] [ref=e3]
+    - generic [ref=e4]: 144 players | 10:39:01 PM
+  - generic [ref=e6]:
+    - generic [ref=e7]:
+      - generic [ref=e8]: Player Markets
+      - textbox "Search player or country..." [ref=e10]
+      - generic [ref=e11]:
+        - button "All" [ref=e12] [cursor=pointer]
+        - button "Best" [ref=e13] [cursor=pointer]
+        - button "Captain" [ref=e14] [cursor=pointer]
+        - button "Rookie" [ref=e15] [cursor=pointer]
+        - button "All" [ref=e17] [cursor=pointer]
+        - button "1D" [ref=e18] [cursor=pointer]
+        - button "12H" [ref=e19] [cursor=pointer]
+        - button "6H" [ref=e20] [cursor=pointer]
+        - button "1H" [ref=e21] [cursor=pointer]
+        - button "15M" [ref=e22] [cursor=pointer]
+      - generic [ref=e23]:
+        - generic [ref=e24]: Player
+        - generic [ref=e25]: Supply
+        - generic [ref=e26]: Price
+        - generic [ref=e27]: Chg%
+      - generic [ref=e28]:
+        - generic [ref=e2996] [cursor=pointer]:
+          - generic [ref=e2997]:
+            - generic [ref=e2998]:
+              - text: Kylian Mbappé
+              - generic [ref=e2999]: B
+            - generic [ref=e3000]: FRA — France
+          - generic [ref=e3001]: "348.4"
+          - generic [ref=e3002]:
+            - generic [ref=e3003]: 10.7172 FRA
+            - generic [ref=e3004]: 26.2987 PITCH
+          - generic [ref=e3006]: +44.4%
+        - generic [ref=e3007] [cursor=pointer]:
+          - generic [ref=e3008]:
+            - generic [ref=e3009]:
+              - text: Lionel Messi
+              - generic [ref=e3010]: B
+            - generic [ref=e3011]: ARG — Argentina
+          - generic [ref=e3012]: "364.1"
+          - generic [ref=e3013]:
+            - generic [ref=e3014]: 13.3330 ARG
+            - generic [ref=e3015]: 20.2252 PITCH
+          - generic [ref=e3017]: +45.6%
+        - generic [ref=e3018] [cursor=pointer]:
+          - generic [ref=e3019]:
+            - generic [ref=e3020]:
+              - text: Lamine Yamal
+              - generic [ref=e3021]: B
+            - generic [ref=e3022]: ESP — Spain
+          - generic [ref=e3023]: "309.1"
+          - generic [ref=e3024]:
+            - generic [ref=e3025]: 6.7626 ESP
+            - generic [ref=e3026]: 13.9778 PITCH
+          - generic [ref=e3028]: +18.9%
+        - generic [ref=e3029] [cursor=pointer]:
+          - generic [ref=e3030]:
+            - generic [ref=e3031]:
+              - text: Jude Bellingham
+              - generic [ref=e3032]: B
+            - generic [ref=e3033]: ENG — England
+          - generic [ref=e3034]: "304.8"
+          - generic [ref=e3035]:
+            - generic [ref=e3036]: 6.4675 ENG
+            - generic [ref=e3037]: 9.4412 PITCH
+          - generic [ref=e3039]: +60.9%
+        - generic [ref=e3040] [cursor=pointer]:
+          - generic [ref=e3041]:
+            - generic [ref=e3042]:
+              - text: Vinícius Júnior
+              - generic [ref=e3043]: B
+            - generic [ref=e3044]: BRA — Brazil
+          - generic [ref=e3045]: "303.4"
+          - generic [ref=e3046]:
+            - generic [ref=e3047]: 6.3755 BRA
+            - generic [ref=e3048]: 8.6962 PITCH
+          - generic [ref=e3050]: +63.5%
+        - generic [ref=e3051] [cursor=pointer]:
+          - generic [ref=e3052]:
+            - generic [ref=e3053]:
+              - text: Bruno Fernandes
+              - generic [ref=e3054]: B
+            - generic [ref=e3055]: POR — Portugal
+          - generic [ref=e3056]: "250.9"
+          - generic [ref=e3057]:
+            - generic [ref=e3058]: 3.9718 POR
+            - generic [ref=e3059]: 5.0739 PITCH
+          - generic [ref=e3061]: +76.2%
+        - generic [ref=e3062] [cursor=pointer]:
+          - generic [ref=e3063]:
+            - generic [ref=e3064]:
+              - text: Erling Haaland
+              - generic [ref=e3065]: B
+            - generic [ref=e3066]: NOR — Norway
+          - generic [ref=e3067]: "243.1"
+          - generic [ref=e3068]:
+            - generic [ref=e3069]: 3.7328 NOR
+            - generic [ref=e3070]: 4.2927 PITCH
+          - generic [ref=e3072]: "-4.5%"
+        - generic [ref=e3073] [cursor=pointer]:
+          - generic [ref=e3074]:
+            - generic [ref=e3075]:
+              - text: Kevin De Bruyne
+              - generic [ref=e3076]: B
+            - generic [ref=e3077]: BEL — Belgium
+          - generic [ref=e3078]: "197.7"
+          - generic [ref=e3079]:
+            - generic [ref=e3080]: 2.6952 BEL
+            - generic [ref=e3081]: 3.0168 PITCH
+          - generic [ref=e3083]: +69.3%
+        - generic [ref=e3084] [cursor=pointer]:
+          - generic [ref=e3085]:
+            - generic [ref=e3086]:
+              - text: Florian Wirtz
+              - generic [ref=e3087]: B
+            - generic [ref=e3088]: GER — Germany
+          - generic [ref=e3089]: "182.9"
+          - generic [ref=e3090]:
+            - generic [ref=e3091]: 2.4504 GER
+            - generic [ref=e3092]: 2.9484 PITCH
+          - generic [ref=e3094]: +3.0%
+        - generic [ref=e3095] [cursor=pointer]:
+          - generic [ref=e3096]:
+            - generic [ref=e3097]:
+              - text: Virgil van Dijk
+              - generic [ref=e3098]: B
+            - generic [ref=e3099]: NED — Netherlands
+          - generic [ref=e3100]: "164.1"
+          - generic [ref=e3101]:
+            - generic [ref=e3102]: 2.1840 NED
+            - generic [ref=e3103]: 2.3913 PITCH
+          - generic [ref=e3105]: +18.2%
+        - generic [ref=e3106] [cursor=pointer]:
+          - generic [ref=e3107]:
+            - generic [ref=e3108]:
+              - text: Christian Pulisic
+              - generic [ref=e3109]: B
+            - generic [ref=e3110]: USA — USA
+          - generic [ref=e3111]: "93.5"
+          - generic [ref=e3112]:
+            - generic [ref=e3113]: 1.4912 USA
+            - generic [ref=e3114]: 1.5954 PITCH
+          - generic [ref=e3116]: "-4.5%"
+        - generic [ref=e3117] [cursor=pointer]:
+          - generic [ref=e3118]:
+            - generic [ref=e3119]:
+              - text: Granit Xhaka
+              - generic [ref=e3120]: B
+            - generic [ref=e3121]: SUI — Switzerland
+          - generic [ref=e3122]: "92.9"
+          - generic [ref=e3123]:
+            - generic [ref=e3124]: 1.4863 SUI
+            - generic [ref=e3125]: 1.5755 PITCH
+          - generic [ref=e3127]: "-14.7%"
+        - generic [ref=e3128] [cursor=pointer]:
+          - generic [ref=e3129]:
+            - generic [ref=e3130]:
+              - text: Santiago Giménez
+              - generic [ref=e3131]: B
+            - generic [ref=e3132]: MEX — Mexico
+          - generic [ref=e3133]: "50.0"
+          - generic [ref=e3134]:
+            - generic [ref=e3135]: 1.2167 MEX
+            - generic [ref=e3136]: 1.3360 PITCH
+          - generic [ref=e3138]: —
+        - generic [ref=e3139] [cursor=pointer]:
+          - generic [ref=e3140]:
+            - generic [ref=e3141]:
+              - text: Achraf Hakimi
+              - generic [ref=e3142]: B
+            - generic [ref=e3143]: MAR — Morocco
+          - generic [ref=e3144]: "50.0"
+          - generic [ref=e3145]:
+            - generic [ref=e3146]: 1.2167 MAR
+            - generic [ref=e3147]: 1.3346 PITCH
+          - generic [ref=e3149]: —
+        - generic [ref=e3150] [cursor=pointer]:
+          - generic [ref=e3151]:
+            - generic [ref=e3152]:
+              - text: Luis Díaz
+              - generic [ref=e3153]: B
+            - generic [ref=e3154]: COL — Colombia
+          - generic [ref=e3155]: "58.2"
+          - generic [ref=e3156]:
+            - generic [ref=e3157]: 1.2625 COL
+            - generic [ref=e3158]: 1.3131 PITCH
+          - generic [ref=e3160]: "-1.6%"
+        - generic [ref=e3161] [cursor=pointer]:
+          - generic [ref=e3162]:
+            - generic [ref=e3163]:
+              - text: Joško Gvardiol
+              - generic [ref=e3164]: B
+            - generic [ref=e3165]: CRO — Croatia
+          - generic [ref=e3166]: "50.0"
+          - generic [ref=e3167]:
+            - generic [ref=e3168]: 1.2167 CRO
+            - generic [ref=e3169]: 1.2915 PITCH
+          - generic [ref=e3171]: —
+        - generic [ref=e3172] [cursor=pointer]:
+          - generic [ref=e3173]:
+            - generic [ref=e3174]:
+              - text: Federico Valverde
+              - generic [ref=e3175]: B
+            - generic [ref=e3176]: URU — Uruguay
+          - generic [ref=e3177]: "50.0"
+          - generic [ref=e3178]:
+            - generic [ref=e3179]: 1.2167 URU
+            - generic [ref=e3180]: 1.2817 PITCH
+          - generic [ref=e3182]: —
+        - generic [ref=e3183] [cursor=pointer]:
+          - generic [ref=e3184]:
+            - generic [ref=e3185]:
+              - text: Hakan Çalhanoğlu
+              - generic [ref=e3186]: B
+            - generic [ref=e3187]: TUR — Turkey
+          - generic [ref=e3188]: "50.0"
+          - generic [ref=e3189]:
+            - generic [ref=e3190]: 1.2167 TUR
+            - generic [ref=e3191]: 1.2736 PITCH
+          - generic [ref=e3193]: —
+        - generic [ref=e3194] [cursor=pointer]:
+          - generic [ref=e3195]:
+            - generic [ref=e3196]:
+              - text: Mohamed Salah
+              - generic [ref=e3197]: B
+            - generic [ref=e3198]: EGY — Egypt
+          - generic [ref=e3199]: "50.0"
+          - generic [ref=e3200]:
+            - generic [ref=e3201]: 1.2167 EGY
+            - generic [ref=e3202]: 1.2729 PITCH
+          - generic [ref=e3204]: —
+        - generic [ref=e3205] [cursor=pointer]:
+          - generic [ref=e3206]:
+            - generic [ref=e3207]:
+              - text: Sadio Mané
+              - generic [ref=e3208]: B
+            - generic [ref=e3209]: SEN — Senegal
+          - generic [ref=e3210]: "50.0"
+          - generic [ref=e3211]:
+            - generic [ref=e3212]: 1.2167 SEN
+            - generic [ref=e3213]: 1.2711 PITCH
+          - generic [ref=e3215]: —
+        - generic [ref=e3216] [cursor=pointer]:
+          - generic [ref=e3217]:
+            - generic [ref=e3218]:
+              - text: David Alaba
+              - generic [ref=e3219]: B
+            - generic [ref=e3220]: AUT — Austria
+          - generic [ref=e3221]: "50.0"
+          - generic [ref=e3222]:
+            - generic [ref=e3223]: 1.2167 AUT
+            - generic [ref=e3224]: 1.2706 PITCH
+          - generic [ref=e3226]: —
+        - generic [ref=e3227] [cursor=pointer]:
+          - generic [ref=e3228]:
+            - generic [ref=e3229]:
+              - text: Ryan Mendes
+              - generic [ref=e3230]: B
+            - generic [ref=e3231]: CPV — Cape Verde
+          - generic [ref=e3232]: "50.0"
+          - generic [ref=e3233]:
+            - generic [ref=e3234]: 1.2167 CPV
+            - generic [ref=e3235]: 1.2700 PITCH
+          - generic [ref=e3237]: —
+        - generic [ref=e3238] [cursor=pointer]:
+          - generic [ref=e3239]:
+            - generic [ref=e3240]:
+              - text: Alphonso Davies
+              - generic [ref=e3241]: B
+            - generic [ref=e3242]: CAN — Canada
+          - generic [ref=e3243]: "50.0"
+          - generic [ref=e3244]:
+            - generic [ref=e3245]: 1.2167 CAN
+            - generic [ref=e3246]: 1.2658 PITCH
+          - generic [ref=e3248]: —
+        - generic [ref=e3249] [cursor=pointer]:
+          - generic [ref=e3250]:
+            - generic [ref=e3251]:
+              - text: Edin Džeko
+              - generic [ref=e3252]: B
+            - generic [ref=e3253]: BIH — Bosnia and Herzegovina
+          - generic [ref=e3254]: "40.0"
+          - generic [ref=e3255]:
+            - generic [ref=e3256]: 1.1696 BIH
+            - generic [ref=e3257]: 1.2160 PITCH
+          - generic [ref=e3259]: —
+        - generic [ref=e3260] [cursor=pointer]:
+          - generic [ref=e3261]:
+            - generic [ref=e3262]:
+              - text: Mehdi Taremi
+              - generic [ref=e3263]: B
+            - generic [ref=e3264]: IRN — Iran
+          - generic [ref=e3265]: "39.0"
+          - generic [ref=e3266]:
+            - generic [ref=e3267]: 1.1650 IRN
+            - generic [ref=e3268]: 1.2023 PITCH
+          - generic [ref=e3270]: —
+        - generic [ref=e3271] [cursor=pointer]:
+          - generic [ref=e3272]:
+            - generic [ref=e3273]:
+              - text: Riyad Mahrez
+              - generic [ref=e3274]: B
+            - generic [ref=e3275]: ALG — Algeria
+          - generic [ref=e3276]: "38.0"
+          - generic [ref=e3277]:
+            - generic [ref=e3278]: 1.1604 ALG
+            - generic [ref=e3279]: 1.2018 PITCH
+          - generic [ref=e3281]: —
+        - generic [ref=e3282] [cursor=pointer]:
+          - generic [ref=e3283]:
+            - generic [ref=e3284]:
+              - text: Takefusa Kubo
+              - generic [ref=e3285]: B
+            - generic [ref=e3286]: JPN — Japan
+          - generic [ref=e3287]: "35.0"
+          - generic [ref=e3288]:
+            - generic [ref=e3289]: 1.1468 JPN
+            - generic [ref=e3290]: 1.1972 PITCH
+          - generic [ref=e3292]: —
+        - generic [ref=e3293] [cursor=pointer]:
+          - generic [ref=e3294]:
+            - generic [ref=e3295]:
+              - text: Andrew Robertson
+              - generic [ref=e3296]: B
+            - generic [ref=e3297]: SCO — Scotland
+          - generic [ref=e3298]: "35.0"
+          - generic [ref=e3299]:
+            - generic [ref=e3300]: 1.1468 SCO
+            - generic [ref=e3301]: 1.1881 PITCH
+          - generic [ref=e3303]: —
+        - generic [ref=e3304] [cursor=pointer]:
+          - generic [ref=e3305]:
+            - generic [ref=e3306]:
+              - text: Alexander Isak
+              - generic [ref=e3307]: B
+            - generic [ref=e3308]: SWE — Sweden
+          - generic [ref=e3309]: "30.0"
+          - generic [ref=e3310]:
+            - generic [ref=e3311]: 1.1245 SWE
+            - generic [ref=e3312]: 1.1686 PITCH
+          - generic [ref=e3314]: —
+        - generic [ref=e3315] [cursor=pointer]:
+          - generic [ref=e3316]:
+            - generic [ref=e3317]:
+              - text: Tomáš Souček
+              - generic [ref=e3318]: B
+            - generic [ref=e3319]: CZE — Czechia
+          - generic [ref=e3320]: "27.0"
+          - generic [ref=e3321]:
+            - generic [ref=e3322]: 1.1113 CZE
+            - generic [ref=e3323]: 1.1547 PITCH
+          - generic [ref=e3325]: —
+        - generic [ref=e3326] [cursor=pointer]:
+          - generic [ref=e3327]:
+            - generic [ref=e3328]:
+              - text: Moisés Caicedo
+              - generic [ref=e3329]: B
+            - generic [ref=e3330]: ECU — Ecuador
+          - generic [ref=e3331]: "28.0"
+          - generic [ref=e3332]:
+            - generic [ref=e3333]: 1.1157 ECU
+            - generic [ref=e3334]: 1.1535 PITCH
+          - generic [ref=e3336]: —
+        - generic [ref=e3337] [cursor=pointer]:
+          - generic [ref=e3338]:
+            - generic [ref=e3339]:
+              - text: Leandro Bacuna
+              - generic [ref=e3340]: B
+            - generic [ref=e3341]: CUW — Curacao
+          - generic [ref=e3342]: "27.0"
+          - generic [ref=e3343]:
+            - generic [ref=e3344]: 1.1113 CUW
+            - generic [ref=e3345]: 1.1450 PITCH
+          - generic [ref=e3347]: —
+        - generic [ref=e3348] [cursor=pointer]:
+          - generic [ref=e3349]:
+            - generic [ref=e3350]:
+              - text: Miguel Almirón
+              - generic [ref=e3351]: B
+            - generic [ref=e3352]: PAR — Paraguay
+          - generic [ref=e3353]: "26.0"
+          - generic [ref=e3354]:
+            - generic [ref=e3355]: 1.1070 PAR
+            - generic [ref=e3356]: 1.1413 PITCH
+          - generic [ref=e3358]: —
+        - generic [ref=e3359] [cursor=pointer]:
+          - generic [ref=e3360]:
+            - generic [ref=e3361]:
+              - text: Harry Souttar
+              - generic [ref=e3362]: B
+            - generic [ref=e3363]: AUS — Australia
+          - generic [ref=e3364]: "24.0"
+          - generic [ref=e3365]:
+            - generic [ref=e3366]: 1.0983 AUS
+            - generic [ref=e3367]: 1.1330 PITCH
+          - generic [ref=e3369]: —
+        - generic [ref=e3370] [cursor=pointer]:
+          - generic [ref=e3371]:
+            - generic [ref=e3372]:
+              - text: Son Heung-min
+              - generic [ref=e3373]: B
+            - generic [ref=e3374]: KOR — South Korea
+          - generic [ref=e3375]: "22.0"
+          - generic [ref=e3376]:
+            - generic [ref=e3377]: 1.0897 KOR
+            - generic [ref=e3378]: 1.1312 PITCH
+          - generic [ref=e3380]: —
+        - generic [ref=e3381] [cursor=pointer]:
+          - generic [ref=e3382]:
+            - generic [ref=e3383]:
+              - text: Percy Tau
+              - generic [ref=e3384]: B
+            - generic [ref=e3385]: RSA — South Africa
+          - generic [ref=e3386]: "21.0"
+          - generic [ref=e3387]:
+            - generic [ref=e3388]: 1.0855 RSA
+            - generic [ref=e3389]: 1.1180 PITCH
+          - generic [ref=e3391]: —
+        - generic [ref=e3392] [cursor=pointer]:
+          - generic [ref=e3393]:
+            - generic [ref=e3394]:
+              - text: Chris Wood
+              - generic [ref=e3395]: B
+            - generic [ref=e3396]: NZL — New Zealand
+          - generic [ref=e3397]: "20.0"
+          - generic [ref=e3398]:
+            - generic [ref=e3399]: 1.0813 NZL
+            - generic [ref=e3400]: 1.1163 PITCH
+          - generic [ref=e3402]: —
+        - generic [ref=e3403] [cursor=pointer]:
+          - generic [ref=e3404]:
+            - generic [ref=e3405]:
+              - text: Youssef Msakni
+              - generic [ref=e3406]: B
+            - generic [ref=e3407]: TUN — Tunisia
+          - generic [ref=e3408]: "19.0"
+          - generic [ref=e3409]:
+            - generic [ref=e3410]: 1.0770 TUN
+            - generic [ref=e3411]: 1.1095 PITCH
+          - generic [ref=e3413]: —
+        - generic [ref=e3414] [cursor=pointer]:
+          - generic [ref=e3415]:
+            - generic [ref=e3416]:
+              - text: Aymen Hussein
+              - generic [ref=e3417]: B
+            - generic [ref=e3418]: IRQ — Iraq
+          - generic [ref=e3419]: "20.0"
+          - generic [ref=e3420]:
+            - generic [ref=e3421]: 1.0813 IRQ
+            - generic [ref=e3422]: 1.1084 PITCH
+          - generic [ref=e3424]: —
+        - generic [ref=e3425] [cursor=pointer]:
+          - generic [ref=e3426]:
+            - generic [ref=e3427]:
+              - text: Mohammed Kudus
+              - generic [ref=e3428]: B
+            - generic [ref=e3429]: GHA — Ghana
+          - generic [ref=e3430]: "15.0"
+          - generic [ref=e3431]:
+            - generic [ref=e3432]: 1.0603 GHA
+            - generic [ref=e3433]: 1.0986 PITCH
+          - generic [ref=e3435]: —
+        - generic [ref=e3436] [cursor=pointer]:
+          - generic [ref=e3437]:
+            - generic [ref=e3438]:
+              - text: Abbosbek Fayzullaev
+              - generic [ref=e3439]: B
+            - generic [ref=e3440]: UZB — Uzbekistan
+          - generic [ref=e3441]: "16.0"
+          - generic [ref=e3442]:
+            - generic [ref=e3443]: 1.0645 UZB
+            - generic [ref=e3444]: 1.0985 PITCH
+          - generic [ref=e3446]: —
+        - generic [ref=e3447] [cursor=pointer]:
+          - generic [ref=e3448]:
+            - generic [ref=e3449]:
+              - text: Salem Al-Dawsari
+              - generic [ref=e3450]: B
+            - generic [ref=e3451]: SAU — Saudi Arabia
+          - generic [ref=e3452]: "16.0"
+          - generic [ref=e3453]:
+            - generic [ref=e3454]: 1.0645 SAU
+            - generic [ref=e3455]: 1.0985 PITCH
+          - generic [ref=e3457]: —
+        - generic [ref=e3458] [cursor=pointer]:
+          - generic [ref=e3459]:
+            - generic [ref=e3460]:
+              - text: Franck Kessié
+              - generic [ref=e3461]: B
+            - generic [ref=e3462]: CIV — Ivory Coast
+          - generic [ref=e3463]: "16.0"
+          - generic [ref=e3464]:
+            - generic [ref=e3465]: 1.0645 CIV
+            - generic [ref=e3466]: 1.0978 PITCH
+          - generic [ref=e3468]: —
+        - generic [ref=e3469] [cursor=pointer]:
+          - generic [ref=e3470]:
+            - generic [ref=e3471]:
+              - text: Chancel Mbemba
+              - generic [ref=e3472]: B
+            - generic [ref=e3473]: COD — DR Congo
+          - generic [ref=e3474]: "14.0"
+          - generic [ref=e3475]:
+            - generic [ref=e3476]: 1.0562 COD
+            - generic [ref=e3477]: 1.0862 PITCH
+          - generic [ref=e3479]: —
+        - generic [ref=e3480] [cursor=pointer]:
+          - generic [ref=e3481]:
+            - generic [ref=e3482]:
+              - text: Adalberto Carrasquilla
+              - generic [ref=e3483]: B
+            - generic [ref=e3484]: PAN — Panama
+          - generic [ref=e3485]: "13.0"
+          - generic [ref=e3486]:
+            - generic [ref=e3487]: 1.0521 PAN
+            - generic [ref=e3488]: 1.0828 PITCH
+          - generic [ref=e3490]: —
+        - generic [ref=e3491] [cursor=pointer]:
+          - generic [ref=e3492]:
+            - generic [ref=e3493]:
+              - text: Akram Afif
+              - generic [ref=e3494]: B
+            - generic [ref=e3495]: QAT — Qatar
+          - generic [ref=e3496]: "13.0"
+          - generic [ref=e3497]:
+            - generic [ref=e3498]: 1.0521 QAT
+            - generic [ref=e3499]: 1.0813 PITCH
+          - generic [ref=e3501]: —
+        - generic [ref=e3502] [cursor=pointer]:
+          - generic [ref=e3503]:
+            - generic [ref=e3504]:
+              - text: Mousa Al-Tamari
+              - generic [ref=e3505]: B
+            - generic [ref=e3506]: JOR — Jordan
+          - generic [ref=e3507]: "11.0"
+          - generic [ref=e3508]:
+            - generic [ref=e3509]: 1.0439 JOR
+            - generic [ref=e3510]: 1.0722 PITCH
+          - generic [ref=e3512]: —
+        - generic [ref=e3513] [cursor=pointer]:
+          - generic [ref=e3514]:
+            - generic [ref=e3515]:
+              - text: Duckens Nazon
+              - generic [ref=e3516]: B
+            - generic [ref=e3517]: HAI — Haiti
+          - generic [ref=e3518]: "6.0"
+          - generic [ref=e3519]:
+            - generic [ref=e3520]: 1.0237 HAI
+            - generic [ref=e3521]: 1.0493 PITCH
+          - generic [ref=e3523]: —
+    - generic [ref=e557]:
+      - generic [ref=e558]:
+        - generic [ref=e559]:
+          - generic [ref=e560]: Lionel Messi (MESSI)
+          - generic [ref=e561]: ARG — Argentina
+        - generic [ref=e562]:
+          - generic [ref=e563]: 13.3330 ARG
+          - generic [ref=e1162]: 20.2252 PITCH
+      - generic [ref=e564]:
+        - button "Line" [ref=e565] [cursor=pointer]
+        - button "Candles" [ref=e566] [cursor=pointer]
+        - button "ARG" [ref=e3524] [cursor=pointer]
+        - button "PITCH" [ref=e569] [cursor=pointer]
+        - button "1m" [ref=e571] [cursor=pointer]
+        - button "5m" [ref=e572] [cursor=pointer]
+        - button "15m" [ref=e573] [cursor=pointer]
+        - button "1h" [ref=e574] [cursor=pointer]
+        - button "4h" [ref=e575] [cursor=pointer]
+        - button "1D" [ref=e576] [cursor=pointer]
+        - generic [ref=e578] [cursor=pointer]:
+          - checkbox "My" [checked] [ref=e579]
+          - text: My
+        - generic [ref=e580] [cursor=pointer]:
+          - checkbox "Others" [checked] [ref=e581]
+          - text: Others
+      - table [ref=e3526]:
+        - row [ref=e3527]:
+          - cell
+          - cell [ref=e3528]
+          - cell [ref=e3532]
+        - row [ref=e3536]:
+          - cell
+          - cell [ref=e3537]
+          - cell [ref=e3541]
+      - generic [ref=e583]:
+        - generic [ref=e584]:
+          - generic [ref=e585]: Supply
+          - generic [ref=e586]: "364.06"
+        - generic [ref=e587]:
+          - generic [ref=e588]: Country
+          - generic [ref=e589]: ARG — Argentina
+        - generic [ref=e590]:
+          - generic [ref=e591]: Role
+          - generic [ref=e592]: Best
+        - generic [ref=e593]:
+          - generic [ref=e594]: Trades
+          - generic [ref=e595]: "276"
+        - generic [ref=e596]:
+          - generic [ref=e597]: High
+          - generic [ref=e598]: 18.2936 ARG
+        - generic [ref=e599]:
+          - generic [ref=e600]: Low
+          - generic [ref=e601]: 1.5851 ARG
+        - generic [ref=e602]:
+          - generic [ref=e603]: Contract
+          - link "0x44ac..258b" [ref=e3544] [cursor=pointer]:
+            - /url: https://basescan.org/address/0x44ac72BB161B1f8B2ff294d938C4869D681D258b
+      - generic [ref=e605]:
+        - generic [ref=e606]:
+          - button "Trades (276)" [ref=e3545] [cursor=pointer]
+          - button "Holders (102)" [ref=e3546] [cursor=pointer]
+        - generic [ref=e609]:
+          - generic [ref=e3547]:
+            - generic [ref=e3548]: Type
+            - generic [ref=e3549]: Price
+            - generic [ref=e3550]: Amount
+            - generic [ref=e3551]: Total
+            - generic [ref=e3552]: Time
+            - generic [ref=e3553]: Wallet
+            - generic [ref=e3554]: Holds
+          - generic [ref=e3555]:
+            - generic [ref=e3556]: SELL
+            - generic [ref=e3557]: "13.2996"
+            - generic [ref=e3558]: "6.47"
+            - generic [ref=e3559]: 86.09 ARG
+            - generic [ref=e3560]: 36m ago
+            - link "0xB986..1002" [ref=e3562] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xc32cc52009f63ecc5bae02a251dae909ed20c9c8b51dfcebf24670024e856381
+            - generic [ref=e3563]: "0"
+          - generic [ref=e3564]:
+            - generic [ref=e3565]: BUY
+            - generic [ref=e3566]: "14.4459"
+            - generic [ref=e3567]: "9.21"
+            - generic [ref=e3568]: 133.00 ARG
+            - generic [ref=e3569]: 54m ago
+            - link "0x5803..2e23" [ref=e3571] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x3d71bfb15efba770ca724ca287ed743f2390e799216b733b15e2ec6ec49b3d12
+            - generic [ref=e3572]: "26.4"
+          - generic [ref=e3573]:
+            - generic [ref=e3574]: BUY
+            - generic [ref=e3575]: "13.2633"
+            - generic [ref=e3576]: "2.34"
+            - generic [ref=e3577]: 31.00 ARG
+            - generic [ref=e3578]: 1h ago
+            - link "0x349c..a332" [ref=e3580] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xb5363344b3f7c4367c1c7d31e37d7cdd19f06a33192f64b8a452068abc603c41
+            - generic [ref=e3581]: "2.3"
+          - generic [ref=e3582]:
+            - generic [ref=e3583]: SELL
+            - generic [ref=e3584]: "11.9079"
+            - generic [ref=e3585]: "1.61"
+            - generic [ref=e3586]: 19.21 ARG
+            - generic [ref=e3587]: 3h ago
+            - link "0x53b6..6114" [ref=e3589] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x25b2d00cf2f1918ede04b217b33e73fd9df902f5ab2de6867fe2be32bc90f5e7
+            - generic [ref=e3590]: "0"
+          - generic [ref=e3591]:
+            - generic [ref=e3592]: BUY
+            - generic [ref=e3593]: "13.3255"
+            - generic [ref=e3594]: "0.23"
+            - generic [ref=e3595]: 3.00 ARG
+            - generic [ref=e3596]: 3h ago
+            - link "0x5A1A..f815" [ref=e3598] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x1af0c0521212c91ea387b15234ba458268c9a0bcbf3910d8aa71f85d3478b7f4
+            - generic [ref=e3599]: "9.0"
+          - generic [ref=e3600]:
+            - generic [ref=e3601]: BUY
+            - generic [ref=e3602]: "12.9602"
+            - generic [ref=e3603]: "3.70"
+            - generic [ref=e3604]: 48.00 ARG
+            - generic [ref=e3605]: 3h ago
+            - link "0x5A1A..f815" [ref=e3607] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x7e17565640257adce38a90a1f34b8604fe8f4fabdd583e65f488b1e2145d77f7
+            - generic [ref=e3608]: "9.0"
+          - generic [ref=e3609]:
+            - generic [ref=e3610]: BUY
+            - generic [ref=e3611]: "12.5207"
+            - generic [ref=e3612]: "1.20"
+            - generic [ref=e3613]: 15.00 ARG
+            - generic [ref=e3614]: 3h ago
+            - link "0x5A1A..f815" [ref=e3616] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x7f954939f68ad0aa266ef62ef2520ca4608fc30d08bab5c056ddb19155d43edc
+            - generic [ref=e3617]: "9.0"
+          - generic [ref=e3618]:
+            - generic [ref=e3619]: BUY
+            - generic [ref=e3620]: "12.3084"
+            - generic [ref=e3621]: "1.27"
+            - generic [ref=e3622]: 15.68 ARG
+            - generic [ref=e3623]: 3h ago
+            - link "0x5A1A..f815" [ref=e3625] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xbcc572499b1de27cfd63482455466fcdfa117c32e6a66bbb793d38aedcd53761
+            - generic [ref=e3626]: "9.0"
+          - generic [ref=e3627]:
+            - generic [ref=e3628]: BUY
+            - generic [ref=e3629]: "11.9857"
+            - generic [ref=e3630]: "2.62"
+            - generic [ref=e3631]: 31.36 ARG
+            - generic [ref=e3632]: 3h ago
+            - link "0x5A1A..f815" [ref=e3634] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x14553063acecb440ae9f4589c2042d66335a37d11e76256609eca7c9b9d8705b
+            - generic [ref=e3635]: "9.0"
+          - generic [ref=e3636]:
+            - generic [ref=e3637]: SELL
+            - generic [ref=e3638]: "10.8084"
+            - generic [ref=e3639]: "2.50"
+            - generic [ref=e3640]: 27.02 ARG
+            - generic [ref=e3641]: 6h ago
+            - link "0x92bc..04e2" [ref=e3643] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xd7d470b88e5213d9a384889d536bd198160609519ca6f09750477b0bc49f7e41
+            - generic [ref=e3644]: "12.2"
+          - generic [ref=e3645]:
+            - generic [ref=e3646]: BUY
+            - generic [ref=e3647]: "12.1570"
+            - generic [ref=e3648]: "0.29"
+            - generic [ref=e3649]: 3.54 ARG
+            - generic [ref=e3650]: 7h ago
+            - link "0x20BD..7Da8" [ref=e3652] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xf6ba7283dc58904304e5781b977c3496b48b9b8cb3686936623fdb31526dd351
+            - generic [ref=e3653]: "0.3"
+          - generic [ref=e3654]:
+            - generic [ref=e3655]: BUY
+            - generic [ref=e3656]: "12.0507"
+            - generic [ref=e3657]: "1.00"
+            - generic [ref=e3658]: 12.00 ARG
+            - generic [ref=e3659]: 8h ago
+            - link "0x71EC..756F" [ref=e3661] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x9c14bca712c83dfbb6623d5170310ef41def0de8fbe0fd891fcba9cd0317015e
+            - generic [ref=e3662]: "2.0"
+          - generic [ref=e3663]:
+            - generic [ref=e3664]: BUY
+            - generic [ref=e3665]: "11.8877"
+            - generic [ref=e3666]: "1.01"
+            - generic [ref=e3667]: 12.00 ARG
+            - generic [ref=e3668]: 8h ago
+            - link "0x71EC..756F" [ref=e3670] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xe3450fdc34faae2bf387725da3c24724b4eb96ef798853f3213c2728ecb396c0
+            - generic [ref=e3671]: "2.0"
+          - generic [ref=e3672]:
+            - generic [ref=e3673]: BUY
+            - generic [ref=e3674]: "11.3799"
+            - generic [ref=e3675]: "5.56"
+            - generic [ref=e3676]: 63.26 ARG
+            - generic [ref=e3677]: 9h ago
+            - link "0x12b6..0cc0" [ref=e3679] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x36a44d08121b035631b419d26decb446c06728af08dd637dd17a32c962134ed8
+            - generic [ref=e3680]: "5.6"
+          - generic [ref=e3681]:
+            - generic [ref=e3682]: BUY
+            - generic [ref=e3683]: "10.9313"
+            - generic [ref=e3684]: "0.52"
+            - generic [ref=e3685]: 5.73 ARG
+            - generic [ref=e3686]: 12h ago
+            - link "0x09D6..C8F8" [ref=e3688] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x4baaf5b4fd1058dd462a76602e9c8bc97b37b8cece9476cc7290df772ad2aaac
+            - generic [ref=e3689]: "0.5"
+          - generic [ref=e3690]:
+            - generic [ref=e3691]: BUY
+            - generic [ref=e3692]: "10.8805"
+            - generic [ref=e3693]: "0.19"
+            - generic [ref=e3694]: 2.10 ARG
+            - generic [ref=e3695]: 13h ago
+            - link "0x9A81..01Be" [ref=e3697] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xa5718579e13dc5038d0014e36263bebdbbcd9f0304cdb9e63adb4e5baa9b32d4
+            - generic [ref=e3698]: "0.2"
+          - generic [ref=e3699]:
+            - generic [ref=e3700]: BUY
+            - generic [ref=e3701]: "10.5762"
+            - generic [ref=e3702]: "4.25"
+            - generic [ref=e3703]: 44.92 ARG
+            - generic [ref=e3704]: 14h ago
+            - link "0xfa82..445F" [ref=e3706] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xc60c2127d80d2fa5b09e5ac4d8b8c8754b618c2ce12b14c9256436769bc2c6a4
+            - generic [ref=e3707]: "5.1"
+          - generic [ref=e3708]:
+            - generic [ref=e3709]: BUY
+            - generic [ref=e3710]: "10.2397"
+            - generic [ref=e3711]: "0.83"
+            - generic [ref=e3712]: 8.50 ARG
+            - generic [ref=e3713]: 15h ago
+            - link "0xfa82..445F" [ref=e3715] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x46e9bd19e6df253fee77d95baf2c5a603da9c4b9cad8e35287e8c66f330b0ed1
+            - generic [ref=e3716]: "5.1"
+          - generic [ref=e3717]:
+            - generic [ref=e3718]: BUY
+            - generic [ref=e3719]: "10.1360"
+            - generic [ref=e3720]: "0.79"
+            - generic [ref=e3721]: 8.04 ARG
+            - generic [ref=e3722]: 16h ago
+            - link "0xB986..1002" [ref=e3724] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xb37d977282f587e886a0a9a57c2728d3aa017cb6503810520c01736ec8df8ce6
+            - generic [ref=e3725]: "0"
+          - generic [ref=e3726]:
+            - generic [ref=e3727]: BUY
+            - generic [ref=e3728]: "9.9166"
+            - generic [ref=e3729]: "2.74"
+            - generic [ref=e3730]: 27.15 ARG
+            - generic [ref=e3731]: 16h ago
+            - link "0xCc8c..39d7" [ref=e3733] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x0461c760ecf88a54cb56851884f3534c640b397d02a698dfcf8555218bb98a8a
+            - generic [ref=e3734]: "7.7"
+          - generic [ref=e3735]:
+            - generic [ref=e3736]: BUY
+            - generic [ref=e3737]: "9.7402"
+            - generic [ref=e3738]: "0.17"
+            - generic [ref=e3739]: 1.62 ARG
+            - generic [ref=e3740]: 18h ago
+            - link "0x97C7..eAC1" [ref=e3742] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xe7d91caac5a1875a1a680e246c044347e563bc8966593014cb137fe090770edd
+            - generic [ref=e3743]: "2.0"
+          - generic [ref=e3744]:
+            - generic [ref=e3745]: BUY
+            - generic [ref=e3746]: "9.6992"
+            - generic [ref=e3747]: "0.52"
+            - generic [ref=e3748]: 5.08 ARG
+            - generic [ref=e3749]: 19h ago
+            - link "0x97C7..eAC1" [ref=e3751] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x5fdccedbbb7196cfc554b9f2680902cbb7264a1bce3f4e256aee16ba07290638
+            - generic [ref=e3752]: "2.0"
+          - generic [ref=e3753]:
+            - generic [ref=e3754]: BUY
+            - generic [ref=e3755]: "9.6510"
+            - generic [ref=e3756]: "0.29"
+            - generic [ref=e3757]: 2.81 ARG
+            - generic [ref=e3758]: 19h ago
+            - link "0x97C7..eAC1" [ref=e3760] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x794b45a6cfb6a8f8cf84b7c60d34f98270cbb2ccf69b510a15f881a716cd3a48
+            - generic [ref=e3761]: "2.0"
+          - generic [ref=e3762]:
+            - generic [ref=e3763]: BUY
+            - generic [ref=e3764]: "9.5712"
+            - generic [ref=e3765]: "1.07"
+            - generic [ref=e3766]: 10.28 ARG
+            - generic [ref=e3767]: 22h ago
+            - link "0x0F73..f458" [ref=e3769] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xa14a6f43e056c8552e8bfcd9b01b20b98b59da7754f4ad8de0a5ce63d5d296d0
+            - generic [ref=e3770]: "1.1"
+          - generic [ref=e3771]:
+            - generic [ref=e3772]: SELL
+            - generic [ref=e3773]: "8.8498"
+            - generic [ref=e3774]: "5.00"
+            - generic [ref=e3775]: 44.25 ARG
+            - generic [ref=e3776]: 23h ago
+            - link "0x501E..4d4C" [ref=e3778] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x343f1a6a03feccfa0f1f2d749b694fa11a37dd1b454982d1bcfbd1d4129b1fab
+            - generic [ref=e3779]: "10.1"
+          - generic [ref=e3780]:
+            - generic [ref=e3781]: SELL
+            - generic [ref=e3782]: "9.1599"
+            - generic [ref=e3783]: "0.59"
+            - generic [ref=e3784]: 5.40 ARG
+            - generic [ref=e3785]: 23h ago
+            - link "0xCf95..67b4" [ref=e3787] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x4a54ffd5ecd3e31ac81f47e974ff054faaf48298d5feb1291c4634f478562518
+            - generic [ref=e3788]: "0"
+          - generic [ref=e3789]:
+            - generic [ref=e3790]: BUY
+            - generic [ref=e3791]: "10.0872"
+            - generic [ref=e3792]: "1.58"
+            - generic [ref=e3793]: 15.92 ARG
+            - generic [ref=e3794]: 1d ago
+            - link "0xeB18..663E" [ref=e3796] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xbc621c2c81bdedaaca96ad3ffc3a0c4c2ae3e4fd7018e1dfb331c93ff69a9f0c
+            - generic [ref=e3797]: "1.6"
+          - generic [ref=e3798]:
+            - generic [ref=e3799]: BUY
+            - generic [ref=e3800]: "9.9577"
+            - generic [ref=e3801]: "0.50"
+            - generic [ref=e3802]: 4.95 ARG
+            - generic [ref=e3803]: 1d ago
+            - link "0x8269..4E71" [ref=e3805] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x4bfaff371db8ebc6f89f0f852bed00608ac862b2abf676e282c05d66a6b392e3
+            - generic [ref=e3806]: "7.6"
+          - generic [ref=e3807]:
+            - generic [ref=e3808]: BUY
+            - generic [ref=e3809]: "9.9178"
+            - generic [ref=e3810]: "0.15"
+            - generic [ref=e3811]: 1.50 ARG
+            - generic [ref=e3812]: 1d ago
+            - link "0xBfbA..447b" [ref=e3814] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x01e6231f779c437f074419c66d67760f1f5f6ea8e46757447c83c9a225d2f09b
+            - generic [ref=e3815]: "0.1"
+          - generic [ref=e3816]:
+            - generic [ref=e3817]: BUY
+            - generic [ref=e3818]: "9.5991"
+            - generic [ref=e3819]: "5.22"
+            - generic [ref=e3820]: 50.06 ARG
+            - generic [ref=e3821]: 1d ago
+            - link "0xEcfC..9539" [ref=e3823] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x416818cda7ecf031f341f891219cb941e9a059fd04e322b8fdc86922da85d8c1
+            - generic [ref=e3824]: "5.2"
+          - generic [ref=e3825]:
+            - generic [ref=e3826]: BUY
+            - generic [ref=e3827]: "9.1436"
+            - generic [ref=e3828]: "2.84"
+            - generic [ref=e3829]: 26.00 ARG
+            - generic [ref=e3830]: 1d ago
+            - link "0x92bc..04e2" [ref=e3832] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xbc95b540bb9cb281af0e29634139e6890049dd3bfefa3e6dee87dd254eaa6d6d
+            - generic [ref=e3833]: "12.2"
+          - generic [ref=e3834]:
+            - generic [ref=e3835]: BUY
+            - generic [ref=e3836]: "8.9614"
+            - generic [ref=e3837]: "0.55"
+            - generic [ref=e3838]: 4.95 ARG
+            - generic [ref=e3839]: 1d ago
+            - link "0x28E7..bBfD" [ref=e3841] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x66cf727042ff6a109586e36b8af8a80b0dee25add459ed077fad4da9714c639b
+            - generic [ref=e3842]: "16.3"
+          - generic [ref=e3843]:
+            - generic [ref=e3844]: BUY
+            - generic [ref=e3845]: "8.7856"
+            - generic [ref=e3846]: "2.85"
+            - generic [ref=e3847]: 25.00 ARG
+            - generic [ref=e3848]: 1d ago
+            - link "0x92bc..04e2" [ref=e3850] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x1db79df0b76254f07e8fbb481f266a569eb6e7b24676f1abc159226aff42973b
+            - generic [ref=e3851]: "12.2"
+          - generic [ref=e3852]:
+            - generic [ref=e3853]: SELL
+            - generic [ref=e3854]: "8.7089"
+            - generic [ref=e3855]: "18.10"
+            - generic [ref=e3856]: 157.67 ARG
+            - generic [ref=e3857]: 1d ago
+            - link "0xfC46..8A0f" [ref=e3859] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x67c2ca0e0b8c3f75c48fb9d106e58b9d23b4eb2bd4ce2ae55773211a9af57d3d
+            - generic [ref=e3860]: "0"
+          - generic [ref=e3861]:
+            - generic [ref=e3862]: BUY
+            - generic [ref=e3863]: "10.7081"
+            - generic [ref=e3864]: "0.98"
+            - generic [ref=e3865]: 10.52 ARG
+            - generic [ref=e3866]: 1d ago
+            - link "0xA8Ec..e9Ac" [ref=e3868] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x0e0e2f257cdc7301daec20b1922eed1c0de9ef83d918eca443b30fc7d13396fb
+            - generic [ref=e3869]: "2.0"
+          - generic [ref=e3870]:
+            - generic [ref=e3871]: BUY
+            - generic [ref=e3872]: "10.6023"
+            - generic [ref=e3873]: "0.57"
+            - generic [ref=e3874]: 6.00 ARG
+            - generic [ref=e3875]: 1d ago
+            - link "0xA390..B592" [ref=e3877] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x8bb66b53946e370402c4ff1a45e69418ca15126da26acef5abfa9159e8f9fef6
+            - generic [ref=e3878]: "0.6"
+          - generic [ref=e3879]:
+            - generic [ref=e3880]: SELL
+            - generic [ref=e3881]: "9.5473"
+            - generic [ref=e3882]: "0.22"
+            - generic [ref=e3883]: 2.07 ARG
+            - generic [ref=e3884]: 1d ago
+            - link "0x9A81..01Be" [ref=e3886] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x9af4f9c1302649d22a905a9a4e887ecda834b36167697bb2953db89777688cff
+            - generic [ref=e3887]: "0.2"
+          - generic [ref=e3888]:
+            - generic [ref=e3889]: BUY
+            - generic [ref=e3890]: "10.5586"
+            - generic [ref=e3891]: "0.52"
+            - generic [ref=e3892]: 5.45 ARG
+            - generic [ref=e3893]: 1d ago
+            - link "0xDe52..3984" [ref=e3895] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x175e0b70acdf1d3621db40eb91d89005607b4c2599893628ae31135a072eb129
+            - generic [ref=e3896]: "0.5"
+          - generic [ref=e3897]:
+            - generic [ref=e3898]: BUY
+            - generic [ref=e3899]: "10.4458"
+            - generic [ref=e3900]: "1.17"
+            - generic [ref=e3901]: 12.26 ARG
+            - generic [ref=e3902]: 1d ago
+            - link "0x4b5c..2226" [ref=e3904] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x0a234a53c3dbd77b83cfa03bca735b5a0b1cedf2c539ea1be0a1dfb5b1db8a76
+            - generic [ref=e3905]: "0"
+          - generic [ref=e3906]:
+            - generic [ref=e3907]: SELL
+            - generic [ref=e3908]: "9.4169"
+            - generic [ref=e3909]: "1.00"
+            - generic [ref=e3910]: 9.42 ARG
+            - generic [ref=e3911]: 1d ago
+            - link "0x8DCd..7ac8" [ref=e3913] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x3674434ea5a40562d6688f0bd5909f62f226bfaa95d72131bd9298a6147073c9
+            - generic [ref=e3914]: "2.0"
+          - generic [ref=e3915]:
+            - generic [ref=e3916]: SELL
+            - generic [ref=e3917]: "9.5637"
+            - generic [ref=e3918]: "1.43"
+            - generic [ref=e3919]: 13.66 ARG
+            - generic [ref=e3920]: 1d ago
+            - link "0x8DCd..7ac8" [ref=e3922] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x3bd875c69d943ca5eb63739116074cfb9f1a22208b0f7fe8d8b1cd38c906d509
+            - generic [ref=e3923]: "2.0"
+          - generic [ref=e3924]:
+            - generic [ref=e3925]: BUY
+            - generic [ref=e3926]: "10.6830"
+            - generic [ref=e3927]: "0.16"
+            - generic [ref=e3928]: 1.72 ARG
+            - generic [ref=e3929]: 1d ago
+            - link "0x60fb..744A" [ref=e3931] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xb76baaae37c1c434de5984059dce8b3bf10f5cd9cddece8f179ac1edc20d1d9d
+            - generic [ref=e3932]: "1.1"
+          - generic [ref=e3933]:
+            - generic [ref=e3934]: BUY
+            - generic [ref=e3935]: "10.6596"
+            - generic [ref=e3936]: "0.18"
+            - generic [ref=e3937]: 1.93 ARG
+            - generic [ref=e3938]: 1d ago
+            - link "0x60fb..744A" [ref=e3940] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xa04cfee9c0f3e66c6d22f394122376fb16e2a8d10576cf1abbea2c96570ad205
+            - generic [ref=e3941]: "1.1"
+          - generic [ref=e3942]:
+            - generic [ref=e3943]: BUY
+            - generic [ref=e3944]: "10.3325"
+            - generic [ref=e3945]: "4.75"
+            - generic [ref=e3946]: 49.11 ARG
+            - generic [ref=e3947]: 1d ago
+            - link "0xfC46..8A0f" [ref=e3949] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x75fddeaa43afe3c2a667a3023907c27c8b18a7cddeb15d0a7b017dea58a92bf9
+            - generic [ref=e3950]: "0"
+          - generic [ref=e3951]:
+            - generic [ref=e3952]: BUY
+            - generic [ref=e3953]: "9.8152"
+            - generic [ref=e3954]: "3.47"
+            - generic [ref=e3955]: 34.08 ARG
+            - generic [ref=e3956]: 1d ago
+            - link "0xfC46..8A0f" [ref=e3958] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x01716a1c3cf5e61b9151ae4e0ae252d8194c0121f9a3aaa766b25ac3733992d9
+            - generic [ref=e3959]: "0"
+          - generic [ref=e3960]:
+            - generic [ref=e3961]: BUY
+            - generic [ref=e3962]: "9.5251"
+            - generic [ref=e3963]: "1.43"
+            - generic [ref=e3964]: 13.58 ARG
+            - generic [ref=e3965]: 1d ago
+            - link "0xB986..1002" [ref=e3967] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xb35b57b2625d288efe748e595273267fbbab2967dcb1d6c9aef27af1424954f4
+            - generic [ref=e3968]: "0"
+          - generic [ref=e3969]:
+            - generic [ref=e3970]: SELL
+            - generic [ref=e3971]: "9.4094"
+            - generic [ref=e3972]: "15.62"
+            - generic [ref=e3973]: 146.97 ARG
+            - generic [ref=e3974]: 1d ago
+            - link "0x048e..cEF5" [ref=e3976] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x2b2d90d794c7f2cac0ad29784f455d5c2a8276f1cb96a22ed7d7d6a7225ec233
+            - generic [ref=e3977]: "0"
+          - generic [ref=e3978]:
+            - generic [ref=e3979]: SELL
+            - generic [ref=e3980]: "12.0433"
+            - generic [ref=e3981]: "20.62"
+            - generic [ref=e3982]: 248.37 ARG
+            - generic [ref=e3983]: 1d ago
+            - link "0x4b5c..2226" [ref=e3985] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x3ae83db7af73d6d49ec0792503d62ace3c04e41dfefefb49145d625856140f3f
+            - generic [ref=e3986]: "0"
+          - generic [ref=e3987]:
+            - generic [ref=e3988]: BUY
+            - generic [ref=e3989]: "15.4439"
+            - generic [ref=e3990]: "0.22"
+            - generic [ref=e3991]: 3.36 ARG
+            - generic [ref=e3992]: 2d ago
+            - link "0x60fb..744A" [ref=e3994] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x1e72796de03a262de6dbd46028dc689b7eddf3d78d3032c982228eb2db943fd1
+            - generic [ref=e3995]: "1.1"
+          - generic [ref=e3996]:
+            - generic [ref=e3997]: BUY
+            - generic [ref=e3998]: "15.1945"
+            - generic [ref=e3999]: "1.91"
+            - generic [ref=e4000]: 29.00 ARG
+            - generic [ref=e4001]: 2d ago
+            - link "0x048e..cEF5" [ref=e4003] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x779d8b05597d9748845d0a86b5caae3ad56fc3fffae40126723d63612329fd5c
+            - generic [ref=e4004]: "0"
+          - generic [ref=e4005]:
+            - generic [ref=e4006]: BUY
+            - generic [ref=e4007]: "14.8222"
+            - generic [ref=e4008]: "1.35"
+            - generic [ref=e4009]: 19.99 ARG
+            - generic [ref=e4010]: 2d ago
+            - link "0xAf61..5F3a" [ref=e4012] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xb76394429b1e67a4ef377bc76326b410d2d226ac82711b9ed02fee44db307a77
+            - generic [ref=e4013]: "0"
+          - generic [ref=e4014]:
+            - generic [ref=e4015]: BUY
+            - generic [ref=e4016]: "14.5623"
+            - generic [ref=e4017]: "1.00"
+            - generic [ref=e4018]: 14.56 ARG
+            - generic [ref=e4019]: 2d ago
+            - link "0x76c5..56ce" [ref=e4021] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x507663a2818aadfc52e81a6f4f9bda3685a6dbdc02c51f8d47cab9fba6815b22
+            - generic [ref=e4022]: "1.0"
+          - generic [ref=e4023]:
+            - generic [ref=e4024]: BUY
+            - generic [ref=e4025]: "13.8200"
+            - generic [ref=e4026]: "6.14"
+            - generic [ref=e4027]: 84.88 ARG
+            - generic [ref=e4028]: 2d ago
+            - link "0x34d3..969c" [ref=e4030] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x512aee0f783900a6c1fae51f90bff64b4867193f230a91bbf564d3d515e2ee6e
+            - generic [ref=e4031]: "6.1"
+          - generic [ref=e4032]:
+            - generic [ref=e4033]: SELL
+            - generic [ref=e4034]: "12.0115"
+            - generic [ref=e4035]: "1.00"
+            - generic [ref=e4036]: 12.01 ARG
+            - generic [ref=e4037]: 2d ago
+            - link "0x36d4..bd7E" [ref=e4039] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x8aa032bb5c548e618e07c70aa02e38ea45afca3cb0310b53bf966dc55e6400e2
+            - generic [ref=e4040]: "0"
+          - generic [ref=e4041]:
+            - generic [ref=e4042]: BUY
+            - generic [ref=e4043]: "13.3900"
+            - generic [ref=e4044]: "0.15"
+            - generic [ref=e4045]: 2.06 ARG
+            - generic [ref=e4046]: 2d ago
+            - link "0xd8fB..2143" [ref=e4048] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x9bd05bde7e427e1432191e31521cada6d418b855bd31406a3e3345f3c1bed1db
+            - generic [ref=e4049]: "0.1"
+          - generic [ref=e4050]:
+            - generic [ref=e4051]: SELL
+            - generic [ref=e4052]: "12.5160"
+            - generic [ref=e4053]: "4.95"
+            - generic [ref=e4054]: 61.96 ARG
+            - generic [ref=e4055]: 2d ago
+            - link "0xCc8c..39d7" [ref=e4057] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xd5dec6e8823e80f1e135927093d79c1cc54b4e06ddd3e823b39725cf8446e178
+            - generic [ref=e4058]: "7.7"
+          - generic [ref=e4059]:
+            - generic [ref=e4060]: SELL
+            - generic [ref=e4061]: "13.0132"
+            - generic [ref=e4062]: "0.37"
+            - generic [ref=e4063]: 4.81 ARG
+            - generic [ref=e4064]: 2d ago
+            - link "0x4050..8a5a" [ref=e4066] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x293305799328a0aef2c055a40edc0cd57276584f9b5cf7ba468b6823fbd2b82d
+            - generic [ref=e4067]: "0"
+          - generic [ref=e4068]:
+            - generic [ref=e4069]: BUY
+            - generic [ref=e4070]: "14.2752"
+            - generic [ref=e4071]: "1.72"
+            - generic [ref=e4072]: 24.60 ARG
+            - generic [ref=e4073]: 2d ago
+            - link "0xB0D2..84DD" [ref=e4075] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x74b98b9d0b0e99d367d753ddfc33a967c5e21ff34f483da7913f210a531876c0
+            - generic [ref=e4076]: "1.7"
+          - generic [ref=e4077]:
+            - generic [ref=e4078]: BUY
+            - generic [ref=e4079]: "14.0678"
+            - generic [ref=e4080]: "0.25"
+            - generic [ref=e4081]: 3.54 ARG
+            - generic [ref=e4082]: 2d ago
+            - link "0xC6C1..D00B" [ref=e4084] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xc732326592679c85404c17e8a025e9e8e55c0add181fcd5eb9aa45c6dd5930e9
+            - generic [ref=e4085]: "1.0"
+          - generic [ref=e4086]:
+            - generic [ref=e4087]: SELL
+            - generic [ref=e4088]: "13.7338"
+            - generic [ref=e4089]: "10.50"
+            - generic [ref=e4090]: 144.20 ARG
+            - generic [ref=e4091]: 2d ago
+            - link "0x0082..5287" [ref=e4093] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x0db524920562ae0148c758551ba31fc6242d68356577d0c7b85ad03ae23c2194
+            - generic [ref=e4094]: "0.1"
+          - generic [ref=e4095]:
+            - generic [ref=e4096]: BUY
+            - generic [ref=e4097]: "16.2364"
+            - generic [ref=e4098]: "1.97"
+            - generic [ref=e4099]: 32.00 ARG
+            - generic [ref=e4100]: 2d ago
+            - link "0x8269..4E71" [ref=e4102] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xfb832db2a54287d5ea0553d727b99a3272f3be2c0382f48c784334000dbff32d
+            - generic [ref=e4103]: "7.6"
+          - generic [ref=e4104]:
+            - generic [ref=e4105]: SELL
+            - generic [ref=e4106]: "14.5408"
+            - generic [ref=e4107]: "1.00"
+            - generic [ref=e4108]: 14.54 ARG
+            - generic [ref=e4109]: 2d ago
+            - link "0xDA92..813c" [ref=e4111] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xa8af2fc085ba9e164fec9af212a4a329907448484422d9bba150f4cef648d4cf
+            - generic [ref=e4112]: "0"
+          - generic [ref=e4113]:
+            - generic [ref=e4114]: BUY
+            - generic [ref=e4115]: "15.6062"
+            - generic [ref=e4116]: "5.13"
+            - generic [ref=e4117]: 80.00 ARG
+            - generic [ref=e4118]: 2d ago
+            - link "0x8269..4E71" [ref=e4120] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x5318373609f7b99185b2bbeceeabdf28b2db3ea57ab29700c31a060618d7a5f4
+            - generic [ref=e4121]: "7.6"
+          - generic [ref=e4122]:
+            - generic [ref=e4123]: BUY
+            - generic [ref=e4124]: "14.9843"
+            - generic [ref=e4125]: "0.12"
+            - generic [ref=e4126]: 1.77 ARG
+            - generic [ref=e4127]: 2d ago
+            - link "0x505f..568E" [ref=e4129] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x3073efda3f6f3d4485a618697460ce86fd0786892dd0a704f731b1a33b365877
+            - generic [ref=e4130]: "0.1"
+          - generic [ref=e4131]:
+            - generic [ref=e4132]: SELL
+            - generic [ref=e4133]: "13.5317"
+            - generic [ref=e4134]: "0.20"
+            - generic [ref=e4135]: 2.70 ARG
+            - generic [ref=e4136]: 2d ago
+            - link "0xCAB2..7f66" [ref=e4138] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x1201a5e9f0bc42ae177cdcccd55ee486fb11a7548652bb174ea32e754cf80349
+            - generic [ref=e4139]: "0"
+          - generic [ref=e4140]:
+            - generic [ref=e4141]: BUY
+            - generic [ref=e4142]: "14.9915"
+            - generic [ref=e4143]: "0.22"
+            - generic [ref=e4144]: 3.26 ARG
+            - generic [ref=e4145]: 2d ago
+            - link "0x9A81..01Be" [ref=e4147] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x4369ab8b0b2d905874ce7e69ceac37e2f528c7808ec5bbe25ac31a1553653abe
+            - generic [ref=e4148]: "0.2"
+          - generic [ref=e4149]:
+            - generic [ref=e4150]: BUY
+            - generic [ref=e4151]: "14.3810"
+            - generic [ref=e4152]: "5.36"
+            - generic [ref=e4153]: 77.10 ARG
+            - generic [ref=e4154]: 2d ago
+            - link "0xA7D7..845B" [ref=e4156] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x861174c445dc0a7df77357188749d66ce912b7c83873239f538ab55dcb1b49fa
+            - generic [ref=e4157]: "5.4"
+          - generic [ref=e4158]:
+            - generic [ref=e4159]: BUY
+            - generic [ref=e4160]: "13.7161"
+            - generic [ref=e4161]: "1.02"
+            - generic [ref=e4162]: 14.00 ARG
+            - generic [ref=e4163]: 2d ago
+            - link "0x5288..13A2" [ref=e4165] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xd6411356018863ddbda5c4d859d5514fe9d803c3a3078c1e97216055ce22c593
+            - generic [ref=e4166]: "1.0"
+          - generic [ref=e4167]:
+            - generic [ref=e4168]: BUY
+            - generic [ref=e4169]: "13.5060"
+            - generic [ref=e4170]: "1.11"
+            - generic [ref=e4171]: 14.99 ARG
+            - generic [ref=e4172]: 2d ago
+            - link "0x0c99..44De" [ref=e4174] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x70f0f1798620a3bf0b6991599f4556a707ddf4b59f4f5e6a0de72294d81e6c8b
+            - generic [ref=e4175]: "1.1"
+          - generic [ref=e4176]:
+            - generic [ref=e4177]: BUY
+            - generic [ref=e4178]: "13.2402"
+            - generic [ref=e4179]: "1.66"
+            - generic [ref=e4180]: 22.00 ARG
+            - generic [ref=e4181]: 2d ago
+            - link "0x28E7..bBfD" [ref=e4183] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xc1a105459872087b0e7247557670bb21d40cac617e12e733e471bab477096d68
+            - generic [ref=e4184]: "16.3"
+          - generic [ref=e4185]:
+            - generic [ref=e4186]: SELL
+            - generic [ref=e4187]: "12.7670"
+            - generic [ref=e4188]: "10.57"
+            - generic [ref=e4189]: 134.98 ARG
+            - generic [ref=e4190]: 2d ago
+            - link "0x6fE2..6C2e" [ref=e4192] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x612dd1210d63f407ca5a03c8d6fea98e0bd6c4f1b9071b2b4ca65270e8ab0987
+            - generic [ref=e4193]: "0"
+          - generic [ref=e4194]:
+            - generic [ref=e4195]: BUY
+            - generic [ref=e4196]: "14.1462"
+            - generic [ref=e4197]: "10.57"
+            - generic [ref=e4198]: 149.56 ARG
+            - generic [ref=e4199]: 2d ago
+            - link "0x6fE2..6C2e" [ref=e4201] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x5f75bdde3e9c0243857ae6ab6a72c27c6f3f90b6dffb091e88825221784d75bd
+            - generic [ref=e4202]: "0"
+          - generic [ref=e4203]:
+            - generic [ref=e4204]: BUY
+            - generic [ref=e4205]: "13.0166"
+            - generic [ref=e4206]: "0.73"
+            - generic [ref=e4207]: 9.47 ARG
+            - generic [ref=e4208]: 2d ago
+            - link "0xE48D..1706" [ref=e4210] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x3a8403ce3750645a6978b1b5570ef67b071abbe7e31b46afbe6c011b30959046
+            - generic [ref=e4211]: "17.1"
+          - generic [ref=e4212]:
+            - generic [ref=e4213]: BUY
+            - generic [ref=e4214]: "12.5234"
+            - generic [ref=e4215]: "4.82"
+            - generic [ref=e4216]: 60.33 ARG
+            - generic [ref=e4217]: 2d ago
+            - link "0x55e1..dE46" [ref=e4219] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x1bf5167f7049efdde3c6a5761e21dbd24c1cfd576b0fc340cb45ef210c258207
+            - generic [ref=e4220]: "18.1"
+          - generic [ref=e4221]:
+            - generic [ref=e4222]: BUY
+            - generic [ref=e4223]: "12.0243"
+            - generic [ref=e4224]: "1.06"
+            - generic [ref=e4225]: 12.70 ARG
+            - generic [ref=e4226]: 2d ago
+            - link "0xB986..1002" [ref=e4228] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x384c7a98d12323a6cd694ea124db0f22018b7ccbf941ac8f608ee8c1848f0bf0
+            - generic [ref=e4229]: "0"
+          - generic [ref=e4230]:
+            - generic [ref=e4231]: SELL
+            - generic [ref=e4232]: "12.4225"
+            - generic [ref=e4233]: "19.56"
+            - generic [ref=e4234]: 242.94 ARG
+            - generic [ref=e4235]: 2d ago
+            - link "0x6817..9f82" [ref=e4237] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x9af7c22af4b06b5af833c822444bb49abb9e0d2e65ce9e766c319ba55fd37977
+            - generic [ref=e4238]: "0"
+          - generic [ref=e4239]:
+            - generic [ref=e4240]: BUY
+            - generic [ref=e4241]: "15.8554"
+            - generic [ref=e4242]: "0.12"
+            - generic [ref=e4243]: 1.90 ARG
+            - generic [ref=e4244]: 2d ago
+            - link "0x048e..cEF5" [ref=e4246] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x3bf2ab9227d8223b9749aca763c148a2eac08876dadae7076e9891a37dee1085
+            - generic [ref=e4247]: "0"
+          - generic [ref=e4248]:
+            - generic [ref=e4249]: BUY
+            - generic [ref=e4250]: "15.5905"
+            - generic [ref=e4251]: "2.05"
+            - generic [ref=e4252]: 32.00 ARG
+            - generic [ref=e4253]: 2d ago
+            - link "0x8D47..b123" [ref=e4255] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xf5b28132272337187f1e87eb4c2f04d4d293988fa2efdf76e0fd5937a3a1aea1
+            - generic [ref=e4256]: "6.9"
+          - generic [ref=e4257]:
+            - generic [ref=e4258]: BUY
+            - generic [ref=e4259]: "15.2259"
+            - generic [ref=e4260]: "1.01"
+            - generic [ref=e4261]: 15.40 ARG
+            - generic [ref=e4262]: 2d ago
+            - link "0x9824..7770" [ref=e4264] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x80c0e959e28450901d168244301f64540646e74318df76b5c6c6b9168798f977
+            - generic [ref=e4265]: "2.0"
+          - generic [ref=e4266]:
+            - generic [ref=e4267]: BUY
+            - generic [ref=e4268]: "14.9938"
+            - generic [ref=e4269]: "1.00"
+            - generic [ref=e4270]: 15.00 ARG
+            - generic [ref=e4271]: 2d ago
+            - link "0x9824..7770" [ref=e4273] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x10fbd6f25b2a0e5c62f8c2015167ac0153bbc510a4ed05ca25dfcbfc841b862b
+            - generic [ref=e4274]: "2.0"
+          - generic [ref=e4275]:
+            - generic [ref=e4276]: BUY
+            - generic [ref=e4277]: "13.2405"
+            - generic [ref=e4278]: "16.35"
+            - generic [ref=e4279]: 216.47 ARG
+            - generic [ref=e4280]: 2d ago
+            - link "0xE48D..1706" [ref=e4282] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xa9ce88a479869d01f8b76d195b34ef2bbe3458c016da3850f58bffe3a897c582
+            - generic [ref=e4283]: "17.1"
+          - generic [ref=e4284]:
+            - generic [ref=e4285]: BUY
+            - generic [ref=e4286]: "11.7349"
+            - generic [ref=e4287]: "0.59"
+            - generic [ref=e4288]: 6.90 ARG
+            - generic [ref=e4289]: 2d ago
+            - link "0x8D47..b123" [ref=e4291] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x26122a88b2b1e77272b66d5b635acbc036e0f22a400d74398a8eb8fa3cfb1fa7
+            - generic [ref=e4292]: "6.9"
+          - generic [ref=e4293]:
+            - generic [ref=e4294]: BUY
+            - generic [ref=e4295]: "11.5820"
+            - generic [ref=e4296]: "1.37"
+            - generic [ref=e4297]: 15.88 ARG
+            - generic [ref=e4298]: 2d ago
+            - link "0x8D47..b123" [ref=e4300] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xb1e014a49278bf770dae6f6ff4a8c47705f2992876dd5676bf92e00f5dd32ddd
+            - generic [ref=e4301]: "6.9"
+          - generic [ref=e4302]:
+            - generic [ref=e4303]: BUY
+            - generic [ref=e4304]: "11.3998"
+            - generic [ref=e4305]: "1.01"
+            - generic [ref=e4306]: 11.50 ARG
+            - generic [ref=e4307]: 2d ago
+            - link "0xed6c..f437" [ref=e4309] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x9ba9a4ab6b9e3cf29b2601fb70cc00166c7f61e26d3404ccc33a75fe6c858676
+            - generic [ref=e4310]: "1.0"
+          - generic [ref=e4311]:
+            - generic [ref=e4312]: BUY
+            - generic [ref=e4313]: "11.2793"
+            - generic [ref=e4314]: "0.60"
+            - generic [ref=e4315]: 6.75 ARG
+            - generic [ref=e4316]: 2d ago
+            - link "0x4b5c..2226" [ref=e4318] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x75be0a6deac1393de33b1df88c7770ca0eb5d93dfb47e5c96f3a978718c0aef8
+            - generic [ref=e4319]: "0"
+          - generic [ref=e4320]:
+            - generic [ref=e4321]: BUY
+            - generic [ref=e4322]: "11.0282"
+            - generic [ref=e4323]: "2.85"
+            - generic [ref=e4324]: 31.40 ARG
+            - generic [ref=e4325]: 2d ago
+            - link "0xfC46..8A0f" [ref=e4327] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xaac40a294a35dbf17cdb758e0fe9d8748dfe3762e54688f34e29f2a2330f71f4
+            - generic [ref=e4328]: "0"
+          - generic [ref=e4329]:
+            - generic [ref=e4330]: BUY
+            - generic [ref=e4331]: "10.7012"
+            - generic [ref=e4332]: "1.79"
+            - generic [ref=e4333]: 19.20 ARG
+            - generic [ref=e4334]: 2d ago
+            - link "0xfC46..8A0f" [ref=e4336] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x01c55873ffb6cfbda8ebd154bce16781cf4e5df03e3f8ec318a467f41e6bc895
+            - generic [ref=e4337]: "0"
+          - generic [ref=e4338]:
+            - generic [ref=e4339]: SELL
+            - generic [ref=e4340]: "10.0558"
+            - generic [ref=e4341]: "7.92"
+            - generic [ref=e4342]: 79.64 ARG
+            - generic [ref=e4343]: 2d ago
+            - link "0x687d..99EE" [ref=e4345] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xce9bf0f78397a8efa0f1e6386e46136c44436a848ca1aa7cb46cba78e862b138
+            - generic [ref=e4346]: "0"
+          - generic [ref=e4347]:
+            - generic [ref=e4348]: BUY
+            - generic [ref=e4349]: "11.7249"
+            - generic [ref=e4350]: "0.14"
+            - generic [ref=e4351]: 1.62 ARG
+            - generic [ref=e4352]: 2d ago
+            - link "0x048e..cEF5" [ref=e4354] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x199d6b1e2deee0f293cf38e5c2fb04dcb89dcff93d0ea31719240f1e56c2415f
+            - generic [ref=e4355]: "0"
+          - generic [ref=e4356]:
+            - generic [ref=e4357]: SELL
+            - generic [ref=e4358]: "10.7894"
+            - generic [ref=e4359]: "3.00"
+            - generic [ref=e4360]: 32.37 ARG
+            - generic [ref=e4361]: 2d ago
+            - link "0x6fE2..6C2e" [ref=e4363] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xa5f648beb9e848363cfac4e7d017faa973af05f100d7df32628a5a5a563fbf7c
+            - generic [ref=e4364]: "0"
+          - generic [ref=e4365]:
+            - generic [ref=e4366]: SELL
+            - generic [ref=e4367]: "11.2004"
+            - generic [ref=e4368]: "2.46"
+            - generic [ref=e4369]: 27.55 ARG
+            - generic [ref=e4370]: 2d ago
+            - link "0xE5e4..805f" [ref=e4372] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x7e18150a8feb42f377f46186afb8ba8d0fe9ea65ae01282596b1c7823f266f19
+            - generic [ref=e4373]: "0"
+          - generic [ref=e4374]:
+            - generic [ref=e4375]: SELL
+            - generic [ref=e4376]: "11.4099"
+            - generic [ref=e4377]: "0.22"
+            - generic [ref=e4378]: 2.48 ARG
+            - generic [ref=e4379]: 2d ago
+            - link "0x8471..877e" [ref=e4381] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xdd7de5a972bd87006727f63c64cc1c5563d2741300868ae0e337110cc240c943
+            - generic [ref=e4382]: "0"
+          - generic [ref=e4383]:
+            - generic [ref=e4384]: BUY
+            - generic [ref=e4385]: "12.6320"
+            - generic [ref=e4386]: "0.34"
+            - generic [ref=e4387]: 4.25 ARG
+            - generic [ref=e4388]: 2d ago
+            - link "0x048e..cEF5" [ref=e4390] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x61fd95f934916e053174fe6b14d90f3a921124ed6b7cd64b3c77d57e58bf3d5b
+            - generic [ref=e4391]: "0"
+          - generic [ref=e4392]:
+            - generic [ref=e4393]: BUY
+            - generic [ref=e4394]: "12.5222"
+            - generic [ref=e4395]: "0.92"
+            - generic [ref=e4396]: 11.51 ARG
+            - generic [ref=e4397]: 2d ago
+            - link "0xf6DE..88a1" [ref=e4399] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x7b7101af9c2defe23353da92b6505faaeccbd7b1c167637da8fc444a5caf5108
+            - generic [ref=e4400]: "0.9"
+          - generic [ref=e4401]:
+            - generic [ref=e4402]: BUY
+            - generic [ref=e4403]: "11.7090"
+            - generic [ref=e4404]: "9.04"
+            - generic [ref=e4405]: 105.90 ARG
+            - generic [ref=e4406]: 2d ago
+            - link "0x28E7..bBfD" [ref=e4408] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xb8259a26a09ebb288501fbc53ceaf03c2b99419995b0a15bfa4d067f3847ef0d
+            - generic [ref=e4409]: "16.3"
+          - generic [ref=e4410]:
+            - generic [ref=e4411]: BUY
+            - generic [ref=e4412]: "10.5954"
+            - generic [ref=e4413]: "6.13"
+            - generic [ref=e4414]: 64.94 ARG
+            - generic [ref=e4415]: 2d ago
+            - link "0x407C..5e24" [ref=e4417] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xa084fa0c7f749e2c9430314231a8718b1d8dad626ab1aedc598ed520687bf891
+            - generic [ref=e4418]: "6.7"
+          - generic [ref=e4419]:
+            - generic [ref=e4420]: BUY
+            - generic [ref=e4421]: "10.1654"
+            - generic [ref=e4422]: "0.36"
+            - generic [ref=e4423]: 3.67 ARG
+            - generic [ref=e4424]: 2d ago
+            - link "0x60fb..744A" [ref=e4426] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x26207d873744abb6e704b19f3c3ea4bacbbea38b6fed5ffcba75ad97e3ec96a6
+            - generic [ref=e4427]: "1.1"
+          - generic [ref=e4428]:
+            - generic [ref=e4429]: BUY
+            - generic [ref=e4430]: "10.1344"
+            - generic [ref=e4431]: "0.13"
+            - generic [ref=e4432]: 1.28 ARG
+            - generic [ref=e4433]: 2d ago
+            - link "0x8b0e..64B3" [ref=e4435] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x28d2601dfb8c2aec408ead267db7f595bcae22ac79882ed28b9381da300be2be
+            - generic [ref=e4436]: "0.3"
+          - generic [ref=e4437]:
+            - generic [ref=e4438]: SELL
+            - generic [ref=e4439]: "9.1605"
+            - generic [ref=e4440]: "0.37"
+            - generic [ref=e4441]: 3.42 ARG
+            - generic [ref=e4442]: 2d ago
+            - link "0x4050..8a5a" [ref=e4444] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xfecbd091344514ebb9bb3ef36b65e6dc6a53a53fe09d210913942c901f7dfbcc
+            - generic [ref=e4445]: "0"
+          - generic [ref=e4446]:
+            - generic [ref=e4447]: SELL
+            - generic [ref=e4448]: "9.1963"
+            - generic [ref=e4449]: "0.25"
+            - generic [ref=e4450]: 2.29 ARG
+            - generic [ref=e4451]: 2d ago
+            - link "0x4050..8a5a" [ref=e4453] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x87b9d800e187ae427ece0caa00a6fe27146824f109593bac8bc6675eaed1c420
+            - generic [ref=e4454]: "0"
+          - generic [ref=e4455]:
+            - generic [ref=e4456]: BUY
+            - generic [ref=e4457]: "10.0831"
+            - generic [ref=e4458]: "1.94"
+            - generic [ref=e4459]: 19.54 ARG
+            - generic [ref=e4460]: 2d ago
+            - link "0xfC46..8A0f" [ref=e4462] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x1cd13e0837c87388090c2c0af5e87ef8bebb0f9bbea41435f91f81e0af39e302
+            - generic [ref=e4463]: "0"
+          - generic [ref=e4464]:
+            - generic [ref=e4465]: BUY
+            - generic [ref=e4466]: "9.8850"
+            - generic [ref=e4467]: "1.26"
+            - generic [ref=e4468]: 12.42 ARG
+            - generic [ref=e4469]: 2d ago
+            - link "0xB986..1002" [ref=e4471] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xc38167ab30d8ee126fcd3ec6401aee8c4a05fd5a394d53a7135ad55bc04a6573
+            - generic [ref=e4472]: "0"
+          - generic [ref=e4473]:
+            - generic [ref=e4474]: BUY
+            - generic [ref=e4475]: "9.8021"
+            - generic [ref=e4476]: "0.11"
+            - generic [ref=e4477]: 1.07 ARG
+            - generic [ref=e4478]: 2d ago
+            - link "0x97FE..12fC" [ref=e4480] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x992d870ebff75dfe1f53982205b19d7f9411985a94a932bce8b49e9b7f1e3007
+            - generic [ref=e4481]: "0.1"
+          - generic [ref=e4482]:
+            - generic [ref=e4483]: SELL
+            - generic [ref=e4484]: "9.1215"
+            - generic [ref=e4485]: "5.01"
+            - generic [ref=e4486]: 45.73 ARG
+            - generic [ref=e4487]: 2d ago
+            - link "0x6c0B..fcb9" [ref=e4489] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xf2fecb190392b164d0d2d8183923d66f85fb2e68b12f488cf88cf8e700f48594
+            - generic [ref=e4490]: "0"
+          - generic [ref=e4491]:
+            - generic [ref=e4492]: SELL
+            - generic [ref=e4493]: "9.7630"
+            - generic [ref=e4494]: "5.68"
+            - generic [ref=e4495]: 55.45 ARG
+            - generic [ref=e4496]: 2d ago
+            - link "0x6c0B..fcb9" [ref=e4498] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x1da0ca00e8af519a4bf59c1388f5cb989319ff27857ff5fc225944ec07f7560a
+            - generic [ref=e4499]: "0"
+          - generic [ref=e4500]:
+            - generic [ref=e4501]: BUY
+            - generic [ref=e4502]: "10.5641"
+            - generic [ref=e4503]: "9.47"
+            - generic [ref=e4504]: 100.00 ARG
+            - generic [ref=e4505]: 2d ago
+            - link "0xdf26..550B" [ref=e4507] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xfa161d831bf068bf884d03cd1d740fe0037916f07294eb3fd1533bdc41dbb9b7
+            - generic [ref=e4508]: "52.1"
+          - generic [ref=e4509]:
+            - generic [ref=e4510]: SELL
+            - generic [ref=e4511]: "9.0680"
+            - generic [ref=e4512]: "1.65"
+            - generic [ref=e4513]: 14.98 ARG
+            - generic [ref=e4514]: 2d ago
+            - link "0x12b6..0cc0" [ref=e4516] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x0b8c99c88b800922cd2f5a9aca3c0c176ee072cfb10b13e04a39288558170f98
+            - generic [ref=e4517]: "5.6"
+          - generic [ref=e4518]:
+            - generic [ref=e4519]: SELL
+            - generic [ref=e4520]: "9.5088"
+            - generic [ref=e4521]: "5.83"
+            - generic [ref=e4522]: 55.47 ARG
+            - generic [ref=e4523]: 2d ago
+            - link "0x6c0B..fcb9" [ref=e4525] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xc68a43e347035ee04d952f0df5bc3765d8d762bd6a16aec4f7ba42989c2f2ee1
+            - generic [ref=e4526]: "0"
+          - generic [ref=e4527]:
+            - generic [ref=e4528]: BUY
+            - generic [ref=e4529]: "10.2858"
+            - generic [ref=e4530]: "9.72"
+            - generic [ref=e4531]: 100.00 ARG
+            - generic [ref=e4532]: 2d ago
+            - link "0xdf26..550B" [ref=e4534] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xd52253f0a9335de5c89fefd892ee95ddfa28d190605b0c627185f69f0737aa2b
+            - generic [ref=e4535]: "52.1"
+          - generic [ref=e4536]:
+            - generic [ref=e4537]: SELL
+            - generic [ref=e4538]: "8.7619"
+            - generic [ref=e4539]: "0.57"
+            - generic [ref=e4540]: 4.95 ARG
+            - generic [ref=e4541]: 2d ago
+            - link "0x6c0B..fcb9" [ref=e4543] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xbc2f3944d04d37cc435fb09ec3d6d1cb8c8cf7800d0ea9223140cf007931355e
+            - generic [ref=e4544]: "0"
+          - generic [ref=e4545]:
+            - generic [ref=e4546]: BUY
+            - generic [ref=e4547]: "9.6862"
+            - generic [ref=e4548]: "0.94"
+            - generic [ref=e4549]: 9.13 ARG
+            - generic [ref=e4550]: 2d ago
+            - link "0xB986..1002" [ref=e4552] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x928817c859ab54db5860ccc64c36b91ee695a9365438fe21234ab07e82448583
+            - generic [ref=e4553]: "0"
+          - generic [ref=e4554]:
+            - generic [ref=e4555]: SELL
+            - generic [ref=e4556]: "8.7247"
+            - generic [ref=e4557]: "0.62"
+            - generic [ref=e4558]: 5.43 ARG
+            - generic [ref=e4559]: 2d ago
+            - link "0x6c0B..fcb9" [ref=e4561] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xbd27929d70ace00ef9443c826e06109a52354a096c0c75cbcbc23519974a223c
+            - generic [ref=e4562]: "0"
+          - generic [ref=e4563]:
+            - generic [ref=e4564]: BUY
+            - generic [ref=e4565]: "9.6429"
+            - generic [ref=e4566]: "1.04"
+            - generic [ref=e4567]: 10.00 ARG
+            - generic [ref=e4568]: 2d ago
+            - link "0xfC46..8A0f" [ref=e4570] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x73f6adc73ac91e220492ab505c60c4c9e39105d590863cf05bba9d7041b8e683
+            - generic [ref=e4571]: "0"
+          - generic [ref=e4572]:
+            - generic [ref=e4573]: SELL
+            - generic [ref=e4574]: "8.8085"
+            - generic [ref=e4575]: "3.00"
+            - generic [ref=e4576]: 26.43 ARG
+            - generic [ref=e4577]: 2d ago
+            - link "0x6c0B..fcb9" [ref=e4579] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x815c43f6b04bcbc2d8f379cc94440c13a0ea27613bb191dc13704547ea739fd3
+            - generic [ref=e4580]: "0"
+          - generic [ref=e4581]:
+            - generic [ref=e4582]: SELL
+            - generic [ref=e4583]: "9.1419"
+            - generic [ref=e4584]: "3.00"
+            - generic [ref=e4585]: 27.43 ARG
+            - generic [ref=e4586]: 2d ago
+            - link "0x6c0B..fcb9" [ref=e4588] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x9177028594b4c64bdc644eaf4fc47d8c8914014302bdc0375c9dca856f5e12a8
+            - generic [ref=e4589]: "0"
+          - generic [ref=e4590]:
+            - generic [ref=e4591]: SELL
+            - generic [ref=e4592]: "9.4946"
+            - generic [ref=e4593]: "3.00"
+            - generic [ref=e4594]: 28.48 ARG
+            - generic [ref=e4595]: 2d ago
+            - link "0x6c0B..fcb9" [ref=e4597] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xd8b417e92f2c08047f47dcc80b526948b17bb93f4cc156e1cf1fea0dd6937492
+            - generic [ref=e4598]: "0"
+          - generic [ref=e4599]:
+            - generic [ref=e4600]: SELL
+            - generic [ref=e4601]: "9.8681"
+            - generic [ref=e4602]: "3.00"
+            - generic [ref=e4603]: 29.60 ARG
+            - generic [ref=e4604]: 2d ago
+            - link "0x6c0B..fcb9" [ref=e4606] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x62eac3625f3ffc59f7d57024fd7ebb4b5bd50e0013d7b807b3549d89070dac68
+            - generic [ref=e4607]: "0"
+          - generic [ref=e4608]:
+            - generic [ref=e4609]: SELL
+            - generic [ref=e4610]: "10.2641"
+            - generic [ref=e4611]: "3.00"
+            - generic [ref=e4612]: 30.79 ARG
+            - generic [ref=e4613]: 2d ago
+            - link "0x6c0B..fcb9" [ref=e4615] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x80d1c6700b1050a349a0355e6c642856654dc8a085c8ed7674a410e3539901f1
+            - generic [ref=e4616]: "0"
+          - generic [ref=e4617]:
+            - generic [ref=e4618]: SELL
+            - generic [ref=e4619]: "10.6844"
+            - generic [ref=e4620]: "3.00"
+            - generic [ref=e4621]: 32.05 ARG
+            - generic [ref=e4622]: 2d ago
+            - link "0x6c0B..fcb9" [ref=e4624] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xb793586ccb644ffd2ea6361a193614b195e9b78c725feabacae513fc1c75ad64
+            - generic [ref=e4625]: "0"
+          - generic [ref=e4626]:
+            - generic [ref=e4627]: SELL
+            - generic [ref=e4628]: "11.0990"
+            - generic [ref=e4629]: "2.58"
+            - generic [ref=e4630]: 28.68 ARG
+            - generic [ref=e4631]: 2d ago
+            - link "0xEcfC..9539" [ref=e4633] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x75ae16eb2b29ffacefaf8c48ac6c38ea54fa248e55d654befbf33ca19b05f507
+            - generic [ref=e4634]: "5.2"
+          - generic [ref=e4635]:
+            - generic [ref=e4636]: SELL
+            - generic [ref=e4637]: "11.5048"
+            - generic [ref=e4638]: "2.58"
+            - generic [ref=e4639]: 29.73 ARG
+            - generic [ref=e4640]: 2d ago
+            - link "0xEcfC..9539" [ref=e4642] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x399dfa8eaf06df207fcd2dffcda7e5c1ad323fd6f169b22933e8b3eb5634544c
+            - generic [ref=e4643]: "5.2"
+          - generic [ref=e4644]:
+            - generic [ref=e4645]: SELL
+            - generic [ref=e4646]: "11.7986"
+            - generic [ref=e4647]: "1.00"
+            - generic [ref=e4648]: 11.80 ARG
+            - generic [ref=e4649]: 2d ago
+            - link "0x97C7..eAC1" [ref=e4651] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x5127cd5a8197f1fa98c1c16fc39fb84e06eda2af31ee1e3f6d8e3e7484f1924f
+            - generic [ref=e4652]: "2.0"
+          - generic [ref=e4653]:
+            - generic [ref=e4654]: BUY
+            - generic [ref=e4655]: "13.0951"
+            - generic [ref=e4656]: "0.76"
+            - generic [ref=e4657]: 10.00 ARG
+            - generic [ref=e4658]: 2d ago
+            - link "0xfC46..8A0f" [ref=e4660] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x2507cc3b225014665142e3c96a8421da01c0c30aa8bf899f7aeb13fb41993d1b
+            - generic [ref=e4661]: "0"
+          - generic [ref=e4662]:
+            - generic [ref=e4663]: SELL
+            - generic [ref=e4664]: "12.1862"
+            - generic [ref=e4665]: "5.00"
+            - generic [ref=e4666]: 60.93 ARG
+            - generic [ref=e4667]: 2d ago
+            - link "0x6c0B..fcb9" [ref=e4669] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x6298df3d4f8112fd7f368c93c721966bd8efc42b129f105c1011d5e91a259292
+            - generic [ref=e4670]: "0"
+          - generic [ref=e4671]:
+            - generic [ref=e4672]: SELL
+            - generic [ref=e4673]: "12.8223"
+            - generic [ref=e4674]: "2.00"
+            - generic [ref=e4675]: 25.64 ARG
+            - generic [ref=e4676]: 2d ago
+            - link "0x6c0B..fcb9" [ref=e4678] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x5d0b0da6a770c65392f0224144d718e6768948c2cd227dd5afd5bfa6c5d145a2
+            - generic [ref=e4679]: "0"
+          - generic [ref=e4680]:
+            - generic [ref=e4681]: SELL
+            - generic [ref=e4682]: "13.2886"
+            - generic [ref=e4683]: "2.78"
+            - generic [ref=e4684]: 36.90 ARG
+            - generic [ref=e4685]: 2d ago
+            - link "0xB986..1002" [ref=e4687] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x8c2c6e20f25a55420beb799edc8fba25d83adb844ac1b874b6bd7d8a0d933785
+            - generic [ref=e4688]: "0"
+          - generic [ref=e4689]:
+            - generic [ref=e4690]: SELL
+            - generic [ref=e4691]: "13.8173"
+            - generic [ref=e4692]: "2.35"
+            - generic [ref=e4693]: 32.54 ARG
+            - generic [ref=e4694]: 2d ago
+            - link "0x909D..10Cf" [ref=e4696] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x8e3a3fb4e7021cf7d3b5d7a9b617cc8d13b672b383cb7b2687cc3062b73594a8
+            - generic [ref=e4697]: "0"
+          - generic [ref=e4698]:
+            - generic [ref=e4699]: SELL
+            - generic [ref=e4700]: "14.6403"
+            - generic [ref=e4701]: "5.03"
+            - generic [ref=e4702]: 73.61 ARG
+            - generic [ref=e4703]: 2d ago
+            - link "0x7953..35AA" [ref=e4705] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x792f2dd55b8d6e3c9b8a9ff712a57bf7cd43d30c3c493f59b33596138f3c69c6
+            - generic [ref=e4706]: "0"
+          - generic [ref=e4707]:
+            - generic [ref=e4708]: BUY
+            - generic [ref=e4709]: "16.6783"
+            - generic [ref=e4710]: "1.50"
+            - generic [ref=e4711]: 25.00 ARG
+            - generic [ref=e4712]: 2d ago
+            - link "0xfC46..8A0f" [ref=e4714] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x605b7785b6b5a243f96c69028ec4f243ad7b570d746ddd71323dba20aa8f56ed
+            - generic [ref=e4715]: "0"
+          - generic [ref=e4716]:
+            - generic [ref=e4717]: SELL
+            - generic [ref=e4718]: "15.4932"
+            - generic [ref=e4719]: "5.03"
+            - generic [ref=e4720]: 77.90 ARG
+            - generic [ref=e4721]: 2d ago
+            - link "0x7953..35AA" [ref=e4723] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x80a36d5103db130c37a080673d29b654a5f75ba823dfc44ac3a7a9ecf63f3262
+            - generic [ref=e4724]: "0"
+          - generic [ref=e4725]:
+            - generic [ref=e4726]: BUY
+            - generic [ref=e4727]: "17.2278"
+            - generic [ref=e4728]: "4.59"
+            - generic [ref=e4729]: 79.00 ARG
+            - generic [ref=e4730]: 2d ago
+            - link "0x501E..4d4C" [ref=e4732] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xcba95dccdace5945cc481ae9c658e95ca31f280e00917d9c2985ded4868fb2ad
+            - generic [ref=e4733]: "10.1"
+          - generic [ref=e4734]:
+            - generic [ref=e4735]: SELL
+            - generic [ref=e4736]: "15.0983"
+            - generic [ref=e4737]: "1.00"
+            - generic [ref=e4738]: 15.08 ARG
+            - generic [ref=e4739]: 2d ago
+            - link "0x08f0..43c7" [ref=e4741] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xe71f9f35299bbe50a0d7f480fe2eafa8180666cd6a4237467f1f1ecd08ba45e7
+            - generic [ref=e4742]: "0"
+          - generic [ref=e4743]:
+            - generic [ref=e4744]: BUY
+            - generic [ref=e4745]: "16.8400"
+            - generic [ref=e4746]: "0.18"
+            - generic [ref=e4747]: 3.00 ARG
+            - generic [ref=e4748]: 2d ago
+            - link "0x3D1E..1722" [ref=e4750] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xdd30691b15977749244f4535e87275145e122563f29cac86a2c2ec30fb3b924a
+            - generic [ref=e4751]: "0.2"
+          - generic [ref=e4752]:
+            - generic [ref=e4753]: SELL
+            - generic [ref=e4754]: "15.1764"
+            - generic [ref=e4755]: "0.00"
+            - generic [ref=e4756]: 0.01 ARG
+            - generic [ref=e4757]: 2d ago
+            - link "0x5388..431F" [ref=e4759] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xe1518ba53ee01e8be08c9c7d758cb3db2bfd4bbcb4c69a439e17123ff33ee9a3
+            - generic [ref=e4760]: "0"
+          - generic [ref=e4761]:
+            - generic [ref=e4762]: BUY
+            - generic [ref=e4763]: "16.3817"
+            - generic [ref=e4764]: "3.29"
+            - generic [ref=e4765]: 53.95 ARG
+            - generic [ref=e4766]: 2d ago
+            - link "0x55e1..dE46" [ref=e4768] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x5c2b67c5920ad801fbf0fa3861c53c5be1c8e15ff92aab85e3ea2c910313d192
+            - generic [ref=e4769]: "18.1"
+          - generic [ref=e4770]:
+            - generic [ref=e4771]: SELL
+            - generic [ref=e4772]: "14.5164"
+            - generic [ref=e4773]: "1.00"
+            - generic [ref=e4774]: 14.52 ARG
+            - generic [ref=e4775]: 2d ago
+            - link "0x6c0B..fcb9" [ref=e4777] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x3a561c8c8d6e28114bf49e2741f19b4f13dbddfc24ec74b61d8846bff564bd85
+            - generic [ref=e4778]: "0"
+          - generic [ref=e4779]:
+            - generic [ref=e4780]: BUY
+            - generic [ref=e4781]: "16.1672"
+            - generic [ref=e4782]: "0.35"
+            - generic [ref=e4783]: 5.64 ARG
+            - generic [ref=e4784]: 2d ago
+            - link "0xE5e4..805f" [ref=e4786] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xb47a2e992d7b4ec2edc0d0db2ef4902ce3cdac287a6c5128b3e71f291ded8a56
+            - generic [ref=e4787]: "0"
+          - generic [ref=e4788]:
+            - generic [ref=e4789]: BUY
+            - generic [ref=e4790]: "16.1149"
+            - generic [ref=e4791]: "0.06"
+            - generic [ref=e4792]: 1.00 ARG
+            - generic [ref=e4793]: 2d ago
+            - link "0xe9ab..1FF0" [ref=e4795] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xd5c6cab1b012b93fcf205872f67bc143f192bef144a099e51edb9acb4b0e4c4c
+            - generic [ref=e4796]: "1.0"
+          - generic [ref=e4797]:
+            - generic [ref=e4798]: BUY
+            - generic [ref=e4799]: "15.9533"
+            - generic [ref=e4800]: "1.22"
+            - generic [ref=e4801]: 19.50 ARG
+            - generic [ref=e4802]: 2d ago
+            - link "0x048e..cEF5" [ref=e4804] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x1481d924e68fbc431bec746356732959ab077209c16662c07fb4c569ebb51aef
+            - generic [ref=e4805]: "0"
+          - generic [ref=e4806]:
+            - generic [ref=e4807]: BUY
+            - generic [ref=e4808]: "15.7970"
+            - generic [ref=e4809]: "0.03"
+            - generic [ref=e4810]: 0.52 ARG
+            - generic [ref=e4811]: 2d ago
+            - link "0x666a..62De" [ref=e4813] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xa9521b1648031d88f5e86830fe490f61c9448b7c4276d49935e2bdbb63512404
+            - generic [ref=e4814]: "0.0"
+          - generic [ref=e4815]:
+            - generic [ref=e4816]: BUY
+            - generic [ref=e4817]: "15.6759"
+            - generic [ref=e4818]: "0.96"
+            - generic [ref=e4819]: 15.00 ARG
+            - generic [ref=e4820]: 2d ago
+            - link "0xe9ab..1FF0" [ref=e4822] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x4a9fc4546f6b17b1334e41b401f2b6bf9d2c9cc8689d38860093624a70bdefe1
+            - generic [ref=e4823]: "1.0"
+          - generic [ref=e4824]:
+            - generic [ref=e4825]: BUY
+            - generic [ref=e4826]: "15.5487"
+            - generic [ref=e4827]: "0.09"
+            - generic [ref=e4828]: 1.41 ARG
+            - generic [ref=e4829]: 2d ago
+            - link "0x60fb..744A" [ref=e4831] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xcc0d4fa7f5199314664b1ca097d300b58d84c0a50b708a39cfb14b1583075023
+            - generic [ref=e4832]: "1.1"
+          - generic [ref=e4833]:
+            - generic [ref=e4834]: SELL
+            - generic [ref=e4835]: "14.1328"
+            - generic [ref=e4836]: "1.00"
+            - generic [ref=e4837]: 14.20 ARG
+            - generic [ref=e4838]: 2d ago
+            - link "0x51AC..20a8" [ref=e4840] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x59b266061284caf6063ac2c6ee0d14dd0dae9764c62a6a2ff9e5ee896b18d335
+            - generic [ref=e4841]: "0"
+          - generic [ref=e4842]:
+            - generic [ref=e4843]: SELL
+            - generic [ref=e4844]: "14.3556"
+            - generic [ref=e4845]: "1.00"
+            - generic [ref=e4846]: 14.36 ARG
+            - generic [ref=e4847]: 2d ago
+            - link "0xCa41..3529" [ref=e4849] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xbdc3554e02576b34ee2c551617843712dcd251c25468f802b76c58bbbe97882e
+            - generic [ref=e4850]: "0"
+          - generic [ref=e4851]:
+            - generic [ref=e4852]: BUY
+            - generic [ref=e4853]: "15.9057"
+            - generic [ref=e4854]: "1.01"
+            - generic [ref=e4855]: 16.00 ARG
+            - generic [ref=e4856]: 2d ago
+            - link "0xA8Ec..e9Ac" [ref=e4858] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xb75d6442d1322f98507371b71b0a01bc80cf5463a29270eb8820cd6a36c0ccb1
+            - generic [ref=e4859]: "2.0"
+          - generic [ref=e4860]:
+            - generic [ref=e4861]: BUY
+            - generic [ref=e4862]: "15.7154"
+            - generic [ref=e4863]: "0.53"
+            - generic [ref=e4864]: 8.40 ARG
+            - generic [ref=e4865]: 2d ago
+            - link "0x407C..5e24" [ref=e4867] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x89270cb3767ec4ba1a890f4f8052882188d63513a434289159dcbc697c927eb7
+            - generic [ref=e4868]: "6.7"
+          - generic [ref=e4869]:
+            - generic [ref=e4870]: BUY
+            - generic [ref=e4871]: "15.6440"
+            - generic [ref=e4872]: "0.05"
+            - generic [ref=e4873]: 0.78 ARG
+            - generic [ref=e4874]: 2d ago
+            - link "0x8DCd..7ac8" [ref=e4876] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xf5776a644f2088836bf7b0c15a82627d0657ab0e08e4d882e65cae9cf6d69133
+            - generic [ref=e4877]: "2.0"
+          - generic [ref=e4878]:
+            - generic [ref=e4879]: BUY
+            - generic [ref=e4880]: "15.4865"
+            - generic [ref=e4881]: "1.26"
+            - generic [ref=e4882]: 19.50 ARG
+            - generic [ref=e4883]: 2d ago
+            - link "0x42Fe..7408" [ref=e4885] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x120ec74b498554aad968cf8d8e76a34c3585c95183a80c4a33fcbfd453a403fd
+            - generic [ref=e4886]: "1.3"
+          - generic [ref=e4887]:
+            - generic [ref=e4888]: SELL
+            - generic [ref=e4889]: "13.8596"
+            - generic [ref=e4890]: "0.17"
+            - generic [ref=e4891]: 2.39 ARG
+            - generic [ref=e4892]: 2d ago
+            - link "0xF052..8Ee6" [ref=e4894] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x765123e920556c064a0f41ded2118db187efebf02b7ad0d9004e18624d19211c
+            - generic [ref=e4895]: "0"
+          - generic [ref=e4896]:
+            - generic [ref=e4897]: SELL
+            - generic [ref=e4898]: "13.8780"
+            - generic [ref=e4899]: "0.00"
+            - generic [ref=e4900]: 0.01 ARG
+            - generic [ref=e4901]: 2d ago
+            - link "0x5388..431F" [ref=e4903] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x3daf2215829d7304e5dc49acc2b310e077704264b939920e23c712fa053a8bda
+            - generic [ref=e4904]: "0"
+          - generic [ref=e4905]:
+            - generic [ref=e4906]: SELL
+            - generic [ref=e4907]: "13.8782"
+            - generic [ref=e4908]: "0.00"
+            - generic [ref=e4909]: 0.01 ARG
+            - generic [ref=e4910]: 2d ago
+            - link "0x5388..431F" [ref=e4912] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x8c64fa8011cd540d248cba5d7697e08847001f4886849d43a5eb66f184514bf9
+            - generic [ref=e4913]: "0"
+          - generic [ref=e4914]:
+            - generic [ref=e4915]: SELL
+            - generic [ref=e4916]: "13.8783"
+            - generic [ref=e4917]: "0.00"
+            - generic [ref=e4918]: 0.01 ARG
+            - generic [ref=e4919]: 2d ago
+            - link "0x3675..1278" [ref=e4921] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xfb1f63d71e3b32899d33b632a123500ba12a5c3c7e8b0bdfe8c1ae7adb502c30
+            - generic [ref=e4922]: "0"
+          - generic [ref=e4923]:
+            - generic [ref=e4924]: SELL
+            - generic [ref=e4925]: "13.8785"
+            - generic [ref=e4926]: "0.00"
+            - generic [ref=e4927]: 0.01 ARG
+            - generic [ref=e4928]: 2d ago
+            - link "0x5388..431F" [ref=e4930] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x530f0ac578b50a1046d5118032a411178f9c8fa0abbb5aa86adb3c9ebf63d600
+            - generic [ref=e4931]: "0"
+          - generic [ref=e4932]:
+            - generic [ref=e4933]: BUY
+            - generic [ref=e4934]: "14.9929"
+            - generic [ref=e4935]: "3.33"
+            - generic [ref=e4936]: 50.00 ARG
+            - generic [ref=e4937]: 2d ago
+            - link "0x28E7..bBfD" [ref=e4939] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x27b6e37fde65cf045c713888383a3179aab9ebdee8ac76af497e361be72f1dfb
+            - generic [ref=e4940]: "16.3"
+          - generic [ref=e4941]:
+            - generic [ref=e4942]: SELL
+            - generic [ref=e4943]: "13.2107"
+            - generic [ref=e4944]: "0.19"
+            - generic [ref=e4945]: 2.45 ARG
+            - generic [ref=e4946]: 2d ago
+            - link "0x0926..1e16" [ref=e4948] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x5f63471324a258f09943e3615acb44eb2a5a41ea8e15149891a8c5d19e5785b9
+            - generic [ref=e4949]: "0.2"
+          - generic [ref=e4950]:
+            - generic [ref=e4951]: BUY
+            - generic [ref=e4952]: "14.6344"
+            - generic [ref=e4953]: "0.22"
+            - generic [ref=e4954]: 3.18 ARG
+            - generic [ref=e4955]: 2d ago
+            - link "0x8471..877e" [ref=e4957] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x8c5da811db7d2444d88e7b2160aa8872b982b42909e40489978c637e3dd8dcca
+            - generic [ref=e4958]: "0"
+          - generic [ref=e4959]:
+            - generic [ref=e4960]: SELL
+            - generic [ref=e4961]: "13.2857"
+            - generic [ref=e4962]: "1.00"
+            - generic [ref=e4963]: 13.29 ARG
+            - generic [ref=e4964]: 2d ago
+            - link "0xAf61..5F3a" [ref=e4966] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x490a9b8bf563143f5876aa8a937edca06a35977312a64a005145417089f27a25
+            - generic [ref=e4967]: "0"
+          - generic [ref=e4968]:
+            - generic [ref=e4969]: BUY
+            - generic [ref=e4970]: "14.0761"
+            - generic [ref=e4971]: "7.10"
+            - generic [ref=e4972]: 100.00 ARG
+            - generic [ref=e4973]: 2d ago
+            - link "0xdf26..550B" [ref=e4975] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x5f414b8171a0591723904461ece311512a83b56fa6e1b6af962452c02b58c469
+            - generic [ref=e4976]: "52.1"
+          - generic [ref=e4977]:
+            - generic [ref=e4978]: SELL
+            - generic [ref=e4979]: "12.0612"
+            - generic [ref=e4980]: "0.06"
+            - generic [ref=e4981]: 0.74 ARG
+            - generic [ref=e4982]: 2d ago
+            - link "0x0896..08Fa" [ref=e4984] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x12b57ba26902a6f5f43c808597ffe626943f3c02add05e34d5f4c4fd1c365426
+            - generic [ref=e4985]: "0"
+          - generic [ref=e4986]:
+            - generic [ref=e4987]: BUY
+            - generic [ref=e4988]: "13.2404"
+            - generic [ref=e4989]: "1.36"
+            - generic [ref=e4990]: 18.07 ARG
+            - generic [ref=e4991]: 2d ago
+            - link "0x5EF1..ED7f" [ref=e4993] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x11d89f1b60a5ec74c01bbf5decf78c40f161c7321d25089c0a4ea96baac25edd
+            - generic [ref=e4994]: "1.4"
+          - generic [ref=e4995]:
+            - generic [ref=e4996]: BUY
+            - generic [ref=e4997]: "13.1100"
+            - generic [ref=e4998]: "0.02"
+            - generic [ref=e4999]: 0.26 ARG
+            - generic [ref=e5000]: 2d ago
+            - link "0x0896..08Fa" [ref=e5002] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xce19ba0720f3cb6b1bb069be1fc604f966fdf184eee80e215a362efacddd245d
+            - generic [ref=e5003]: "0"
+          - generic [ref=e5004]:
+            - generic [ref=e5005]: BUY
+            - generic [ref=e5006]: "13.0219"
+            - generic [ref=e5007]: "0.93"
+            - generic [ref=e5008]: 12.14 ARG
+            - generic [ref=e5009]: 2d ago
+            - link "0xB986..1002" [ref=e5011] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x71e6dcb99f0ecef3dab71d4a1cbaf9b4c9bd3b8f87d49f7f198110e1d2d3f9e7
+            - generic [ref=e5012]: "0"
+          - generic [ref=e5013]:
+            - generic [ref=e5014]: BUY
+            - generic [ref=e5015]: "12.2299"
+            - generic [ref=e5016]: "8.18"
+            - generic [ref=e5017]: 100.00 ARG
+            - generic [ref=e5018]: 2d ago
+            - link "0x6d57..3700" [ref=e5020] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xb8f2204aba180cd601d99b0eea6e0f66d2359456c88192c6ec645abfba88ac47
+            - generic [ref=e5021]: "71.2"
+          - generic [ref=e5022]:
+            - generic [ref=e5023]: BUY
+            - generic [ref=e5024]: "10.2268"
+            - generic [ref=e5025]: "19.56"
+            - generic [ref=e5026]: 200.00 ARG
+            - generic [ref=e5027]: 2d ago
+            - link "0x6817..9f82" [ref=e5029] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x0963b5a89bb52b4eeed6dfc1b6c0f7d0e5b9932ee32b46193491e072e9f62871
+            - generic [ref=e5030]: "0"
+          - generic [ref=e5031]:
+            - generic [ref=e5032]: SELL
+            - generic [ref=e5033]: "10.9740"
+            - generic [ref=e5034]: "43.36"
+            - generic [ref=e5035]: 475.86 ARG
+            - generic [ref=e5036]: 2d ago
+            - link "0x6817..9f82" [ref=e5038] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x85dfbf67c115af0b9fb1f7412fe0febcc9c532ac3889f03ea8598601a06728fd
+            - generic [ref=e5039]: "0"
+          - generic [ref=e5040]:
+            - generic [ref=e5041]: SELL
+            - generic [ref=e5042]: "15.0129"
+            - generic [ref=e5043]: "2.19"
+            - generic [ref=e5044]: 32.88 ARG
+            - generic [ref=e5045]: 2d ago
+            - link "0x55e1..dE46" [ref=e5047] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x878aded46ff443c3f3df925cbd8192ea5da9dfde035669012e6de5394c3dc636
+            - generic [ref=e5048]: "18.1"
+          - generic [ref=e5049]:
+            - generic [ref=e5050]: SELL
+            - generic [ref=e5051]: "15.5295"
+            - generic [ref=e5052]: "2.00"
+            - generic [ref=e5053]: 31.06 ARG
+            - generic [ref=e5054]: 2d ago
+            - link "0xAf61..5F3a" [ref=e5056] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xd1a35ea42a4ae9449fe4a83f16508f60a97e93c018d1ae67fc9ef30ff4a61628
+            - generic [ref=e5057]: "0"
+          - generic [ref=e5058]:
+            - generic [ref=e5059]: SELL
+            - generic [ref=e5060]: "16.1832"
+            - generic [ref=e5061]: "3.00"
+            - generic [ref=e5062]: 48.55 ARG
+            - generic [ref=e5063]: 2d ago
+            - link "0xB986..1002" [ref=e5065] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xd657ca990fd7a4178a24007a1a800f748a1bffba1fb1a4a41f3561849b8a493c
+            - generic [ref=e5066]: "0"
+          - generic [ref=e5067]:
+            - generic [ref=e5068]: BUY
+            - generic [ref=e5069]: "18.2936"
+            - generic [ref=e5070]: "0.59"
+            - generic [ref=e5071]: 10.80 ARG
+            - generic [ref=e5072]: 2d ago
+            - link "0x4d40..c08D" [ref=e5074] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x9ab9c634c6ae0b3ba685398b2c593c7dafe96b69eabbdfea90845c1f2dc49a5e
+            - generic [ref=e5075]: "2.4"
+          - generic [ref=e5076]:
+            - generic [ref=e5077]: BUY
+            - generic [ref=e5078]: "18.1125"
+            - generic [ref=e5079]: "0.60"
+            - generic [ref=e5080]: 10.81 ARG
+            - generic [ref=e5081]: 2d ago
+            - link "0x4d40..c08D" [ref=e5083] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x157f437801e9e6667bb6597ae88586b473431ab35887679433f929b0f32ae925
+            - generic [ref=e5084]: "2.4"
+          - generic [ref=e5085]:
+            - generic [ref=e5086]: BUY
+            - generic [ref=e5087]: "17.8422"
+            - generic [ref=e5088]: "1.21"
+            - generic [ref=e5089]: 21.62 ARG
+            - generic [ref=e5090]: 2d ago
+            - link "0x4d40..c08D" [ref=e5092] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x5a8f43827bde1fbfff93436177a2413de1f1b4837c29ed1cc010ca0f77f4b4da
+            - generic [ref=e5093]: "2.4"
+          - generic [ref=e5094]:
+            - generic [ref=e5095]: BUY
+            - generic [ref=e5096]: "17.5988"
+            - generic [ref=e5097]: "0.45"
+            - generic [ref=e5098]: 7.86 ARG
+            - generic [ref=e5099]: 2d ago
+            - link "0x18a2..f09F" [ref=e5101] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x91a0c4576194b2a26b6951ec79dcd6b3527e929c36700d921472275ad7599d28
+            - generic [ref=e5102]: "1.1"
+          - generic [ref=e5103]:
+            - generic [ref=e5104]: BUY
+            - generic [ref=e5105]: "17.5194"
+            - generic [ref=e5106]: "0.10"
+            - generic [ref=e5107]: 1.80 ARG
+            - generic [ref=e5108]: 2d ago
+            - link "0x60fb..744A" [ref=e5110] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x499248e83f9db00d7f5bfb9e5e24bff9eed266bafa1626f336346e91b684aa33
+            - generic [ref=e5111]: "1.1"
+          - generic [ref=e5112]:
+            - generic [ref=e5113]: BUY
+            - generic [ref=e5114]: "17.3567"
+            - generic [ref=e5115]: "1.04"
+            - generic [ref=e5116]: 18.00 ARG
+            - generic [ref=e5117]: 2d ago
+            - link "0x1fB5..F8ff" [ref=e5119] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xa76abc643be6a49d2717d4e81ad2b8a8e54f746a589a1350c7bff9fdac22c674
+            - generic [ref=e5120]: "1.0"
+          - generic [ref=e5121]:
+            - generic [ref=e5122]: BUY
+            - generic [ref=e5123]: "17.2079"
+            - generic [ref=e5124]: "0.02"
+            - generic [ref=e5125]: 0.26 ARG
+            - generic [ref=e5126]: 2d ago
+            - link "0x8DCd..7ac8" [ref=e5128] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x7000408e2a7771651f424c9d8b6299c3f784e3faf37e58a9cf0581f6fcf3840b
+            - generic [ref=e5129]: "2.0"
+          - generic [ref=e5130]:
+            - generic [ref=e5131]: BUY
+            - generic [ref=e5132]: "17.1335"
+            - generic [ref=e5133]: "0.52"
+            - generic [ref=e5134]: 8.88 ARG
+            - generic [ref=e5135]: 2d ago
+            - link "0x18a2..f09F" [ref=e5137] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x8712f44199b3e48c79f0c9430becd33fc3b7838b3f2489f7dd6e236dae85daca
+            - generic [ref=e5138]: "1.1"
+          - generic [ref=e5139]:
+            - generic [ref=e5140]: BUY
+            - generic [ref=e5141]: "16.8296"
+            - generic [ref=e5142]: "1.70"
+            - generic [ref=e5143]: 28.58 ARG
+            - generic [ref=e5144]: 2d ago
+            - link "0x28E7..bBfD" [ref=e5146] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x8f428e9a92b93f0c45c0b5688a842000eb12f18e037a27403fa1b436deb24b22
+            - generic [ref=e5147]: "16.3"
+          - generic [ref=e5148]:
+            - generic [ref=e5149]: BUY
+            - generic [ref=e5150]: "16.6008"
+            - generic [ref=e5151]: "0.00"
+            - generic [ref=e5152]: 0.01 ARG
+            - generic [ref=e5153]: 2d ago
+            - link "0x5388..431F" [ref=e5155] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x022a4803b7c74086976c16de1e07e405db10115595f7c21ae8bbd60133b14e0c
+            - generic [ref=e5156]: "0"
+          - generic [ref=e5157]:
+            - generic [ref=e5158]: BUY
+            - generic [ref=e5159]: "16.3207"
+            - generic [ref=e5160]: "2.14"
+            - generic [ref=e5161]: 35.00 ARG
+            - generic [ref=e5162]: 2d ago
+            - link "0x7953..35AA" [ref=e5164] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xb642a36b093ba29628b055b06a6fbd8f03def198ba38cfb912a482c92c9c9159
+            - generic [ref=e5165]: "0"
+          - generic [ref=e5166]:
+            - generic [ref=e5167]: BUY
+            - generic [ref=e5168]: "15.7098"
+            - generic [ref=e5169]: "2.72"
+            - generic [ref=e5170]: 42.67 ARG
+            - generic [ref=e5171]: 2d ago
+            - link "0x4943..117b" [ref=e5173] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x91b4ec3cfeee965b4d559633f61e4fc121795c0472bec61ec138a4f69c7ba52a
+            - generic [ref=e5174]: "2.7"
+          - generic [ref=e5175]:
+            - generic [ref=e5176]: BUY
+            - generic [ref=e5177]: "15.0578"
+            - generic [ref=e5178]: "2.79"
+            - generic [ref=e5179]: 42.00 ARG
+            - generic [ref=e5180]: 2d ago
+            - link "0x7953..35AA" [ref=e5182] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xa31f2ee2f5f01d1f4e30f0c25df684779c7b37fc9a2627b1324a00d9292baa20
+            - generic [ref=e5183]: "0"
+          - generic [ref=e5184]:
+            - generic [ref=e5185]: BUY
+            - generic [ref=e5186]: "14.6753"
+            - generic [ref=e5187]: "0.60"
+            - generic [ref=e5188]: 8.73 ARG
+            - generic [ref=e5189]: 2d ago
+            - link "0xCf95..67b4" [ref=e5191] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xdbc0fe9c69fce3c4c63e139b2fc5f798f8c3e0cfe8c45d4973e79d2ed712439f
+            - generic [ref=e5192]: "0"
+          - generic [ref=e5193]:
+            - generic [ref=e5194]: BUY
+            - generic [ref=e5195]: "14.6022"
+            - generic [ref=e5196]: "0.07"
+            - generic [ref=e5197]: 1.00 ARG
+            - generic [ref=e5198]: 2d ago
+            - link "0xa650..2F81" [ref=e5200] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x24eea27c4308c4bdf8c5b3825f6d2bea789c2010918f2d43bfed2a90b19dff26
+            - generic [ref=e5201]: "0.1"
+          - generic [ref=e5202]:
+            - generic [ref=e5203]: BUY
+            - generic [ref=e5204]: "14.5821"
+            - generic [ref=e5205]: "0.12"
+            - generic [ref=e5206]: 1.68 ARG
+            - generic [ref=e5207]: 2d ago
+            - link "0x0926..1e16" [ref=e5209] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x67eb64bccfdcfa2ff0a4f91917bbb121acd367381e4e635fbbc7a2a41e993dfd
+            - generic [ref=e5210]: "0.2"
+          - generic [ref=e5211]:
+            - generic [ref=e5212]: BUY
+            - generic [ref=e5213]: "14.5587"
+            - generic [ref=e5214]: "0.10"
+            - generic [ref=e5215]: 1.45 ARG
+            - generic [ref=e5216]: 2d ago
+            - link "0x97C7..eAC1" [ref=e5218] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x1ac9f11b2ce5a8100488aae9d837a5845431c3fe16a54fcef309a1bd8a6970fa
+            - generic [ref=e5219]: "2.0"
+          - generic [ref=e5220]:
+            - generic [ref=e5221]: BUY
+            - generic [ref=e5222]: "14.4392"
+            - generic [ref=e5223]: "1.00"
+            - generic [ref=e5224]: 14.50 ARG
+            - generic [ref=e5225]: 2d ago
+            - link "0x0133..5322" [ref=e5227] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xc614b824b4311f6dab2e68172cf0e1c60ac133692ebd4b2d8ca88d9e44af5c04
+            - generic [ref=e5228]: "1.0"
+          - generic [ref=e5229]:
+            - generic [ref=e5230]: SELL
+            - generic [ref=e5231]: "12.9389"
+            - generic [ref=e5232]: "0.05"
+            - generic [ref=e5233]: 0.65 ARG
+            - generic [ref=e5234]: 2d ago
+            - link "0x7109..eBA3" [ref=e5236] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x7a061ed25e37694244da4c719c7af1af27200703650611430d81c1187368d949
+            - generic [ref=e5237]: "0.0"
+          - generic [ref=e5238]:
+            - generic [ref=e5239]: BUY
+            - generic [ref=e5240]: "14.0264"
+            - generic [ref=e5241]: "3.03"
+            - generic [ref=e5242]: 42.46 ARG
+            - generic [ref=e5243]: 2d ago
+            - link "0x7953..35AA" [ref=e5245] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xc1a2b6366ec1a086b858a9e5574e07a78697ee4c23acd7f6f31390bb32e1db39
+            - generic [ref=e5246]: "0"
+          - generic [ref=e5247]:
+            - generic [ref=e5248]: BUY
+            - generic [ref=e5249]: "13.5117"
+            - generic [ref=e5250]: "2.09"
+            - generic [ref=e5251]: 28.31 ARG
+            - generic [ref=e5252]: 2d ago
+            - link "0x7953..35AA" [ref=e5254] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xd67d95f66bc659612cd5a8dc7817f951b4e242603c1b05aa33d6eaaf7672c648
+            - generic [ref=e5255]: "0"
+          - generic [ref=e5256]:
+            - generic [ref=e5257]: BUY
+            - generic [ref=e5258]: "13.2194"
+            - generic [ref=e5259]: "0.95"
+            - generic [ref=e5260]: 12.50 ARG
+            - generic [ref=e5261]: 2d ago
+            - link "0x97C7..eAC1" [ref=e5263] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xbe3667e546ef2ad51a0fcaeb0173ef3c4b0c7e16115549f157a5ba9d502cad98
+            - generic [ref=e5264]: "2.0"
+          - generic [ref=e5265]:
+            - generic [ref=e5266]: BUY
+            - generic [ref=e5267]: "13.0237"
+            - generic [ref=e5268]: "1.15"
+            - generic [ref=e5269]: 15.00 ARG
+            - generic [ref=e5270]: 2d ago
+            - link "0x4b5c..2226" [ref=e5272] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xa5ac9527c10f3a51e59e5b40a2d695d248e0e9ad5ea0e30800627bb6bde41db3
+            - generic [ref=e5273]: "0"
+          - generic [ref=e5274]:
+            - generic [ref=e5275]: SELL
+            - generic [ref=e5276]: "11.7412"
+            - generic [ref=e5277]: "1.00"
+            - generic [ref=e5278]: 11.74 ARG
+            - generic [ref=e5279]: 2d ago
+            - link "0x08f0..43c7" [ref=e5281] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x2838652cbc1cc01c75451f4db52bc3e3a05f18036ff3890752589634e599abf4
+            - generic [ref=e5282]: "0"
+          - generic [ref=e5283]:
+            - generic [ref=e5284]: BUY
+            - generic [ref=e5285]: "13.0879"
+            - generic [ref=e5286]: "0.15"
+            - generic [ref=e5287]: 2.00 ARG
+            - generic [ref=e5288]: 2d ago
+            - link "0x1153..4BDF" [ref=e5290] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x357adbe38e371d23b8396a9ecb82ce78d50fcd2338d8d20440e78816f3415d30
+            - generic [ref=e5291]: "0.1"
+          - generic [ref=e5292]:
+            - generic [ref=e5293]: SELL
+            - generic [ref=e5294]: "12.1439"
+            - generic [ref=e5295]: "4.00"
+            - generic [ref=e5296]: 48.58 ARG
+            - generic [ref=e5297]: 2d ago
+            - link "0x6d57..3700" [ref=e5299] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xa8719a755fb0104a7390291066f14a62425a53d54bfcce999f6afcf1a87fa990
+            - generic [ref=e5300]: "71.2"
+          - generic [ref=e5301]:
+            - generic [ref=e5302]: SELL
+            - generic [ref=e5303]: "12.5171"
+            - generic [ref=e5304]: "0.20"
+            - generic [ref=e5305]: 2.49 ARG
+            - generic [ref=e5306]: 2d ago
+            - link "0xCAB2..7f66" [ref=e5308] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x697c83d1fa19637f0e3bc050787cd3f7e2d30bdec14e0b1a84923267d377935e
+            - generic [ref=e5309]: "0"
+          - generic [ref=e5310]:
+            - generic [ref=e5311]: SELL
+            - generic [ref=e5312]: "12.5852"
+            - generic [ref=e5313]: "0.54"
+            - generic [ref=e5314]: 6.80 ARG
+            - generic [ref=e5315]: 2d ago
+            - link "0x501E..4d4C" [ref=e5317] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x30b29a306beaf92ce1948bc69d5d3ca830d2417585efd031a8063e4d70391a68
+            - generic [ref=e5318]: "10.1"
+          - generic [ref=e5319]:
+            - generic [ref=e5320]: BUY
+            - generic [ref=e5321]: "12.8980"
+            - generic [ref=e5322]: "11.63"
+            - generic [ref=e5323]: 150.00 ARG
+            - generic [ref=e5324]: 2d ago
+            - link "0xdf26..550B" [ref=e5326] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0x3dd90f64adb76e4bfa51a46205adfaf66525a3f714d9e1318d7e9aa2e04ffa7b
+            - generic [ref=e5327]: "52.1"
+          - generic [ref=e5328]:
+            - generic [ref=e5329]: BUY
+            - generic [ref=e5330]: "11.7170"
+            - generic [ref=e5331]: "2.09"
+            - generic [ref=e5332]: 24.48 ARG
+            - generic [ref=e5333]: 2d ago
+            - link "0x21E0..7449" [ref=e5335] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xb173489ef38c1642111d3e35e4a0e652791e2b0afd40635c2cc86258653ff0e3
+            - generic [ref=e5336]: "2.1"
+          - generic [ref=e5337]:
+            - generic [ref=e5338]: BUY
+            - generic [ref=e5339]: "10.5524"
+            - generic [ref=e5340]: "14.21"
+            - generic [ref=e5341]: 150.00 ARG
+            - generic [ref=e5342]: 2d ago
+            - link "0xdf26..550B" [ref=e5344] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xbe823173bb03614cfca7efacd11e53be2f4a81fe95d34d000426ad8bf3c8ae4f
+            - generic [ref=e5345]: "52.1"
+          - generic [ref=e5346]:
+            - generic [ref=e5347]: BUY
+            - generic [ref=e5348]: "9.5038"
+            - generic [ref=e5349]: "2.31"
+            - generic [ref=e5350]: 22.00 ARG
+            - generic [ref=e5351]: 2d ago
+            - link "0x501E..4d4C" [ref=e5353] [cursor=pointer]:
+              - /url: https://basescan.org/tx/0xa074f55012b77125cba4501f76be52fae8ed817a6ac20bcac6cd41b09a38f703
+            - generic [ref=e5354]: "10.1"
+    - generic [ref=e611]:
+      - generic [ref=e612]: Trade
+      - generic [ref=e5355]: Add PRIVATE_KEY to .env
+      - generic [ref=e615]:
+        - button "BUY" [ref=e616] [cursor=pointer]
+        - button "SELL" [ref=e617] [cursor=pointer]
+      - generic [ref=e618]:
+        - generic [ref=e619]:
+          - text: Spend (ARG)
+          - generic [ref=e620]:
+            - spinbutton [ref=e621]
+            - generic [ref=e622]: ARG
+          - generic [ref=e623]:
+            - button "25%" [ref=e624] [cursor=pointer]
+            - button "50%" [ref=e625] [cursor=pointer]
+            - button "75%" [ref=e626] [cursor=pointer]
+            - button "MAX" [ref=e627] [cursor=pointer]
+        - generic [ref=e628]:
+          - generic [ref=e629]: Slippage
+          - spinbutton [ref=e630]: "0.5"
+          - generic [ref=e631]: "%"
+        - button "Buy MESSI" [disabled] [ref=e5356]

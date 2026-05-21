@@ -1,0 +1,518 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - heading "PITCH Markets" [level=1] [ref=e3]
+    - generic [ref=e4]: 33 players | 7:19:53 PM
+  - generic [ref=e6]:
+    - generic [ref=e7]:
+      - generic [ref=e8]: Player Markets
+      - textbox "Search player or country..." [ref=e10]
+      - generic [ref=e11]:
+        - generic [ref=e12]: Player
+        - generic [ref=e13]: Supply
+        - generic [ref=e14]: Price
+        - generic [ref=e15]: Chg%
+      - generic [ref=e17]:
+        - generic [ref=e1138] [cursor=pointer]:
+          - generic [ref=e1139]:
+            - generic [ref=e1140]: Lionel Messi
+            - generic [ref=e1141]: ARG — Argentina
+          - generic [ref=e1142]: "360.6"
+          - generic [ref=e1143]:
+            - text: "12.6797"
+            - generic [ref=e1144]: ARG
+          - generic [ref=e1146]: +18.4%
+          - generic [ref=e1148]: ›
+        - generic [ref=e1149] [cursor=pointer]:
+          - generic [ref=e1150]:
+            - generic [ref=e1151]: Kylian Mbappé
+            - generic [ref=e1152]: FRA — France
+          - generic [ref=e1153]: "343.9"
+          - generic [ref=e1154]:
+            - text: "10.1095"
+            - generic [ref=e1155]: FRA
+          - generic [ref=e1157]: +44.0%
+          - generic [ref=e1159]: ›
+        - generic [ref=e1160] [cursor=pointer]:
+          - generic [ref=e1161]:
+            - generic [ref=e1162]: Jude Bellingham
+            - generic [ref=e1163]: ENG — England
+          - generic [ref=e1164]: "304.8"
+          - generic [ref=e1165]:
+            - text: "6.4675"
+            - generic [ref=e1166]: ENG
+          - generic [ref=e1168]: +59.7%
+          - generic [ref=e1170]: ›
+        - generic [ref=e1171] [cursor=pointer]:
+          - generic [ref=e1172]:
+            - generic [ref=e1173]: Lamine Yamal
+            - generic [ref=e1174]: ESP — Spain
+          - generic [ref=e1175]: "320.6"
+          - generic [ref=e1176]:
+            - text: "7.6575"
+            - generic [ref=e1177]: ESP
+          - generic [ref=e1179]: +44.6%
+          - generic [ref=e1181]: ›
+        - generic [ref=e1182] [cursor=pointer]:
+          - generic [ref=e1183]:
+            - generic [ref=e1184]: Erling Haaland
+            - generic [ref=e1185]: NOR — Norway
+          - generic [ref=e1186]: "245.7"
+          - generic [ref=e1187]:
+            - text: "3.8083"
+            - generic [ref=e1188]: NOR
+          - generic [ref=e1190]: "-9.1%"
+          - generic [ref=e1192]: ›
+        - generic [ref=e1193] [cursor=pointer]:
+          - generic [ref=e1194]:
+            - generic [ref=e1195]: Bruno Fernandes
+            - generic [ref=e1196]: POR — Portugal
+          - generic [ref=e1197]: "257.7"
+          - generic [ref=e1198]:
+            - text: "4.1957"
+            - generic [ref=e1199]: POR
+          - generic [ref=e1201]: +103.2%
+          - generic [ref=e1203]: ›
+        - generic [ref=e1204] [cursor=pointer]:
+          - generic [ref=e1205]:
+            - generic [ref=e1206]: Vinícius Júnior
+            - generic [ref=e1207]: BRA — Brazil
+          - generic [ref=e1208]: "304.6"
+          - generic [ref=e1209]:
+            - text: "6.4560"
+            - generic [ref=e1210]: BRA
+          - generic [ref=e1212]: +57.3%
+          - generic [ref=e1214]: ›
+        - generic [ref=e1215] [cursor=pointer]:
+          - generic [ref=e1216]:
+            - generic [ref=e1217]: Harry Kane
+            - generic [ref=e1218]: ENG — England
+          - generic [ref=e1219]: "463.9"
+          - generic [ref=e1220]:
+            - text: "2.0653"
+            - generic [ref=e1221]: ENG
+          - generic [ref=e1223]: +27.0%
+          - generic [ref=e1225]: ›
+        - generic [ref=e1226] [cursor=pointer]:
+          - generic [ref=e1227]:
+            - generic [ref=e1228]: Kevin De Bruyne
+            - generic [ref=e1229]: BEL — Belgium
+          - generic [ref=e1230]: "195.2"
+          - generic [ref=e1231]:
+            - text: "2.6515"
+            - generic [ref=e1232]: BEL
+          - generic [ref=e1234]: +66.6%
+          - generic [ref=e1236]: ›
+        - generic [ref=e1237] [cursor=pointer]:
+          - generic [ref=e1238]:
+            - generic [ref=e1239]: Jorrel Hato
+            - generic [ref=e1240]: NED — Netherlands
+          - generic [ref=e1241]: "112.7"
+          - generic [ref=e1242]:
+            - text: "1.0808"
+            - generic [ref=e1243]: NED
+          - generic [ref=e1245]: "-5.0%"
+          - generic [ref=e1247]: ›
+        - generic [ref=e1248] [cursor=pointer]:
+          - generic [ref=e1249]:
+            - generic [ref=e1250]: Granit Xhaka
+            - generic [ref=e1251]: SUI — Switzerland
+          - generic [ref=e1252]: "62.6"
+          - generic [ref=e1253]:
+            - text: "1.2881"
+            - generic [ref=e1254]: SUI
+          - generic [ref=e1256]: "-12.7%"
+          - generic [ref=e1258]: ›
+        - generic [ref=e1259] [cursor=pointer]:
+          - generic [ref=e1260]:
+            - generic [ref=e1261]: Virgil van Dijk
+            - generic [ref=e1262]: NED — Netherlands
+          - generic [ref=e1263]: "164.1"
+          - generic [ref=e1264]:
+            - text: "2.1840"
+            - generic [ref=e1265]: NED
+          - generic [ref=e1267]: +9.8%
+          - generic [ref=e1269]: ›
+        - generic [ref=e1270] [cursor=pointer]:
+          - generic [ref=e1271]:
+            - generic [ref=e1272]: Martin Ødegaard
+            - generic [ref=e1273]: NOR — Norway
+          - generic [ref=e1274]: "116.9"
+          - generic [ref=e1275]:
+            - text: "1.1591"
+            - generic [ref=e1276]: NOR
+          - generic [ref=e1278]: +4.8%
+          - generic [ref=e1280]: ›
+        - generic [ref=e1281] [cursor=pointer]:
+          - generic [ref=e1282]:
+            - generic [ref=e1283]: Christian Pulisic
+            - generic [ref=e1284]: USA — USA
+          - generic [ref=e1285]: "93.5"
+          - generic [ref=e1286]:
+            - text: "1.4912"
+            - generic [ref=e1287]: USA
+          - generic [ref=e1289]: +11.8%
+          - generic [ref=e1291]: ›
+        - generic [ref=e1292] [cursor=pointer]:
+          - generic [ref=e1293]:
+            - generic [ref=e1294]: Luis Díaz
+            - generic [ref=e1295]: COL — Colombia
+          - generic [ref=e1296]: "69.2"
+          - generic [ref=e1297]:
+            - text: "1.3278"
+            - generic [ref=e1298]: COL
+          - generic [ref=e1300]: +3.5%
+          - generic [ref=e1302]: ›
+        - generic [ref=e1303] [cursor=pointer]:
+          - generic [ref=e1304]:
+            - generic [ref=e1305]: Aurélien Tchouaméni
+            - generic [ref=e1306]: FRA — France
+          - generic [ref=e1307]: "104.7"
+          - generic [ref=e1308]:
+            - text: "1.1390"
+            - generic [ref=e1309]: FRA
+          - generic [ref=e1311]: "-2.8%"
+          - generic [ref=e1313]: ›
+        - generic [ref=e1314] [cursor=pointer]:
+          - generic [ref=e1315]:
+            - generic [ref=e1316]: Rodri
+            - generic [ref=e1317]: ESP — Spain
+          - generic [ref=e1318]: "164.0"
+          - generic [ref=e1319]:
+            - text: "1.2423"
+            - generic [ref=e1320]: ESP
+          - generic [ref=e1322]: +11.1%
+          - generic [ref=e1324]: ›
+        - generic [ref=e1325] [cursor=pointer]:
+          - generic [ref=e1326]:
+            - generic [ref=e1327]: Sindre Walle Egeli
+            - generic [ref=e1328]: NOR — Norway
+          - generic [ref=e1329]: "202.8"
+          - generic [ref=e1330]:
+            - text: "1.1672"
+            - generic [ref=e1331]: NOR
+          - generic [ref=e1333]: +4.9%
+          - generic [ref=e1335]: ›
+        - generic [ref=e1336] [cursor=pointer]:
+          - generic [ref=e1337]:
+            - generic [ref=e1338]: Florian Wirtz
+            - generic [ref=e1339]: GER — Germany
+          - generic [ref=e1340]: "195.2"
+          - generic [ref=e1341]:
+            - text: "2.6512"
+            - generic [ref=e1342]: GER
+          - generic [ref=e1344]: +11.4%
+          - generic [ref=e1346]: ›
+        - generic [ref=e1347] [cursor=pointer]:
+          - generic [ref=e1348]:
+            - generic [ref=e1349]: Frenkie de Jong
+            - generic [ref=e1350]: NED — Netherlands
+          - generic [ref=e1351]: "122.5"
+          - generic [ref=e1352]:
+            - text: "1.1686"
+            - generic [ref=e1353]: NED
+          - generic [ref=e1355]: +3.4%
+          - generic [ref=e1357]: ›
+        - generic [ref=e1358] [cursor=pointer]:
+          - generic [ref=e1359]:
+            - generic [ref=e1360]: Mika Godts
+            - generic [ref=e1361]: BEL — Belgium
+          - generic [ref=e1362]: "161.0"
+          - generic [ref=e1363]:
+            - text: "1.1258"
+            - generic [ref=e1364]: BEL
+          - generic [ref=e1366]: "-0.7%"
+          - generic [ref=e1368]: ›
+        - generic [ref=e1369] [cursor=pointer]:
+          - generic [ref=e1370]:
+            - generic [ref=e1371]: Ardon Jashari
+            - generic [ref=e1372]: SUI — Switzerland
+          - generic [ref=e1373]: "69.0"
+          - generic [ref=e1374]:
+            - text: "1.0422"
+            - generic [ref=e1375]: SUI
+          - generic [ref=e1377]: "-9.4%"
+          - generic [ref=e1379]: ›
+        - generic [ref=e1380] [cursor=pointer]:
+          - generic [ref=e1381]:
+            - generic [ref=e1382]: Manuel Akanji
+            - generic [ref=e1383]: SUI — Switzerland
+          - generic [ref=e1384]: "119.7"
+          - generic [ref=e1385]:
+            - text: "1.1638"
+            - generic [ref=e1386]: SUI
+          - generic [ref=e1388]: +2.9%
+          - generic [ref=e1390]: ›
+        - generic [ref=e1391] [cursor=pointer]:
+          - generic [ref=e1392]:
+            - generic [ref=e1393]: Pau Cubarsí
+            - generic [ref=e1394]: ESP — Spain
+          - generic [ref=e1395]: "89.8"
+          - generic [ref=e1396]:
+            - text: "1.0603"
+            - generic [ref=e1397]: ESP
+          - generic [ref=e1399]: +5.5%
+          - generic [ref=e1401]: ›
+        - generic [ref=e1402] [cursor=pointer]:
+          - generic [ref=e1403]:
+            - generic [ref=e1404]: Warren Zaïre-Emery
+            - generic [ref=e1405]: FRA — France
+          - generic [ref=e1406]: "95.5"
+          - generic [ref=e1407]:
+            - text: "1.0653"
+            - generic [ref=e1408]: FRA
+          - generic [ref=e1410]: +6.6%
+          - generic [ref=e1412]: ›
+        - generic [ref=e1413] [cursor=pointer]:
+          - generic [ref=e1414]:
+            - generic [ref=e1415]: Romelu Lukaku
+            - generic [ref=e1416]: BEL — Belgium
+          - generic [ref=e1417]: "145.1"
+          - generic [ref=e1418]:
+            - text: "1.2079"
+            - generic [ref=e1419]: BEL
+          - generic [ref=e1421]: +4.7%
+          - generic [ref=e1423]: ›
+        - generic [ref=e1424] [cursor=pointer]:
+          - generic [ref=e1425]:
+            - generic [ref=e1426]: Yáser Asprilla
+            - generic [ref=e1427]: COL — Colombia
+          - generic [ref=e1428]: "55.0"
+          - generic [ref=e1429]:
+            - text: "1.0303"
+            - generic [ref=e1430]: COL
+          - generic [ref=e1432]: "-3.3%"
+          - generic [ref=e1434]: ›
+        - generic [ref=e1435] [cursor=pointer]:
+          - generic [ref=e1436]:
+            - generic [ref=e1437]: Estêvão
+            - generic [ref=e1438]: BRA — Brazil
+          - generic [ref=e1439]: "106.8"
+          - generic [ref=e1440]:
+            - text: "1.0754"
+            - generic [ref=e1441]: BRA
+          - generic [ref=e1443]: +7.4%
+          - generic [ref=e1445]: ›
+        - generic [ref=e1446] [cursor=pointer]:
+          - generic [ref=e1447]:
+            - generic [ref=e1448]: Nico Paz
+            - generic [ref=e1449]: ARG — Argentina
+          - generic [ref=e1450]: "101.9"
+          - generic [ref=e1451]:
+            - text: "1.0710"
+            - generic [ref=e1452]: ARG
+          - generic [ref=e1454]: "-4.5%"
+          - generic [ref=e1456]: ›
+        - generic [ref=e1457] [cursor=pointer]:
+          - generic [ref=e1458]:
+            - generic [ref=e1459]: Cristian Romero
+            - generic [ref=e1460]: ARG — Argentina
+          - generic [ref=e1461]: "97.2"
+          - generic [ref=e1462]:
+            - text: "1.1269"
+            - generic [ref=e1463]: ARG
+          - generic [ref=e1465]: +5.6%
+          - generic [ref=e1467]: ›
+        - generic [ref=e1468] [cursor=pointer]:
+          - generic [ref=e1469]:
+            - generic [ref=e1470]: Ethan Nwaneri
+            - generic [ref=e1471]: ENG — England
+          - generic [ref=e1472]: "81.9"
+          - generic [ref=e1473]:
+            - text: "1.0534"
+            - generic [ref=e1474]: ENG
+          - generic [ref=e1476]: +6.6%
+          - generic [ref=e1478]: ›
+        - generic [ref=e1479] [cursor=pointer]:
+          - generic [ref=e1480]:
+            - generic [ref=e1481]: Joshua Kimmich
+            - generic [ref=e1482]: GER — Germany
+          - generic [ref=e1483]: "61.3"
+          - generic [ref=e1484]:
+            - text: "1.0713"
+            - generic [ref=e1485]: GER
+          - generic [ref=e1487]: +6.5%
+          - generic [ref=e1489]: ›
+        - generic [ref=e1490] [cursor=pointer]:
+          - generic [ref=e1491]:
+            - generic [ref=e1492]: Rúben Dias
+            - generic [ref=e1493]: POR — Portugal
+          - generic [ref=e1494]: "82.3"
+          - generic [ref=e1495]:
+            - text: "1.1032"
+            - generic [ref=e1496]: POR
+          - generic [ref=e1498]: "-3.6%"
+          - generic [ref=e1500]: ›
+    - generic [ref=e381]:
+      - generic [ref=e382]:
+        - generic [ref=e383]:
+          - generic [ref=e384]: Kylian Mbappé (MBAPPE)
+          - generic [ref=e385]: FRA — France
+        - generic [ref=e386]: 10.1095 FRA
+      - generic [ref=e389]:
+        - generic [ref=e390]:
+          - generic [ref=e391]: Supply
+          - generic [ref=e392]: "343.89"
+        - generic [ref=e393]:
+          - generic [ref=e394]: Country
+          - generic [ref=e395]: FRA — France
+        - generic [ref=e396]:
+          - generic [ref=e397]: Trades
+          - generic [ref=e398]: "29"
+        - generic [ref=e399]:
+          - generic [ref=e400]: High
+          - generic [ref=e401]: "10.5326"
+        - generic [ref=e402]:
+          - generic [ref=e403]: Low
+          - generic [ref=e404]: "6.2531"
+        - generic [ref=e405]:
+          - generic [ref=e406]: Contract
+          - link "0xe863..17E2" [ref=e1501] [cursor=pointer]:
+            - /url: https://basescan.org/address/0xe863318ec289750B43AbF7fa77A4Ccd1514c17E2
+      - generic [ref=e408]:
+        - generic [ref=e409]: Recent Trades
+        - generic [ref=e410]:
+          - generic [ref=e1502]:
+            - generic [ref=e1503]: SELL
+            - generic [ref=e1504]: "Price: 9.6834"
+            - generic [ref=e1505]: "Vol: 12.39"
+            - generic [ref=e1506]: 23m ago
+          - generic [ref=e1508]:
+            - generic [ref=e1509]: BUY
+            - generic [ref=e1510]: "Price: 10.5326"
+            - generic [ref=e1511]: "Vol: 44.21"
+            - generic [ref=e1512]: 52m ago
+          - generic [ref=e1514]:
+            - generic [ref=e1515]: BUY
+            - generic [ref=e1516]: "Price: 10.1477"
+            - generic [ref=e1517]: "Vol: 17.00"
+            - generic [ref=e1518]: 2h ago
+          - generic [ref=e1520]:
+            - generic [ref=e1521]: BUY
+            - generic [ref=e1522]: "Price: 9.9797"
+            - generic [ref=e1523]: "Vol: 10.00"
+            - generic [ref=e1524]: 3h ago
+          - generic [ref=e1526]:
+            - generic [ref=e1527]: BUY
+            - generic [ref=e1528]: "Price: 9.5276"
+            - generic [ref=e1529]: "Vol: 63.10"
+            - generic [ref=e1530]: 3h ago
+          - generic [ref=e1532]:
+            - generic [ref=e1533]: SELL
+            - generic [ref=e1534]: "Price: 8.3222"
+            - generic [ref=e1535]: "Vol: 10.40"
+            - generic [ref=e1536]: 4h ago
+          - generic [ref=e1538]:
+            - generic [ref=e1539]: BUY
+            - generic [ref=e1540]: "Price: 9.2597"
+            - generic [ref=e1541]: "Vol: 5.10"
+            - generic [ref=e1542]: 4h ago
+          - generic [ref=e1544]:
+            - generic [ref=e1545]: BUY
+            - generic [ref=e1546]: "Price: 9.2162"
+            - generic [ref=e1547]: "Vol: 2.20"
+            - generic [ref=e1548]: 6h ago
+          - generic [ref=e1550]:
+            - generic [ref=e1551]: SELL
+            - generic [ref=e1552]: "Price: 8.3086"
+            - generic [ref=e1553]: "Vol: 0.47"
+            - generic [ref=e1554]: 8h ago
+          - generic [ref=e1556]:
+            - generic [ref=e1557]: SELL
+            - generic [ref=e1558]: "Price: 8.3154"
+            - generic [ref=e1559]: "Vol: 0.68"
+            - generic [ref=e1560]: 8h ago
+          - generic [ref=e1562]:
+            - generic [ref=e1563]: BUY
+            - generic [ref=e1564]: "Price: 9.1788"
+            - generic [ref=e1565]: "Vol: 6.62"
+            - generic [ref=e1566]: 9h ago
+          - generic [ref=e1568]:
+            - generic [ref=e1569]: BUY
+            - generic [ref=e1570]: "Price: 9.1300"
+            - generic [ref=e1571]: "Vol: 1.60"
+            - generic [ref=e1572]: 10h ago
+          - generic [ref=e1574]:
+            - generic [ref=e1575]: SELL
+            - generic [ref=e1576]: "Price: 8.3239"
+            - generic [ref=e1577]: "Vol: 15.62"
+            - generic [ref=e1578]: 10h ago
+          - generic [ref=e1580]:
+            - generic [ref=e1581]: BUY
+            - generic [ref=e1582]: "Price: 9.1170"
+            - generic [ref=e1583]: "Vol: 35.00"
+            - generic [ref=e1584]: 10h ago
+          - generic [ref=e1586]:
+            - generic [ref=e1587]: BUY
+            - generic [ref=e1588]: "Price: 8.7283"
+            - generic [ref=e1589]: "Vol: 31.31"
+            - generic [ref=e1590]: 11h ago
+          - generic [ref=e1592]:
+            - generic [ref=e1593]: BUY
+            - generic [ref=e1594]: "Price: 8.5164"
+            - generic [ref=e1595]: "Vol: 5.59"
+            - generic [ref=e1596]: 12h ago
+          - generic [ref=e1598]:
+            - generic [ref=e1599]: SELL
+            - generic [ref=e1600]: "Price: 7.7136"
+            - generic [ref=e1601]: "Vol: 9.87"
+            - generic [ref=e1602]: 13h ago
+          - generic [ref=e1604]:
+            - generic [ref=e1605]: BUY
+            - generic [ref=e1606]: "Price: 8.5062"
+            - generic [ref=e1607]: "Vol: 18.00"
+            - generic [ref=e1608]: 15h ago
+          - generic [ref=e1610]:
+            - generic [ref=e1611]: BUY
+            - generic [ref=e1612]: "Price: 8.3588"
+            - generic [ref=e1613]: "Vol: 7.90"
+            - generic [ref=e1614]: 16h ago
+          - generic [ref=e1616]:
+            - generic [ref=e1617]: BUY
+            - generic [ref=e1618]: "Price: 8.0759"
+            - generic [ref=e1619]: "Vol: 42.07"
+            - generic [ref=e1620]: 17h ago
+          - generic [ref=e1622]:
+            - generic [ref=e1623]: BUY
+            - generic [ref=e1624]: "Price: 7.8390"
+            - generic [ref=e1625]: "Vol: 1.00"
+            - generic [ref=e1626]: 17h ago
+          - generic [ref=e1628]:
+            - generic [ref=e1629]: BUY
+            - generic [ref=e1630]: "Price: 7.4208"
+            - generic [ref=e1631]: "Vol: 75.10"
+            - generic [ref=e1632]: 17h ago
+          - generic [ref=e1634]:
+            - generic [ref=e1635]: BUY
+            - generic [ref=e1636]: "Price: 6.9518"
+            - generic [ref=e1637]: "Vol: 14.99"
+            - generic [ref=e1638]: 21h ago
+          - generic [ref=e1640]:
+            - generic [ref=e1641]: SELL
+            - generic [ref=e1642]: "Price: 6.2531"
+            - generic [ref=e1643]: "Vol: 9.48"
+            - generic [ref=e1644]: 21h ago
+          - generic [ref=e1646]:
+            - generic [ref=e1647]: SELL
+            - generic [ref=e1648]: "Price: 6.3352"
+            - generic [ref=e1649]: "Vol: 6.34"
+            - generic [ref=e1650]: 22h ago
+          - generic [ref=e1652]:
+            - generic [ref=e1653]: BUY
+            - generic [ref=e1654]: "Price: 7.0464"
+            - generic [ref=e1655]: "Vol: 1.90"
+            - generic [ref=e1656]: 23h ago
+          - generic [ref=e1658]:
+            - generic [ref=e1659]: SELL
+            - generic [ref=e1660]: "Price: 6.4103"
+            - generic [ref=e1661]: "Vol: 11.50"
+            - generic [ref=e1662]: 1d ago
+          - generic [ref=e1664]:
+            - generic [ref=e1665]: SELL
+            - generic [ref=e1666]: "Price: 6.4910"
+            - generic [ref=e1667]: "Vol: 3.84"
+            - generic [ref=e1668]: 1d ago
+          - generic [ref=e1670]:
+            - generic [ref=e1671]: BUY
+            - generic [ref=e1672]: "Price: 7.0228"
+            - generic [ref=e1673]: "Vol: 36.37"
+            - generic [ref=e1674]: 1d ago

@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PITCH Markets</title>
+<script src="https://unpkg.com/lightweight-charts@4.1.3/dist/lightweight-charts.standalone.production.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #0d1117; color: #e6edf3; font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 14px;
+}
+a { color: #58a6ff; text-decoration: none; }
+
+.header {
+  background: #161b22; border-bottom: 1px solid #30363d; padding: 12px 24px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.header h1 { font-size: 18px; color: #58a6ff; }
+.header .status { font-size: 12px; color: #8b949e; }
+.header .status .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #3fb950; margin-right: 6px; }
+.header .status .dot.disconnected { background: #f85149; }
+
+.container { display: flex; height: calc(100vh - 49px); }
+
+.sidebar {
+  width: 420px; min-width: 420px; border-right: 1px solid #30363d;
+  overflow-y: auto; background: #0d1117;
+}
+.sidebar-header {
+  padding: 12px 16px; border-bottom: 1px solid #30363d; background: #161b22;
+  font-size: 12px; color: #8b949e; text-transform: uppercase; letter-spacing: 1px;
+  position: sticky; top: 0; z-index: 2;
+}
+.search-box {
+  padding: 8px 16px; border-bottom: 1px solid #30363d; background: #161b22;
+  position: sticky; top: 36px; z-index: 2;
+}
+.search-box input {
+  width: 100%; padding: 6px 10px; background: #0d1117; border: 1px solid #30363d;
+  border-radius: 6px; color: #e6edf3; font-family: inherit; font-size: 13px;
+  outline: none;
+}
+.search-box input:focus { border-color: #58a6ff; }
+
+.filter-bar {
+  display: flex; gap: 4px; padding: 8px 16px; border-bottom: 1px solid #30363d;
+  background: #161b22; position: sticky; top: 72px; z-index: 2; flex-wrap: wrap;
+  align-items: center;
+}
+.filter-btn {
+  padding: 3px 10px; border: 1px solid #30363d; border-radius: 4px;
+  background: transparent; color: #8b949e; font-family: inherit;
+  font-size: 11px; cursor: pointer; transition: all 0.15s;
+}
+.filter-btn:hover { border-color: #58a6ff; color: #e6edf3; }
+.filter-btn.active { background: #58a6ff; color: #0d1117; border-color: #58a6ff; font-weight: 600; }
+.filter-btn.role-best.active { background: #f0883e; border-color: #f0883e; }
+.filter-btn.role-captain.active { background: #58a6ff; border-color: #58a6ff; }
+.filter-btn.role-rookie.active { background: #3fb950; border-color: #3fb950; }
+.filter-separator {
+  width: 1px; height: 18px; background: #30363d; margin: 0 4px;
+}
+.chg-btn {
+  padding: 3px 8px; border: 1px solid #30363d; border-radius: 4px;
+  background: transparent; color: #8b949e; font-family: inherit;
+  font-size: 10px; cursor: pointer; transition: all 0.15s;
+}
+.chg-btn:hover { border-color: #d2a8ff; color: #e6edf3; }
+.chg-btn.active { background: #8b5cf6; color: #fff; border-color: #8b5cf6; font-weight: 600; }
+
+.player-row {
+  display: grid; grid-template-columns: 1fr 55px 120px 55px;
+  padding: 10px 16px; border-bottom: 1px solid #21262d; cursor: pointer;
+  transition: background 0.15s;
+}
+.player-row:hover { background: #161b22; }
+.player-row.active { background: #1c2333; border-left: 3px solid #58a6ff; }
+
+.player-name { font-weight: 600; font-size: 13px; }
+.player-country { font-size: 11px; color: #8b949e; margin-top: 2px; }
+.role-tag {
+  display: inline-block; font-size: 9px; padding: 1px 5px; border-radius: 3px;
+  margin-left: 6px; font-weight: 600; text-transform: uppercase; vertical-align: middle;
+}
+.role-tag.best { background: rgba(240,136,62,0.2); color: #f0883e; }
+.role-tag.captain { background: rgba(88,166,255,0.2); color: #58a6ff; }
+.role-tag.rookie { background: rgba(63,185,80,0.2); color: #3fb950; }
+
+.player-cell { text-align: right; font-size: 13px; display: flex; flex-direction: column; justify-content: center; }
+.player-cell .price-main { font-size: 13px; }
+.player-cell .price-sub { font-size: 10px; color: #8b949e; margin-top: 1px; }
+.change-up { color: #3fb950; }
+.change-down { color: #f85149; }
+.change-zero { color: #8b949e; }
+
+.main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+
+.chart-header {
+  padding: 16px 24px; border-bottom: 1px solid #30363d; background: #161b22;
+  display: flex; align-items: center; gap: 24px;
+}
+.chart-header .player-title { font-size: 20px; font-weight: 700; }
+.chart-header .player-meta { font-size: 13px; color: #8b949e; }
+.chart-header .price-big-wrap { margin-left: auto; text-align: right; }
+.chart-header .price-big { font-size: 28px; font-weight: 700; color: #3fb950; }
+.chart-header .price-sub-big { font-size: 14px; color: #8b949e; margin-top: 2px; }
+
+.tf-bar {
+  display: flex; gap: 4px; padding: 8px 24px; background: #161b22;
+  border-bottom: 1px solid #30363d; align-items: center; flex-wrap: wrap;
+}
+.tf-btn, .chart-type-btn, .price-toggle-btn {
+  padding: 4px 12px; border: 1px solid #30363d; border-radius: 4px;
+  background: transparent; color: #8b949e; font-family: inherit;
+  font-size: 12px; cursor: pointer; transition: all 0.15s;
+}
+.tf-btn:hover, .chart-type-btn:hover { border-color: #58a6ff; color: #e6edf3; }
+.tf-btn.active { background: #58a6ff; color: #0d1117; border-color: #58a6ff; font-weight: 600; }
+.chart-type-btn.active { background: #388bfd; color: #fff; border-color: #388bfd; font-weight: 600; }
+.price-toggle-btn:hover { border-color: #d2a8ff; color: #e6edf3; }
+.price-toggle-btn.active { background: #8b5cf6; color: #fff; border-color: #8b5cf6; font-weight: 600; }
+
+.tf-separator { width: 1px; height: 20px; background: #30363d; margin: 0 8px; }
+
+.chart-area { flex: 1; min-height: 300px; position: relative; }
+
+.tooltip {
+  position: absolute; top: 12px; left: 12px; z-index: 10;
+  background: rgba(22,27,34,0.92); border: 1px solid #30363d; border-radius: 6px;
+  padding: 8px 12px; pointer-events: none; display: none; font-size: 12px;
+  min-width: 180px;
+}
+.tooltip .tt-time { color: #8b949e; margin-bottom: 4px; }
+.tooltip .tt-price { font-weight: 600; font-size: 14px; }
+.tooltip .tt-ohlc { color: #8b949e; margin-top: 4px; }
+
+.stats-bar {
+  display: flex; gap: 32px; padding: 12px 24px; border-top: 1px solid #30363d;
+  background: #161b22;
+}
+.stat { display: flex; flex-direction: column; }
+.stat .stat-label { font-size: 11px; color: #8b949e; text-transform: uppercase; }
+.stat .stat-value { font-size: 16px; font-weight: 600; margin-top: 2px; }
+
+.trades-section { border-top: 1px solid #30363d; max-height: 280px; overflow-y: auto; }
+.trades-tabs {
+  display: flex; gap: 0; background: #161b22; border-bottom: 1px solid #30363d;
+  position: sticky; top: 0; z-index: 1;
+}
+.trades-tab {
+  padding: 8px 24px; font-size: 12px; color: #8b949e; cursor: pointer;
+  text-transform: uppercase; letter-spacing: 1px; border-bottom: 2px solid transparent;
+  transition: all 0.15s; background: none; border-top: none; border-left: none; border-right: none;
+  font-family: inherit;
+}
+.trades-tab:hover { color: #e6edf3; }
+.trades-tab.active { color: #58a6ff; border-bottom-color: #58a6ff; }
+.trades-tab .tab-count { color: #8b949e; font-size: 10px; margin-left: 4px; }
+.trade-row {
+  display: grid; grid-template-columns: 40px 75px 65px 75px 80px 90px 70px;
+  padding: 5px 16px; border-bottom: 1px solid #21262d; font-size: 11px;
+  align-items: center;
+}
+.trade-row span { text-align: right; }
+.trade-row span:first-child { text-align: left; }
+.trade-row .buy { color: #3fb950; font-weight: 600; }
+.trade-row .sell { color: #f85149; font-weight: 600; }
+.trade-row .tx-link { color: #8b949e; }
+.trade-row .tx-link:hover { color: #58a6ff; }
+.trade-row .wallet-pos { color: #8b949e; font-size: 10px; }
+.wallet-row {
+  display: grid; grid-template-columns: 100px 50px 50px 80px 80px 80px;
+  padding: 5px 16px; border-bottom: 1px solid #21262d; font-size: 11px;
+  align-items: center;
+}
+.wallet-row span { text-align: right; }
+.wallet-row span:first-child { text-align: left; }
+.wallet-row .pos-positive { color: #3fb950; font-weight: 600; }
+.wallet-row .pos-zero { color: #8b949e; }
+.trades-col-header {
+  display: grid; padding: 4px 16px; font-size: 10px; color: #8b949e;
+  border-bottom: 1px solid #30363d; background: #0d1117;
+  position: sticky; top: 38px; z-index: 1;
+}
+.trades-col-header span { text-align: right; }
+.trades-col-header span:first-child { text-align: left; }
+.trades-col-header.trades-cols { grid-template-columns: 40px 75px 65px 75px 80px 90px 70px; }
+.trades-col-header.wallets-cols { grid-template-columns: 100px 50px 50px 80px 80px 80px; }
+
+.no-data { padding: 60px; text-align: center; color: #8b949e; font-size: 16px; }
+.loading { text-align: center; padding: 40px; color: #8b949e; }
+
+/* Trade panel */
+.trade-panel {
+  width: 280px; min-width: 280px; border-left: 1px solid #30363d;
+  background: #0d1117; display: flex; flex-direction: column; overflow-y: auto;
+}
+.trade-panel-header {
+  padding: 12px 16px; border-bottom: 1px solid #30363d; background: #161b22;
+  font-size: 12px; color: #8b949e; text-transform: uppercase; letter-spacing: 1px;
+}
+.trade-wallet {
+  padding: 10px 16px; border-bottom: 1px solid #30363d; font-size: 11px;
+}
+.trade-wallet .wallet-addr { color: #58a6ff; font-weight: 600; }
+.trade-wallet .wallet-bal { color: #8b949e; margin-top: 4px; }
+.trade-wallet .wallet-bal span { color: #e6edf3; font-weight: 600; }
+.trade-no-wallet { padding: 16px; color: #f0883e; font-size: 12px; text-align: center; }
+
+.trade-sides { display: flex; border-bottom: 1px solid #30363d; }
+.trade-side-btn {
+  flex: 1; padding: 10px; text-align: center; font-family: inherit;
+  font-size: 13px; font-weight: 700; cursor: pointer; border: none;
+  transition: all 0.15s; background: #161b22; color: #8b949e;
+}
+.trade-side-btn:hover { color: #e6edf3; }
+.trade-side-btn.buy-active { background: rgba(63,185,80,0.15); color: #3fb950; border-bottom: 2px solid #3fb950; }
+.trade-side-btn.sell-active { background: rgba(248,81,73,0.15); color: #f85149; border-bottom: 2px solid #f85149; }
+
+.trade-form { padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+.trade-form label { font-size: 11px; color: #8b949e; text-transform: uppercase; }
+.trade-input-wrap {
+  display: flex; align-items: center; border: 1px solid #30363d; border-radius: 6px;
+  background: #0d1117; overflow: hidden;
+}
+.trade-input-wrap input {
+  flex: 1; padding: 8px 10px; background: transparent; border: none;
+  color: #e6edf3; font-family: inherit; font-size: 14px; outline: none;
+  min-width: 0;
+}
+.trade-input-wrap .input-suffix {
+  padding: 8px 10px; color: #8b949e; font-size: 12px; white-space: nowrap;
+}
+.trade-input-wrap:focus-within { border-color: #58a6ff; }
+.trade-presets { display: flex; gap: 4px; }
+.trade-preset {
+  flex: 1; padding: 4px; border: 1px solid #30363d; border-radius: 4px;
+  background: transparent; color: #8b949e; font-family: inherit;
+  font-size: 10px; cursor: pointer; text-align: center;
+}
+.trade-preset:hover { border-color: #58a6ff; color: #e6edf3; }
+
+.trade-quote {
+  padding: 10px 12px; background: #161b22; border-radius: 6px;
+  font-size: 12px; display: flex; flex-direction: column; gap: 4px;
+}
+.trade-quote .tq-label { color: #8b949e; }
+.trade-quote .tq-value { color: #e6edf3; font-weight: 600; font-size: 14px; }
+.trade-quote .tq-price { color: #8b949e; font-size: 11px; }
+
+.trade-slippage { font-size: 11px; color: #8b949e; display: flex; align-items: center; gap: 6px; }
+.trade-slippage input {
+  width: 50px; padding: 4px 6px; background: #0d1117; border: 1px solid #30363d;
+  border-radius: 4px; color: #e6edf3; font-family: inherit; font-size: 11px;
+  text-align: center; outline: none;
+}
+
+.trade-submit {
+  padding: 12px; border: none; border-radius: 6px; font-family: inherit;
+  font-size: 14px; font-weight: 700; cursor: pointer; transition: all 0.15s;
+}
+.trade-submit.buy-btn { background: #3fb950; color: #0d1117; }
+.trade-submit.buy-btn:hover { background: #2ea043; }
+.trade-submit.sell-btn { background: #f85149; color: #fff; }
+.trade-submit.sell-btn:hover { background: #da3633; }
+.trade-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.trade-status { font-size: 12px; text-align: center; padding: 4px; }
+.trade-status.success { color: #3fb950; }
+.trade-status.error { color: #f85149; }
+.trade-status.pending { color: #d29922; }
+
+.col-header {
+  display: grid; grid-template-columns: 1fr 55px 120px 55px;
+  padding: 6px 16px; font-size: 11px; color: #8b949e; border-bottom: 1px solid #30363d;
+  position: sticky; top: 110px; background: #161b22; z-index: 1;
+}
+.col-header span:not(:first-child) { text-align: right; }
+
+.marker-toggle {
+  display: flex; align-items: center; gap: 4px;
+  font-size: 11px; color: #8b949e; cursor: pointer; user-select: none;
+}
+.marker-toggle input { cursor: pointer; accent-color: #58a6ff; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>PITCH Markets</h1>
+  <div class="status"><span class="dot" id="sse-dot"></span><span id="status-text">Connecting...</span></div>
+</div>
+
+<div class="container">
+  <div class="sidebar">
+    <div class="sidebar-header">Player Markets</div>
+    <div class="search-box">
+      <input type="text" id="search" placeholder="Search player or country..." />
+    </div>
+    <div class="filter-bar">
+      <button class="filter-btn" data-role="all">All</button>
+      <button class="filter-btn role-best active" data-role="best">Best</button>
+      <button class="filter-btn role-captain" data-role="captain">Captain</button>
+      <button class="filter-btn role-rookie" data-role="rookie">Rookie</button>
+      <div class="filter-separator"></div>
+      <button class="chg-btn" data-chg="all">All</button>
+      <button class="chg-btn active" data-chg="1d">1D</button>
+      <button class="chg-btn" data-chg="12h">12H</button>
+      <button class="chg-btn" data-chg="6h">6H</button>
+      <button class="chg-btn" data-chg="1h">1H</button>
+      <button class="chg-btn" data-chg="15m">15M</button>
+    </div>
+    <div class="col-header">
+      <span>Player</span>
+      <span>Supply</span>
+      <span>Price</span>
+      <span>Chg%</span>
+    </div>
+    <div id="player-list"><div class="loading">Loading...</div></div>
+  </div>
+
+  <div class="main">
+    <div class="chart-header">
+      <div>
+        <div class="player-title" id="ch-name">Select a player</div>
+        <div class="player-meta" id="ch-meta">Click on a player to view chart</div>
+      </div>
+      <div class="price-big-wrap">
+        <div class="price-big" id="ch-price">&mdash;</div>
+        <div class="price-sub-big" id="ch-price-sub"></div>
+      </div>
+    </div>
+    <div class="tf-bar" id="tf-bar">
+      <button class="chart-type-btn active" data-mode="line">Line</button>
+      <button class="chart-type-btn" data-mode="candles">Candles</button>
+      <div class="tf-separator"></div>
+      <button class="price-toggle-btn active" data-unit="country" id="btn-country">Country</button>
+      <button class="price-toggle-btn" data-unit="pitch" id="btn-pitch">PITCH</button>
+      <div class="tf-separator"></div>
+      <button class="tf-btn" data-tf="1m">1m</button>
+      <button class="tf-btn active" data-tf="5m">5m</button>
+      <button class="tf-btn" data-tf="15m">15m</button>
+      <button class="tf-btn" data-tf="1h">1h</button>
+      <button class="tf-btn" data-tf="4h">4h</button>
+      <button class="tf-btn" data-tf="1d">1D</button>
+      <div class="tf-separator"></div>
+      <label class="marker-toggle"><input type="checkbox" id="toggle-my" checked> My</label>
+      <label class="marker-toggle"><input type="checkbox" id="toggle-all" checked> Others</label>
+    </div>
+    <div class="chart-area" id="chart-area">
+      <div class="tooltip" id="tooltip">
+        <div class="tt-time" id="tt-time"></div>
+        <div class="tt-price" id="tt-price"></div>
+        <div class="tt-ohlc" id="tt-ohlc"></div>
+      </div>
+    </div>
+    <div class="stats-bar">
+      <div class="stat"><span class="stat-label">Supply</span><span class="stat-value" id="st-supply">&mdash;</span></div>
+      <div class="stat"><span class="stat-label">Country</span><span class="stat-value" id="st-country">&mdash;</span></div>
+      <div class="stat"><span class="stat-label">Role</span><span class="stat-value" id="st-role">&mdash;</span></div>
+      <div class="stat"><span class="stat-label">Trades</span><span class="stat-value" id="st-trades">&mdash;</span></div>
+      <div class="stat"><span class="stat-label">High</span><span class="stat-value" id="st-high">&mdash;</span></div>
+      <div class="stat"><span class="stat-label">Low</span><span class="stat-value" id="st-low">&mdash;</span></div>
+      <div class="stat"><span class="stat-label">Contract</span><span class="stat-value" id="st-contract">&mdash;</span></div>
+    </div>
+    <div class="trades-section" id="trades-section">
+      <div class="trades-tabs">
+        <button class="trades-tab active" data-tab="trades">Trades <span class="tab-count" id="tab-trades-count"></span></button>
+        <button class="trades-tab" data-tab="wallets">Holders <span class="tab-count" id="tab-wallets-count"></span></button>
+      </div>
+      <div id="trades-content"><div class="no-data">Select a player</div></div>
+    </div>
+  </div>
+
+  <div class="trade-panel" id="trade-panel">
+    <div class="trade-panel-header">Trade</div>
+    <div id="trade-wallet-info"><div class="trade-no-wallet">Add PRIVATE_KEY to .env</div></div>
+    <div class="trade-sides">
+      <button class="trade-side-btn buy-active" id="trade-buy-btn" onclick="setTradeSide('buy')">BUY</button>
+      <button class="trade-side-btn" id="trade-sell-btn" onclick="setTradeSide('sell')">SELL</button>
+    </div>
+    <div class="trade-form">
+      <div>
+        <label id="trade-amount-label">Amount (country tokens)</label>
+        <div class="trade-input-wrap">
+          <input type="number" id="trade-amount" placeholder="0.00" step="any" oninput="onTradeAmountChange()" />
+          <span class="input-suffix" id="trade-suffix">—</span>
+        </div>
+        <div class="trade-presets" id="trade-presets">
+          <button class="trade-preset" onclick="setTradePreset(0.25)">25%</button>
+          <button class="trade-preset" onclick="setTradePreset(0.5)">50%</button>
+          <button class="trade-preset" onclick="setTradePreset(0.75)">75%</button>
+          <button class="trade-preset" onclick="setTradePreset(1)">MAX</button>
+        </div>
+      </div>
+      <div class="trade-quote" id="trade-quote" style="display:none">
+        <span class="tq-label">You receive</span>
+        <span class="tq-value" id="tq-out">—</span>
+        <span class="tq-price" id="tq-price">—</span>
+      </div>
+      <div class="trade-slippage">
+        <span>Slippage</span>
+        <input type="number" id="trade-slippage" value="0.5" step="0.1" min="0.1" max="50" />
+        <span>%</span>
+      </div>
+      <button class="trade-submit buy-btn" id="trade-submit" onclick="executeTrade()" disabled>Select a player</button>
+      <div class="trade-status" id="trade-status"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+let chart = null;
+let mainSeries = null;
+let playersData = [];
+let countryPrices = {};
+let selectedAddr = null;
+let currentTf = '5m';
+let chartMode = 'line';
+let priceUnit = 'country';
+let roleFilter = 'best';
+let chgPeriod = '1d';
+let lastChartData = null;
+let sseSource = null;
+let lastLiveCandle = null;
+let currentChartMode = null;
+let showMyTrades = true;
+let showAllTrades = true;
+let walletAddress = '';
+let lastSeriesTime = 0;
+
+function formatTime(ts) {
+  const d = new Date(ts * 1000);
+  const now = new Date();
+  const diff = (now - d) / 1000;
+  if (diff < 60) return `${Math.floor(diff)}s ago`;
+  if (diff < 3600) return `${Math.floor(diff/60)}m ago`;
+  if (diff < 86400) return `${Math.floor(diff/3600)}h ago`;
+  return `${Math.floor(diff/86400)}d ago`;
+}
+
+function formatDate(ts) {
+  const d = new Date(ts * 1000);
+  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) +
+    ' ' + d.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+}
+
+function getSelectedPlayer() {
+  return playersData.find(p => p.address === selectedAddr);
+}
+
+function getPitchMultiplier() {
+  const player = getSelectedPlayer();
+  if (!player) return 0;
+  return countryPrices[player.country] || 0;
+}
+
+function applyPitchMultiplier(value) {
+  if (priceUnit !== 'pitch') return value;
+  const m = getPitchMultiplier();
+  return m > 0 ? value * m : value;
+}
+
+function createChart() {
+  const container = document.getElementById('chart-area');
+  if (chart) { chart.remove(); chart = null; mainSeries = null; }
+
+  chart = LightweightCharts.createChart(container, {
+    layout: {
+      background: { color: '#0d1117' },
+      textColor: '#8b949e',
+      fontFamily: "'SF Mono', 'Fira Code', monospace",
+      fontSize: 11,
+    },
+    grid: {
+      vertLines: { color: '#21262d' },
+      horzLines: { color: '#21262d' },
+    },
+    crosshair: {
+      mode: LightweightCharts.CrosshairMode.Normal,
+      vertLine: { color: '#58a6ff', width: 1, style: 2, labelBackgroundColor: '#161b22' },
+      horzLine: { color: '#58a6ff', width: 1, style: 2, labelBackgroundColor: '#161b22' },
+    },
+    rightPriceScale: {
+      borderColor: '#30363d',
+      scaleMargins: { top: 0.1, bottom: 0.05 },
+    },
+    timeScale: {
+      borderColor: '#30363d',
+      timeVisible: true,
+      secondsVisible: false,
+    },
+    handleScroll: true,
+    handleScale: true,
+  });
+
+  if (chartMode === 'candles') {
+    mainSeries = chart.addCandlestickSeries({
+      upColor: '#3fb950',
+      downColor: '#f85149',
+      borderUpColor: '#3fb950',
+      borderDownColor: '#f85149',
+      wickUpColor: '#3fb950',
+      wickDownColor: '#f85149',
+    });
+  } else {
+    mainSeries = chart.addLineSeries({
+      color: '#58a6ff',
+      lineWidth: 2,
+      crosshairMarkerVisible: true,
+      crosshairMarkerRadius: 4,
+      lastValueVisible: true,
+      priceLineVisible: true,
+    });
+  }
+
+  // Tooltip
+  chart.subscribeCrosshairMove(param => {
+    const tooltip = document.getElementById('tooltip');
+    if (!param.time || !param.seriesData || !param.seriesData.size) {
+      tooltip.style.display = 'none';
+      return;
+    }
+    const data = param.seriesData.get(mainSeries);
+    if (!data) { tooltip.style.display = 'none'; return; }
+
+    const player = getSelectedPlayer();
+    const unit = priceUnit === 'pitch' ? 'PITCH' : (player ? player.country : '?');
+
+    tooltip.style.display = 'block';
+    document.getElementById('tt-time').textContent = formatDate(param.time);
+
+    if (chartMode === 'candles' && data.open !== undefined) {
+      document.getElementById('tt-price').textContent = `Close: ${data.close.toFixed(6)} ${unit}`;
+      document.getElementById('tt-ohlc').textContent =
+        `O: ${data.open.toFixed(6)}  H: ${data.high.toFixed(6)}  L: ${data.low.toFixed(6)}`;
+    } else {
+      document.getElementById('tt-price').textContent = `${data.value.toFixed(6)} ${unit}`;
+      document.getElementById('tt-ohlc').textContent = '';
+    }
+  });
+
+  const ro = new ResizeObserver(() => {
+    chart.applyOptions({ width: container.clientWidth, height: container.clientHeight });
+  });
+  ro.observe(container);
+}
+
+async function fetchPlayers() {
+  try {
+    const res = await fetch('/api/players');
+    const data = await res.json();
+    playersData = data.players;
+    countryPrices = data.countryPrices || {};
+    walletAddress = data.walletAddress || '';
+    document.getElementById('status-text').textContent =
+      `${playersData.length} players | ${new Date(data.lastUpdate * 1000).toLocaleTimeString()}`;
+    renderPlayerList();
+    updateHeaderPrice();
+  } catch(e) {}
+}
+
+function updateHeaderPrice() {
+  if (!selectedAddr) return;
+  const player = getSelectedPlayer();
+  if (!player) return;
+
+  const priceEl = document.getElementById('ch-price');
+  const subEl = document.getElementById('ch-price-sub');
+
+  if (player.priceCountry > 0) {
+    priceEl.textContent = `${player.priceCountry.toFixed(4)} ${player.country}`;
+    priceEl.style.color = '#3fb950';
+    subEl.textContent = player.pricePitch > 0 ? `${player.pricePitch.toFixed(4)} PITCH` : '';
+  } else {
+    priceEl.textContent = '\u2014';
+    priceEl.style.color = '#8b949e';
+    subEl.textContent = '';
+  }
+  document.getElementById('st-supply').textContent = player.supply.toFixed(2);
+}
+
+function getChg(p) {
+  if (!p.changePct) return 0;
+  if (typeof p.changePct === 'number') return p.changePct; // fallback
+  return p.changePct[chgPeriod] || 0;
+}
+
+function renderPlayerList() {
+  const list = document.getElementById('player-list');
+  const f = (document.getElementById('search').value || '').toLowerCase();
+
+  const filtered = playersData.filter(p => {
+    if (roleFilter !== 'all' && p.role !== roleFilter) return false;
+    if (f && !p.name.toLowerCase().includes(f) && !p.symbol.toLowerCase().includes(f) && !p.country.toLowerCase().includes(f)) return false;
+    return true;
+  });
+
+  list.innerHTML = filtered.map(p => {
+    const chg = getChg(p);
+    const chgClass = chg > 0 ? 'change-up' : chg < 0 ? 'change-down' : 'change-zero';
+    const chgStr = chg > 0 ? `+${chg.toFixed(1)}%` : chg < 0 ? `${chg.toFixed(1)}%` : '&mdash;';
+    const pitchStr = p.pricePitch > 0 ? `${p.pricePitch.toFixed(4)} PITCH` : '';
+    const roleTag = p.role ? `<span class="role-tag ${p.role}">${p.role[0].toUpperCase()}</span>` : '';
+    return `
+    <div class="player-row ${selectedAddr === p.address ? 'active' : ''}" onclick="selectPlayer('${p.address}')">
+      <div>
+        <div class="player-name">${p.name}${roleTag}</div>
+        <div class="player-country">${p.country} &mdash; ${p.countryName}</div>
+      </div>
+      <div class="player-cell">${p.supply.toFixed(1)}</div>
+      <div class="player-cell">
+        <span class="price-main">${p.priceCountry > 0 ? p.priceCountry.toFixed(4) + ' ' + p.country : '&mdash;'}</span>
+        <span class="price-sub">${pitchStr}</span>
+      </div>
+      <div class="player-cell"><span class="${chgClass}">${chgStr}</span></div>
+    </div>`;
+  }).join('');
+}
+
+async function selectPlayer(addr) {
+  selectedAddr = addr;
+  lastLiveCandle = null;
+  currentChartMode = null;
+  renderPlayerList();
+
+  const player = getSelectedPlayer();
+  if (!player) return;
+
+  document.getElementById('ch-name').textContent = `${player.name} (${player.symbol})`;
+  document.getElementById('ch-meta').textContent = `${player.country} \u2014 ${player.countryName}`;
+  document.getElementById('btn-country').textContent = player.country;
+
+  updateHeaderPrice();
+
+  document.getElementById('st-country').textContent = `${player.country} \u2014 ${player.countryName}`;
+  document.getElementById('st-role').textContent = player.role ? player.role.charAt(0).toUpperCase() + player.role.slice(1) : '\u2014';
+  document.getElementById('st-trades').textContent = player.trades;
+  document.getElementById('st-contract').innerHTML =
+    `<a href="https://basescan.org/address/${addr}" target="_blank">${addr.slice(0,6)}..${addr.slice(-4)}</a>`;
+
+  await loadChart();
+  fetchWallet();
+  updateTradeUI();
+  document.getElementById('trade-amount').value = '';
+  document.getElementById('trade-quote').style.display = 'none';
+  document.getElementById('trade-status').textContent = '';
+}
+
+async function loadChart(fit = true) {
+  if (!selectedAddr || !getSelectedPlayer()) return;
+
+  const res = await fetch(`/api/chart/${selectedAddr}?tf=${currentTf}`);
+  lastChartData = await res.json();
+  renderChartData(fit);
+  await loadTrades();
+}
+
+function renderChartData(fit = true) {
+  if (!lastChartData) return;
+  if (!chart || currentChartMode !== chartMode) {
+    createChart();
+    currentChartMode = chartMode;
+  }
+  lastLiveCandle = null;
+  if (chartMode === 'candles') renderCandles();
+  else renderLine();
+  if (fit) chart.timeScale().fitContent();
+}
+
+function renderCandles() {
+  const candles = lastChartData.candles || [];
+  if (!candles.length) {
+    mainSeries.setData([]);
+    document.getElementById('st-high').textContent = '\u2014';
+    document.getElementById('st-low').textContent = '\u2014';
+    return;
+  }
+
+  const player = getSelectedPlayer();
+  const unit = priceUnit === 'pitch' ? 'PITCH' : (player ? player.country : '?');
+
+  mainSeries.setData(candles.map(c => ({
+    time: c.time,
+    open: applyPitchMultiplier(c.open),
+    high: applyPitchMultiplier(c.high),
+    low: applyPitchMultiplier(c.low),
+    close: applyPitchMultiplier(c.close),
+  })));
+  if (candles.length > 0) lastSeriesTime = candles[candles.length - 1].time;
+
+  const highs = candles.map(c => applyPitchMultiplier(c.high));
+  const lows = candles.map(c => applyPitchMultiplier(c.low));
+  document.getElementById('st-high').textContent = Math.max(...highs).toFixed(4) + ' ' + unit;
+  document.getElementById('st-low').textContent = Math.min(...lows).toFixed(4) + ' ' + unit;
+
+  // Markers on candles
+  const tfMap = {'1m': 60, '5m': 300, '15m': 900, '1h': 3600, '4h': 14400, '1d': 86400};
+  const interval = tfMap[currentTf] || 300;
+  const points = lastChartData.points || [];
+  const markers = [];
+  for (const p of points) {
+    if (p.type === 'spot') continue;
+    const isMine = walletAddress && p.trader && p.trader.toLowerCase() === walletAddress.toLowerCase();
+    if (isMine && !showMyTrades) continue;
+    if (!isMine && !showAllTrades) continue;
+    markers.push({
+      time: Math.floor(p.time / interval) * interval,
+      position: p.type === 'buy' ? 'belowBar' : 'aboveBar',
+      color: p.type === 'buy' ? '#3fb950' : '#f85149',
+      shape: isMine ? (p.type === 'buy' ? 'arrowUp' : 'arrowDown') : 'circle',
+      text: isMine ? (p.type === 'buy' ? 'B' : 'S') : '',
+      size: isMine ? 2 : 1,
+    });
+  }
+  markers.sort((a, b) => a.time - b.time);
+  mainSeries.setMarkers(markers);
+}
+
+function renderLine() {
+  const points = lastChartData.points || [];
+  if (!points.length) {
+    mainSeries.setData([]);
+    document.getElementById('st-high').textContent = '\u2014';
+    document.getElementById('st-low').textContent = '\u2014';
+    return;
+  }
+
+  const player = getSelectedPlayer();
+  const unit = priceUnit === 'pitch' ? 'PITCH' : (player ? player.country : '?');
+
+  const seen = new Set();
+  const lineData = [];
+  for (const p of points) {
+    let t = p.time;
+    while (seen.has(t)) t++;
+    seen.add(t);
+    lineData.push({ time: t, value: applyPitchMultiplier(p.price) });
+  }
+  mainSeries.setData(lineData);
+  if (lineData.length > 0) lastSeriesTime = lineData[lineData.length - 1].time;
+
+  // Markers
+  const markers = [];
+  for (let i = 0; i < points.length; i++) {
+    const p = points[i];
+    if (p.type === 'spot') continue;
+    const isMine = walletAddress && p.trader && p.trader.toLowerCase() === walletAddress.toLowerCase();
+    if (isMine && !showMyTrades) continue;
+    if (!isMine && !showAllTrades) continue;
+    markers.push({
+      time: lineData[i].time,
+      position: p.type === 'buy' ? 'belowBar' : 'aboveBar',
+      color: p.type === 'buy' ? '#3fb950' : '#f85149',
+      shape: isMine ? (p.type === 'buy' ? 'arrowUp' : 'arrowDown') : 'circle',
+      text: isMine ? (p.type === 'buy' ? 'B' : 'S') : '',
+      size: isMine ? 2 : 1,
+    });
+  }
+  mainSeries.setMarkers(markers);
+
+  const prices = points.map(p => applyPitchMultiplier(p.price));
+  document.getElementById('st-high').textContent = Math.max(...prices).toFixed(4) + ' ' + unit;
+  document.getElementById('st-low').textContent = Math.min(...prices).toFixed(4) + ' ' + unit;
+}
+
+function updateChartPrice() {
+  if (!selectedAddr || !mainSeries || !chart) return;
+  const player = getSelectedPlayer();
+  if (!player || player.priceCountry <= 0) return;
+  const price = applyPitchMultiplier(player.priceCountry);
+  const now = Math.floor(Date.now() / 1000);
+
+  if (chartMode === 'candles') {
+    const tfMap = {'1m': 60, '5m': 300, '15m': 900, '1h': 3600, '4h': 14400, '1d': 86400};
+    const interval = tfMap[currentTf] || 300;
+    const bucket = Math.floor(now / interval) * interval;
+
+    const candleTime = Math.max(bucket, lastSeriesTime);
+    if (!lastLiveCandle || lastLiveCandle.time !== candleTime) {
+      lastLiveCandle = { time: candleTime, open: price, high: price, low: price, close: price };
+      lastSeriesTime = candleTime;
+    } else {
+      lastLiveCandle.high = Math.max(lastLiveCandle.high, price);
+      lastLiveCandle.low = Math.min(lastLiveCandle.low, price);
+      lastLiveCandle.close = price;
+    }
+    mainSeries.update(lastLiveCandle);
+  } else {
+    const t = Math.max(now, lastSeriesTime + 1);
+    lastSeriesTime = t;
+    mainSeries.update({ time: t, value: price });
+  }
+
+  updateHeaderPrice();
+}
+
+let tradesData = null;
+let tradesTab = 'trades';
+
+async function loadTrades() {
+  if (!selectedAddr) return;
+  const player = getSelectedPlayer();
+  if (!player) return;
+
+  try {
+    const res = await fetch(`/api/trades/${selectedAddr}`);
+    tradesData = await res.json();
+
+    document.getElementById('tab-trades-count').textContent = `(${tradesData.totalTrades})`;
+    document.getElementById('tab-wallets-count').textContent = `(${tradesData.wallets.length})`;
+
+    renderTradesTab();
+  } catch(e) {}
+}
+
+function renderTradesTab() {
+  const content = document.getElementById('trades-content');
+  if (!tradesData) { content.innerHTML = '<div class="no-data">Select a player</div>'; return; }
+
+  const player = getSelectedPlayer();
+  if (!player) return;
+
+  if (tradesTab === 'trades') {
+    const trades = tradesData.trades;
+    if (!trades.length) { content.innerHTML = '<div class="no-data">No trades yet</div>'; return; }
+
+    const header = `<div class="trades-col-header trades-cols">
+      <span>Type</span><span>Price</span><span>Amount</span><span>Total</span><span>Time</span><span>Wallet</span><span>Holds</span>
+    </div>`;
+
+    const rows = trades.slice(0, 200).map(e => `
+      <div class="trade-row">
+        <span class="${e.type}">${e.type.toUpperCase()}</span>
+        <span>${e.price.toFixed(4)}</span>
+        <span>${e.tokenValue.toFixed(2)}</span>
+        <span>${e.baseValue.toFixed(2)} ${player.country}</span>
+        <span>${formatTime(e.timestamp)}</span>
+        <span><a class="tx-link" href="https://basescan.org/tx/0x${e.tx}" target="_blank">${e.traderShort}</a></span>
+        <span class="wallet-pos">${e.walletPosition > 0.01 ? e.walletPosition.toFixed(1) : '0'}</span>
+      </div>
+    `).join('');
+
+    content.innerHTML = header + rows;
+  } else {
+    const wallets = tradesData.wallets.slice().sort((a, b) => b.position - a.position);
+    if (!wallets.length) { content.innerHTML = '<div class="no-data">No holders</div>'; return; }
+
+    const header = `<div class="trades-col-header wallets-cols">
+      <span>Wallet</span><span>Buys</span><span>Sells</span><span>Position</span><span>Spent</span><span>Received</span>
+    </div>`;
+
+    const rows = wallets.map(w => {
+      const posClass = w.position > 0.01 ? 'pos-positive' : 'pos-zero';
+      return `
+      <div class="wallet-row">
+        <span><a class="tx-link" href="https://basescan.org/address/${w.address}" target="_blank">${w.short}</a></span>
+        <span style="color:#3fb950">${w.buys}</span>
+        <span style="color:#f85149">${w.sells}</span>
+        <span class="${posClass}">${w.position.toFixed(2)}</span>
+        <span>${w.spent.toFixed(2)}</span>
+        <span>${w.received.toFixed(2)}</span>
+      </div>`;
+    }).join('');
+
+    content.innerHTML = header + rows;
+  }
+}
+
+// --- Trading ---
+let tradeSide = 'buy';
+let walletInfo = null;
+let quoteTimer = null;
+
+function setTradeSide(side) {
+  tradeSide = side;
+  const buyBtn = document.getElementById('trade-buy-btn');
+  const sellBtn = document.getElementById('trade-sell-btn');
+  const submitBtn = document.getElementById('trade-submit');
+
+  buyBtn.className = 'trade-side-btn' + (side === 'buy' ? ' buy-active' : '');
+  sellBtn.className = 'trade-side-btn' + (side === 'sell' ? ' sell-active' : '');
+  submitBtn.className = 'trade-submit ' + (side === 'buy' ? 'buy-btn' : 'sell-btn');
+
+  updateTradeUI();
+  onTradeAmountChange();
+}
+
+function updateTradeUI() {
+  const player = getSelectedPlayer();
+  const label = document.getElementById('trade-amount-label');
+  const suffix = document.getElementById('trade-suffix');
+  const submitBtn = document.getElementById('trade-submit');
+
+  if (!player) {
+    label.textContent = 'Amount';
+    suffix.textContent = '—';
+    submitBtn.textContent = 'Select a player';
+    submitBtn.disabled = true;
+    return;
+  }
+
+  if (tradeSide === 'buy') {
+    label.textContent = `Spend (${player.country})`;
+    suffix.textContent = player.country;
+    submitBtn.textContent = `Buy ${player.symbol}`;
+  } else {
+    label.textContent = `Sell (${player.symbol})`;
+    suffix.textContent = player.symbol;
+    submitBtn.textContent = `Sell ${player.symbol}`;
+  }
+  submitBtn.disabled = !walletInfo || !walletInfo.connected;
+}
+
+async function fetchWallet() {
+  const url = selectedAddr ? `/api/wallet?player=${selectedAddr}` : '/api/wallet';
+  try {
+    const res = await fetch(url);
+    walletInfo = await res.json();
+    renderWalletInfo();
+    updateTradeUI();
+  } catch(e) {}
+}
+
+function renderWalletInfo() {
+  const el = document.getElementById('trade-wallet-info');
+  if (!walletInfo || !walletInfo.connected) {
+    el.innerHTML = '<div class="trade-no-wallet">Add PRIVATE_KEY to .env</div>';
+    return;
+  }
+
+  let html = `<div class="trade-wallet">
+    <div class="wallet-addr">${walletInfo.addressShort}</div>
+    <div class="wallet-bal">ETH: <span>${walletInfo.ethBalance.toFixed(4)}</span></div>`;
+
+  if (walletInfo.countryBalance !== undefined) {
+    html += `<div class="wallet-bal">${walletInfo.countrySymbol}: <span>${walletInfo.countryBalance.toFixed(4)}</span></div>`;
+    html += `<div class="wallet-bal">${walletInfo.playerSymbol}: <span>${walletInfo.playerBalance.toFixed(4)}</span></div>`;
+  }
+  html += '</div>';
+  el.innerHTML = html;
+}
+
+function setTradePreset(pct) {
+  if (!walletInfo || !walletInfo.connected) return;
+  const input = document.getElementById('trade-amount');
+  if (tradeSide === 'buy') {
+    input.value = ((walletInfo.countryBalance || 0) * pct).toFixed(4);
+  } else {
+    input.value = ((walletInfo.playerBalance || 0) * pct).toFixed(4);
+  }
+  onTradeAmountChange();
+}
+
+function onTradeAmountChange() {
+  clearTimeout(quoteTimer);
+  const amount = parseFloat(document.getElementById('trade-amount').value) || 0;
+  if (amount <= 0 || !selectedAddr) {
+    document.getElementById('trade-quote').style.display = 'none';
+    return;
+  }
+  quoteTimer = setTimeout(() => fetchQuote(amount), 300);
+}
+
+async function fetchQuote(amount) {
+  if (!selectedAddr) return;
+  const player = getSelectedPlayer();
+  if (!player) return;
+
+  try {
+    const res = await fetch(`/api/quote?player=${selectedAddr}&side=${tradeSide}&amount=${amount}`);
+    const data = await res.json();
+    if (data.error) {
+      document.getElementById('trade-quote').style.display = 'none';
+      return;
+    }
+
+    const quoteEl = document.getElementById('trade-quote');
+    quoteEl.style.display = 'flex';
+
+    const outUnit = tradeSide === 'buy' ? player.symbol : player.country;
+    document.getElementById('tq-out').textContent = `${data.amountOut.toFixed(4)} ${outUnit}`;
+    document.getElementById('tq-price').textContent =
+      tradeSide === 'buy'
+        ? `Price: ${data.price.toFixed(4)} ${player.country}/${player.symbol}`
+        : `Price: ${(1/data.price).toFixed(4)} ${player.country}/${player.symbol}`;
+  } catch(e) {}
+}
+
+async function executeTrade() {
+  if (!selectedAddr || !walletInfo || !walletInfo.connected) return;
+
+  const amount = document.getElementById('trade-amount').value;
+  const slippagePct = parseFloat(document.getElementById('trade-slippage').value) || 0.5;
+  const slippageBps = Math.round(slippagePct * 100);
+
+  const statusEl = document.getElementById('trade-status');
+  const submitBtn = document.getElementById('trade-submit');
+
+  submitBtn.disabled = true;
+  statusEl.className = 'trade-status pending';
+  statusEl.textContent = tradeSide === 'buy' ? 'Buying...' : 'Selling...';
+
+  try {
+    const res = await fetch('/api/trade', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        player: selectedAddr,
+        side: tradeSide,
+        amount: amount,
+        slippage: slippageBps,
+      }),
+    });
+    const data = await res.json();
+
+    if (data.error) {
+      statusEl.className = 'trade-status error';
+      statusEl.textContent = data.error;
+    } else if (data.success) {
+      statusEl.className = 'trade-status success';
+      statusEl.textContent = `Done! Got ${data.expectedOut.toFixed(4)}`;
+      document.getElementById('trade-amount').value = '';
+      document.getElementById('trade-quote').style.display = 'none';
+      fetchWallet();
+      fetchPlayers();
+    } else {
+      statusEl.className = 'trade-status error';
+      statusEl.textContent = 'Transaction reverted';
+    }
+  } catch(e) {
+    statusEl.className = 'trade-status error';
+    statusEl.textContent = 'Network error';
+  }
+  submitBtn.disabled = false;
+}
+
+// --- SSE ---
+function connectSSE() {
+  if (sseSource) sseSource.close();
+  sseSource = new EventSource('/api/stream');
+  sseSource.onopen = () => document.getElementById('sse-dot').classList.remove('disconnected');
+  sseSource.onmessage = async (event) => {
+    const type = event.data.trim();
+    if (type === 'prices') {
+      await fetchPlayers();
+      updateChartPrice();
+    } else if (type === 'events' && selectedAddr) {
+      await loadChart(false);
+    }
+  };
+  sseSource.onerror = () => document.getElementById('sse-dot').classList.add('disconnected');
+}
+
+// --- Event listeners ---
+
+// Role filter
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    roleFilter = btn.dataset.role;
+    renderPlayerList();
+  });
+});
+
+// Change% period
+document.querySelectorAll('.chg-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.chg-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    chgPeriod = btn.dataset.chg;
+    renderPlayerList();
+  });
+});
+
+// Chart type toggle
+document.querySelectorAll('.chart-type-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.chart-type-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    chartMode = btn.dataset.mode;
+    if (lastChartData) renderChartData();
+  });
+});
+
+// Marker toggles
+document.getElementById('toggle-my').addEventListener('change', (e) => {
+  showMyTrades = e.target.checked;
+  if (lastChartData) renderChartData(false);
+});
+document.getElementById('toggle-all').addEventListener('change', (e) => {
+  showAllTrades = e.target.checked;
+  if (lastChartData) renderChartData(false);
+});
+
+// Price unit toggle
+document.querySelectorAll('.price-toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.price-toggle-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    priceUnit = btn.dataset.unit;
+    if (lastChartData) renderChartData();
+  });
+});
+
+// Timeframe
+document.getElementById('tf-bar').addEventListener('click', (e) => {
+  const btn = e.target.closest('.tf-btn');
+  if (!btn) return;
+  document.querySelectorAll('.tf-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  currentTf = btn.dataset.tf;
+  if (selectedAddr) loadChart();
+});
+
+// Trades tabs
+document.querySelectorAll('.trades-tab').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.trades-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    tradesTab = btn.dataset.tab;
+    renderTradesTab();
+  });
+});
+
+// Search
+document.getElementById('search').addEventListener('input', () => renderPlayerList());
+
+// Init
+fetchPlayers();
+fetchWallet();
+connectSSE();
+setInterval(() => {
+  if (!sseSource || sseSource.readyState === EventSource.CLOSED) { fetchPlayers(); connectSSE(); }
+}, 30000);
+setInterval(() => { if (selectedAddr) loadChart(); }, 60000);
+</script>
+</body>
+</html>

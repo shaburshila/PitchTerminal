@@ -1,0 +1,69 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - heading "PITCH Markets" [level=1] [ref=e3]
+    - generic [ref=e4]: Connecting...
+  - generic [ref=e6]:
+    - generic [ref=e7]:
+      - generic [ref=e8]: Player Markets
+      - textbox "Search player or country..." [ref=e10]
+      - generic [ref=e11]:
+        - button "All" [ref=e12] [cursor=pointer]
+        - button "Best" [ref=e13] [cursor=pointer]
+        - button "Captain" [ref=e14] [cursor=pointer]
+        - button "Rookie" [ref=e15] [cursor=pointer]
+        - button "All" [ref=e17] [cursor=pointer]
+        - button "1D" [ref=e18] [cursor=pointer]
+        - button "12H" [ref=e19] [cursor=pointer]
+        - button "6H" [ref=e20] [cursor=pointer]
+        - button "1H" [ref=e21] [cursor=pointer]
+        - button "15M" [ref=e22] [cursor=pointer]
+      - generic [ref=e23]:
+        - generic [ref=e24]: Player
+        - generic [ref=e25]: Supply
+        - generic [ref=e26]: Price
+        - generic [ref=e27]: Chg%
+      - generic [ref=e29]: Loading...
+    - generic [ref=e30]:
+      - generic [ref=e31]:
+        - generic [ref=e32]:
+          - generic [ref=e33]: Select a player
+          - generic [ref=e34]: Click on a player to view chart
+        - generic [ref=e36]: —
+      - generic [ref=e37]:
+        - button "Line" [ref=e38] [cursor=pointer]
+        - button "Candles" [ref=e39] [cursor=pointer]
+        - button "Country" [ref=e41] [cursor=pointer]
+        - button "PITCH" [ref=e42] [cursor=pointer]
+        - button "1m" [ref=e44] [cursor=pointer]
+        - button "5m" [ref=e45] [cursor=pointer]
+        - button "15m" [ref=e46] [cursor=pointer]
+        - button "1h" [ref=e47] [cursor=pointer]
+        - button "4h" [ref=e48] [cursor=pointer]
+        - button "1D" [ref=e49] [cursor=pointer]
+      - generic [ref=e51]:
+        - generic [ref=e52]:
+          - generic [ref=e53]: Supply
+          - generic [ref=e54]: —
+        - generic [ref=e55]:
+          - generic [ref=e56]: Country
+          - generic [ref=e57]: —
+        - generic [ref=e58]:
+          - generic [ref=e59]: Role
+          - generic [ref=e60]: —
+        - generic [ref=e61]:
+          - generic [ref=e62]: Trades
+          - generic [ref=e63]: —
+        - generic [ref=e64]:
+          - generic [ref=e65]: High
+          - generic [ref=e66]: —
+        - generic [ref=e67]:
+          - generic [ref=e68]: Low
+          - generic [ref=e69]: —
+        - generic [ref=e70]:
+          - generic [ref=e71]: Contract
+          - generic [ref=e72]: —
+      - generic [ref=e73]:
+        - generic [ref=e74]:
+          - button "Trades" [ref=e75] [cursor=pointer]: Trades
+          - button "Holders" [ref=e76] [cursor=pointer]: Holders
+        - generic [ref=e78]: Select a player

@@ -1,0 +1,1432 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - heading "PITCH Markets" [level=1] [ref=e3]
+    - generic [ref=e4]: 144 players | 9:47:08 PM
+  - generic [ref=e6]:
+    - generic [ref=e7]:
+      - generic [ref=e8]: Player Markets
+      - textbox "Search player or country..." [ref=e10]
+      - generic [ref=e11]:
+        - button "All" [ref=e12] [cursor=pointer]
+        - button "Best" [ref=e13] [cursor=pointer]
+        - button "Captain" [ref=e14] [cursor=pointer]
+        - button "Rookie" [ref=e15] [cursor=pointer]
+        - button "All" [ref=e17] [cursor=pointer]
+        - button "1D" [ref=e18] [cursor=pointer]
+        - button "12H" [ref=e19] [cursor=pointer]
+        - button "6H" [ref=e20] [cursor=pointer]
+        - button "1H" [ref=e21] [cursor=pointer]
+        - button "15M" [ref=e22] [cursor=pointer]
+      - generic [ref=e23]:
+        - generic [ref=e24]: Player
+        - generic [ref=e25]: Supply
+        - generic [ref=e26]: Price
+        - generic [ref=e27]: Chg%
+      - generic [ref=e28]:
+        - generic [ref=e3494] [cursor=pointer]:
+          - generic [ref=e3495]:
+            - generic [ref=e3496]:
+              - text: Kylian Mbappé
+              - generic [ref=e3497]: B
+            - generic [ref=e3498]: FRA — France
+          - generic [ref=e3499]: "348.1"
+          - generic [ref=e3500]:
+            - generic [ref=e3501]: 10.6809 FRA
+            - generic [ref=e3502]: 26.1737 PITCH
+          - generic [ref=e3504]: +53.6%
+        - generic [ref=e3505] [cursor=pointer]:
+          - generic [ref=e3506]:
+            - generic [ref=e3507]:
+              - text: Lionel Messi
+              - generic [ref=e3508]: B
+            - generic [ref=e3509]: ARG — Argentina
+          - generic [ref=e3510]: "370.5"
+          - generic [ref=e3511]:
+            - generic [ref=e3512]: 14.6996 ARG
+            - generic [ref=e3513]: 22.5173 PITCH
+          - generic [ref=e3515]: +60.5%
+        - generic [ref=e3516] [cursor=pointer]:
+          - generic [ref=e3517]:
+            - generic [ref=e3518]:
+              - text: Lamine Yamal
+              - generic [ref=e3519]: B
+            - generic [ref=e3520]: ESP — Spain
+          - generic [ref=e3521]: "319.5"
+          - generic [ref=e3522]:
+            - generic [ref=e3523]: 7.5595 ESP
+            - generic [ref=e3524]: 15.7693 PITCH
+          - generic [ref=e3526]: +32.9%
+        - generic [ref=e3527] [cursor=pointer]:
+          - generic [ref=e3528]:
+            - generic [ref=e3529]:
+              - text: Jude Bellingham
+              - generic [ref=e3530]: B
+            - generic [ref=e3531]: ENG — England
+          - generic [ref=e3532]: "304.8"
+          - generic [ref=e3533]:
+            - generic [ref=e3534]: 6.4675 ENG
+            - generic [ref=e3535]: 9.5829 PITCH
+          - generic [ref=e3537]: +64.1%
+        - generic [ref=e3538] [cursor=pointer]:
+          - generic [ref=e3539]:
+            - generic [ref=e3540]:
+              - text: Vinícius Júnior
+              - generic [ref=e3541]: B
+            - generic [ref=e3542]: BRA — Brazil
+          - generic [ref=e3543]: "304.4"
+          - generic [ref=e3544]:
+            - generic [ref=e3545]: 6.4409 BRA
+            - generic [ref=e3546]: 8.7044 PITCH
+          - generic [ref=e3548]: +65.2%
+        - generic [ref=e3549] [cursor=pointer]:
+          - generic [ref=e3550]:
+            - generic [ref=e3551]:
+              - text: Bruno Fernandes
+              - generic [ref=e3552]: B
+            - generic [ref=e3553]: POR — Portugal
+          - generic [ref=e3554]: "257.7"
+          - generic [ref=e3555]:
+            - generic [ref=e3556]: 4.1957 POR
+            - generic [ref=e3557]: 5.3726 PITCH
+          - generic [ref=e3559]: +86.1%
+        - generic [ref=e3560] [cursor=pointer]:
+          - generic [ref=e3561]:
+            - generic [ref=e3562]:
+              - text: Erling Haaland
+              - generic [ref=e3563]: B
+            - generic [ref=e3564]: NOR — Norway
+          - generic [ref=e3565]: "245.7"
+          - generic [ref=e3566]:
+            - generic [ref=e3567]: 3.8083 NOR
+            - generic [ref=e3568]: 4.3842 PITCH
+          - generic [ref=e3570]: +7.6%
+        - generic [ref=e3571] [cursor=pointer]:
+          - generic [ref=e3572]:
+            - generic [ref=e3573]:
+              - text: Florian Wirtz
+              - generic [ref=e3574]: B
+            - generic [ref=e3575]: GER — Germany
+          - generic [ref=e3576]: "195.2"
+          - generic [ref=e3577]:
+            - generic [ref=e3578]: 2.6512 GER
+            - generic [ref=e3579]: 3.1836 PITCH
+          - generic [ref=e3581]: +11.4%
+        - generic [ref=e3582] [cursor=pointer]:
+          - generic [ref=e3583]:
+            - generic [ref=e3584]:
+              - text: Kevin De Bruyne
+              - generic [ref=e3585]: B
+            - generic [ref=e3586]: BEL — Belgium
+          - generic [ref=e3587]: "197.7"
+          - generic [ref=e3588]:
+            - generic [ref=e3589]: 2.6952 BEL
+            - generic [ref=e3590]: 3.0172 PITCH
+          - generic [ref=e3592]: +69.3%
+        - generic [ref=e3593] [cursor=pointer]:
+          - generic [ref=e3594]:
+            - generic [ref=e3595]:
+              - text: Virgil van Dijk
+              - generic [ref=e3596]: B
+            - generic [ref=e3597]: NED — Netherlands
+          - generic [ref=e3598]: "164.1"
+          - generic [ref=e3599]:
+            - generic [ref=e3600]: 2.1840 NED
+            - generic [ref=e3601]: 2.3895 PITCH
+          - generic [ref=e3603]: +18.2%
+        - generic [ref=e3604] [cursor=pointer]:
+          - generic [ref=e3605]:
+            - generic [ref=e3606]:
+              - text: Christian Pulisic
+              - generic [ref=e3607]: B
+            - generic [ref=e3608]: USA — USA
+          - generic [ref=e3609]: "93.5"
+          - generic [ref=e3610]:
+            - generic [ref=e3611]: 1.4912 USA
+            - generic [ref=e3612]: 1.5949 PITCH
+          - generic [ref=e3614]: "-4.5%"
+        - generic [ref=e3615] [cursor=pointer]:
+          - generic [ref=e3616]:
+            - generic [ref=e3617]:
+              - text: Granit Xhaka
+              - generic [ref=e3618]: B
+            - generic [ref=e3619]: SUI — Switzerland
+          - generic [ref=e3620]: "92.9"
+          - generic [ref=e3621]:
+            - generic [ref=e3622]: 1.4863 SUI
+            - generic [ref=e3623]: 1.5760 PITCH
+          - generic [ref=e3625]: "-5.5%"
+        - generic [ref=e3626] [cursor=pointer]:
+          - generic [ref=e3627]:
+            - generic [ref=e3628]:
+              - text: Achraf Hakimi
+              - generic [ref=e3629]: B
+            - generic [ref=e3630]: MAR — Morocco
+          - generic [ref=e3631]: "50.0"
+          - generic [ref=e3632]:
+            - generic [ref=e3633]: 1.2167 MAR
+            - generic [ref=e3634]: 1.3346 PITCH
+          - generic [ref=e3636]: —
+        - generic [ref=e3637] [cursor=pointer]:
+          - generic [ref=e3638]:
+            - generic [ref=e3639]:
+              - text: Santiago Giménez
+              - generic [ref=e3640]: B
+            - generic [ref=e3641]: MEX — Mexico
+          - generic [ref=e3642]: "50.0"
+          - generic [ref=e3643]:
+            - generic [ref=e3644]: 1.2167 MEX
+            - generic [ref=e3645]: 1.3331 PITCH
+          - generic [ref=e3647]: —
+        - generic [ref=e3648] [cursor=pointer]:
+          - generic [ref=e3649]:
+            - generic [ref=e3650]:
+              - text: Luis Díaz
+              - generic [ref=e3651]: B
+            - generic [ref=e3652]: COL — Colombia
+          - generic [ref=e3653]: "58.2"
+          - generic [ref=e3654]:
+            - generic [ref=e3655]: 1.2625 COL
+            - generic [ref=e3656]: 1.3132 PITCH
+          - generic [ref=e3658]: "-1.6%"
+        - generic [ref=e3659] [cursor=pointer]:
+          - generic [ref=e3660]:
+            - generic [ref=e3661]:
+              - text: Joško Gvardiol
+              - generic [ref=e3662]: B
+            - generic [ref=e3663]: CRO — Croatia
+          - generic [ref=e3664]: "50.0"
+          - generic [ref=e3665]:
+            - generic [ref=e3666]: 1.2167 CRO
+            - generic [ref=e3667]: 1.2879 PITCH
+          - generic [ref=e3669]: —
+        - generic [ref=e3670] [cursor=pointer]:
+          - generic [ref=e3671]:
+            - generic [ref=e3672]:
+              - text: Federico Valverde
+              - generic [ref=e3673]: B
+            - generic [ref=e3674]: URU — Uruguay
+          - generic [ref=e3675]: "50.0"
+          - generic [ref=e3676]:
+            - generic [ref=e3677]: 1.2167 URU
+            - generic [ref=e3678]: 1.2819 PITCH
+          - generic [ref=e3680]: —
+        - generic [ref=e3681] [cursor=pointer]:
+          - generic [ref=e3682]:
+            - generic [ref=e3683]:
+              - text: Hakan Çalhanoğlu
+              - generic [ref=e3684]: B
+            - generic [ref=e3685]: TUR — Turkey
+          - generic [ref=e3686]: "50.0"
+          - generic [ref=e3687]:
+            - generic [ref=e3688]: 1.2167 TUR
+            - generic [ref=e3689]: 1.2729 PITCH
+          - generic [ref=e3691]: —
+        - generic [ref=e3692] [cursor=pointer]:
+          - generic [ref=e3693]:
+            - generic [ref=e3694]:
+              - text: Mohamed Salah
+              - generic [ref=e3695]: B
+            - generic [ref=e3696]: EGY — Egypt
+          - generic [ref=e3697]: "50.0"
+          - generic [ref=e3698]:
+            - generic [ref=e3699]: 1.2167 EGY
+            - generic [ref=e3700]: 1.2729 PITCH
+          - generic [ref=e3702]: —
+        - generic [ref=e3703] [cursor=pointer]:
+          - generic [ref=e3704]:
+            - generic [ref=e3705]:
+              - text: Sadio Mané
+              - generic [ref=e3706]: B
+            - generic [ref=e3707]: SEN — Senegal
+          - generic [ref=e3708]: "50.0"
+          - generic [ref=e3709]:
+            - generic [ref=e3710]: 1.2167 SEN
+            - generic [ref=e3711]: 1.2711 PITCH
+          - generic [ref=e3713]: —
+        - generic [ref=e3714] [cursor=pointer]:
+          - generic [ref=e3715]:
+            - generic [ref=e3716]:
+              - text: David Alaba
+              - generic [ref=e3717]: B
+            - generic [ref=e3718]: AUT — Austria
+          - generic [ref=e3719]: "50.0"
+          - generic [ref=e3720]:
+            - generic [ref=e3721]: 1.2167 AUT
+            - generic [ref=e3722]: 1.2706 PITCH
+          - generic [ref=e3724]: —
+        - generic [ref=e3725] [cursor=pointer]:
+          - generic [ref=e3726]:
+            - generic [ref=e3727]:
+              - text: Ryan Mendes
+              - generic [ref=e3728]: B
+            - generic [ref=e3729]: CPV — Cape Verde
+          - generic [ref=e3730]: "50.0"
+          - generic [ref=e3731]:
+            - generic [ref=e3732]: 1.2167 CPV
+            - generic [ref=e3733]: 1.2700 PITCH
+          - generic [ref=e3735]: —
+        - generic [ref=e3736] [cursor=pointer]:
+          - generic [ref=e3737]:
+            - generic [ref=e3738]:
+              - text: Alphonso Davies
+              - generic [ref=e3739]: B
+            - generic [ref=e3740]: CAN — Canada
+          - generic [ref=e3741]: "50.0"
+          - generic [ref=e3742]:
+            - generic [ref=e3743]: 1.2167 CAN
+            - generic [ref=e3744]: 1.2661 PITCH
+          - generic [ref=e3746]: —
+        - generic [ref=e3747] [cursor=pointer]:
+          - generic [ref=e3748]:
+            - generic [ref=e3749]:
+              - text: Edin Džeko
+              - generic [ref=e3750]: B
+            - generic [ref=e3751]: BIH — Bosnia and Herzegovina
+          - generic [ref=e3752]: "40.0"
+          - generic [ref=e3753]:
+            - generic [ref=e3754]: 1.1696 BIH
+            - generic [ref=e3755]: 1.2164 PITCH
+          - generic [ref=e3757]: —
+        - generic [ref=e3758] [cursor=pointer]:
+          - generic [ref=e3759]:
+            - generic [ref=e3760]:
+              - text: Mehdi Taremi
+              - generic [ref=e3761]: B
+            - generic [ref=e3762]: IRN — Iran
+          - generic [ref=e3763]: "39.0"
+          - generic [ref=e3764]:
+            - generic [ref=e3765]: 1.1650 IRN
+            - generic [ref=e3766]: 1.2023 PITCH
+          - generic [ref=e3768]: —
+        - generic [ref=e3769] [cursor=pointer]:
+          - generic [ref=e3770]:
+            - generic [ref=e3771]:
+              - text: Riyad Mahrez
+              - generic [ref=e3772]: B
+            - generic [ref=e3773]: ALG — Algeria
+          - generic [ref=e3774]: "38.0"
+          - generic [ref=e3775]:
+            - generic [ref=e3776]: 1.1604 ALG
+            - generic [ref=e3777]: 1.2018 PITCH
+          - generic [ref=e3779]: —
+        - generic [ref=e3780] [cursor=pointer]:
+          - generic [ref=e3781]:
+            - generic [ref=e3782]:
+              - text: Takefusa Kubo
+              - generic [ref=e3783]: B
+            - generic [ref=e3784]: JPN — Japan
+          - generic [ref=e3785]: "35.0"
+          - generic [ref=e3786]:
+            - generic [ref=e3787]: 1.1468 JPN
+            - generic [ref=e3788]: 1.1974 PITCH
+          - generic [ref=e3790]: —
+        - generic [ref=e3791] [cursor=pointer]:
+          - generic [ref=e3792]:
+            - generic [ref=e3793]:
+              - text: Andrew Robertson
+              - generic [ref=e3794]: B
+            - generic [ref=e3795]: SCO — Scotland
+          - generic [ref=e3796]: "35.0"
+          - generic [ref=e3797]:
+            - generic [ref=e3798]: 1.1468 SCO
+            - generic [ref=e3799]: 1.1884 PITCH
+          - generic [ref=e3801]: —
+        - generic [ref=e3802] [cursor=pointer]:
+          - generic [ref=e3803]:
+            - generic [ref=e3804]:
+              - text: Alexander Isak
+              - generic [ref=e3805]: B
+            - generic [ref=e3806]: SWE — Sweden
+          - generic [ref=e3807]: "30.0"
+          - generic [ref=e3808]:
+            - generic [ref=e3809]: 1.1245 SWE
+            - generic [ref=e3810]: 1.1686 PITCH
+          - generic [ref=e3812]: —
+        - generic [ref=e3813] [cursor=pointer]:
+          - generic [ref=e3814]:
+            - generic [ref=e3815]:
+              - text: Tomáš Souček
+              - generic [ref=e3816]: B
+            - generic [ref=e3817]: CZE — Czechia
+          - generic [ref=e3818]: "27.0"
+          - generic [ref=e3819]:
+            - generic [ref=e3820]: 1.1113 CZE
+            - generic [ref=e3821]: 1.1547 PITCH
+          - generic [ref=e3823]: —
+        - generic [ref=e3824] [cursor=pointer]:
+          - generic [ref=e3825]:
+            - generic [ref=e3826]:
+              - text: Moisés Caicedo
+              - generic [ref=e3827]: B
+            - generic [ref=e3828]: ECU — Ecuador
+          - generic [ref=e3829]: "28.0"
+          - generic [ref=e3830]:
+            - generic [ref=e3831]: 1.1157 ECU
+            - generic [ref=e3832]: 1.1537 PITCH
+          - generic [ref=e3834]: —
+        - generic [ref=e3835] [cursor=pointer]:
+          - generic [ref=e3836]:
+            - generic [ref=e3837]:
+              - text: Leandro Bacuna
+              - generic [ref=e3838]: B
+            - generic [ref=e3839]: CUW — Curacao
+          - generic [ref=e3840]: "27.0"
+          - generic [ref=e3841]:
+            - generic [ref=e3842]: 1.1113 CUW
+            - generic [ref=e3843]: 1.1450 PITCH
+          - generic [ref=e3845]: —
+        - generic [ref=e3846] [cursor=pointer]:
+          - generic [ref=e3847]:
+            - generic [ref=e3848]:
+              - text: Miguel Almirón
+              - generic [ref=e3849]: B
+            - generic [ref=e3850]: PAR — Paraguay
+          - generic [ref=e3851]: "26.0"
+          - generic [ref=e3852]:
+            - generic [ref=e3853]: 1.1070 PAR
+            - generic [ref=e3854]: 1.1414 PITCH
+          - generic [ref=e3856]: —
+        - generic [ref=e3857] [cursor=pointer]:
+          - generic [ref=e3858]:
+            - generic [ref=e3859]:
+              - text: Harry Souttar
+              - generic [ref=e3860]: B
+            - generic [ref=e3861]: AUS — Australia
+          - generic [ref=e3862]: "24.0"
+          - generic [ref=e3863]:
+            - generic [ref=e3864]: 1.0983 AUS
+            - generic [ref=e3865]: 1.1333 PITCH
+          - generic [ref=e3867]: —
+        - generic [ref=e3868] [cursor=pointer]:
+          - generic [ref=e3869]:
+            - generic [ref=e3870]:
+              - text: Son Heung-min
+              - generic [ref=e3871]: B
+            - generic [ref=e3872]: KOR — South Korea
+          - generic [ref=e3873]: "22.0"
+          - generic [ref=e3874]:
+            - generic [ref=e3875]: 1.0897 KOR
+            - generic [ref=e3876]: 1.1312 PITCH
+          - generic [ref=e3878]: —
+        - generic [ref=e3879] [cursor=pointer]:
+          - generic [ref=e3880]:
+            - generic [ref=e3881]:
+              - text: Percy Tau
+              - generic [ref=e3882]: B
+            - generic [ref=e3883]: RSA — South Africa
+          - generic [ref=e3884]: "21.0"
+          - generic [ref=e3885]:
+            - generic [ref=e3886]: 1.0855 RSA
+            - generic [ref=e3887]: 1.1181 PITCH
+          - generic [ref=e3889]: —
+        - generic [ref=e3890] [cursor=pointer]:
+          - generic [ref=e3891]:
+            - generic [ref=e3892]:
+              - text: Chris Wood
+              - generic [ref=e3893]: B
+            - generic [ref=e3894]: NZL — New Zealand
+          - generic [ref=e3895]: "20.0"
+          - generic [ref=e3896]:
+            - generic [ref=e3897]: 1.0813 NZL
+            - generic [ref=e3898]: 1.1163 PITCH
+          - generic [ref=e3900]: —
+        - generic [ref=e3901] [cursor=pointer]:
+          - generic [ref=e3902]:
+            - generic [ref=e3903]:
+              - text: Youssef Msakni
+              - generic [ref=e3904]: B
+            - generic [ref=e3905]: TUN — Tunisia
+          - generic [ref=e3906]: "19.0"
+          - generic [ref=e3907]:
+            - generic [ref=e3908]: 1.0770 TUN
+            - generic [ref=e3909]: 1.1097 PITCH
+          - generic [ref=e3911]: —
+        - generic [ref=e3912] [cursor=pointer]:
+          - generic [ref=e3913]:
+            - generic [ref=e3914]:
+              - text: Aymen Hussein
+              - generic [ref=e3915]: B
+            - generic [ref=e3916]: IRQ — Iraq
+          - generic [ref=e3917]: "20.0"
+          - generic [ref=e3918]:
+            - generic [ref=e3919]: 1.0813 IRQ
+            - generic [ref=e3920]: 1.1084 PITCH
+          - generic [ref=e3922]: —
+        - generic [ref=e3923] [cursor=pointer]:
+          - generic [ref=e3924]:
+            - generic [ref=e3925]:
+              - text: Abbosbek Fayzullaev
+              - generic [ref=e3926]: B
+            - generic [ref=e3927]: UZB — Uzbekistan
+          - generic [ref=e3928]: "16.0"
+          - generic [ref=e3929]:
+            - generic [ref=e3930]: 1.0645 UZB
+            - generic [ref=e3931]: 1.0987 PITCH
+          - generic [ref=e3933]: —
+        - generic [ref=e3934] [cursor=pointer]:
+          - generic [ref=e3935]:
+            - generic [ref=e3936]:
+              - text: Mohammed Kudus
+              - generic [ref=e3937]: B
+            - generic [ref=e3938]: GHA — Ghana
+          - generic [ref=e3939]: "15.0"
+          - generic [ref=e3940]:
+            - generic [ref=e3941]: 1.0603 GHA
+            - generic [ref=e3942]: 1.0986 PITCH
+          - generic [ref=e3944]: —
+        - generic [ref=e3945] [cursor=pointer]:
+          - generic [ref=e3946]:
+            - generic [ref=e3947]:
+              - text: Salem Al-Dawsari
+              - generic [ref=e3948]: B
+            - generic [ref=e3949]: SAU — Saudi Arabia
+          - generic [ref=e3950]: "16.0"
+          - generic [ref=e3951]:
+            - generic [ref=e3952]: 1.0645 SAU
+            - generic [ref=e3953]: 1.0985 PITCH
+          - generic [ref=e3955]: —
+        - generic [ref=e3956] [cursor=pointer]:
+          - generic [ref=e3957]:
+            - generic [ref=e3958]:
+              - text: Franck Kessié
+              - generic [ref=e3959]: B
+            - generic [ref=e3960]: CIV — Ivory Coast
+          - generic [ref=e3961]: "16.0"
+          - generic [ref=e3962]:
+            - generic [ref=e3963]: 1.0645 CIV
+            - generic [ref=e3964]: 1.0980 PITCH
+          - generic [ref=e3966]: —
+        - generic [ref=e3967] [cursor=pointer]:
+          - generic [ref=e3968]:
+            - generic [ref=e3969]:
+              - text: Chancel Mbemba
+              - generic [ref=e3970]: B
+            - generic [ref=e3971]: COD — DR Congo
+          - generic [ref=e3972]: "14.0"
+          - generic [ref=e3973]:
+            - generic [ref=e3974]: 1.0562 COD
+            - generic [ref=e3975]: 1.0862 PITCH
+          - generic [ref=e3977]: —
+        - generic [ref=e3978] [cursor=pointer]:
+          - generic [ref=e3979]:
+            - generic [ref=e3980]:
+              - text: Adalberto Carrasquilla
+              - generic [ref=e3981]: B
+            - generic [ref=e3982]: PAN — Panama
+          - generic [ref=e3983]: "13.0"
+          - generic [ref=e3984]:
+            - generic [ref=e3985]: 1.0521 PAN
+            - generic [ref=e3986]: 1.0828 PITCH
+          - generic [ref=e3988]: —
+        - generic [ref=e3989] [cursor=pointer]:
+          - generic [ref=e3990]:
+            - generic [ref=e3991]:
+              - text: Akram Afif
+              - generic [ref=e3992]: B
+            - generic [ref=e3993]: QAT — Qatar
+          - generic [ref=e3994]: "13.0"
+          - generic [ref=e3995]:
+            - generic [ref=e3996]: 1.0521 QAT
+            - generic [ref=e3997]: 1.0813 PITCH
+          - generic [ref=e3999]: —
+        - generic [ref=e4000] [cursor=pointer]:
+          - generic [ref=e4001]:
+            - generic [ref=e4002]:
+              - text: Mousa Al-Tamari
+              - generic [ref=e4003]: B
+            - generic [ref=e4004]: JOR — Jordan
+          - generic [ref=e4005]: "11.0"
+          - generic [ref=e4006]:
+            - generic [ref=e4007]: 1.0439 JOR
+            - generic [ref=e4008]: 1.0723 PITCH
+          - generic [ref=e4010]: —
+        - generic [ref=e4011] [cursor=pointer]:
+          - generic [ref=e4012]:
+            - generic [ref=e4013]:
+              - text: Duckens Nazon
+              - generic [ref=e4014]: B
+            - generic [ref=e4015]: HAI — Haiti
+          - generic [ref=e4016]: "6.0"
+          - generic [ref=e4017]:
+            - generic [ref=e4018]: 1.0237 HAI
+            - generic [ref=e4019]: 1.0493 PITCH
+          - generic [ref=e4021]: —
+    - generic [ref=e557]:
+      - generic [ref=e558]:
+        - generic [ref=e559]:
+          - generic [ref=e560]: Lionel Messi (MESSI)
+          - generic [ref=e561]: ARG — Argentina
+        - generic [ref=e562]:
+          - generic [ref=e563]: 14.6996 ARG
+          - generic [ref=e1134]: 22.5173 PITCH
+      - generic [ref=e564]:
+        - button "Line" [ref=e565] [cursor=pointer]
+        - button "Candles" [ref=e566] [cursor=pointer]
+        - button "ARG" [ref=e1135] [cursor=pointer]
+        - button "PITCH" [ref=e569] [cursor=pointer]
+        - button "1m" [ref=e571] [cursor=pointer]
+        - button "5m" [ref=e572] [cursor=pointer]
+        - button "15m" [ref=e573] [cursor=pointer]
+        - button "1h" [ref=e574] [cursor=pointer]
+        - button "4h" [ref=e575] [cursor=pointer]
+        - button "1D" [ref=e576] [cursor=pointer]
+      - table [ref=e1137]:
+        - row [ref=e1138]:
+          - cell
+          - cell [ref=e1139]
+          - cell [ref=e1143]
+        - row [ref=e1147]:
+          - cell
+          - cell [ref=e1148]
+          - cell [ref=e1152]
+      - generic [ref=e578]:
+        - generic [ref=e579]:
+          - generic [ref=e580]: Supply
+          - generic [ref=e581]: "370.54"
+        - generic [ref=e582]:
+          - generic [ref=e583]: Country
+          - generic [ref=e584]: ARG — Argentina
+        - generic [ref=e585]:
+          - generic [ref=e586]: Role
+          - generic [ref=e587]: Best
+        - generic [ref=e588]:
+          - generic [ref=e589]: Trades
+          - generic [ref=e590]: "275"
+        - generic [ref=e591]:
+          - generic [ref=e592]: High
+          - generic [ref=e593]: 18.2936 ARG
+        - generic [ref=e594]:
+          - generic [ref=e595]: Low
+          - generic [ref=e596]: 1.5851 ARG
+        - generic [ref=e597]:
+          - generic [ref=e598]: Contract
+          - link "0x44ac..258b" [ref=e1155] [cursor=pointer]:
+            - /url: https://basescan.org/address/0x44ac72BB161B1f8B2ff294d938C4869D681D258b
+      - generic [ref=e600]:
+        - generic [ref=e601]:
+          - button "Trades (275)" [ref=e1156] [cursor=pointer]
+          - button "Holders (102)" [active] [ref=e1157] [cursor=pointer]
+        - generic [ref=e604]:
+          - generic [ref=e4022]:
+            - generic [ref=e4023]: Wallet
+            - generic [ref=e4024]: Buys
+            - generic [ref=e4025]: Sells
+            - generic [ref=e4026]: Position
+            - generic [ref=e4027]: Spent
+            - generic [ref=e4028]: Received
+          - generic [ref=e4029]:
+            - link "0x6d57..3700" [ref=e4031] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x6d57c0AFCe0808CeD510221f945b2a95FBbD3700
+            - generic [ref=e4032]: "3"
+            - generic [ref=e4033]: "2"
+            - generic [ref=e4034]: "71.23"
+            - generic [ref=e4035]: "309.00"
+            - generic [ref=e4036]: "140.34"
+          - generic [ref=e4037]:
+            - link "0xdf26..550B" [ref=e4039] [cursor=pointer]:
+              - /url: https://basescan.org/address/0xdf26020a98F2b0bdBB2fe4f1dc4429079062550B
+            - generic [ref=e4040]: "5"
+            - generic [ref=e4041]: "0"
+            - generic [ref=e4042]: "52.14"
+            - generic [ref=e4043]: "600.00"
+            - generic [ref=e4044]: "0.00"
+          - generic [ref=e4045]:
+            - link "0x5803..2e23" [ref=e4047] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x580387470AaDD10CB6DaCc98A6fF76B143822e23
+            - generic [ref=e4048]: "2"
+            - generic [ref=e4049]: "0"
+            - generic [ref=e4050]: "26.38"
+            - generic [ref=e4051]: "191.80"
+            - generic [ref=e4052]: "0.00"
+          - generic [ref=e4053]:
+            - link "0x55e1..dE46" [ref=e4055] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x55e1d60c15174e9E06D7E125169933fEAce1dE46
+            - generic [ref=e4056]: "4"
+            - generic [ref=e4057]: "1"
+            - generic [ref=e4058]: "18.12"
+            - generic [ref=e4059]: "200.70"
+            - generic [ref=e4060]: "32.88"
+          - generic [ref=e4061]:
+            - link "0xE48D..1706" [ref=e4063] [cursor=pointer]:
+              - /url: https://basescan.org/address/0xE48D1E04F666Cf68B6C20ff4264f8d6C6f011706
+            - generic [ref=e4064]: "2"
+            - generic [ref=e4065]: "0"
+            - generic [ref=e4066]: "17.08"
+            - generic [ref=e4067]: "225.94"
+            - generic [ref=e4068]: "0.00"
+          - generic [ref=e4069]:
+            - link "0x28E7..bBfD" [ref=e4071] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x28E7E1f99d5Ac44764fBB7b9ed92bD174B28bBfD
+            - generic [ref=e4072]: "5"
+            - generic [ref=e4073]: "0"
+            - generic [ref=e4074]: "16.29"
+            - generic [ref=e4075]: "211.42"
+            - generic [ref=e4076]: "0.00"
+          - generic [ref=e4077]:
+            - link "0x92bc..04e2" [ref=e4079] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x92bc2589fE45637cabd8Ac483781D9461d2804e2
+            - generic [ref=e4080]: "5"
+            - generic [ref=e4081]: "1"
+            - generic [ref=e4082]: "12.21"
+            - generic [ref=e4083]: "115.19"
+            - generic [ref=e4084]: "27.02"
+          - generic [ref=e4085]:
+            - link "0x501E..4d4C" [ref=e4087] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x501EF174B66883Ba40f92E6Fb24bfb49331D4d4C
+            - generic [ref=e4088]: "3"
+            - generic [ref=e4089]: "2"
+            - generic [ref=e4090]: "10.09"
+            - generic [ref=e4091]: "156.95"
+            - generic [ref=e4092]: "51.05"
+          - generic [ref=e4093]:
+            - link "0x5A1A..f815" [ref=e4095] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x5A1AFda34cAdC6D2a7350621f84602c04698f815
+            - generic [ref=e4096]: "5"
+            - generic [ref=e4097]: "0"
+            - generic [ref=e4098]: "9.02"
+            - generic [ref=e4099]: "113.05"
+            - generic [ref=e4100]: "0.00"
+          - generic [ref=e4101]:
+            - link "0xCc8c..39d7" [ref=e4103] [cursor=pointer]:
+              - /url: https://basescan.org/address/0xCc8c3176C69e8cbb60903cFC91Afd383eB6739d7
+            - generic [ref=e4104]: "6"
+            - generic [ref=e4105]: "1"
+            - generic [ref=e4106]: "7.69"
+            - generic [ref=e4107]: "86.03"
+            - generic [ref=e4108]: "61.96"
+          - generic [ref=e4109]:
+            - link "0x8269..4E71" [ref=e4111] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x8269AfE0813f5a6914177EC60a26199792644E71
+            - generic [ref=e4112]: "3"
+            - generic [ref=e4113]: "0"
+            - generic [ref=e4114]: "7.59"
+            - generic [ref=e4115]: "116.95"
+            - generic [ref=e4116]: "0.00"
+          - generic [ref=e4117]:
+            - link "0x8D47..b123" [ref=e4119] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x8D47bA07Ff9ccCCF58c7E8810eE42c0Dc8B8b123
+            - generic [ref=e4120]: "5"
+            - generic [ref=e4121]: "0"
+            - generic [ref=e4122]: "6.89"
+            - generic [ref=e4123]: "77.17"
+            - generic [ref=e4124]: "0.00"
+          - generic [ref=e4125]:
+            - link "0x407C..5e24" [ref=e4127] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x407CDe0472B91938D6ff52fCFd6234F535365e24
+            - generic [ref=e4128]: "2"
+            - generic [ref=e4129]: "0"
+            - generic [ref=e4130]: "6.66"
+            - generic [ref=e4131]: "73.34"
+            - generic [ref=e4132]: "0.00"
+          - generic [ref=e4133]:
+            - link "0xB986..1002" [ref=e4135] [cursor=pointer]:
+              - /url: https://basescan.org/address/0xB986D4857212A2d2a03a459a9b2d3F6617791002
+            - generic [ref=e4136]: "8"
+            - generic [ref=e4137]: "2"
+            - generic [ref=e4138]: "6.47"
+            - generic [ref=e4139]: "103.05"
+            - generic [ref=e4140]: "85.45"
+          - generic [ref=e4141]:
+            - link "0x34d3..969c" [ref=e4143] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x34d30B103b2c0bcb9a86db4f7dB0d14E6FEA969c
+            - generic [ref=e4144]: "1"
+            - generic [ref=e4145]: "0"
+            - generic [ref=e4146]: "6.14"
+            - generic [ref=e4147]: "84.88"
+            - generic [ref=e4148]: "0.00"
+          - generic [ref=e4149]:
+            - link "0x12b6..0cc0" [ref=e4151] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x12b6d12A6b5d23804c94ec1e40E0DF5e91BD0cc0
+            - generic [ref=e4152]: "2"
+            - generic [ref=e4153]: "1"
+            - generic [ref=e4154]: "5.56"
+            - generic [ref=e4155]: "74.26"
+            - generic [ref=e4156]: "14.98"
+          - generic [ref=e4157]:
+            - link "0xA7D7..845B" [ref=e4159] [cursor=pointer]:
+              - /url: https://basescan.org/address/0xA7D7Ac8Fe7e8693B5599C69cC7d4F6226677845B
+            - generic [ref=e4160]: "1"
+            - generic [ref=e4161]: "0"
+            - generic [ref=e4162]: "5.36"
+            - generic [ref=e4163]: "77.10"
+            - generic [ref=e4164]: "0.00"
+          - generic [ref=e4165]:
+            - link "0x1b50..5C25" [ref=e4167] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x1b50e93E3659476C5d508C9a745A3B4eAaFF5C25
+            - generic [ref=e4168]: "1"
+            - generic [ref=e4169]: "0"
+            - generic [ref=e4170]: "5.34"
+            - generic [ref=e4171]: "30.34"
+            - generic [ref=e4172]: "0.00"
+          - generic [ref=e4173]:
+            - link "0xEcfC..9539" [ref=e4175] [cursor=pointer]:
+              - /url: https://basescan.org/address/0xEcfC8f120cb5eE3C334E46Fea0154F28f4A39539
+            - generic [ref=e4176]: "3"
+            - generic [ref=e4177]: "4"
+            - generic [ref=e4178]: "5.22"
+            - generic [ref=e4179]: "80.06"
+            - generic [ref=e4180]: "74.01"
+          - generic [ref=e4181]:
+            - link "0xfa82..445F" [ref=e4183] [cursor=pointer]:
+              - /url: https://basescan.org/address/0xfa8218f112D1e410c63476ff0e731cb3C490445F
+            - generic [ref=e4184]: "2"
+            - generic [ref=e4185]: "0"
+            - generic [ref=e4186]: "5.08"
+            - generic [ref=e4187]: "53.42"
+            - generic [ref=e4188]: "0.00"
+          - generic [ref=e4189]:
+            - link "0x4943..117b" [ref=e4191] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x49437E553c544345e1f42adDa91435800029117b
+            - generic [ref=e4192]: "1"
+            - generic [ref=e4193]: "0"
+            - generic [ref=e4194]: "2.72"
+            - generic [ref=e4195]: "42.67"
+            - generic [ref=e4196]: "0.00"
+          - generic [ref=e4197]:
+            - link "0x4d40..c08D" [ref=e4199] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x4d40876413AD1F11a03a6BfC3b8865F89943c08D
+            - generic [ref=e4200]: "3"
+            - generic [ref=e4201]: "0"
+            - generic [ref=e4202]: "2.40"
+            - generic [ref=e4203]: "43.23"
+            - generic [ref=e4204]: "0.00"
+          - generic [ref=e4205]:
+            - link "0x349c..a332" [ref=e4207] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x349cFa391200B5f4F26cf37E2788ED8F4aE8a332
+            - generic [ref=e4208]: "1"
+            - generic [ref=e4209]: "0"
+            - generic [ref=e4210]: "2.34"
+            - generic [ref=e4211]: "31.00"
+            - generic [ref=e4212]: "0.00"
+          - generic [ref=e4213]:
+            - link "0x21E0..7449" [ref=e4215] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x21E0785B0c6aED5dFD2ac71174Eaea58af6b7449
+            - generic [ref=e4216]: "1"
+            - generic [ref=e4217]: "0"
+            - generic [ref=e4218]: "2.09"
+            - generic [ref=e4219]: "24.48"
+            - generic [ref=e4220]: "0.00"
+          - generic [ref=e4221]:
+            - link "0x97C7..eAC1" [ref=e4223] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x97C7e0e3e4702699ED32CA4689E62A6E46CfeAC1
+            - generic [ref=e4224]: "6"
+            - generic [ref=e4225]: "2"
+            - generic [ref=e4226]: "2.05"
+            - generic [ref=e4227]: "31.06"
+            - generic [ref=e4228]: "17.74"
+          - generic [ref=e4229]:
+            - link "0x9824..7770" [ref=e4231] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x9824298F695ee57657CB0633444625E806c77770
+            - generic [ref=e4232]: "2"
+            - generic [ref=e4233]: "0"
+            - generic [ref=e4234]: "2.01"
+            - generic [ref=e4235]: "30.40"
+            - generic [ref=e4236]: "0.00"
+          - generic [ref=e4237]:
+            - link "0x71EC..756F" [ref=e4239] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x71ECD1a09380cA46CcA741Bc48d04C556674756F
+            - generic [ref=e4240]: "2"
+            - generic [ref=e4241]: "0"
+            - generic [ref=e4242]: "2.01"
+            - generic [ref=e4243]: "24.00"
+            - generic [ref=e4244]: "0.00"
+          - generic [ref=e4245]:
+            - link "0x8DCd..7ac8" [ref=e4247] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x8DCdb2Db0268Cde7B5c55492ef31E4fA3D187ac8
+            - generic [ref=e4248]: "3"
+            - generic [ref=e4249]: "2"
+            - generic [ref=e4250]: "2.00"
+            - generic [ref=e4251]: "16.73"
+            - generic [ref=e4252]: "23.07"
+          - generic [ref=e4253]:
+            - link "0xA8Ec..e9Ac" [ref=e4255] [cursor=pointer]:
+              - /url: https://basescan.org/address/0xA8Ecac85FD82B17563b1BD6132108dc77289e9Ac
+            - generic [ref=e4256]: "2"
+            - generic [ref=e4257]: "0"
+            - generic [ref=e4258]: "1.99"
+            - generic [ref=e4259]: "26.52"
+            - generic [ref=e4260]: "0.00"
+          - generic [ref=e4261]:
+            - link "0xC417..4598" [ref=e4263] [cursor=pointer]:
+              - /url: https://basescan.org/address/0xC417D9BF8f6074d9e67910a32FEb21D614eF4598
+            - generic [ref=e4264]: "1"
+            - generic [ref=e4265]: "0"
+            - generic [ref=e4266]: "1.75"
+            - generic [ref=e4267]: "16.00"
+            - generic [ref=e4268]: "0.00"
+          - generic [ref=e4269]:
+            - link "0xB0D2..84DD" [ref=e4271] [cursor=pointer]:
+              - /url: https://basescan.org/address/0xB0D24d4551046aF83d74B8bEaf9E6eec6FCF84DD
+            - generic [ref=e4272]: "1"
+            - generic [ref=e4273]: "0"
+            - generic [ref=e4274]: "1.72"
+            - generic [ref=e4275]: "24.60"
+            - generic [ref=e4276]: "0.00"
+          - generic [ref=e4277]:
+            - link "0xeB18..663E" [ref=e4279] [cursor=pointer]:
+              - /url: https://basescan.org/address/0xeB18CA514D15FB7feD11a0a1A6F22Ff5edf4663E
+            - generic [ref=e4280]: "1"
+            - generic [ref=e4281]: "0"
+            - generic [ref=e4282]: "1.58"
+            - generic [ref=e4283]: "15.92"
+            - generic [ref=e4284]: "0.00"
+          - generic [ref=e4285]:
+            - link "0xaAf7..3149" [ref=e4287] [cursor=pointer]:
+              - /url: https://basescan.org/address/0xaAf73e01A3c8e4347DefDFE96Efa4F7BDc993149
+            - generic [ref=e4288]: "1"
+            - generic [ref=e4289]: "0"
+            - generic [ref=e4290]: "1.43"
+            - generic [ref=e4291]: "13.25"
+            - generic [ref=e4292]: "0.00"
+          - generic [ref=e4293]:
+            - link "0xef6e..EAA7" [ref=e4295] [cursor=pointer]:
+              - /url: https://basescan.org/address/0xef6ee1eCe8664605493e69De51F490c096BeEAA7
+            - generic [ref=e4296]: "2"
+            - generic [ref=e4297]: "0"
+            - generic [ref=e4298]: "1.42"
+            - generic [ref=e4299]: "11.24"
+            - generic [ref=e4300]: "0.00"
+          - generic [ref=e4301]:
+            - link "0x5EF1..ED7f" [ref=e4303] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x5EF1ff7C3f657eAea4e0dfc940c8111c317bED7f
+            - generic [ref=e4304]: "1"
+            - generic [ref=e4305]: "0"
+            - generic [ref=e4306]: "1.36"
+            - generic [ref=e4307]: "18.07"
+            - generic [ref=e4308]: "0.00"
+          - generic [ref=e4309]:
+            - link "0x42Fe..7408" [ref=e4311] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x42Fe5497a5dFCF41Fe2771Cd7A177782B33B7408
+            - generic [ref=e4312]: "1"
+            - generic [ref=e4313]: "0"
+            - generic [ref=e4314]: "1.26"
+            - generic [ref=e4315]: "19.50"
+            - generic [ref=e4316]: "0.00"
+          - generic [ref=e4317]:
+            - link "0x68F9..C8F7" [ref=e4319] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x68F96134EA17cD654311bF33E60fba324F51C8F7
+            - generic [ref=e4320]: "1"
+            - generic [ref=e4321]: "0"
+            - generic [ref=e4322]: "1.15"
+            - generic [ref=e4323]: "7.00"
+            - generic [ref=e4324]: "0.00"
+          - generic [ref=e4325]:
+            - link "0x60fb..744A" [ref=e4327] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x60fb07067368f003812A93D7B5616F685158744A
+            - generic [ref=e4328]: "6"
+            - generic [ref=e4329]: "0"
+            - generic [ref=e4330]: "1.11"
+            - generic [ref=e4331]: "13.89"
+            - generic [ref=e4332]: "0.00"
+          - generic [ref=e4333]:
+            - link "0x0c99..44De" [ref=e4335] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x0c9968B6ABB1A6334317A096304DD41D25Ae44De
+            - generic [ref=e4336]: "1"
+            - generic [ref=e4337]: "0"
+            - generic [ref=e4338]: "1.11"
+            - generic [ref=e4339]: "14.99"
+            - generic [ref=e4340]: "0.00"
+          - generic [ref=e4341]:
+            - link "0x18a2..f09F" [ref=e4343] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x18a252a07f991c8BE24A8bde76C05a0f21A4f09F
+            - generic [ref=e4344]: "3"
+            - generic [ref=e4345]: "0"
+            - generic [ref=e4346]: "1.08"
+            - generic [ref=e4347]: "17.75"
+            - generic [ref=e4348]: "0.00"
+          - generic [ref=e4349]:
+            - link "0x0F73..f458" [ref=e4351] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x0F73Dfac87871fAfF650169c02534598Fa24f458
+            - generic [ref=e4352]: "1"
+            - generic [ref=e4353]: "0"
+            - generic [ref=e4354]: "1.07"
+            - generic [ref=e4355]: "10.28"
+            - generic [ref=e4356]: "0.00"
+          - generic [ref=e4357]:
+            - link "0x1fB5..F8ff" [ref=e4359] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x1fB5BfCd9999a2a84c0fA694770DeFf1A44BF8ff
+            - generic [ref=e4360]: "1"
+            - generic [ref=e4361]: "0"
+            - generic [ref=e4362]: "1.04"
+            - generic [ref=e4363]: "18.00"
+            - generic [ref=e4364]: "0.00"
+          - generic [ref=e4365]:
+            - link "0xC6C1..D00B" [ref=e4367] [cursor=pointer]:
+              - /url: https://basescan.org/address/0xC6C185aD344E744AE02e7E986A7Ceeff9B9CD00B
+            - generic [ref=e4368]: "2"
+            - generic [ref=e4369]: "0"
+            - generic [ref=e4370]: "1.03"
+            - generic [ref=e4371]: "10.52"
+            - generic [ref=e4372]: "0.00"
+          - generic [ref=e4373]:
+            - link "0x5288..13A2" [ref=e4375] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x52882F55d88e7b9E88314a65113860f9870713A2
+            - generic [ref=e4376]: "1"
+            - generic [ref=e4377]: "0"
+            - generic [ref=e4378]: "1.02"
+            - generic [ref=e4379]: "14.00"
+            - generic [ref=e4380]: "0.00"
+          - generic [ref=e4381]:
+            - link "0xe9ab..1FF0" [ref=e4383] [cursor=pointer]:
+              - /url: https://basescan.org/address/0xe9ab5D0523C3e4c42253d3c16da40c7CB9691FF0
+            - generic [ref=e4384]: "2"
+            - generic [ref=e4385]: "0"
+            - generic [ref=e4386]: "1.02"
+            - generic [ref=e4387]: "16.00"
+            - generic [ref=e4388]: "0.00"
+          - generic [ref=e4389]:
+            - link "0xed6c..f437" [ref=e4391] [cursor=pointer]:
+              - /url: https://basescan.org/address/0xed6c83975f02FFaA43d88401Ee974a2dB41cf437
+            - generic [ref=e4392]: "1"
+            - generic [ref=e4393]: "0"
+            - generic [ref=e4394]: "1.01"
+            - generic [ref=e4395]: "11.50"
+            - generic [ref=e4396]: "0.00"
+          - generic [ref=e4397]:
+            - link "0x0133..5322" [ref=e4399] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x0133Ef2e71A01aa1e734003E9d3c3417DB105322
+            - generic [ref=e4400]: "1"
+            - generic [ref=e4401]: "0"
+            - generic [ref=e4402]: "1.00"
+            - generic [ref=e4403]: "14.50"
+            - generic [ref=e4404]: "0.00"
+          - generic [ref=e4405]:
+            - link "0x76c5..56ce" [ref=e4407] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x76c5f37E078F6d988f11113404F974427eFf56ce
+            - generic [ref=e4408]: "1"
+            - generic [ref=e4409]: "0"
+            - generic [ref=e4410]: "1.00"
+            - generic [ref=e4411]: "14.56"
+            - generic [ref=e4412]: "0.00"
+          - generic [ref=e4413]:
+            - link "0xf6DE..88a1" [ref=e4415] [cursor=pointer]:
+              - /url: https://basescan.org/address/0xf6DE4Ff7e2018cFd9fe4Cf03997ba103d3f588a1
+            - generic [ref=e4416]: "1"
+            - generic [ref=e4417]: "0"
+            - generic [ref=e4418]: "0.92"
+            - generic [ref=e4419]: "11.51"
+            - generic [ref=e4420]: "0.00"
+          - generic [ref=e4421]:
+            - link "0x06F3..5407" [ref=e4423] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x06F3895f4b53ff27F3EF2f1A91409F72f59a5407
+            - generic [ref=e4424]: "1"
+            - generic [ref=e4425]: "0"
+            - generic [ref=e4426]: "0.90"
+            - generic [ref=e4427]: "7.50"
+            - generic [ref=e4428]: "0.00"
+          - generic [ref=e4429]:
+            - link "0x3159..0A93" [ref=e4431] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x3159EADAc2C6A3C63AD341dBe9BB14F568Ac0A93
+            - generic [ref=e4432]: "1"
+            - generic [ref=e4433]: "0"
+            - generic [ref=e4434]: "0.75"
+            - generic [ref=e4435]: "6.30"
+            - generic [ref=e4436]: "0.00"
+          - generic [ref=e4437]:
+            - link "0xbAd8..F1cF" [ref=e4439] [cursor=pointer]:
+              - /url: https://basescan.org/address/0xbAd8565D9A5438D48b2b4968872B1A73b4e9F1cF
+            - generic [ref=e4440]: "1"
+            - generic [ref=e4441]: "0"
+            - generic [ref=e4442]: "0.59"
+            - generic [ref=e4443]: "2.70"
+            - generic [ref=e4444]: "0.00"
+          - generic [ref=e4445]:
+            - link "0xA390..B592" [ref=e4447] [cursor=pointer]:
+              - /url: https://basescan.org/address/0xA39054D385F688Ee638d6aF321110A8C1c0BB592
+            - generic [ref=e4448]: "1"
+            - generic [ref=e4449]: "0"
+            - generic [ref=e4450]: "0.57"
+            - generic [ref=e4451]: "6.00"
+            - generic [ref=e4452]: "0.00"
+          - generic [ref=e4453]:
+            - link "0x09D6..C8F8" [ref=e4455] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x09D6db7ECfa557f9007E7B7489947ed83631C8F8
+            - generic [ref=e4456]: "1"
+            - generic [ref=e4457]: "0"
+            - generic [ref=e4458]: "0.52"
+            - generic [ref=e4459]: "5.73"
+            - generic [ref=e4460]: "0.00"
+          - generic [ref=e4461]:
+            - link "0xDe52..3984" [ref=e4463] [cursor=pointer]:
+              - /url: https://basescan.org/address/0xDe52De7b55BC65C2aD06a4aB3497Ef2735C13984
+            - generic [ref=e4464]: "1"
+            - generic [ref=e4465]: "0"
+            - generic [ref=e4466]: "0.52"
+            - generic [ref=e4467]: "5.45"
+            - generic [ref=e4468]: "0.00"
+          - generic [ref=e4469]:
+            - link "0xE723..96fe" [ref=e4471] [cursor=pointer]:
+              - /url: https://basescan.org/address/0xE7235BF158EE41876c64690265b844a9548796fe
+            - generic [ref=e4472]: "1"
+            - generic [ref=e4473]: "0"
+            - generic [ref=e4474]: "0.35"
+            - generic [ref=e4475]: "2.17"
+            - generic [ref=e4476]: "0.00"
+          - generic [ref=e4477]:
+            - link "0x8b0e..64B3" [ref=e4479] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x8b0eFF6cF1f9CE26a4498AE60089D528895364B3
+            - generic [ref=e4480]: "2"
+            - generic [ref=e4481]: "0"
+            - generic [ref=e4482]: "0.34"
+            - generic [ref=e4483]: "2.56"
+            - generic [ref=e4484]: "0.00"
+          - generic [ref=e4485]:
+            - link "0x20BD..7Da8" [ref=e4487] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x20BD9eeD43A5845A30AdF05Da56eB7F78Ee07Da8
+            - generic [ref=e4488]: "1"
+            - generic [ref=e4489]: "0"
+            - generic [ref=e4490]: "0.29"
+            - generic [ref=e4491]: "3.54"
+            - generic [ref=e4492]: "0.00"
+          - generic [ref=e4493]:
+            - link "0x9A81..01Be" [ref=e4495] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x9A81d6086d78B1ddff689a5AfE3e2511A59801Be
+            - generic [ref=e4496]: "2"
+            - generic [ref=e4497]: "1"
+            - generic [ref=e4498]: "0.19"
+            - generic [ref=e4499]: "5.36"
+            - generic [ref=e4500]: "2.07"
+          - generic [ref=e4501]:
+            - link "0x0926..1e16" [ref=e4503] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x09267333D77354BEcDD4627b68777f7466d81e16
+            - generic [ref=e4504]: "2"
+            - generic [ref=e4505]: "1"
+            - generic [ref=e4506]: "0.19"
+            - generic [ref=e4507]: "3.35"
+            - generic [ref=e4508]: "2.45"
+          - generic [ref=e4509]:
+            - link "0x9a94..920f" [ref=e4511] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x9a944063f34DAC8FE43642f07aeD14dC185b920f
+            - generic [ref=e4512]: "1"
+            - generic [ref=e4513]: "0"
+            - generic [ref=e4514]: "0.18"
+            - generic [ref=e4515]: "1.53"
+            - generic [ref=e4516]: "0.00"
+          - generic [ref=e4517]:
+            - link "0x3D1E..1722" [ref=e4519] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x3D1E19E1D1DE823e141883B389202B2a151D1722
+            - generic [ref=e4520]: "1"
+            - generic [ref=e4521]: "0"
+            - generic [ref=e4522]: "0.18"
+            - generic [ref=e4523]: "3.00"
+            - generic [ref=e4524]: "0.00"
+          - generic [ref=e4525]:
+            - link "0xd8fB..2143" [ref=e4527] [cursor=pointer]:
+              - /url: https://basescan.org/address/0xd8fB78a658eFf3866b1F359D86e71da016EB2143
+            - generic [ref=e4528]: "1"
+            - generic [ref=e4529]: "0"
+            - generic [ref=e4530]: "0.15"
+            - generic [ref=e4531]: "2.06"
+            - generic [ref=e4532]: "0.00"
+          - generic [ref=e4533]:
+            - link "0x1153..4BDF" [ref=e4535] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x1153bA29660577B54A40855E0e3FA533056f4BDF
+            - generic [ref=e4536]: "1"
+            - generic [ref=e4537]: "0"
+            - generic [ref=e4538]: "0.15"
+            - generic [ref=e4539]: "2.00"
+            - generic [ref=e4540]: "0.00"
+          - generic [ref=e4541]:
+            - link "0xBfbA..447b" [ref=e4543] [cursor=pointer]:
+              - /url: https://basescan.org/address/0xBfbA4e0F29d35Bd11248814e9791e77AC458447b
+            - generic [ref=e4544]: "1"
+            - generic [ref=e4545]: "0"
+            - generic [ref=e4546]: "0.15"
+            - generic [ref=e4547]: "1.50"
+            - generic [ref=e4548]: "0.00"
+          - generic [ref=e4549]:
+            - link "0x505f..568E" [ref=e4551] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x505f0e523272487060Fb8d59B221030285e2568E
+            - generic [ref=e4552]: "1"
+            - generic [ref=e4553]: "0"
+            - generic [ref=e4554]: "0.12"
+            - generic [ref=e4555]: "1.77"
+            - generic [ref=e4556]: "0.00"
+          - generic [ref=e4557]:
+            - link "0x97FE..12fC" [ref=e4559] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x97FE0681ED6F43E44Ae8938074b2357074fE12fC
+            - generic [ref=e4560]: "1"
+            - generic [ref=e4561]: "0"
+            - generic [ref=e4562]: "0.11"
+            - generic [ref=e4563]: "1.07"
+            - generic [ref=e4564]: "0.00"
+          - generic [ref=e4565]:
+            - link "0xa650..2F81" [ref=e4567] [cursor=pointer]:
+              - /url: https://basescan.org/address/0xa65046Ef46c65125398D90C5aB8BBc8c94762F81
+            - generic [ref=e4568]: "1"
+            - generic [ref=e4569]: "0"
+            - generic [ref=e4570]: "0.07"
+            - generic [ref=e4571]: "1.00"
+            - generic [ref=e4572]: "0.00"
+          - generic [ref=e4573]:
+            - link "0x0082..5287" [ref=e4575] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x008281F124f20472B9B6a088Ef7F4094913a5287
+            - generic [ref=e4576]: "1"
+            - generic [ref=e4577]: "1"
+            - generic [ref=e4578]: "0.05"
+            - generic [ref=e4579]: "44.00"
+            - generic [ref=e4580]: "144.20"
+          - generic [ref=e4581]:
+            - link "0x666a..62De" [ref=e4583] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x666a25806D747f92ab4852fDC7c73E9A452362De
+            - generic [ref=e4584]: "1"
+            - generic [ref=e4585]: "0"
+            - generic [ref=e4586]: "0.03"
+            - generic [ref=e4587]: "0.52"
+            - generic [ref=e4588]: "0.00"
+          - generic [ref=e4589]:
+            - link "0x7109..eBA3" [ref=e4591] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x71093f8B5E6915c32E6293ec7fae44ae5683eBA3
+            - generic [ref=e4592]: "1"
+            - generic [ref=e4593]: "2"
+            - generic [ref=e4594]: "0.02"
+            - generic [ref=e4595]: "28.00"
+            - generic [ref=e4596]: "46.45"
+          - generic [ref=e4597]:
+            - link "0x687d..99EE" [ref=e4599] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x687d8bBf1F8ae1C957408a314Dbaa344E10999EE
+            - generic [ref=e4600]: "1"
+            - generic [ref=e4601]: "1"
+            - generic [ref=e4602]: "0.01"
+            - generic [ref=e4603]: "50.00"
+            - generic [ref=e4604]: "79.64"
+          - generic [ref=e4605]:
+            - link "0xCf95..67b4" [ref=e4607] [cursor=pointer]:
+              - /url: https://basescan.org/address/0xCf95f9C277a1CCD9cBf4AA35d82C68fc3a0867b4
+            - generic [ref=e4608]: "1"
+            - generic [ref=e4609]: "1"
+            - generic [ref=e4610]: "0.01"
+            - generic [ref=e4611]: "8.73"
+            - generic [ref=e4612]: "5.40"
+          - generic [ref=e4613]:
+            - link "0x4050..8a5a" [ref=e4615] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x4050351a77b8Ec40436A037326A8879676568a5a
+            - generic [ref=e4616]: "1"
+            - generic [ref=e4617]: "3"
+            - generic [ref=e4618]: "0.00"
+            - generic [ref=e4619]: "6.00"
+            - generic [ref=e4620]: "10.53"
+          - generic [ref=e4621]:
+            - link "0x51AC..20a8" [ref=e4623] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x51AC36E05CAbD8F40525a314601B540a02bf20a8
+            - generic [ref=e4624]: "2"
+            - generic [ref=e4625]: "1"
+            - generic [ref=e4626]: "0.00"
+            - generic [ref=e4627]: "8.58"
+            - generic [ref=e4628]: "14.20"
+          - generic [ref=e4629]:
+            - link "0x2457..0d07" [ref=e4631] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x2457203D1197d211728df9cF82657E0F107c0d07
+            - generic [ref=e4632]: "1"
+            - generic [ref=e4633]: "1"
+            - generic [ref=e4634]: "0.00"
+            - generic [ref=e4635]: "10.00"
+            - generic [ref=e4636]: "14.46"
+          - generic [ref=e4637]:
+            - link "0x80E0..3dD2" [ref=e4639] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x80E0790A59643B8DAd913719b0f9C78EcE673dD2
+            - generic [ref=e4640]: "1"
+            - generic [ref=e4641]: "1"
+            - generic [ref=e4642]: "0.00"
+            - generic [ref=e4643]: "3.19"
+            - generic [ref=e4644]: "6.14"
+          - generic [ref=e4645]:
+            - link "0x909D..10Cf" [ref=e4647] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x909DBf36553f7caEa47E9915BeEcF737249610Cf
+            - generic [ref=e4648]: "3"
+            - generic [ref=e4649]: "1"
+            - generic [ref=e4650]: "0.00"
+            - generic [ref=e4651]: "20.20"
+            - generic [ref=e4652]: "32.54"
+          - generic [ref=e4653]:
+            - link "0x53b6..6114" [ref=e4655] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x53b6b0A8b0BD5a425f07B4C5A1B2559DDAc56114
+            - generic [ref=e4656]: "1"
+            - generic [ref=e4657]: "1"
+            - generic [ref=e4658]: "0.00"
+            - generic [ref=e4659]: "7.44"
+            - generic [ref=e4660]: "19.21"
+          - generic [ref=e4661]:
+            - link "0x08f0..43c7" [ref=e4663] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x08f0fD004C1142C00EC2720D80fA9C7BeF5C43c7
+            - generic [ref=e4664]: "1"
+            - generic [ref=e4665]: "3"
+            - generic [ref=e4666]: "0.00"
+            - generic [ref=e4667]: "18.00"
+            - generic [ref=e4668]: "52.28"
+          - generic [ref=e4669]:
+            - link "0xE5e4..805f" [ref=e4671] [cursor=pointer]:
+              - /url: https://basescan.org/address/0xE5e4dB8ce5cB3b2f42bE798b09E333C6566b805f
+            - generic [ref=e4672]: "2"
+            - generic [ref=e4673]: "1"
+            - generic [ref=e4674]: "0.00"
+            - generic [ref=e4675]: "12.95"
+            - generic [ref=e4676]: "27.55"
+          - generic [ref=e4677]:
+            - link "0x6817..9f82" [ref=e4679] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x681780d6Ab5D45c8E47C8C159717969F74139f82
+            - generic [ref=e4680]: "2"
+            - generic [ref=e4681]: "2"
+            - generic [ref=e4682]: "0.00"
+            - generic [ref=e4683]: "400.00"
+            - generic [ref=e4684]: "718.80"
+          - generic [ref=e4685]:
+            - link "0x6028..3c52" [ref=e4687] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x6028EB0208c582b3201A360f9A62721759d23c52
+            - generic [ref=e4688]: "1"
+            - generic [ref=e4689]: "1"
+            - generic [ref=e4690]: "0.00"
+            - generic [ref=e4691]: "56.00"
+            - generic [ref=e4692]: "46.61"
+          - generic [ref=e4693]:
+            - link "0xCAB2..7f66" [ref=e4695] [cursor=pointer]:
+              - /url: https://basescan.org/address/0xCAB2E5f5c4a4b6517b891aB231357F38d2427f66
+            - generic [ref=e4696]: "1"
+            - generic [ref=e4697]: "2"
+            - generic [ref=e4698]: "0.00"
+            - generic [ref=e4699]: "2.78"
+            - generic [ref=e4700]: "5.19"
+          - generic [ref=e4701]:
+            - link "0x3675..1278" [ref=e4703] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x3675AbEF47Fd08915031A1f924CB7F253dF51278
+            - generic [ref=e4704]: "1"
+            - generic [ref=e4705]: "1"
+            - generic [ref=e4706]: "0.00"
+            - generic [ref=e4707]: "0.01"
+            - generic [ref=e4708]: "0.01"
+          - generic [ref=e4709]:
+            - link "0x7953..35AA" [ref=e4711] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x79531932614B13F0F53b9065597aaB1FB45135AA
+            - generic [ref=e4712]: "4"
+            - generic [ref=e4713]: "2"
+            - generic [ref=e4714]: "0.00"
+            - generic [ref=e4715]: "147.76"
+            - generic [ref=e4716]: "151.51"
+          - generic [ref=e4717]:
+            - link "0x8471..877e" [ref=e4719] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x84712e5E31A55089D3C241694022ffbffa31877e
+            - generic [ref=e4720]: "1"
+            - generic [ref=e4721]: "1"
+            - generic [ref=e4722]: "0.00"
+            - generic [ref=e4723]: "3.18"
+            - generic [ref=e4724]: "2.48"
+          - generic [ref=e4725]:
+            - link "0xfC46..8A0f" [ref=e4727] [cursor=pointer]:
+              - /url: https://basescan.org/address/0xfC46100e1545e4E7c99A45212d80036724248A0f
+            - generic [ref=e4728]: "8"
+            - generic [ref=e4729]: "1"
+            - generic [ref=e4730]: "0.00"
+            - generic [ref=e4731]: "198.33"
+            - generic [ref=e4732]: "157.67"
+          - generic [ref=e4733]:
+            - link "0x0896..08Fa" [ref=e4735] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x0896Cf1a0B3E6fb149E848064FE83fE09AB408Fa
+            - generic [ref=e4736]: "2"
+            - generic [ref=e4737]: "1"
+            - generic [ref=e4738]: "-0.00"
+            - generic [ref=e4739]: "0.53"
+            - generic [ref=e4740]: "0.74"
+          - generic [ref=e4741]:
+            - link "0x5388..431F" [ref=e4743] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x53881155498Cae8660195670591F1E23aE81431F
+            - generic [ref=e4744]: "2"
+            - generic [ref=e4745]: "4"
+            - generic [ref=e4746]: "-0.00"
+            - generic [ref=e4747]: "0.02"
+            - generic [ref=e4748]: "0.04"
+          - generic [ref=e4749]:
+            - link "0xF052..8Ee6" [ref=e4751] [cursor=pointer]:
+              - /url: https://basescan.org/address/0xF0523316Cf23EF167d874Fa030b2214280E38Ee6
+            - generic [ref=e4752]: "0"
+            - generic [ref=e4753]: "1"
+            - generic [ref=e4754]: "-0.17"
+            - generic [ref=e4755]: "0.00"
+            - generic [ref=e4756]: "2.39"
+          - generic [ref=e4757]:
+            - link "0x6c0B..fcb9" [ref=e4759] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x6c0B37D16B6A91F4763c3d48c942895D45a2fcb9
+            - generic [ref=e4760]: "1"
+            - generic [ref=e4761]: "15"
+            - generic [ref=e4762]: "-1.00"
+            - generic [ref=e4763]: "137.00"
+            - generic [ref=e4764]: "597.52"
+          - generic [ref=e4765]:
+            - link "0x5990..F95E" [ref=e4767] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x59905d5D085e0Caf031Ba883B821ba354E51F95E
+            - generic [ref=e4768]: "0"
+            - generic [ref=e4769]: "1"
+            - generic [ref=e4770]: "-1.00"
+            - generic [ref=e4771]: "0.00"
+            - generic [ref=e4772]: "6.71"
+          - generic [ref=e4773]:
+            - link "0xA394..2D0a" [ref=e4775] [cursor=pointer]:
+              - /url: https://basescan.org/address/0xA394AC5FAB69542A9F2c8e291c4770078aa12D0a
+            - generic [ref=e4776]: "0"
+            - generic [ref=e4777]: "1"
+            - generic [ref=e4778]: "-1.00"
+            - generic [ref=e4779]: "0.00"
+            - generic [ref=e4780]: "6.64"
+          - generic [ref=e4781]:
+            - link "0xCa41..3529" [ref=e4783] [cursor=pointer]:
+              - /url: https://basescan.org/address/0xCa41E6662b03775B246C93B8578B21Fa40143529
+            - generic [ref=e4784]: "0"
+            - generic [ref=e4785]: "1"
+            - generic [ref=e4786]: "-1.00"
+            - generic [ref=e4787]: "0.00"
+            - generic [ref=e4788]: "14.36"
+          - generic [ref=e4789]:
+            - link "0xDA92..813c" [ref=e4791] [cursor=pointer]:
+              - /url: https://basescan.org/address/0xDA92244908B1c7A5F413C49D59f6Fa67eF3b813c
+            - generic [ref=e4792]: "0"
+            - generic [ref=e4793]: "1"
+            - generic [ref=e4794]: "-1.00"
+            - generic [ref=e4795]: "0.00"
+            - generic [ref=e4796]: "14.54"
+          - generic [ref=e4797]:
+            - link "0x36d4..bd7E" [ref=e4799] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x36d4B81c8Cf4D0676cd84fD1bc331D1719d9bd7E
+            - generic [ref=e4800]: "0"
+            - generic [ref=e4801]: "1"
+            - generic [ref=e4802]: "-1.00"
+            - generic [ref=e4803]: "0.00"
+            - generic [ref=e4804]: "12.01"
+          - generic [ref=e4805]:
+            - link "0xAf61..5F3a" [ref=e4807] [cursor=pointer]:
+              - /url: https://basescan.org/address/0xAf6193fd81b4c8435e6E81c45ee7CdC511FE5F3a
+            - generic [ref=e4808]: "1"
+            - generic [ref=e4809]: "2"
+            - generic [ref=e4810]: "-1.65"
+            - generic [ref=e4811]: "19.99"
+            - generic [ref=e4812]: "44.34"
+          - generic [ref=e4813]:
+            - link "0x6fE2..6C2e" [ref=e4815] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x6fE21798bF9bA9cBdF3215888F3430b8a4616C2e
+            - generic [ref=e4816]: "1"
+            - generic [ref=e4817]: "2"
+            - generic [ref=e4818]: "-3.00"
+            - generic [ref=e4819]: "149.56"
+            - generic [ref=e4820]: "167.35"
+          - generic [ref=e4821]:
+            - link "0xBFF0..cA24" [ref=e4823] [cursor=pointer]:
+              - /url: https://basescan.org/address/0xBFF0e003d9E28Bf9b468BC119408640E456bcA24
+            - generic [ref=e4824]: "0"
+            - generic [ref=e4825]: "1"
+            - generic [ref=e4826]: "-4.00"
+            - generic [ref=e4827]: "0.00"
+            - generic [ref=e4828]: "25.68"
+          - generic [ref=e4829]:
+            - link "0x4b5c..2226" [ref=e4831] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x4b5c33c3C7a31Bd108F5A99B64683b0056A62226
+            - generic [ref=e4832]: "6"
+            - generic [ref=e4833]: "1"
+            - generic [ref=e4834]: "-5.02"
+            - generic [ref=e4835]: "133.53"
+            - generic [ref=e4836]: "248.37"
+          - generic [ref=e4837]:
+            - link "0x048e..cEF5" [ref=e4839] [cursor=pointer]:
+              - /url: https://basescan.org/address/0x048ef1062cbb39B338Ac2685dA72adf104b4cEF5
+            - generic [ref=e4840]: "6"
+            - generic [ref=e4841]: "1"
+            - generic [ref=e4842]: "-10.31"
+            - generic [ref=e4843]: "70.29"
+            - generic [ref=e4844]: "146.97"
