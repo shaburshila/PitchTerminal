@@ -73,10 +73,27 @@ The limit-order watcher lives **inside the server process** — it polls prices 
   to `limit_orders.json` and resume being watched the next time the server starts.
 - 🔌 The **Orders** tab has an *Auto-execution* toggle — a kill-switch to pause/resume
   firing without stopping the server.
-- 🛡 **Crash guard for limit buys** — if the price has fallen more than 20%
-  (`config.LIMIT_REVIEW_THRESHOLD_PCT`) below the target when the order triggers, it is
-  *not* bought automatically. It moves to a **review** state and a popup asks you to
-  Execute or Cancel — so a crash doesn't auto-fill you into a falling token.
+- 🛡 **Catch-up guard for limit buys** — on the first check after the server starts, if a
+  limit buy triggers with the price already more than 20%
+  (`config.LIMIT_REVIEW_THRESHOLD_PCT`) below its target, it is *not* bought automatically:
+  the server was down and the market may have changed (a rug, etc.). It moves to a
+  **review** state and a popup asks you to Execute or Cancel. During live operation a
+  triggered order just executes — that is the order doing its job.
+
+### Wallet profile
+
+The **wallet chip** in the top-right header (👤 with your address) opens the **wallet
+profile** — a portfolio-wide view of the `.env` wallet that replaces the chart area:
+
+- Summary (portfolio value, realized/unrealized PnL, ROI), open & closed positions,
+  full trade history, statistics, allocation, on-chain balances, and a portfolio-value
+  chart over time.
+- Open orders are listed with Execute / Cancel actions.
+- Click any position to jump to that token's chart; click the chip again (or any token)
+  to close the profile.
+
+The bottom **Orders** tab is scoped to the currently charted token; the profile is the
+place to see every order across all tokens.
 
 ## Project structure
 

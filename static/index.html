@@ -1544,15 +1544,15 @@ function closeProfile() {
   if (profileChart) { try { profileChart.remove(); } catch(e) {} profileChart = null; }
 }
 
-async function loadProfile() {
+async function loadProfile(silent) {
   const view = document.getElementById('profile-view');
-  view.innerHTML = '<div class="pf-empty">Loading profile…</div>';
+  if (!silent) view.innerHTML = '<div class="pf-empty">Loading profile…</div>';
   try {
     await loadOrders();
     const res = await fetch('/api/profile');
     profileData = await res.json();
   } catch(e) {
-    view.innerHTML = '<div class="pf-empty">Failed to load profile</div>';
+    if (!silent) view.innerHTML = '<div class="pf-empty">Failed to load profile</div>';
     return;
   }
   if (!profileData || !profileData.configured) {
@@ -1560,6 +1560,19 @@ async function loadProfile() {
     return;
   }
   renderProfile();
+}
+
+// Action buttons for an order shown in the profile (mirrors the Orders tab).
+function pfOrderActs(o) {
+  if (o.status === 'review') {
+    return `<div class="order-acts">
+      <button class="order-btn exec" onclick="executeOrder(${o.id})">Execute</button>
+      <button class="order-btn cxl" onclick="cancelOrder(${o.id})">Cancel</button></div>`;
+  }
+  if (o.status === 'pending') {
+    return `<div class="order-acts"><button class="order-btn cxl" onclick="cancelOrder(${o.id})">Cancel</button></div>`;
+  }
+  return '';
 }
 
 function pfAllocRow(label, val, total) {
@@ -1584,7 +1597,7 @@ function renderProfile() {
     <span class="pf-title">Wallet Profile</span>
     <a class="pf-addr" href="https://basescan.org/address/${d.address}" target="_blank">${short}</a>
     <div class="pf-actions">
-      <button class="pf-btn" onclick="loadProfile()">⟳ Refresh</button>
+      <button class="pf-btn" onclick="loadProfile(true)">⟳ Refresh</button>
       <button class="pf-btn" onclick="closeProfile()">✕ Close</button>
     </div>
   </div>`;
@@ -1625,12 +1638,13 @@ function renderProfile() {
   if (openOrders.length) {
     const kl = {limit: 'LIMIT BUY', tp: 'TAKE-PROFIT'};
     h += `<table class="pf-table"><thead><tr>
-      <th>Player</th><th>Type</th><th>Target</th><th>Amount</th><th>Status</th></tr></thead><tbody>`
+      <th>Player</th><th>Type</th><th>Target</th><th>Amount</th><th>Status</th><th></th></tr></thead><tbody>`
       + openOrders.map(o => `<tr>
         <td><span class="sym">${o.playerSymbol}</span></td><td>${kl[o.kind] || o.kind}</td>
         <td>${o.targetPrice.toFixed(4)}</td>
         <td>${o.amount} ${o.side === 'buy' ? o.country : o.playerSymbol}</td>
-        <td>${o.status === 'review' ? '⚠ REVIEW' : o.status.toUpperCase()}</td></tr>`).join('')
+        <td class="${o.status === 'review' ? 'pf-neg' : ''}">${o.status === 'review' ? '⚠ REVIEW' : o.status.toUpperCase()}</td>
+        <td>${pfOrderActs(o)}</td></tr>`).join('')
       + `</tbody></table>`;
   } else h += '<div class="pf-empty">No open orders</div>';
   h += `</div>`;
@@ -2059,7 +2073,8 @@ function connectSSE() {
     } else if (type === 'events' && selectedAddr) {
       await loadChart(false);
     } else if (type === 'orders') {
-      await loadOrders();
+      if (profileOpen) loadProfile(true);
+      else await loadOrders();
     }
   };
   sseSource.onerror = () => document.getElementById('sse-dot').classList.add('disconnected');

@@ -78,6 +78,10 @@ cache_lock = threading.RLock()
 orders_state = {"orders": [], "armed": True, "nextId": 1}
 orders_lock = threading.RLock()   # serializes order-list mutations + writes
 trade_lock = threading.Lock()     # serializes tx sending (nonce safety: manual + auto)
+# Flips True after the first order check post-startup. That first check is the
+# "catch-up": a limit buy triggered far below target there means the server was down
+# and the market may have changed -> review. Live triggers afterwards just execute.
+orders_catchup_done = False
 
 
 def get_w3():
@@ -354,7 +358,9 @@ def build_candles(token_addr: str, timeframe: str = "5m") -> list:
     now = time.time()
 
     trades = []
-    for ev in cache["events"]:
+    with cache_lock:  # snapshot — the event loop may sort cache["events"] concurrently
+        events = list(cache["events"])
+    for ev in events:
         if ev["token"].lower() == addr and ev["tokenValue"] > 0:
             price = float(Decimal(ev["baseValue"]) / Decimal(ev["tokenValue"]))
             blocks_ago = current_block - ev["block"]
@@ -429,7 +435,9 @@ def build_points(token_addr: str) -> list:
     now = time.time()
 
     points = []
-    for ev in cache["events"]:
+    with cache_lock:  # snapshot — the event loop may sort cache["events"] concurrently
+        events = list(cache["events"])
+    for ev in events:
         if ev["token"].lower() == addr and ev["tokenValue"] > 0:
             price = float(Decimal(ev["baseValue"]) / Decimal(ev["tokenValue"]))
             blocks_ago = current_block - ev["block"]
@@ -692,7 +700,9 @@ def api_trades(token_addr):
     # First pass: build wallet positions
     wallets = {}  # trader_addr -> {buys, sells, position, spent, received}
     raw_trades = []
-    for ev in cache["events"]:
+    with cache_lock:  # snapshot — the event loop may sort cache["events"] concurrently
+        events = list(cache["events"])
+    for ev in events:
         if ev["token"].lower() != addr:
             continue
         base_val = float(Decimal(ev["baseValue"]) / Decimal(WEI))
@@ -1094,8 +1104,15 @@ def run_order(order_id):
 
 def check_limit_orders():
     """Evaluate pending limit orders against fresh prices — called every price tick."""
+    global orders_catchup_done
     if not orders_state.get("armed", True):
         return
+    if not cache.get("prices"):
+        return  # prices not loaded yet — wait so the catch-up check sees real data
+    # First armed check after startup = the catch-up: re-evaluates a possible downtime
+    # gap. Only there does the review guard apply. Live triggers afterwards execute.
+    catchup = not orders_catchup_done
+    orders_catchup_done = True
     triggered, reviewed = [], []
     with orders_lock:
         for o in orders_state["orders"]:
@@ -1108,9 +1125,11 @@ def check_limit_orders():
                 else (price >= o["targetPrice"])
             if not hit:
                 continue
-            # Limit buy: if the price has dropped far below target, hold the order
-            # for manual review instead of buying into a possible crash.
-            if o["side"] == "buy":
+            # On the post-startup catch-up only: a limit buy triggered far below target
+            # means the server was down and the market may have changed — hold it for a
+            # manual decision instead of buying blindly. During live operation the
+            # order just executes (it triggered, that's its job).
+            if catchup and o["side"] == "buy":
                 floor = o["targetPrice"] * (1 - config.LIMIT_REVIEW_THRESHOLD_PCT / 100)
                 if price < floor:
                     o["status"] = "review"
@@ -1305,7 +1324,9 @@ def api_profile():
     agg = {}
     wallet_trades = []
     price_tl = {}  # token -> ([ts...], [basePrice...]) from ALL events, for the value chart
-    for ev in cache["events"]:
+    with cache_lock:  # snapshot — the event loop may sort cache["events"] concurrently
+        events = list(cache["events"])
+    for ev in events:
         base = float(Decimal(ev["baseValue"]) / Decimal(WEI))
         tv = float(Decimal(ev["tokenValue"]) / Decimal(WEI))
         token = ev["token"].lower()
