@@ -1,4 +1,15 @@
+# Secrets / environment
 .env
+
+# Python
 venv/
 __pycache__/
 *.pyc
+
+# Runtime data caches — regenerated on startup, local/personal, not for git
+events_cache.json
+limit_orders.json
+
+# Test & debug artifacts
+.playwright-mcp/
+*.png

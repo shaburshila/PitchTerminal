@@ -21,6 +21,7 @@ DATA_DIR = Path(__file__).parent
 BASE_BLOCK_TIME = 2  # Base L2 ~2 seconds per block
 HOOK_DEPLOY_BLOCK = 46_167_000  # Just before first Hook log (~2.8 days before block 46290000)
 EVENTS_CACHE_FILE = DATA_DIR / "events_cache.json"
+LIMIT_ORDERS_FILE = DATA_DIR / "limit_orders.json"
 
 # Country bonding curve hook (country tokens priced in PITCH)
 COUNTRY_HOOK = "0xcae7ebfa18755d1f35ee8e0f3356f375ed5b2aa8"
@@ -55,15 +56,28 @@ cache = {
     "players": [],
     "prices": {},
     "supplies": {},
-    "country_prices": {},  # country_symbol -> price in PITCH
+    "country_prices": {},     # country_symbol -> price in PITCH
+    "country_supplies": {},   # country_symbol -> total supply
+    "countries": [],          # rebuilt country list (sorted by price)
     "events": [],
     "current_block": 0,
     "last_price_update": 0,
     "last_event_block": HOOK_DEPLOY_BLOCK,
+    "country_backfilled": False,  # whether Country Hook history has been scanned
 }
 
 # SSE subscribers
 sse_clients = []
+
+# Serializes mutations + writes of the events cache across threads (RLock = re-entrant)
+cache_lock = threading.RLock()
+
+# --- Limit orders ---
+# pitchwc has no on-chain order book (bonding curve via Uniswap V4 hooks), so limit
+# orders are a server-side watcher: price_loop checks targets and fires market trades.
+orders_state = {"orders": [], "armed": True, "nextId": 1}
+orders_lock = threading.RLock()   # serializes order-list mutations + writes
+trade_lock = threading.Lock()     # serializes tx sending (nonce safety: manual + auto)
 
 
 def get_w3():
@@ -79,7 +93,10 @@ def load_events_cache():
             with open(EVENTS_CACHE_FILE) as f:
                 data = json.load(f)
             cache["events"] = data.get("events", [])
+            # Keep events chronological — country backfill can append older blocks
+            cache["events"].sort(key=lambda e: e["block"])
             cache["last_event_block"] = data.get("last_block", HOOK_DEPLOY_BLOCK)
+            cache["country_backfilled"] = data.get("country_backfilled", False)
             print(f"Loaded {len(cache['events'])} cached events (up to block {cache['last_event_block']})")
         except Exception as e:
             print(f"Cache load error: {e}")
@@ -88,13 +105,49 @@ def load_events_cache():
 def save_events_cache():
     """Save events to disk."""
     try:
-        with open(EVENTS_CACHE_FILE, "w") as f:
-            json.dump({
-                "events": cache["events"],
-                "last_block": cache["last_event_block"],
-            }, f)
+        with cache_lock:
+            with open(EVENTS_CACHE_FILE, "w") as f:
+                json.dump({
+                    "events": cache["events"],
+                    "last_block": cache["last_event_block"],
+                    "country_backfilled": cache["country_backfilled"],
+                }, f)
     except Exception as e:
         print(f"Cache save error: {e}")
+
+
+# --- Limit orders on disk ---
+
+def load_orders():
+    """Load limit orders from disk."""
+    if not LIMIT_ORDERS_FILE.exists():
+        return
+    try:
+        with open(LIMIT_ORDERS_FILE) as f:
+            data = json.load(f)
+        orders_state["orders"] = data.get("orders", [])
+        orders_state["armed"] = data.get("armed", True)
+        orders_state["nextId"] = data.get("nextId", 1)
+        # An order left mid-execution means the server died during a tx — mark it
+        # failed rather than risk re-firing (the tx may already have landed).
+        for o in orders_state["orders"]:
+            if o["status"] == "executing":
+                o["status"] = "failed"
+                o["error"] = "server restarted during execution"
+        pending = sum(1 for o in orders_state["orders"] if o["status"] == "pending")
+        print(f"Loaded {len(orders_state['orders'])} limit orders ({pending} pending)")
+    except Exception as e:
+        print(f"Orders load error: {e}")
+
+
+def save_orders():
+    """Persist limit orders to disk."""
+    try:
+        with orders_lock:
+            with open(LIMIT_ORDERS_FILE, "w") as f:
+                json.dump(orders_state, f, indent=2)
+    except Exception as e:
+        print(f"Orders save error: {e}")
 
 
 # --- Multicall3: prices + supplies + country prices in 1 call ---
@@ -124,6 +177,10 @@ def fetch_prices_and_supplies(w3):
         addr_padded = bytes.fromhex(c["address"][2:].zfill(64))
         calls.append((country_hook, True, price_sel + addr_padded))
 
+    # Country supplies (totalSupply on each country token)
+    for c in country_list:
+        calls.append((Web3.to_checksum_address(c["address"]), True, supply_sel))
+
     results = multicall.functions.aggregate3(calls).call()
 
     prices = {}
@@ -151,13 +208,82 @@ def fetch_prices_and_supplies(w3):
             raw = int.from_bytes(r[1][:32], "big")
             country_prices[c["symbol"]] = float(Decimal(raw) / Decimal(WEI))
 
-    return prices, supplies, country_prices
+    # Country supplies
+    country_supplies = {}
+    supply_base = player_count * 2 + len(country_list)
+    for i, c in enumerate(country_list):
+        r = results[supply_base + i]
+        if r[0] and len(r[1]) >= 32:
+            raw = int.from_bytes(r[1][:32], "big")
+            country_supplies[c["symbol"]] = float(Decimal(raw) / Decimal(WEI))
+
+    return prices, supplies, country_prices, country_supplies
 
 
 # --- Events: incremental scan ---
 
+def _decode_log(log, buy_topic):
+    """Decode a Buy/Sell hook log into a normalized event dict.
+
+    Player Hook: token = player token, baseValue = country tokens.
+    Country Hook: token = country token, baseValue = PITCH tokens.
+    Data field order differs between buy and sell (see contracts.md).
+    """
+    is_buy = log["topics"][0].hex() == buy_topic[2:]
+    trader = Web3.to_checksum_address("0x" + log["topics"][1].hex()[-40:])
+    token = Web3.to_checksum_address("0x" + log["topics"][2].hex()[-40:])
+    data = log["data"]
+    val0 = int.from_bytes(data[0:32], "big")
+    val1 = int.from_bytes(data[32:64], "big")
+    fee = int.from_bytes(data[64:96], "big")
+
+    if is_buy:
+        base_val, token_val = val0, val1
+    else:
+        base_val, token_val = val1, val0
+
+    return {
+        "type": "buy" if is_buy else "sell",
+        "trader": trader,
+        "token": token,
+        "baseValue": base_val,
+        "tokenValue": token_val,
+        "fee": fee,
+        "block": log["blockNumber"],
+        "tx": log["transactionHash"].hex(),
+    }
+
+
+def scan_hook_logs(w3, addresses, from_block, to_block):
+    """Scan Buy/Sell logs for the given hook address(es) in [from_block, to_block]."""
+    if from_block > to_block:
+        return []
+
+    buy_topic = "0x" + w3.keccak(text="Buy(address,address,uint256,uint256,uint256)").hex()
+    sell_topic = "0x" + w3.keccak(text="Sell(address,address,uint256,uint256,uint256)").hex()
+
+    events = []
+    chunk = 2000
+    for start in range(from_block, to_block + 1, chunk):
+        end = min(start + chunk - 1, to_block)
+        try:
+            logs = w3.eth.get_logs({
+                "address": addresses,
+                "fromBlock": start,
+                "toBlock": end,
+                "topics": [[buy_topic, sell_topic]],
+            })
+            for log in logs:
+                events.append(_decode_log(log, buy_topic))
+            time.sleep(0.2)
+        except Exception:
+            time.sleep(1)
+
+    return events
+
+
 def fetch_new_events(w3):
-    """Scan only new blocks since last cached event."""
+    """Scan new blocks since last cached event for both Player + Country hooks."""
     current_block = w3.eth.block_number
     cache["current_block"] = current_block
 
@@ -165,61 +291,61 @@ def fetch_new_events(w3):
     if from_block >= current_block:
         return []
 
-    hook = Web3.to_checksum_address(config.HOOK)
-    buy_topic = "0x" + w3.keccak(text="Buy(address,address,uint256,uint256,uint256)").hex()
-    sell_topic = "0x" + w3.keccak(text="Sell(address,address,uint256,uint256,uint256)").hex()
+    addresses = [
+        Web3.to_checksum_address(config.HOOK),
+        Web3.to_checksum_address(COUNTRY_HOOK),
+    ]
+    new_events = scan_hook_logs(w3, addresses, from_block, current_block)
 
-    new_events = []
-    chunk = 2000
-    for start in range(from_block, current_block + 1, chunk):
-        end = min(start + chunk - 1, current_block)
-        try:
-            logs = w3.eth.get_logs({
-                "address": hook,
-                "fromBlock": start,
-                "toBlock": end,
-                "topics": [[buy_topic, sell_topic]],
-            })
-            for log in logs:
-                is_buy = log["topics"][0].hex() == buy_topic[2:]
-                trader = Web3.to_checksum_address("0x" + log["topics"][1].hex()[-40:])
-                token = Web3.to_checksum_address("0x" + log["topics"][2].hex()[-40:])
-                data = log["data"]
-                val0 = int.from_bytes(data[0:32], "big")
-                val1 = int.from_bytes(data[32:64], "big")
-                fee = int.from_bytes(data[64:96], "big")
-
-                if is_buy:
-                    base_val, token_val = val0, val1
-                else:
-                    base_val, token_val = val1, val0
-
-                new_events.append({
-                    "type": "buy" if is_buy else "sell",
-                    "trader": trader,
-                    "token": token,
-                    "baseValue": base_val,
-                    "tokenValue": token_val,
-                    "fee": fee,
-                    "block": log["blockNumber"],
-                    "tx": log["transactionHash"].hex(),
-                })
-            time.sleep(0.2)
-        except Exception:
-            time.sleep(1)
-
+    cache["last_event_block"] = current_block
     if new_events:
-        cache["events"].extend(new_events)
-        cache["last_event_block"] = current_block
+        with cache_lock:
+            cache["events"].extend(new_events)
+            cache["events"].sort(key=lambda e: e["block"])
         save_events_cache()
         print(f"+{len(new_events)} events (total: {len(cache['events'])})")
     else:
-        cache["last_event_block"] = current_block
+        save_events_cache()
 
     return new_events
 
 
+def run_country_backfill(end_block):
+    """One-time historical scan of Country Hook events for caches built before
+    country support existed. Atomic: events appended only on full completion."""
+    try:
+        w3 = get_w3()
+        if not w3.is_connected():
+            print("Country backfill skipped: no RPC connection")
+            return
+        print(f"Country backfill: scanning blocks {HOOK_DEPLOY_BLOCK}..{end_block}")
+        country_events = scan_hook_logs(
+            w3, [Web3.to_checksum_address(COUNTRY_HOOK)], HOOK_DEPLOY_BLOCK, end_block)
+        with cache_lock:
+            cache["events"].extend(country_events)
+            cache["events"].sort(key=lambda e: e["block"])
+            cache["country_backfilled"] = True
+            save_events_cache()
+        rebuild_player_list()
+        broadcast_sse("events")
+        print(f"Country backfill complete: +{len(country_events)} country events")
+    except Exception as e:
+        print(f"Country backfill error: {e}")
+
+
 # --- OHLCV candles ---
+
+def current_price_of(addr: str) -> float:
+    """Current spot price for any token: player price in country tokens,
+    or country price in PITCH."""
+    addr = addr.lower()
+    if addr in cache["prices"]:
+        return cache["prices"][addr]
+    c = COUNTRIES_BY_ADDR.get(addr)
+    if c:
+        return cache["country_prices"].get(c["symbol"], 0)
+    return 0
+
 
 def build_candles(token_addr: str, timeframe: str = "5m") -> list:
     """Build OHLCV candles from events for a given token."""
@@ -270,7 +396,7 @@ def build_candles(token_addr: str, timeframe: str = "5m") -> list:
             bucket += interval
         candles = filled
 
-    current_price = cache["prices"].get(addr, 0)
+    current_price = current_price_of(addr)
     if current_price > 0:
         current_bucket = int(now // interval) * interval
         if current_bucket in candles:
@@ -317,7 +443,7 @@ def build_points(token_addr: str) -> list:
                 "trader": ev["trader"],
             })
 
-    current_price = cache["prices"].get(addr, 0)
+    current_price = current_price_of(addr)
     if current_price > 0:
         points.append({
             "time": round(now),
@@ -337,10 +463,11 @@ def update_prices():
         w3 = get_w3()
         if not w3.is_connected():
             return
-        prices, supplies, country_prices = fetch_prices_and_supplies(w3)
+        prices, supplies, country_prices, country_supplies = fetch_prices_and_supplies(w3)
         cache["prices"] = prices
         cache["supplies"] = supplies
         cache["country_prices"] = country_prices
+        cache["country_supplies"] = country_supplies
         cache["current_block"] = w3.eth.block_number
         cache["last_price_update"] = time.time()
         rebuild_player_list()
@@ -442,6 +569,7 @@ def rebuild_player_list():
         changes = calc_changes(addr_low, price_country)
 
         players_data.append({
+            "kind": "player",
             "name": p["name"],
             "symbol": p["symbol"],
             "address": p["address"],
@@ -459,6 +587,25 @@ def rebuild_player_list():
 
     players_data.sort(key=lambda x: -x["pricePitch"])
     cache["players"] = players_data
+
+    # Build country list — priced directly in PITCH, sorted by price descending
+    countries_data = []
+    for c in TOKEN_DATA["countries"]:
+        addr_low = c["address"].lower()
+        price = country_prices.get(c["symbol"], 0)
+        countries_data.append({
+            "kind": "country",
+            "name": c["name"],
+            "symbol": c["symbol"],
+            "address": c["address"],
+            "supply": round(cache["country_supplies"].get(c["symbol"], 0), 2),
+            "pricePitch": round(price, 6),
+            "trades": trade_counts.get(addr_low, 0),
+            "changePct": calc_changes(addr_low, price),
+        })
+
+    countries_data.sort(key=lambda x: -x["pricePitch"])
+    cache["countries"] = countries_data
 
 
 # --- SSE ---
@@ -479,6 +626,10 @@ def broadcast_sse(event_type):
 def price_loop():
     while True:
         update_prices()
+        try:
+            check_limit_orders()
+        except Exception as e:
+            print(f"Order check error: {e}")
         time.sleep(5)
 
 
@@ -499,6 +650,7 @@ def index():
 def api_players():
     return jsonify({
         "players": cache["players"],
+        "countries": cache["countries"],
         "lastUpdate": cache["last_price_update"],
         "countryPrices": cache["country_prices"],
         "walletAddress": DISPLAY_WALLET,
@@ -510,11 +662,21 @@ def api_chart(token_addr):
     tf = request.args.get("tf", "5m")
     candles = build_candles(token_addr, tf)
     points = build_points(token_addr)
-    player = PLAYERS_BY_ADDR.get(token_addr.lower(), {})
+    addr_low = token_addr.lower()
+    player = PLAYERS_BY_ADDR.get(addr_low)
+    country = COUNTRIES_BY_ADDR.get(addr_low)
+    if player:
+        kind, name, symbol, ctry = "player", player["name"], player["symbol"], player["country"]
+    elif country:
+        kind, name, symbol, ctry = "country", country["name"], country["symbol"], ""
+    else:
+        kind, name, symbol, ctry = "unknown", "?", "?", ""
     return jsonify({
-        "player": player.get("name", "?"),
-        "symbol": player.get("symbol", "?"),
-        "country": player.get("country", "?"),
+        "kind": kind,
+        "player": name,
+        "name": name,
+        "symbol": symbol,
+        "country": ctry,
         "candles": candles,
         "points": points,
     })
@@ -542,16 +704,22 @@ def api_trades(token_addr):
 
         trader = ev["trader"]
         if trader not in wallets:
-            wallets[trader] = {"buys": 0, "sells": 0, "position": 0, "spent": 0, "received": 0}
+            wallets[trader] = {"buys": 0, "sells": 0, "position": 0,
+                               "spent": 0, "received": 0, "bought": 0,
+                               "fees": 0, "firstTs": None}
         w = wallets[trader]
         if ev["type"] == "buy":
             w["buys"] += 1
             w["position"] += token_val
             w["spent"] += base_val
+            w["bought"] += token_val
         else:
             w["sells"] += 1
             w["position"] -= token_val
             w["received"] += base_val
+        w["fees"] += fee
+        if w["firstTs"] is None:  # events are block-sorted -> first seen = earliest
+            w["firstTs"] = ts
 
         raw_trades.append({
             "type": ev["type"],
@@ -574,9 +742,13 @@ def api_trades(token_addr):
         t["walletSells"] = w.get("sells", 0)
         trades.append(t)
 
-    # Build wallet summary sorted by position (largest first)
+    # Build wallet summary sorted by position (largest first).
+    # avgBuy = cost basis of all buys (spent / tokens bought).
+    # avgNet = net cost of the current open position ((spent - received) / position).
     wallet_list = []
     for addr_w, w in wallets.items():
+        avg_buy = (w["spent"] / w["bought"]) if w["bought"] > 0 else 0
+        avg_net = ((w["spent"] - w["received"]) / w["position"]) if w["position"] > 1e-9 else 0
         wallet_list.append({
             "address": addr_w,
             "short": addr_w[:6] + ".." + addr_w[-4:],
@@ -585,13 +757,74 @@ def api_trades(token_addr):
             "position": round(w["position"], 4),
             "spent": round(w["spent"], 4),
             "received": round(w["received"], 4),
+            "avgBuy": round(avg_buy, 6),
+            "avgNet": round(max(avg_net, 0), 6),
         })
     wallet_list.sort(key=lambda x: -x["position"])
+
+    # --- Configured wallet (.env) summary for THIS token ---
+    # realized/unrealized split uses avg-cost basis (avgBuy = spent / bought);
+    # break-even = avgNet = (spent - received) / position -> price where total PnL is 0.
+    my_wallet = {"configured": bool(DISPLAY_WALLET),
+                 "address": DISPLAY_WALLET or None, "hasActivity": False}
+    if DISPLAY_WALLET:
+        dw = DISPLAY_WALLET.lower()
+        w = next((v for k, v in wallets.items() if k.lower() == dw), None)
+        if w:
+            cur_price = current_price_of(addr)
+            supply = cache.get("supplies", {}).get(addr, 0)
+            if not supply:
+                cc = COUNTRIES_BY_ADDR.get(addr)
+                if cc:
+                    supply = cache.get("country_supplies", {}).get(cc["symbol"], 0)
+
+            bought = w["bought"]
+            position = max(w["position"], 0)
+            spent, received = w["spent"], w["received"]
+            sold = max(bought - position, 0)
+            avg_buy = (spent / bought) if bought > 0 else 0
+            break_even = ((spent - received) / position) if position > 1e-9 else 0
+            realized = received - avg_buy * sold
+            position_value = position * cur_price
+            unrealized = position_value - avg_buy * position
+            total_pnl = realized + unrealized
+            rank = next((i + 1 for i, x in enumerate(wallet_list)
+                         if x["address"].lower() == dw), 0)
+            first_ts = w["firstTs"]
+
+            my_wallet = {
+                "configured": True,
+                "address": DISPLAY_WALLET,
+                "hasActivity": True,
+                "buys": w["buys"],
+                "sells": w["sells"],
+                "position": round(position, 4),
+                "positionValue": round(position_value, 4),
+                "spent": round(spent, 4),
+                "received": round(received, 4),
+                "tokensSold": round(sold, 4),
+                "avgBuy": round(avg_buy, 6),
+                "breakEven": round(max(break_even, 0), 6),
+                "currentPrice": round(cur_price, 6),
+                "realizedPnl": round(realized, 4),
+                "unrealizedPnl": round(unrealized, 4),
+                "totalPnl": round(total_pnl, 4),
+                "totalPnlPct": round((total_pnl / spent * 100) if spent > 0 else 0, 2),
+                "breakEvenDistPct": round(((cur_price - break_even) / break_even * 100)
+                                          if break_even > 1e-9 else 0, 2),
+                "feesPaid": round(w["fees"], 4),
+                "ownershipPct": round((position / supply * 100) if supply > 0 else 0, 4),
+                "rank": rank,
+                "holdersCount": len(wallet_list),
+                "firstTradeTs": round(first_ts) if first_ts else None,
+                "holdingDays": round((now - first_ts) / 86400, 1) if first_ts else 0,
+            }
 
     return jsonify({
         "trades": list(reversed(trades)),
         "wallets": wallet_list,
         "totalTrades": len(trades),
+        "myWallet": my_wallet,
     })
 
 
@@ -708,109 +941,274 @@ def api_quote():
         return jsonify({"error": str(e)}), 500
 
 
+def execute_trade(player_addr, side, amount, slippage=50):
+    """Quote -> (approve) -> swap on the Router. Players only.
+
+    Shared by the manual /api/trade endpoint and the limit-order watcher.
+    Serialized by trade_lock so manual trades and auto-fired orders never race
+    on the account nonce. Returns a dict: {success, tx, ...} or {error}.
+    """
+    if not config.PRIVATE_KEY:
+        return {"error": "No wallet configured. Add PRIVATE_KEY to .env"}
+
+    try:
+        amount_wei = int(Decimal(str(amount)) * Decimal(WEI))
+    except Exception:
+        return {"error": "Invalid amount"}
+    if amount_wei <= 0:
+        return {"error": "Amount must be > 0"}
+
+    # Clamp slippage to [0, 5000] bps — guards against a negative minOut
+    # (slippage > 10000 would make minOut negative and the tx unencodable).
+    try:
+        slippage = max(0, min(int(slippage), 5000))
+    except (TypeError, ValueError):
+        slippage = 50
+
+    player_info = PLAYERS_BY_ADDR.get(str(player_addr).lower())
+    if not player_info:
+        return {"error": "Unknown player token"}
+
+    with trade_lock:
+        try:
+            w3 = get_w3()
+            account = w3.eth.account.from_key(config.PRIVATE_KEY)
+            player_cs = Web3.to_checksum_address(player_addr)
+            hook = w3.eth.contract(address=Web3.to_checksum_address(config.HOOK),
+                                   abi=config.HOOK_ABI)
+            router = w3.eth.contract(address=Web3.to_checksum_address(config.ROUTER),
+                                     abi=config.ROUTER_ABI)
+            country = COUNTRIES.get(player_info.get("country", ""), {})
+
+            # Token paid in: country token when buying, player token when selling
+            if side == "buy":
+                pay_token = Web3.to_checksum_address(country.get("address", ""))
+            else:
+                pay_token = player_cs
+            erc20 = w3.eth.contract(address=pay_token, abi=config.ERC20_ABI)
+
+            # Balance pre-check — fail fast instead of paying gas for a revert
+            balance = erc20.functions.balanceOf(account.address).call()
+            if balance < amount_wei:
+                have = float(Decimal(balance) / Decimal(WEI))
+                return {"error": f"Insufficient balance: have {have:.4f}, need {amount}"}
+
+            # Quote for minOut
+            if side == "buy":
+                quote_out = hook.functions.quoteBuy(player_cs, amount_wei).call()
+            else:
+                quote_out = hook.functions.quoteSell(player_cs, amount_wei).call()
+            min_out = quote_out * (10000 - slippage) // 10000
+
+            allowance = erc20.functions.allowance(
+                account.address, Web3.to_checksum_address(config.ROUTER)).call()
+            # 'pending' count so a tx already in the mempool isn't reused
+            nonce = w3.eth.get_transaction_count(account.address, "pending")
+            gas_price = int(w3.eth.gas_price * config.GAS_MULTIPLIER)
+
+            if allowance < amount_wei:
+                approve_tx = erc20.functions.approve(
+                    Web3.to_checksum_address(config.ROUTER), 2**256 - 1
+                ).build_transaction({
+                    "from": account.address, "nonce": nonce,
+                    "gasPrice": gas_price, "gas": 80_000, "chainId": config.CHAIN_ID,
+                })
+                signed_approve = account.sign_transaction(approve_tx)
+                approve_hash = w3.eth.send_raw_transaction(signed_approve.raw_transaction)
+                w3.eth.wait_for_transaction_receipt(approve_hash, timeout=30)
+                nonce += 1
+
+            if side == "buy":
+                tx = router.functions.buy(player_cs, amount_wei, min_out)
+            else:
+                tx = router.functions.sell(player_cs, amount_wei, min_out)
+            built_tx = tx.build_transaction({
+                "from": account.address, "nonce": nonce,
+                "gasPrice": gas_price, "gas": config.MAX_GAS_LIMIT,
+                "chainId": config.CHAIN_ID,
+            })
+            signed_tx = account.sign_transaction(built_tx)
+            tx_hash = w3.eth.send_raw_transaction(signed_tx.raw_transaction)
+            receipt = w3.eth.wait_for_transaction_receipt(tx_hash, timeout=60)
+
+            return {
+                "success": receipt["status"] == 1,
+                "tx": tx_hash.hex(),
+                "gasUsed": receipt["gasUsed"],
+                "amountIn": str(amount),
+                "expectedOut": float(Decimal(quote_out) / Decimal(WEI)),
+                "minOut": float(Decimal(min_out) / Decimal(WEI)),
+            }
+        except Exception as e:
+            return {"error": str(e)}
+
+
 @app.route("/api/trade", methods=["POST"])
 def api_trade():
-    """Execute buy or sell transaction."""
+    """Execute a market buy/sell immediately."""
+    data = request.get_json() or {}
+    result = execute_trade(data.get("player", ""), data.get("side", "buy"),
+                           data.get("amount", "0"), data.get("slippage", 50))
+    return jsonify(result), (200 if result.get("success") else 400)
+
+
+# --- Limit orders: watcher + API ---
+
+def _order_kind(side, trigger):
+    """Display kind from side+trigger: limit buy / take-profit / stop-loss."""
+    if side == "buy":
+        return "limit"
+    return "tp" if trigger == "above" else "sl"
+
+
+def run_order(order_id):
+    """Execute a triggered limit order in its own thread, then record the result."""
+    with orders_lock:
+        o = next((x for x in orders_state["orders"] if x["id"] == order_id), None)
+        if not o or o["status"] != "executing":
+            return
+        player, side = o["player"], o["side"]
+        amount, slippage = o["amount"], o["slippage"]
+
+    result = execute_trade(player, side, amount, slippage)
+
+    with orders_lock:
+        o = next((x for x in orders_state["orders"] if x["id"] == order_id), None)
+        if o:
+            if result.get("success"):
+                o["status"] = "filled"
+                o["tx"] = result.get("tx")
+                # Fill price in country units from the executed quote (amount in /
+                # tokens out), not post-trade spot — the trade itself moved the curve.
+                amt = float(result.get("amountIn", 0) or 0)
+                out = float(result.get("expectedOut", 0) or 0)
+                fill_price = (amt / out) if (side == "buy" and out > 0) \
+                    else ((out / amt) if (side == "sell" and amt > 0) else 0)
+                o["filledPrice"] = round(fill_price, 6)
+                o["filledAt"] = round(time.time())
+            else:
+                o["status"] = "failed"
+                o["error"] = result.get("error", "transaction reverted")
+            save_orders()
+    print(f"Order #{order_id}: {'FILLED' if result.get('success') else 'FAILED'}")
+    broadcast_sse("orders")
+
+
+def check_limit_orders():
+    """Evaluate pending limit orders against fresh prices — called every price tick."""
+    if not orders_state.get("armed", True):
+        return
+    triggered = []
+    with orders_lock:
+        for o in orders_state["orders"]:
+            if o["status"] != "pending":
+                continue
+            price = current_price_of(o["player"])
+            if price <= 0:
+                continue
+            hit = (price <= o["targetPrice"]) if o["trigger"] == "below" \
+                else (price >= o["targetPrice"])
+            if hit:
+                o["status"] = "executing"
+                triggered.append(o["id"])
+        if triggered:
+            save_orders()
+    for oid in triggered:
+        threading.Thread(target=run_order, args=(oid,), daemon=True).start()
+    if triggered:
+        broadcast_sse("orders")
+
+
+@app.route("/api/orders", methods=["GET"])
+def api_orders_list():
+    """All limit orders, newest first."""
+    with orders_lock:
+        return jsonify({
+            "orders": list(reversed(orders_state["orders"])),
+            "armed": orders_state.get("armed", True),
+        })
+
+
+@app.route("/api/orders", methods=["POST"])
+def api_orders_create():
+    """Create a limit order. Body: {player, side, targetPrice, amount, slippage}.
+    targetPrice is in country tokens (the player's native price)."""
     if not config.PRIVATE_KEY:
         return jsonify({"error": "No wallet configured. Add PRIVATE_KEY to .env"}), 400
 
-    data = request.get_json()
-    player_addr = data.get("player", "")
+    data = request.get_json() or {}
+    player_addr = str(data.get("player", "")).lower()
     side = data.get("side", "buy")
-    amount = data.get("amount", "0")
-    slippage = data.get("slippage", 50)  # basis points, default 0.5%
-
+    player_info = PLAYERS_BY_ADDR.get(player_addr)
+    if not player_info:
+        return jsonify({"error": "Limit orders are for player tokens only"}), 400
+    if side not in ("buy", "sell"):
+        return jsonify({"error": "Invalid side"}), 400
     try:
-        amount_wei = int(Decimal(amount) * Decimal(WEI))
+        target = float(data.get("targetPrice", 0))
+        amount = float(data.get("amount", 0))
     except Exception:
-        return jsonify({"error": "Invalid amount"}), 400
+        return jsonify({"error": "Invalid number"}), 400
+    if target <= 0 or amount <= 0:
+        return jsonify({"error": "Target price and amount must be > 0"}), 400
+    slippage = int(data.get("slippage", 50))
 
-    if amount_wei <= 0:
-        return jsonify({"error": "Amount must be > 0"}), 400
+    spot = current_price_of(player_addr)
+    # Buy limits always watch for the price falling to target. Sell limits derive
+    # direction from the target: above spot = take-profit, below spot = stop-loss.
+    if side == "buy":
+        trigger = "below"
+    else:
+        trigger = "above" if target > spot else "below"
 
-    w3 = get_w3()
-    account = w3.eth.account.from_key(config.PRIVATE_KEY)
-    player_cs = Web3.to_checksum_address(player_addr)
+    with orders_lock:
+        order = {
+            "id": orders_state["nextId"],
+            "player": player_addr,
+            "playerSymbol": player_info.get("symbol", "?"),
+            "country": player_info.get("country", "?"),
+            "side": side,
+            "trigger": trigger,
+            "kind": _order_kind(side, trigger),
+            "targetPrice": round(target, 6),
+            "amount": amount,
+            "slippage": slippage,
+            "spotAtCreate": round(spot, 6),
+            "status": "pending",
+            "createdAt": round(time.time()),
+            "tx": None, "filledPrice": None, "filledAt": None, "error": None,
+        }
+        orders_state["orders"].append(order)
+        orders_state["nextId"] += 1
+        save_orders()
+    broadcast_sse("orders")
+    return jsonify({"order": order})
 
-    hook = w3.eth.contract(
-        address=Web3.to_checksum_address(config.HOOK),
-        abi=config.HOOK_ABI,
-    )
-    router = w3.eth.contract(
-        address=Web3.to_checksum_address(config.ROUTER),
-        abi=config.ROUTER_ABI,
-    )
 
-    try:
-        # Get quote for minOut calculation
-        if side == "buy":
-            quote_out = hook.functions.quoteBuy(player_cs, amount_wei).call()
-        else:
-            quote_out = hook.functions.quoteSell(player_cs, amount_wei).call()
+@app.route("/api/orders/<int:order_id>", methods=["DELETE"])
+def api_orders_cancel(order_id):
+    """Cancel a pending order."""
+    with orders_lock:
+        o = next((x for x in orders_state["orders"] if x["id"] == order_id), None)
+        if not o:
+            return jsonify({"error": "Order not found"}), 404
+        if o["status"] != "pending":
+            return jsonify({"error": f"Cannot cancel a {o['status']} order"}), 400
+        o["status"] = "cancelled"
+        save_orders()
+    broadcast_sse("orders")
+    return jsonify({"ok": True})
 
-        min_out = quote_out * (10000 - slippage) // 10000
 
-        # Check allowance and approve if needed
-        player_info = PLAYERS_BY_ADDR.get(player_addr.lower(), {})
-        country = COUNTRIES.get(player_info.get("country", ""), {})
-
-        if side == "buy":
-            token_to_approve = Web3.to_checksum_address(country.get("address", ""))
-        else:
-            token_to_approve = player_cs
-
-        erc20 = w3.eth.contract(address=token_to_approve, abi=config.ERC20_ABI)
-        allowance = erc20.functions.allowance(account.address, Web3.to_checksum_address(config.ROUTER)).call()
-
-        nonce = w3.eth.get_transaction_count(account.address)
-        gas_price = int(w3.eth.gas_price * config.GAS_MULTIPLIER)
-
-        if allowance < amount_wei:
-            # Approve max
-            max_uint = 2**256 - 1
-            approve_tx = erc20.functions.approve(
-                Web3.to_checksum_address(config.ROUTER), max_uint
-            ).build_transaction({
-                "from": account.address,
-                "nonce": nonce,
-                "gasPrice": gas_price,
-                "gas": 80_000,
-                "chainId": config.CHAIN_ID,
-            })
-            signed_approve = account.sign_transaction(approve_tx)
-            approve_hash = w3.eth.send_raw_transaction(signed_approve.raw_transaction)
-            w3.eth.wait_for_transaction_receipt(approve_hash, timeout=30)
-            nonce += 1
-
-        # Build trade tx
-        if side == "buy":
-            tx = router.functions.buy(player_cs, amount_wei, min_out)
-        else:
-            tx = router.functions.sell(player_cs, amount_wei, min_out)
-
-        built_tx = tx.build_transaction({
-            "from": account.address,
-            "nonce": nonce,
-            "gasPrice": gas_price,
-            "gas": config.MAX_GAS_LIMIT,
-            "chainId": config.CHAIN_ID,
-        })
-
-        signed_tx = account.sign_transaction(built_tx)
-        tx_hash = w3.eth.send_raw_transaction(signed_tx.raw_transaction)
-        receipt = w3.eth.wait_for_transaction_receipt(tx_hash, timeout=60)
-
-        return jsonify({
-            "success": receipt["status"] == 1,
-            "tx": tx_hash.hex(),
-            "gasUsed": receipt["gasUsed"],
-            "amountIn": amount,
-            "expectedOut": float(Decimal(quote_out) / Decimal(WEI)),
-            "minOut": float(Decimal(min_out) / Decimal(WEI)),
-        })
-
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
+@app.route("/api/orders/arm", methods=["POST"])
+def api_orders_arm():
+    """Global kill-switch for auto-execution. Body: {armed: bool}."""
+    data = request.get_json() or {}
+    with orders_lock:
+        orders_state["armed"] = bool(data.get("armed", True))
+        save_orders()
+    broadcast_sse("orders")
+    return jsonify({"armed": orders_state["armed"]})
 
 
 @app.route("/api/stream")
@@ -838,16 +1236,30 @@ def api_stream():
 
 if __name__ == "__main__":
     print("Starting PITCH Markets...")
+    had_cache = EVENTS_CACHE_FILE.exists()
     load_events_cache()
+    load_orders()
+    # Block range that predates country support — needs a one-time country backfill.
+    backfill_end = cache["last_event_block"]
 
     # Initial price fetch (fast - 1 Multicall)
     update_prices()
     print(f"Prices loaded for {len(cache['prices'])} players")
     print(f"Country prices: {len(cache['country_prices'])} countries")
 
-    # Incremental event scan (from cache or deployment block)
+    # Incremental event scan — covers new blocks for both Player + Country hooks
     update_events()
     print(f"Total events: {len(cache['events'])}")
+
+    # One-time historical scan of Country Hook for pre-existing caches.
+    # Fresh caches are already fully covered by update_events above.
+    if not cache["country_backfilled"]:
+        if had_cache and backfill_end > HOOK_DEPLOY_BLOCK:
+            threading.Thread(target=run_country_backfill, args=(backfill_end,),
+                             daemon=True).start()
+        else:
+            cache["country_backfilled"] = True
+            save_events_cache()
 
     threading.Thread(target=price_loop, daemon=True).start()
     threading.Thread(target=event_loop, daemon=True).start()

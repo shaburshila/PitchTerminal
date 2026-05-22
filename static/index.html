@@ -160,6 +160,7 @@ a { color: #58a6ff; text-decoration: none; }
 .trades-tab .tab-count { color: #8b949e; font-size: 10px; margin-left: 4px; }
 .trade-row {
   display: grid; grid-template-columns: 40px 75px 65px 75px 80px 90px 70px;
+  column-gap: 18px;
   padding: 5px 16px; border-bottom: 1px solid #21262d; font-size: 11px;
   align-items: center;
 }
@@ -172,6 +173,7 @@ a { color: #58a6ff; text-decoration: none; }
 .trade-row .wallet-pos { color: #8b949e; font-size: 10px; }
 .wallet-row {
   display: grid; grid-template-columns: 100px 50px 50px 80px 80px 80px;
+  column-gap: 18px;
   padding: 5px 16px; border-bottom: 1px solid #21262d; font-size: 11px;
   align-items: center;
 }
@@ -180,7 +182,7 @@ a { color: #58a6ff; text-decoration: none; }
 .wallet-row .pos-positive { color: #3fb950; font-weight: 600; }
 .wallet-row .pos-zero { color: #8b949e; }
 .trades-col-header {
-  display: grid; padding: 4px 16px; font-size: 10px; color: #8b949e;
+  display: grid; column-gap: 18px; padding: 4px 16px; font-size: 10px; color: #8b949e;
   border-bottom: 1px solid #30363d; background: #0d1117;
   position: sticky; top: 38px; z-index: 1;
 }
@@ -188,6 +190,100 @@ a { color: #58a6ff; text-decoration: none; }
 .trades-col-header span:first-child { text-align: left; }
 .trades-col-header.trades-cols { grid-template-columns: 40px 75px 65px 75px 80px 90px 70px; }
 .trades-col-header.wallets-cols { grid-template-columns: 100px 50px 50px 80px 80px 80px; }
+.trades-col-header.orders-cols { grid-template-columns: 64px 88px 92px 92px 1fr 28px; }
+
+/* My Wallet tab */
+.mw-section { padding: 12px 16px 4px; }
+.mw-head { font-size: 11px; color: #8b949e; margin-bottom: 10px; }
+.mw-head a { color: #58a6ff; }
+.mw-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.mw-cell {
+  background: #161b22; border: 1px solid #21262d; border-radius: 6px; padding: 8px 10px;
+}
+.mw-cell .mw-label {
+  font-size: 9px; color: #8b949e; text-transform: uppercase; letter-spacing: .5px;
+}
+.mw-cell .mw-value { font-size: 14px; font-weight: 600; color: #e6edf3; margin-top: 3px; }
+.mw-cell .mw-value.pos { color: #3fb950; }
+.mw-cell .mw-value.neg { color: #f85149; }
+.mw-cell .mw-sub { font-size: 10px; color: #8b949e; margin-top: 2px; }
+.mw-cell .mw-sub.pos { color: #3fb950; }
+.mw-cell .mw-sub.neg { color: #f85149; }
+.mw-trades-title {
+  font-size: 10px; color: #8b949e; text-transform: uppercase; letter-spacing: 1px;
+  padding: 10px 16px 4px;
+}
+.mw-trade-row {
+  display: grid; grid-template-columns: 44px 1fr 1fr 1.2fr 90px;
+  column-gap: 14px; padding: 4px 16px; border-bottom: 1px solid #21262d;
+  font-size: 11px; align-items: center;
+}
+.mw-trade-row span { text-align: right; }
+.mw-trade-row span:first-child { text-align: left; }
+.mw-trade-row .buy { color: #3fb950; font-weight: 600; }
+.mw-trade-row .sell { color: #f85149; font-weight: 600; }
+
+/* Orders tab */
+.orders-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 8px 16px; border-bottom: 1px solid #21262d; background: #0d1117;
+  position: sticky; top: 38px; z-index: 1;
+}
+.orders-bar .ob-info { font-size: 11px; color: #8b949e; }
+.arm-toggle {
+  display: flex; align-items: center; gap: 8px; font-size: 11px;
+  text-transform: uppercase; letter-spacing: .5px; cursor: pointer;
+  background: none; border: none; font-family: inherit; color: #8b949e;
+}
+.arm-switch {
+  width: 36px; height: 18px; border-radius: 9px; background: #30363d;
+  position: relative; transition: background 0.15s;
+}
+.arm-switch::after {
+  content: ''; position: absolute; top: 2px; left: 2px; width: 14px; height: 14px;
+  border-radius: 50%; background: #8b949e; transition: all 0.15s;
+}
+.arm-toggle.on .arm-switch { background: #238636; }
+.arm-toggle.on .arm-switch::after { left: 20px; background: #fff; }
+.arm-toggle.on { color: #3fb950; }
+.orders-warn { padding: 6px 16px; font-size: 11px; color: #d29922; background: rgba(210,153,34,0.1); }
+.order-row {
+  display: grid; grid-template-columns: 64px 88px 92px 92px 1fr 28px;
+  column-gap: 12px; padding: 6px 16px; border-bottom: 1px solid #21262d;
+  font-size: 11px; align-items: center;
+}
+.order-row span { text-align: right; }
+.order-row .o-player { text-align: left; font-weight: 600; color: #e6edf3; cursor: pointer; }
+.order-row .o-player:hover { color: #58a6ff; }
+.order-kind {
+  text-align: center; font-size: 9px; font-weight: 700; padding: 2px 0;
+  border-radius: 3px; text-transform: uppercase; letter-spacing: .5px;
+}
+.order-kind.limit { background: rgba(63,185,80,0.15); color: #3fb950; }
+.order-kind.tp { background: rgba(63,185,80,0.15); color: #3fb950; }
+.order-kind.sl { background: rgba(248,81,73,0.15); color: #f85149; }
+.o-status { font-size: 10px; text-transform: uppercase; letter-spacing: .5px; }
+.o-status.pending { color: #d29922; }
+.o-status.executing { color: #58a6ff; }
+.o-status.filled { color: #3fb950; }
+.o-status.failed { color: #f85149; }
+.o-status.cancelled { color: #6e7681; }
+.o-status a { color: inherit; text-decoration: underline; }
+.order-cancel {
+  background: none; border: 1px solid #30363d; border-radius: 4px; color: #8b949e;
+  cursor: pointer; font-family: inherit; font-size: 12px; line-height: 1;
+  width: 22px; height: 22px; padding: 0;
+}
+.order-cancel:hover { border-color: #f85149; color: #f85149; }
+.order-toast {
+  position: fixed; bottom: 20px; right: 20px; z-index: 100;
+  padding: 12px 16px; border-radius: 6px; font-size: 13px; font-weight: 600;
+  background: #161b22; border: 1px solid #30363d; box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  opacity: 0; transform: translateY(10px); transition: all 0.25s; pointer-events: none;
+}
+.order-toast.show { opacity: 1; transform: translateY(0); }
+.order-toast.filled { border-color: #3fb950; color: #3fb950; }
+.order-toast.failed { border-color: #f85149; color: #f85149; }
 
 .no-data { padding: 60px; text-align: center; color: #8b949e; font-size: 16px; }
 .loading { text-align: center; padding: 40px; color: #8b949e; }
@@ -219,6 +315,23 @@ a { color: #58a6ff; text-decoration: none; }
 .trade-side-btn.buy-active { background: rgba(63,185,80,0.15); color: #3fb950; border-bottom: 2px solid #3fb950; }
 .trade-side-btn.sell-active { background: rgba(248,81,73,0.15); color: #f85149; border-bottom: 2px solid #f85149; }
 
+/* Market / Limit mode toggle */
+.trade-mode { display: flex; gap: 4px; padding: 8px 16px 0; }
+.trade-mode-btn {
+  flex: 1; padding: 6px; font-family: inherit; font-size: 11px; font-weight: 600;
+  letter-spacing: 1px; cursor: pointer; border: 1px solid #30363d; border-radius: 5px;
+  background: transparent; color: #8b949e; transition: all 0.15s;
+}
+.trade-mode-btn:hover { color: #e6edf3; }
+.trade-mode-btn.active { background: #1f6feb; color: #fff; border-color: #1f6feb; }
+.limit-hint {
+  font-size: 11px; line-height: 1.4; padding: 7px 10px; border-radius: 5px;
+  background: #161b22; border: 1px solid #21262d; color: #8b949e;
+}
+.limit-hint.tp { color: #3fb950; border-color: rgba(63,185,80,0.4); }
+.limit-hint.sl { color: #f85149; border-color: rgba(248,81,73,0.4); }
+.limit-hint.warn { color: #d29922; border-color: rgba(210,153,34,0.4); }
+
 .trade-form { padding: 16px; display: flex; flex-direction: column; gap: 12px; }
 .trade-form label { font-size: 11px; color: #8b949e; text-transform: uppercase; }
 .trade-input-wrap {
@@ -235,6 +348,8 @@ a { color: #58a6ff; text-decoration: none; }
 }
 .trade-input-wrap:focus-within { border-color: #58a6ff; }
 .trade-presets { display: flex; gap: 4px; }
+.trade-avail { font-size: 10px; color: #8b949e; margin-top: 5px; }
+.trade-avail.over { color: #f85149; }
 .trade-preset {
   flex: 1; padding: 4px; border: 1px solid #30363d; border-radius: 4px;
   background: transparent; color: #8b949e; font-family: inherit;
@@ -284,6 +399,26 @@ a { color: #58a6ff; text-decoration: none; }
   font-size: 11px; color: #8b949e; cursor: pointer; user-select: none;
 }
 .marker-toggle input { cursor: pointer; accent-color: #58a6ff; }
+.marker-toggle.avg-buy input { accent-color: #e3b341; }
+.marker-toggle.avg-net input { accent-color: #f0883e; }
+
+/* Sidebar players/countries tabs */
+.sidebar-tabs {
+  display: flex; background: #161b22; border-bottom: 1px solid #30363d;
+  position: sticky; top: 0; z-index: 3;
+}
+.sidebar-tab {
+  flex: 1; padding: 11px; text-align: center; font-family: inherit;
+  font-size: 12px; color: #8b949e; cursor: pointer; background: none;
+  border: none; border-bottom: 2px solid transparent;
+  text-transform: uppercase; letter-spacing: 1px; transition: all 0.15s;
+}
+.sidebar-tab:hover { color: #e6edf3; }
+.sidebar-tab.active { color: #58a6ff; border-bottom-color: #58a6ff; }
+
+/* Countries mode: hide role filters only — the change% period selector stays */
+body.mode-countries .filter-btn,
+body.mode-countries .filter-separator { display: none; }
 </style>
 </head>
 <body>
@@ -295,7 +430,10 @@ a { color: #58a6ff; text-decoration: none; }
 
 <div class="container">
   <div class="sidebar">
-    <div class="sidebar-header">Player Markets</div>
+    <div class="sidebar-tabs">
+      <button class="sidebar-tab active" data-list="players">Players</button>
+      <button class="sidebar-tab" data-list="countries">Countries</button>
+    </div>
     <div class="search-box">
       <input type="text" id="search" placeholder="Search player or country..." />
     </div>
@@ -313,7 +451,7 @@ a { color: #58a6ff; text-decoration: none; }
       <button class="chg-btn" data-chg="15m">15M</button>
     </div>
     <div class="col-header">
-      <span>Player</span>
+      <span id="col-header-first">Player</span>
       <span>Supply</span>
       <span>Price</span>
       <span>Chg%</span>
@@ -335,9 +473,11 @@ a { color: #58a6ff; text-decoration: none; }
     <div class="tf-bar" id="tf-bar">
       <button class="chart-type-btn active" data-mode="line">Line</button>
       <button class="chart-type-btn" data-mode="candles">Candles</button>
-      <div class="tf-separator"></div>
-      <button class="price-toggle-btn active" data-unit="country" id="btn-country">Country</button>
-      <button class="price-toggle-btn" data-unit="pitch" id="btn-pitch">PITCH</button>
+      <span id="unit-toggle-wrap" style="display:contents">
+        <div class="tf-separator"></div>
+        <button class="price-toggle-btn active" data-unit="country" id="btn-country">Country</button>
+        <button class="price-toggle-btn" data-unit="pitch" id="btn-pitch">PITCH</button>
+      </span>
       <div class="tf-separator"></div>
       <button class="tf-btn" data-tf="1m">1m</button>
       <button class="tf-btn active" data-tf="5m">5m</button>
@@ -347,7 +487,9 @@ a { color: #58a6ff; text-decoration: none; }
       <button class="tf-btn" data-tf="1d">1D</button>
       <div class="tf-separator"></div>
       <label class="marker-toggle"><input type="checkbox" id="toggle-my" checked> My</label>
-      <label class="marker-toggle"><input type="checkbox" id="toggle-all" checked> Others</label>
+      <label class="marker-toggle"><input type="checkbox" id="toggle-all"> Others</label>
+      <label class="marker-toggle avg-buy"><input type="checkbox" id="toggle-avg-buy"> Avg buy</label>
+      <label class="marker-toggle avg-net"><input type="checkbox" id="toggle-avg-net" checked> Net pos</label>
     </div>
     <div class="chart-area" id="chart-area">
       <div class="tooltip" id="tooltip">
@@ -369,6 +511,8 @@ a { color: #58a6ff; text-decoration: none; }
       <div class="trades-tabs">
         <button class="trades-tab active" data-tab="trades">Trades <span class="tab-count" id="tab-trades-count"></span></button>
         <button class="trades-tab" data-tab="wallets">Holders <span class="tab-count" id="tab-wallets-count"></span></button>
+        <button class="trades-tab" data-tab="mywallet">My Wallet <span class="tab-count" id="tab-mywallet-count"></span></button>
+        <button class="trades-tab" data-tab="orders">Orders <span class="tab-count" id="tab-orders-count"></span></button>
       </div>
       <div id="trades-content"><div class="no-data">Select a player</div></div>
     </div>
@@ -380,6 +524,10 @@ a { color: #58a6ff; text-decoration: none; }
     <div class="trade-sides">
       <button class="trade-side-btn buy-active" id="trade-buy-btn" onclick="setTradeSide('buy')">BUY</button>
       <button class="trade-side-btn" id="trade-sell-btn" onclick="setTradeSide('sell')">SELL</button>
+    </div>
+    <div class="trade-mode">
+      <button class="trade-mode-btn active" id="mode-market" onclick="setTradeMode('market')">MARKET</button>
+      <button class="trade-mode-btn" id="mode-limit" onclick="setTradeMode('limit')">LIMIT</button>
     </div>
     <div class="trade-form">
       <div>
@@ -394,6 +542,15 @@ a { color: #58a6ff; text-decoration: none; }
           <button class="trade-preset" onclick="setTradePreset(0.75)">75%</button>
           <button class="trade-preset" onclick="setTradePreset(1)">MAX</button>
         </div>
+        <div class="trade-avail" id="trade-avail"></div>
+      </div>
+      <div id="limit-fields" style="display:none">
+        <label id="limit-target-label">Target price</label>
+        <div class="trade-input-wrap">
+          <input type="number" id="limit-target" placeholder="0.00" step="any" oninput="onLimitTargetChange()" />
+          <span class="input-suffix" id="limit-target-suffix">—</span>
+        </div>
+        <div class="limit-hint" id="limit-hint" style="margin-top:8px">Set a target price</div>
       </div>
       <div class="trade-quote" id="trade-quote" style="display:none">
         <span class="tq-label">You receive</span>
@@ -405,16 +562,19 @@ a { color: #58a6ff; text-decoration: none; }
         <input type="number" id="trade-slippage" value="0.5" step="0.1" min="0.1" max="50" />
         <span>%</span>
       </div>
-      <button class="trade-submit buy-btn" id="trade-submit" onclick="executeTrade()" disabled>Select a player</button>
+      <button class="trade-submit buy-btn" id="trade-submit" onclick="onTradeSubmit()" disabled>Select a player</button>
       <div class="trade-status" id="trade-status"></div>
     </div>
   </div>
 </div>
 
+<div class="order-toast" id="order-toast"></div>
+
 <script>
 let chart = null;
 let mainSeries = null;
 let playersData = [];
+let countriesData = [];
 let countryPrices = {};
 let selectedAddr = null;
 let currentTf = '5m';
@@ -422,12 +582,17 @@ let chartMode = 'line';
 let priceUnit = 'country';
 let roleFilter = 'best';
 let chgPeriod = '1d';
+let listMode = 'players';
 let lastChartData = null;
 let sseSource = null;
 let lastLiveCandle = null;
 let currentChartMode = null;
 let showMyTrades = true;
-let showAllTrades = true;
+let showAllTrades = false;
+let showAvgBuy = false;
+let showAvgNet = true;
+let avgBuyLine = null;
+let avgNetLine = null;
 let walletAddress = '';
 let lastSeriesTime = 0;
 
@@ -447,8 +612,23 @@ function formatDate(ts) {
     ' ' + d.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
 }
 
+// Returns the selected token — a player OR a country.
 function getSelectedPlayer() {
-  return playersData.find(p => p.address === selectedAddr);
+  return playersData.find(p => p.address === selectedAddr)
+      || countriesData.find(c => c.address === selectedAddr)
+      || null;
+}
+
+function isCountrySelected() {
+  const t = getSelectedPlayer();
+  return !!t && t.kind === 'country';
+}
+
+// Label for the price axis / tooltips given the current selection + unit toggle.
+function unitLabel() {
+  if (isCountrySelected()) return 'PITCH';
+  const p = getSelectedPlayer();
+  return priceUnit === 'pitch' ? 'PITCH' : (p ? p.country : '?');
 }
 
 function getPitchMultiplier() {
@@ -458,6 +638,7 @@ function getPitchMultiplier() {
 }
 
 function applyPitchMultiplier(value) {
+  if (isCountrySelected()) return value;   // country chart values are already in PITCH
   if (priceUnit !== 'pitch') return value;
   const m = getPitchMultiplier();
   return m > 0 ? value * m : value;
@@ -526,8 +707,7 @@ function createChart() {
     const data = param.seriesData.get(mainSeries);
     if (!data) { tooltip.style.display = 'none'; return; }
 
-    const player = getSelectedPlayer();
-    const unit = priceUnit === 'pitch' ? 'PITCH' : (player ? player.country : '?');
+    const unit = unitLabel();
 
     tooltip.style.display = 'block';
     document.getElementById('tt-time').textContent = formatDate(param.time);
@@ -553,10 +733,11 @@ async function fetchPlayers() {
     const res = await fetch('/api/players');
     const data = await res.json();
     playersData = data.players;
+    countriesData = data.countries || [];
     countryPrices = data.countryPrices || {};
     walletAddress = data.walletAddress || '';
     document.getElementById('status-text').textContent =
-      `${playersData.length} players | ${new Date(data.lastUpdate * 1000).toLocaleTimeString()}`;
+      `${playersData.length} players | ${countriesData.length} countries | ${new Date(data.lastUpdate * 1000).toLocaleTimeString()}`;
     renderPlayerList();
     updateHeaderPrice();
   } catch(e) {}
@@ -564,33 +745,73 @@ async function fetchPlayers() {
 
 function updateHeaderPrice() {
   if (!selectedAddr) return;
-  const player = getSelectedPlayer();
-  if (!player) return;
+  const tok = getSelectedPlayer();
+  if (!tok) return;
 
   const priceEl = document.getElementById('ch-price');
   const subEl = document.getElementById('ch-price-sub');
 
-  if (player.priceCountry > 0) {
-    priceEl.textContent = `${player.priceCountry.toFixed(4)} ${player.country}`;
-    priceEl.style.color = '#3fb950';
-    subEl.textContent = player.pricePitch > 0 ? `${player.pricePitch.toFixed(4)} PITCH` : '';
-  } else {
-    priceEl.textContent = '\u2014';
-    priceEl.style.color = '#8b949e';
+  if (tok.kind === 'country') {
+    if (tok.pricePitch > 0) {
+      priceEl.textContent = `${tok.pricePitch.toFixed(4)} PITCH`;
+      priceEl.style.color = '#3fb950';
+    } else {
+      priceEl.textContent = '\u2014';
+      priceEl.style.color = '#8b949e';
+    }
     subEl.textContent = '';
+  } else {
+    if (tok.priceCountry > 0) {
+      priceEl.textContent = `${tok.priceCountry.toFixed(4)} ${tok.country}`;
+      priceEl.style.color = '#3fb950';
+      subEl.textContent = tok.pricePitch > 0 ? `${tok.pricePitch.toFixed(4)} PITCH` : '';
+    } else {
+      priceEl.textContent = '\u2014';
+      priceEl.style.color = '#8b949e';
+      subEl.textContent = '';
+    }
   }
-  document.getElementById('st-supply').textContent = player.supply.toFixed(2);
+  document.getElementById('st-supply').textContent = tok.supply.toFixed(2);
 }
 
-function getChg(p) {
+function getChg(p, period) {
   if (!p.changePct) return 0;
   if (typeof p.changePct === 'number') return p.changePct; // fallback
-  return p.changePct[chgPeriod] || 0;
+  return p.changePct[period || chgPeriod] || 0;
+}
+
+function chgCell(chg) {
+  const cls = chg > 0 ? 'change-up' : chg < 0 ? 'change-down' : 'change-zero';
+  const str = chg > 0 ? `+${chg.toFixed(1)}%` : chg < 0 ? `${chg.toFixed(1)}%` : '&mdash;';
+  return `<span class="${cls}">${str}</span>`;
 }
 
 function renderPlayerList() {
   const list = document.getElementById('player-list');
   const f = (document.getElementById('search').value || '').toLowerCase();
+  document.getElementById('col-header-first').textContent =
+    listMode === 'countries' ? 'Country' : 'Player';
+
+  if (listMode === 'countries') {
+    // Countries: no role filter, sorted by price (server sorts descending).
+    // The change% period selector still applies via getChg(c) -> chgPeriod.
+    const filtered = countriesData.filter(c =>
+      !f || c.name.toLowerCase().includes(f) || c.symbol.toLowerCase().includes(f));
+
+    list.innerHTML = filtered.map(c => `
+    <div class="player-row ${selectedAddr === c.address ? 'active' : ''}" onclick="selectPlayer('${c.address}')">
+      <div>
+        <div class="player-name">${c.name}</div>
+        <div class="player-country">${c.symbol}</div>
+      </div>
+      <div class="player-cell">${c.supply.toFixed(1)}</div>
+      <div class="player-cell">
+        <span class="price-main">${c.pricePitch > 0 ? c.pricePitch.toFixed(4) + ' PITCH' : '&mdash;'}</span>
+      </div>
+      <div class="player-cell">${chgCell(getChg(c))}</div>
+    </div>`).join('') || '<div class="no-data">No countries</div>';
+    return;
+  }
 
   const filtered = playersData.filter(p => {
     if (roleFilter !== 'all' && p.role !== roleFilter) return false;
@@ -599,9 +820,6 @@ function renderPlayerList() {
   });
 
   list.innerHTML = filtered.map(p => {
-    const chg = getChg(p);
-    const chgClass = chg > 0 ? 'change-up' : chg < 0 ? 'change-down' : 'change-zero';
-    const chgStr = chg > 0 ? `+${chg.toFixed(1)}%` : chg < 0 ? `${chg.toFixed(1)}%` : '&mdash;';
     const pitchStr = p.pricePitch > 0 ? `${p.pricePitch.toFixed(4)} PITCH` : '';
     const roleTag = p.role ? `<span class="role-tag ${p.role}">${p.role[0].toUpperCase()}</span>` : '';
     return `
@@ -615,7 +833,7 @@ function renderPlayerList() {
         <span class="price-main">${p.priceCountry > 0 ? p.priceCountry.toFixed(4) + ' ' + p.country : '&mdash;'}</span>
         <span class="price-sub">${pitchStr}</span>
       </div>
-      <div class="player-cell"><span class="${chgClass}">${chgStr}</span></div>
+      <div class="player-cell">${chgCell(getChg(p))}</div>
     </div>`;
   }).join('');
 }
@@ -624,20 +842,33 @@ async function selectPlayer(addr) {
   selectedAddr = addr;
   lastLiveCandle = null;
   currentChartMode = null;
+  tradesData = null;   // clear stale trades so avg lines don't flash wrong values
   renderPlayerList();
 
-  const player = getSelectedPlayer();
-  if (!player) return;
+  const tok = getSelectedPlayer();
+  if (!tok) return;
+  const isCountry = tok.kind === 'country';
 
-  document.getElementById('ch-name').textContent = `${player.name} (${player.symbol})`;
-  document.getElementById('ch-meta').textContent = `${player.country} \u2014 ${player.countryName}`;
-  document.getElementById('btn-country').textContent = player.country;
+  document.getElementById('ch-name').textContent = `${tok.name} (${tok.symbol})`;
+  document.getElementById('ch-meta').textContent = isCountry
+    ? 'Country token' : `${tok.country} \u2014 ${tok.countryName}`;
+
+  // Country prices are always in PITCH \u2014 the Country/PITCH unit toggle only applies to players.
+  const unitWrap = document.getElementById('unit-toggle-wrap');
+  if (isCountry) {
+    unitWrap.style.display = 'none';
+  } else {
+    unitWrap.style.display = 'contents';
+    document.getElementById('btn-country').textContent = tok.country;
+  }
 
   updateHeaderPrice();
 
-  document.getElementById('st-country').textContent = `${player.country} \u2014 ${player.countryName}`;
-  document.getElementById('st-role').textContent = player.role ? player.role.charAt(0).toUpperCase() + player.role.slice(1) : '\u2014';
-  document.getElementById('st-trades').textContent = player.trades;
+  document.getElementById('st-country').textContent = isCountry
+    ? '\u2014' : `${tok.country} \u2014 ${tok.countryName}`;
+  document.getElementById('st-role').textContent = isCountry
+    ? '\u2014' : (tok.role ? tok.role.charAt(0).toUpperCase() + tok.role.slice(1) : '\u2014');
+  document.getElementById('st-trades').textContent = tok.trades;
   document.getElementById('st-contract').innerHTML =
     `<a href="https://basescan.org/address/${addr}" target="_blank">${addr.slice(0,6)}..${addr.slice(-4)}</a>`;
 
@@ -645,8 +876,10 @@ async function selectPlayer(addr) {
   fetchWallet();
   updateTradeUI();
   document.getElementById('trade-amount').value = '';
+  document.getElementById('limit-target').value = '';
   document.getElementById('trade-quote').style.display = 'none';
   document.getElementById('trade-status').textContent = '';
+  onLimitTargetChange();
 }
 
 async function loadChart(fit = true) {
@@ -667,6 +900,7 @@ function renderChartData(fit = true) {
   lastLiveCandle = null;
   if (chartMode === 'candles') renderCandles();
   else renderLine();
+  renderAvgLines();
   if (fit) chart.timeScale().fitContent();
 }
 
@@ -679,8 +913,7 @@ function renderCandles() {
     return;
   }
 
-  const player = getSelectedPlayer();
-  const unit = priceUnit === 'pitch' ? 'PITCH' : (player ? player.country : '?');
+  const unit = unitLabel();
 
   mainSeries.setData(candles.map(c => ({
     time: c.time,
@@ -728,8 +961,7 @@ function renderLine() {
     return;
   }
 
-  const player = getSelectedPlayer();
-  const unit = priceUnit === 'pitch' ? 'PITCH' : (player ? player.country : '?');
+  const unit = unitLabel();
 
   const seen = new Set();
   const lineData = [];
@@ -768,9 +1000,11 @@ function renderLine() {
 
 function updateChartPrice() {
   if (!selectedAddr || !mainSeries || !chart) return;
-  const player = getSelectedPlayer();
-  if (!player || player.priceCountry <= 0) return;
-  const price = applyPitchMultiplier(player.priceCountry);
+  const tok = getSelectedPlayer();
+  if (!tok) return;
+  const spot = tok.kind === 'country' ? tok.pricePitch : tok.priceCountry;
+  if (!(spot > 0)) return;
+  const price = applyPitchMultiplier(spot);
   const now = Math.floor(Date.now() / 1000);
 
   if (chartMode === 'candles') {
@@ -811,17 +1045,55 @@ async function loadTrades() {
 
     document.getElementById('tab-trades-count').textContent = `(${tradesData.totalTrades})`;
     document.getElementById('tab-wallets-count').textContent = `(${tradesData.wallets.length})`;
+    const mw = tradesData.myWallet;
+    const mwCount = (mw && mw.hasActivity) ? (mw.buys + mw.sells) : 0;
+    document.getElementById('tab-mywallet-count').textContent = mwCount ? `(${mwCount})` : '';
 
     renderTradesTab();
+    renderAvgLines();
   } catch(e) {}
+}
+
+// Yellow dashed = avg buy price (cost basis); orange dashed = net position cost.
+// Each line has its own toggle. Drawn for the configured wallet only, in the
+// chart's current price unit.
+function renderAvgLines() {
+  if (!mainSeries) return;
+  if (avgBuyLine) { try { mainSeries.removePriceLine(avgBuyLine); } catch(e) {} avgBuyLine = null; }
+  if (avgNetLine) { try { mainSeries.removePriceLine(avgNetLine); } catch(e) {} avgNetLine = null; }
+  if (!tradesData || !walletAddress) return;
+
+  const mine = (tradesData.wallets || []).find(
+    w => w.address && w.address.toLowerCase() === walletAddress.toLowerCase());
+  if (!mine) return;
+
+  if (showAvgBuy && mine.avgBuy > 0) {
+    avgBuyLine = mainSeries.createPriceLine({
+      price: applyPitchMultiplier(mine.avgBuy),
+      color: '#e3b341', lineWidth: 1,
+      lineStyle: LightweightCharts.LineStyle.Dashed,
+      axisLabelVisible: true, title: 'avg buy',
+    });
+  }
+  if (showAvgNet && mine.avgNet > 0) {
+    avgNetLine = mainSeries.createPriceLine({
+      price: applyPitchMultiplier(mine.avgNet),
+      color: '#f0883e', lineWidth: 1,
+      lineStyle: LightweightCharts.LineStyle.Dashed,
+      axisLabelVisible: true, title: 'net pos',
+    });
+  }
 }
 
 function renderTradesTab() {
   const content = document.getElementById('trades-content');
+  // Orders tab is global (all players) — render before the per-token guard.
+  if (tradesTab === 'orders') { renderOrdersTab(content); return; }
   if (!tradesData) { content.innerHTML = '<div class="no-data">Select a player</div>'; return; }
 
   const player = getSelectedPlayer();
   if (!player) return;
+  const baseUnit = player.kind === 'country' ? 'PITCH' : (player.country || '?');
 
   if (tradesTab === 'trades') {
     const trades = tradesData.trades;
@@ -836,7 +1108,7 @@ function renderTradesTab() {
         <span class="${e.type}">${e.type.toUpperCase()}</span>
         <span>${e.price.toFixed(4)}</span>
         <span>${e.tokenValue.toFixed(2)}</span>
-        <span>${e.baseValue.toFixed(2)} ${player.country}</span>
+        <span>${e.baseValue.toFixed(2)} ${baseUnit}</span>
         <span>${formatTime(e.timestamp)}</span>
         <span><a class="tx-link" href="https://basescan.org/tx/0x${e.tx}" target="_blank">${e.traderShort}</a></span>
         <span class="wallet-pos">${e.walletPosition > 0.01 ? e.walletPosition.toFixed(1) : '0'}</span>
@@ -844,7 +1116,7 @@ function renderTradesTab() {
     `).join('');
 
     content.innerHTML = header + rows;
-  } else {
+  } else if (tradesTab === 'wallets') {
     const wallets = tradesData.wallets.slice().sort((a, b) => b.position - a.position);
     if (!wallets.length) { content.innerHTML = '<div class="no-data">No holders</div>'; return; }
 
@@ -866,11 +1138,191 @@ function renderTradesTab() {
     }).join('');
 
     content.innerHTML = header + rows;
+  } else if (tradesTab === 'mywallet') {
+    renderMyWalletTab(content, baseUnit);
   }
+}
+
+// My Wallet tab — per-token summary for the wallet configured in .env.
+function renderMyWalletTab(content, baseUnit) {
+  const mw = tradesData.myWallet;
+  if (!mw || !mw.configured) {
+    content.innerHTML = '<div class="no-data">No wallet configured in .env</div>';
+    return;
+  }
+  const shortAddr = mw.address.slice(0, 6) + '..' + mw.address.slice(-4);
+  const headLink = `<a class="tx-link" href="https://basescan.org/address/${mw.address}" target="_blank">${shortAddr}</a>`;
+
+  if (!mw.hasActivity) {
+    content.innerHTML = `<div class="mw-section"><div class="mw-head">Wallet ${headLink}</div></div>`
+      + '<div class="no-data" style="padding:30px">No activity on this token yet</div>';
+    return;
+  }
+
+  const sign = v => (v > 0 ? '+' : '') + v.toFixed(2);
+  const cls = v => v > 0 ? 'pos' : (v < 0 ? 'neg' : '');
+  const fmtDate = ts => ts ? new Date(ts * 1000).toLocaleDateString() : '—';
+
+  const cell = (label, value, valCls, sub, subCls) => `
+    <div class="mw-cell">
+      <div class="mw-label">${label}</div>
+      <div class="mw-value ${valCls || ''}">${value}</div>
+      ${sub ? `<div class="mw-sub ${subCls || ''}">${sub}</div>` : ''}
+    </div>`;
+
+  const grid = `<div class="mw-grid">
+    ${cell('Position', mw.position.toFixed(2), '', `${mw.positionValue.toFixed(2)} ${baseUnit}`)}
+    ${cell('Avg buy', mw.avgBuy.toFixed(4), '', `${baseUnit}/tok`)}
+    ${cell('Break-even', mw.breakEven.toFixed(4), '',
+           `${sign(mw.breakEvenDistPct)}% vs price`, cls(mw.breakEvenDistPct))}
+    ${cell('Current price', mw.currentPrice.toFixed(4), '', `${baseUnit}/tok`)}
+    ${cell('Realized PnL', sign(mw.realizedPnl), cls(mw.realizedPnl), baseUnit)}
+    ${cell('Unrealized PnL', sign(mw.unrealizedPnl), cls(mw.unrealizedPnl), baseUnit)}
+    ${cell('Total PnL', sign(mw.totalPnl), cls(mw.totalPnl),
+           `${sign(mw.totalPnlPct)}%`, cls(mw.totalPnlPct))}
+    ${cell('Fees paid', mw.feesPaid.toFixed(3), '', baseUnit)}
+    ${cell('Ownership', mw.ownershipPct.toFixed(3) + '%', '', 'of supply')}
+    ${cell('Holder rank', '#' + (mw.rank || '—'), '', `of ${mw.holdersCount}`)}
+    ${cell('Trades', mw.buys + mw.sells, '',
+           `<span style="color:#3fb950">${mw.buys}B</span> / <span style="color:#f85149">${mw.sells}S</span>`)}
+    ${cell('Holding', mw.holdingDays.toFixed(1) + 'd', '', 'since ' + fmtDate(mw.firstTradeTs))}
+  </div>`;
+
+  const myTrades = (tradesData.trades || []).filter(
+    t => t.trader && t.trader.toLowerCase() === mw.address.toLowerCase());
+  let tradesHtml = '';
+  if (myTrades.length) {
+    const rows = myTrades.map(e => `
+      <div class="mw-trade-row">
+        <span class="${e.type}">${e.type.toUpperCase()}</span>
+        <span>${e.price.toFixed(4)}</span>
+        <span>${e.tokenValue.toFixed(2)}</span>
+        <span>${e.baseValue.toFixed(2)} ${baseUnit}</span>
+        <span>${formatTime(e.timestamp)}</span>
+      </div>`).join('');
+    tradesHtml = `<div class="mw-trades-title">My trades (${myTrades.length})</div>` + rows;
+  }
+
+  content.innerHTML = `<div class="mw-section">`
+    + `<div class="mw-head">Wallet ${headLink} · base unit: ${baseUnit}</div>${grid}</div>`
+    + tradesHtml;
+}
+
+// --- Limit orders ---
+let ordersData = null;
+let ordersArmed = true;
+let orderStatusSeen = {};   // id -> last seen status, drives fill/fail toasts
+
+async function loadOrders() {
+  try {
+    const res = await fetch('/api/orders');
+    const data = await res.json();
+    let filled = false;
+    (data.orders || []).forEach(o => {
+      const prev = orderStatusSeen[o.id];
+      if (prev && prev !== o.status && (o.status === 'filled' || o.status === 'failed')) {
+        if (o.status === 'filled') {
+          filled = true;
+          showToast(`Order #${o.id} filled — ${o.side === 'buy' ? 'bought' : 'sold'} ${o.playerSymbol}`, 'filled');
+        } else {
+          showToast(`Order #${o.id} failed — ${o.playerSymbol}`, 'failed');
+        }
+      }
+      orderStatusSeen[o.id] = o.status;
+    });
+    ordersData = data.orders || [];
+    ordersArmed = data.armed;
+    const active = ordersData.filter(o => o.status === 'pending' || o.status === 'executing').length;
+    document.getElementById('tab-orders-count').textContent = active ? `(${active})` : '';
+    if (tradesTab === 'orders') renderOrdersTab(document.getElementById('trades-content'));
+    if (filled) { fetchWallet(); fetchPlayers(); }
+  } catch(e) {}
+}
+
+function renderOrdersTab(content) {
+  if (!ordersData) { content.innerHTML = '<div class="no-data">Loading orders…</div>'; loadOrders(); return; }
+  const pending = ordersData.filter(o => o.status === 'pending').length;
+
+  let html = `<div class="orders-bar">
+    <span class="ob-info">${ordersData.length} orders · ${pending} pending</span>
+    <button class="${ordersArmed ? 'arm-toggle on' : 'arm-toggle'}" onclick="toggleArm()">
+      <span>Auto-execution ${ordersArmed ? 'on' : 'off'}</span><span class="arm-switch"></span>
+    </button>
+  </div>`;
+  if (!ordersArmed) html += '<div class="orders-warn">⚠ Auto-execution is OFF — pending orders will not fire.</div>';
+
+  if (!ordersData.length) {
+    content.innerHTML = html + '<div class="no-data" style="padding:30px">No limit orders yet</div>';
+    return;
+  }
+
+  html += `<div class="trades-col-header orders-cols">
+    <span>Player</span><span>Type</span><span>Target</span><span>Amount</span><span>Status</span><span></span>
+  </div>`;
+  const kindLabel = {limit: 'LIMIT BUY', tp: 'TAKE-PROFIT', sl: 'STOP-LOSS'};
+  html += ordersData.map(o => {
+    const amtUnit = o.side === 'buy' ? o.country : o.playerSymbol;
+    let status;
+    if (o.status === 'filled' && o.tx) {
+      status = `<a href="https://basescan.org/tx/0x${o.tx}" target="_blank">FILLED</a>`;
+    } else if (o.status === 'failed') {
+      status = `<span title="${(o.error || '').replace(/"/g, "'")}">FAILED</span>`;
+    } else {
+      status = o.status.toUpperCase();
+    }
+    const cancelBtn = o.status === 'pending'
+      ? `<button class="order-cancel" title="Cancel order" onclick="cancelOrder(${o.id})">&times;</button>`
+      : '<span></span>';
+    return `<div class="order-row">
+      <span class="o-player" onclick="selectFromOrder('${o.player}')">${o.playerSymbol}</span>
+      <span class="order-kind ${o.kind}">${kindLabel[o.kind] || o.kind}</span>
+      <span>${o.targetPrice.toFixed(4)} ${o.country}</span>
+      <span>${o.amount} ${amtUnit}</span>
+      <span class="o-status ${o.status}">${status}</span>
+      ${cancelBtn}
+    </div>`;
+  }).join('');
+  content.innerHTML = html;
+}
+
+function selectFromOrder(addrLower) {
+  const p = playersData.find(x => x.address.toLowerCase() === addrLower.toLowerCase());
+  if (p) selectPlayer(p.address);
+}
+
+async function cancelOrder(id) {
+  try {
+    const res = await fetch(`/api/orders/${id}`, {method: 'DELETE'});
+    const data = await res.json();
+    if (data.error) showToast(data.error, 'failed');
+  } catch(e) {}
+  loadOrders();
+}
+
+async function toggleArm() {
+  try {
+    const res = await fetch('/api/orders/arm', {
+      method: 'POST', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({armed: !ordersArmed}),
+    });
+    const data = await res.json();
+    ordersArmed = data.armed;
+  } catch(e) {}
+  loadOrders();
+}
+
+let toastTimer = null;
+function showToast(msg, kind) {
+  const el = document.getElementById('order-toast');
+  el.textContent = msg;
+  el.className = `order-toast show ${kind || ''}`;
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => { el.className = 'order-toast'; }, 5000);
 }
 
 // --- Trading ---
 let tradeSide = 'buy';
+let tradeMode = 'market';   // 'market' or 'limit'
 let walletInfo = null;
 let quoteTimer = null;
 
@@ -886,6 +1338,49 @@ function setTradeSide(side) {
 
   updateTradeUI();
   onTradeAmountChange();
+  onLimitTargetChange();
+}
+
+function setTradeMode(mode) {
+  tradeMode = mode;
+  document.getElementById('mode-market').classList.toggle('active', mode === 'market');
+  document.getElementById('mode-limit').classList.toggle('active', mode === 'limit');
+  document.getElementById('limit-fields').style.display = mode === 'limit' ? 'block' : 'none';
+  if (mode === 'limit') document.getElementById('trade-quote').style.display = 'none';
+  updateTradeUI();
+  onTradeAmountChange();
+  onLimitTargetChange();
+}
+
+// Live explanation of what the limit order will do, based on target vs spot price.
+function onLimitTargetChange() {
+  const hint = document.getElementById('limit-hint');
+  const player = getSelectedPlayer();
+  if (!player || player.kind === 'country') { hint.className = 'limit-hint'; hint.textContent = 'Select a player'; return; }
+  const unit = player.country;
+  const spot = player.priceCountry || 0;
+  const target = parseFloat(document.getElementById('limit-target').value) || 0;
+  document.getElementById('limit-target-label').textContent = `Target price (${unit})`;
+  document.getElementById('limit-target-suffix').textContent = unit;
+  if (target <= 0) { hint.className = 'limit-hint'; hint.textContent = `Current price: ${spot.toFixed(4)} ${unit}`; return; }
+
+  if (tradeSide === 'buy') {
+    if (target >= spot) {
+      hint.className = 'limit-hint warn';
+      hint.textContent = `⚠ Target ≥ current price (${spot.toFixed(4)}) — order fires immediately.`;
+    } else {
+      hint.className = 'limit-hint tp';
+      hint.textContent = `Limit buy — buys when price falls to ${target.toFixed(4)} ${unit} (now ${spot.toFixed(4)}).`;
+    }
+  } else {
+    if (target > spot) {
+      hint.className = 'limit-hint tp';
+      hint.textContent = `Take-profit — sells when price rises to ${target.toFixed(4)} ${unit} (now ${spot.toFixed(4)}).`;
+    } else {
+      hint.className = 'limit-hint sl';
+      hint.textContent = `Stop-loss — sells when price falls to ${target.toFixed(4)} ${unit} (now ${spot.toFixed(4)}).`;
+    }
+  }
 }
 
 function updateTradeUI() {
@@ -899,6 +1394,16 @@ function updateTradeUI() {
     suffix.textContent = '—';
     submitBtn.textContent = 'Select a player';
     submitBtn.disabled = true;
+    updateAvail();
+    return;
+  }
+
+  if (player.kind === 'country') {
+    label.textContent = 'Amount';
+    suffix.textContent = '—';
+    submitBtn.textContent = 'Country (view only)';
+    submitBtn.disabled = true;
+    updateAvail();
     return;
   }
 
@@ -911,7 +1416,49 @@ function updateTradeUI() {
     suffix.textContent = player.symbol;
     submitBtn.textContent = `Sell ${player.symbol}`;
   }
+  if (tradeMode === 'limit') submitBtn.textContent = 'Place limit order';
   submitBtn.disabled = !walletInfo || !walletInfo.connected;
+  updateAvail();
+}
+
+// Wallet balance available for the current side: country tokens for buy, player
+// tokens for sell. Returns 0 when not connected.
+function availBalance() {
+  if (!walletInfo || !walletInfo.connected) return 0;
+  return tradeSide === 'buy' ? (walletInfo.countryBalance || 0)
+                             : (walletInfo.playerBalance || 0);
+}
+
+// "Available: X" line under the amount field; turns red when the typed amount
+// exceeds the balance. Drives both market trades and limit orders.
+function updateAvail() {
+  const el = document.getElementById('trade-avail');
+  const player = getSelectedPlayer();
+  if (!player || player.kind === 'country' || !walletInfo || !walletInfo.connected
+      || walletInfo.countryBalance === undefined) {
+    el.textContent = ''; el.className = 'trade-avail'; return;
+  }
+  const bal = availBalance();
+  const unit = tradeSide === 'buy' ? player.country : player.symbol;
+  const amount = parseFloat(document.getElementById('trade-amount').value) || 0;
+  const over = amount > bal + 1e-4;
+  el.className = 'trade-avail' + (over ? ' over' : '');
+  el.textContent = over
+    ? `⚠ Only ${bal.toFixed(4)} ${unit} available`
+    : `Available: ${bal.toFixed(4)} ${unit}`;
+}
+
+// Returns an error string if `amount` exceeds the wallet balance, else null.
+// The +1e-4 tolerance absorbs MAX-preset rounding.
+function balanceError(amount) {
+  const player = getSelectedPlayer();
+  if (!player || !walletInfo || !walletInfo.connected) return null;
+  const bal = availBalance();
+  if (amount > bal + 1e-4) {
+    const unit = tradeSide === 'buy' ? player.country : player.symbol;
+    return `Not enough ${unit}: you have ${bal.toFixed(4)}`;
+  }
+  return null;
 }
 
 async function fetchWallet() {
@@ -945,19 +1492,18 @@ function renderWalletInfo() {
 
 function setTradePreset(pct) {
   if (!walletInfo || !walletInfo.connected) return;
-  const input = document.getElementById('trade-amount');
-  if (tradeSide === 'buy') {
-    input.value = ((walletInfo.countryBalance || 0) * pct).toFixed(4);
-  } else {
-    input.value = ((walletInfo.playerBalance || 0) * pct).toFixed(4);
-  }
+  // Truncate (don't round) so MAX never lands above the real balance.
+  const amount = Math.floor(availBalance() * pct * 1e4) / 1e4;
+  document.getElementById('trade-amount').value = amount.toFixed(4);
   onTradeAmountChange();
+  updateAvail();
 }
 
 function onTradeAmountChange() {
   clearTimeout(quoteTimer);
+  updateAvail();
   const amount = parseFloat(document.getElementById('trade-amount').value) || 0;
-  if (amount <= 0 || !selectedAddr) {
+  if (amount <= 0 || !selectedAddr || isCountrySelected() || tradeMode === 'limit') {
     document.getElementById('trade-quote').style.display = 'none';
     return;
   }
@@ -999,6 +1545,9 @@ async function executeTrade() {
   const statusEl = document.getElementById('trade-status');
   const submitBtn = document.getElementById('trade-submit');
 
+  const balErr = balanceError(parseFloat(amount) || 0);
+  if (balErr) { statusEl.className = 'trade-status error'; statusEl.textContent = balErr; return; }
+
   submitBtn.disabled = true;
   statusEl.className = 'trade-status pending';
   statusEl.textContent = tradeSide === 'buy' ? 'Buying...' : 'Selling...';
@@ -1037,6 +1586,60 @@ async function executeTrade() {
   submitBtn.disabled = false;
 }
 
+// Submit button dispatcher: market trade or limit order depending on mode.
+function onTradeSubmit() {
+  if (tradeMode === 'limit') createOrder();
+  else executeTrade();
+}
+
+async function createOrder() {
+  if (!selectedAddr || !walletInfo || !walletInfo.connected) return;
+  const amount = parseFloat(document.getElementById('trade-amount').value) || 0;
+  const target = parseFloat(document.getElementById('limit-target').value) || 0;
+  const slippagePct = parseFloat(document.getElementById('trade-slippage').value) || 0.5;
+
+  const statusEl = document.getElementById('trade-status');
+  if (amount <= 0) { statusEl.className = 'trade-status error'; statusEl.textContent = 'Enter an amount'; return; }
+  if (target <= 0) { statusEl.className = 'trade-status error'; statusEl.textContent = 'Enter a target price'; return; }
+  const balErr = balanceError(amount);
+  if (balErr) { statusEl.className = 'trade-status error'; statusEl.textContent = balErr; return; }
+
+  const submitBtn = document.getElementById('trade-submit');
+  submitBtn.disabled = true;
+  statusEl.className = 'trade-status pending';
+  statusEl.textContent = 'Placing order...';
+
+  try {
+    const res = await fetch('/api/orders', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        player: selectedAddr,
+        side: tradeSide,
+        targetPrice: target,
+        amount: amount,
+        slippage: Math.round(slippagePct * 100),
+      }),
+    });
+    const data = await res.json();
+    if (data.error) {
+      statusEl.className = 'trade-status error';
+      statusEl.textContent = data.error;
+    } else {
+      statusEl.className = 'trade-status success';
+      statusEl.textContent = `Order #${data.order.id} placed`;
+      document.getElementById('trade-amount').value = '';
+      document.getElementById('limit-target').value = '';
+      onLimitTargetChange();
+      loadOrders();
+    }
+  } catch(e) {
+    statusEl.className = 'trade-status error';
+    statusEl.textContent = 'Network error';
+  }
+  submitBtn.disabled = false;
+}
+
 // --- SSE ---
 function connectSSE() {
   if (sseSource) sseSource.close();
@@ -1049,6 +1652,8 @@ function connectSSE() {
       updateChartPrice();
     } else if (type === 'events' && selectedAddr) {
       await loadChart(false);
+    } else if (type === 'orders') {
+      await loadOrders();
     }
   };
   sseSource.onerror = () => document.getElementById('sse-dot').classList.add('disconnected');
@@ -1095,6 +1700,25 @@ document.getElementById('toggle-all').addEventListener('change', (e) => {
   showAllTrades = e.target.checked;
   if (lastChartData) renderChartData(false);
 });
+document.getElementById('toggle-avg-buy').addEventListener('change', (e) => {
+  showAvgBuy = e.target.checked;
+  renderAvgLines();
+});
+document.getElementById('toggle-avg-net').addEventListener('change', (e) => {
+  showAvgNet = e.target.checked;
+  renderAvgLines();
+});
+
+// Sidebar Players/Countries tabs
+document.querySelectorAll('.sidebar-tab').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.sidebar-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    listMode = btn.dataset.list;
+    document.body.classList.toggle('mode-countries', listMode === 'countries');
+    renderPlayerList();
+  });
+});
 
 // Price unit toggle
 document.querySelectorAll('.price-toggle-btn').forEach(btn => {
@@ -1132,6 +1756,7 @@ document.getElementById('search').addEventListener('input', () => renderPlayerLi
 // Init
 fetchPlayers();
 fetchWallet();
+loadOrders();
 connectSSE();
 setInterval(() => {
   if (!sseSource || sseSource.readyState === EventSource.CLOSED) { fetchPlayers(); connectSSE(); }
