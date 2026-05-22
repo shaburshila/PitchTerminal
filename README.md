@@ -4,6 +4,8 @@ A browser dashboard and trading terminal for [pitchwc.app](https://pitchwc.app) 
 player and country token markets on Base L2. Live charts, on-chain trading, automatic
 limit orders, and a full wallet profile.
 
+![PitchTerminal dashboard](docs/screenshot.png)
+
 ## ⚠️ Everything runs on your own computer
 
 PitchTerminal is **fully local**. The Flask server, the limit-order watcher, your `.env`
@@ -17,6 +19,21 @@ the next start. See [How limit orders run](#how-limit-orders-run).
 > **Roadmap — help with a ⭐.** If this project gets enough stars, I'll build a hosted
 > version: a dedicated always-on server with wallet connection, so limit orders run
 > **24/7**, independent of whether your own machine is on.
+
+## Security
+
+PitchTerminal needs your wallet's **private key** to trade. Before you run it:
+
+- 🔑 The key is stored in `.env` as **plaintext** on your disk. `.env` is gitignored and
+  never sent anywhere — but anyone with access to your machine can read it.
+- 🪪 **Use a dedicated / burner wallet** — fund it with only what you intend to trade,
+  not your main wallet.
+- 🤖 Limit orders **execute real on-chain trades with real funds, automatically**, while
+  the server runs. Start with small amounts; the Orders tab has an *Auto-execution*
+  kill-switch to pause everything.
+- 🔍 This is an unofficial, **unaudited** tool — read the code before trusting it with a key.
+- 👀 Without `PRIVATE_KEY` the dashboard is fully usable **read-only** (charts, markets,
+  any wallet's stats). A key is needed only to place trades.
 
 ## Features
 
@@ -40,7 +57,7 @@ the next start. See [How limit orders run](#how-limit-orders-run).
 
 ## Stack
 
-- Backend — Python 3 + Flask + web3.py
+- Backend — Python 3.10+ with Flask + web3.py
 - Frontend — single-file vanilla JS + lightweight-charts v4
 - Chain — Base L2 (chain ID 8453); all market data via on-chain calls
 
@@ -68,6 +85,9 @@ source venv/bin/activate
 python3 server.py
 # dashboard: http://localhost:5555
 ```
+
+On the **first launch** the server scans Base event history to build its local cache —
+give it a minute. Subsequent starts load the cache and only scan new blocks.
 
 ## Usage
 

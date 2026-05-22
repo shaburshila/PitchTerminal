@@ -13,3 +13,5 @@ limit_orders.json
 # Test & debug artifacts
 .playwright-mcp/
 *.png
+# ...but keep the README screenshot tracked
+!docs/screenshot.png
