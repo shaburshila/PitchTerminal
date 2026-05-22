@@ -74,3 +74,7 @@ HOOK_EVENTS_ABI = [
 # Gas settings
 GAS_MULTIPLIER = 1.5  # bump gas price for faster inclusion
 MAX_GAS_LIMIT = 400_000
+
+# Limit-buy review guard: if the price falls more than this % below an order's
+# target, the order is held for manual review instead of auto-executing.
+LIMIT_REVIEW_THRESHOLD_PCT = 20

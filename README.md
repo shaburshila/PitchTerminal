@@ -10,10 +10,13 @@ and automatic limit orders.
   multiple timeframes, own/others trade markers, avg-entry price lines.
 - **Trading** — market buy/sell of player tokens through the on-chain Router
   (bonding curve via Uniswap V4 hooks).
-- **Limit orders** — a server-side watcher auto-executes limit buys, take-profits
-  and stop-losses when the price crosses your target.
+- **Limit orders** — a server-side watcher auto-executes limit buys and
+  take-profits when the price crosses your target.
 - **My Wallet** — per-token PnL summary (realized / unrealized, break-even, fees
   paid, ownership %, holder rank) for the wallet configured in `.env`.
+- **Wallet profile** — portfolio-wide view of your `.env` wallet: summary, open &
+  closed positions, all trades, stats, allocation, on-chain balances, and a
+  portfolio-value chart. Opened from the wallet chip in the header.
 - **Real-time** — prices and trades stream to the UI over SSE.
 
 ## Stack
@@ -47,6 +50,34 @@ python3 server.py
 # dashboard: http://localhost:5555
 ```
 
+## Usage
+
+Open **http://localhost:5555** — browse players and countries, click any token for its
+chart, trade history, holders, and (if a wallet is set) your per-token PnL.
+
+**Trading** requires `PRIVATE_KEY` in `.env`. In the trade panel:
+
+- **Market** — buys/sells immediately at the current price.
+- **Limit** — set a target price; the order is placed and fires later automatically.
+
+### How limit orders run
+
+The limit-order watcher lives **inside the server process** — it polls prices every
+5 seconds and executes triggered orders on-chain itself.
+
+- ✅ **Keep `python3 server.py` running in the terminal** — that process is what watches
+  and fires your orders.
+- ✅ **The browser tab is optional** — it is only the UI. You can close it; orders are
+  still monitored and executed by the server.
+- ⏸ **If you stop the server**, orders are no longer watched. Pending orders are saved
+  to `limit_orders.json` and resume being watched the next time the server starts.
+- 🔌 The **Orders** tab has an *Auto-execution* toggle — a kill-switch to pause/resume
+  firing without stopping the server.
+- 🛡 **Crash guard for limit buys** — if the price has fallen more than 20%
+  (`config.LIMIT_REVIEW_THRESHOLD_PCT`) below the target when the order triggers, it is
+  *not* bought automatically. It moves to a **review** state and a popup asks you to
+  Execute or Cancel — so a crash doesn't auto-fill you into a falling token.
+
 ## Project structure
 
 | File | Role |
@@ -60,7 +91,6 @@ python3 server.py
 
 ## Notes
 
-- Limit orders fire only while the server is running — it is a local watcher;
-  pitchwc has no on-chain order book.
+- Limit orders are a local watcher — pitchwc has no on-chain order book.
 - Country tokens are view-only; trading is for player tokens.
 - No paid RPC required — gas price is bumped 1.5× to compensate for the public RPC.

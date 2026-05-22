@@ -190,7 +190,7 @@ a { color: #58a6ff; text-decoration: none; }
 .trades-col-header span:first-child { text-align: left; }
 .trades-col-header.trades-cols { grid-template-columns: 40px 75px 65px 75px 80px 90px 70px; }
 .trades-col-header.wallets-cols { grid-template-columns: 100px 50px 50px 80px 80px 80px; }
-.trades-col-header.orders-cols { grid-template-columns: 64px 88px 92px 92px 1fr 28px; }
+.trades-col-header.orders-cols { grid-template-columns: 44px 72px 70px 58px 1fr 104px; column-gap: 12px; }
 
 /* My Wallet tab */
 .mw-section { padding: 12px 16px 4px; }
@@ -248,33 +248,38 @@ a { color: #58a6ff; text-decoration: none; }
 .arm-toggle.on { color: #3fb950; }
 .orders-warn { padding: 6px 16px; font-size: 11px; color: #d29922; background: rgba(210,153,34,0.1); }
 .order-row {
-  display: grid; grid-template-columns: 64px 88px 92px 92px 1fr 28px;
+  display: grid; grid-template-columns: 44px 72px 70px 58px 1fr 104px;
   column-gap: 12px; padding: 6px 16px; border-bottom: 1px solid #21262d;
   font-size: 11px; align-items: center;
 }
-.order-row span { text-align: right; }
+.order-row span { text-align: right; white-space: nowrap; }
 .order-row .o-player { text-align: left; font-weight: 600; color: #e6edf3; cursor: pointer; }
 .order-row .o-player:hover { color: #58a6ff; }
+.order-row.is-review { background: rgba(210,153,34,0.07); }
 .order-kind {
   text-align: center; font-size: 9px; font-weight: 700; padding: 2px 0;
   border-radius: 3px; text-transform: uppercase; letter-spacing: .5px;
 }
 .order-kind.limit { background: rgba(63,185,80,0.15); color: #3fb950; }
 .order-kind.tp { background: rgba(63,185,80,0.15); color: #3fb950; }
-.order-kind.sl { background: rgba(248,81,73,0.15); color: #f85149; }
 .o-status { font-size: 10px; text-transform: uppercase; letter-spacing: .5px; }
 .o-status.pending { color: #d29922; }
 .o-status.executing { color: #58a6ff; }
 .o-status.filled { color: #3fb950; }
 .o-status.failed { color: #f85149; }
 .o-status.cancelled { color: #6e7681; }
+.o-status.review { color: #d29922; font-weight: 700; }
 .o-status a { color: inherit; text-decoration: underline; }
-.order-cancel {
+.order-acts { display: flex; gap: 4px; justify-content: flex-end; }
+.order-btn {
   background: none; border: 1px solid #30363d; border-radius: 4px; color: #8b949e;
-  cursor: pointer; font-family: inherit; font-size: 12px; line-height: 1;
-  width: 22px; height: 22px; padding: 0;
+  cursor: pointer; font-family: inherit; font-size: 10px; line-height: 1;
+  padding: 4px 7px;
 }
-.order-cancel:hover { border-color: #f85149; color: #f85149; }
+.order-btn.exec { color: #3fb950; border-color: rgba(63,185,80,0.5); }
+.order-btn.exec:hover { background: rgba(63,185,80,0.15); }
+.order-btn.cxl { color: #8b949e; }
+.order-btn.cxl:hover { border-color: #f85149; color: #f85149; }
 .order-toast {
   position: fixed; bottom: 20px; right: 20px; z-index: 100;
   padding: 12px 16px; border-radius: 6px; font-size: 13px; font-weight: 600;
@@ -284,6 +289,101 @@ a { color: #58a6ff; text-decoration: none; }
 .order-toast.show { opacity: 1; transform: translateY(0); }
 .order-toast.filled { border-color: #3fb950; color: #3fb950; }
 .order-toast.failed { border-color: #f85149; color: #f85149; }
+
+/* Review modal */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 200;
+  display: none; align-items: center; justify-content: center;
+}
+.modal-overlay.show { display: flex; }
+.modal {
+  background: #161b22; border: 1px solid #30363d; border-radius: 8px;
+  width: 470px; max-width: 92vw; max-height: 82vh; overflow-y: auto;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+}
+.modal-head {
+  padding: 14px 18px; border-bottom: 1px solid #30363d;
+  font-size: 14px; font-weight: 700; color: #d29922;
+}
+.modal-body { padding: 14px 18px; font-size: 12px; color: #8b949e; }
+.modal-order {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 10px 0; border-bottom: 1px solid #21262d;
+}
+.modal-order:last-child { border-bottom: none; }
+.modal-order .mo-info { color: #e6edf3; font-weight: 600; }
+.modal-order .mo-sub { color: #f85149; font-size: 11px; margin-top: 3px; }
+.modal-foot { padding: 12px 18px; border-top: 1px solid #30363d; text-align: right; }
+.modal-btn {
+  background: #21262d; border: 1px solid #30363d; border-radius: 5px; color: #e6edf3;
+  font-family: inherit; font-size: 12px; padding: 7px 14px; cursor: pointer;
+}
+.modal-btn:hover { border-color: #58a6ff; }
+
+/* Wallet chip + profile view */
+.header-right { display: flex; align-items: center; gap: 16px; }
+.wallet-chip {
+  display: flex; align-items: center; gap: 6px; cursor: pointer;
+  background: #21262d; border: 1px solid #30363d; border-radius: 16px;
+  color: #e6edf3; font-family: inherit; font-size: 12px; padding: 5px 13px;
+}
+.wallet-chip:hover { border-color: #58a6ff; }
+.wallet-chip.active { background: #1f6feb; border-color: #1f6feb; color: #fff; }
+
+#profile-view { display: none; flex: 1; overflow-y: auto; padding: 18px 24px; }
+body.mode-profile .chart-header,
+body.mode-profile #tf-bar,
+body.mode-profile #chart-area,
+body.mode-profile .stats-bar,
+body.mode-profile #trades-section,
+body.mode-profile #trade-panel { display: none; }
+body.mode-profile #profile-view { display: block; }
+
+.pf-head { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+.pf-head .pf-title { font-size: 18px; font-weight: 700; }
+.pf-head .pf-addr { font-size: 12px; color: #8b949e; }
+.pf-head .pf-actions { margin-left: auto; display: flex; gap: 8px; }
+.pf-btn {
+  background: #21262d; border: 1px solid #30363d; border-radius: 5px; color: #e6edf3;
+  font-family: inherit; font-size: 12px; padding: 6px 12px; cursor: pointer;
+}
+.pf-btn:hover { border-color: #58a6ff; }
+.pf-section { margin-bottom: 22px; }
+.pf-section h3 {
+  font-size: 11px; text-transform: uppercase; letter-spacing: 1px;
+  color: #8b949e; margin: 0 0 10px;
+}
+.pf-cards { display: flex; gap: 10px; flex-wrap: wrap; }
+.pf-card {
+  background: #161b22; border: 1px solid #21262d; border-radius: 8px;
+  padding: 12px 14px; min-width: 130px; flex: 1;
+}
+.pf-card .pf-label {
+  font-size: 10px; text-transform: uppercase; letter-spacing: .5px; color: #8b949e;
+}
+.pf-card .pf-value { font-size: 20px; font-weight: 700; color: #e6edf3; margin-top: 4px; }
+.pf-card .pf-sub { font-size: 11px; color: #8b949e; margin-top: 3px; }
+.pf-pos { color: #3fb950; }
+.pf-neg { color: #f85149; }
+.pf-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.pf-table th {
+  text-align: right; font-size: 10px; text-transform: uppercase; color: #8b949e;
+  letter-spacing: .5px; padding: 6px 8px; border-bottom: 1px solid #30363d;
+}
+.pf-table td { text-align: right; padding: 6px 8px; border-bottom: 1px solid #21262d; }
+.pf-table th:first-child, .pf-table td:first-child { text-align: left; }
+.pf-table tbody tr.clickable { cursor: pointer; }
+.pf-table tbody tr.clickable:hover { background: #161b22; }
+.pf-table .sym { font-weight: 600; color: #e6edf3; }
+.pf-table a { color: #8b949e; }
+.pf-table a:hover { color: #58a6ff; }
+.pf-alloc-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; font-size: 12px; }
+.pf-alloc-row .pf-alloc-label { width: 96px; color: #e6edf3; }
+.pf-alloc-bar { flex: 1; height: 14px; background: #21262d; border-radius: 3px; overflow: hidden; }
+.pf-alloc-bar > div { height: 100%; background: #1f6feb; }
+.pf-alloc-row .pf-alloc-val { width: 130px; text-align: right; color: #8b949e; }
+.pf-chart { height: 220px; background: #0d1117; border: 1px solid #21262d; border-radius: 8px; }
+.pf-empty { color: #8b949e; font-size: 12px; padding: 10px 2px; }
 
 .no-data { padding: 60px; text-align: center; color: #8b949e; font-size: 16px; }
 .loading { text-align: center; padding: 40px; color: #8b949e; }
@@ -329,7 +429,6 @@ a { color: #58a6ff; text-decoration: none; }
   background: #161b22; border: 1px solid #21262d; color: #8b949e;
 }
 .limit-hint.tp { color: #3fb950; border-color: rgba(63,185,80,0.4); }
-.limit-hint.sl { color: #f85149; border-color: rgba(248,81,73,0.4); }
 .limit-hint.warn { color: #d29922; border-color: rgba(210,153,34,0.4); }
 
 .trade-form { padding: 16px; display: flex; flex-direction: column; gap: 12px; }
@@ -425,7 +524,10 @@ body.mode-countries .filter-separator { display: none; }
 
 <div class="header">
   <h1>PITCH Markets</h1>
-  <div class="status"><span class="dot" id="sse-dot"></span><span id="status-text">Connecting...</span></div>
+  <div class="header-right">
+    <button class="wallet-chip" id="wallet-chip" onclick="toggleProfile()" style="display:none">Wallet</button>
+    <div class="status"><span class="dot" id="sse-dot"></span><span id="status-text">Connecting...</span></div>
+  </div>
 </div>
 
 <div class="container">
@@ -516,6 +618,7 @@ body.mode-countries .filter-separator { display: none; }
       </div>
       <div id="trades-content"><div class="no-data">Select a player</div></div>
     </div>
+    <div id="profile-view"></div>
   </div>
 
   <div class="trade-panel" id="trade-panel">
@@ -569,6 +672,16 @@ body.mode-countries .filter-separator { display: none; }
 </div>
 
 <div class="order-toast" id="order-toast"></div>
+
+<div class="modal-overlay" id="review-modal-overlay" onclick="if(event.target===this)closeReviewModal()">
+  <div class="modal">
+    <div class="modal-head">⚠ Limit buys paused for review</div>
+    <div class="modal-body" id="review-modal-body"></div>
+    <div class="modal-foot">
+      <button class="modal-btn" onclick="closeReviewModal()">Decide later</button>
+    </div>
+  </div>
+</div>
 
 <script>
 let chart = null;
@@ -738,6 +851,11 @@ async function fetchPlayers() {
     walletAddress = data.walletAddress || '';
     document.getElementById('status-text').textContent =
       `${playersData.length} players | ${countriesData.length} countries | ${new Date(data.lastUpdate * 1000).toLocaleTimeString()}`;
+    const chip = document.getElementById('wallet-chip');
+    if (walletAddress) {
+      chip.style.display = 'flex';
+      chip.textContent = '👤 ' + walletAddress.slice(0, 6) + '..' + walletAddress.slice(-4);
+    }
     renderPlayerList();
     updateHeaderPrice();
   } catch(e) {}
@@ -839,6 +957,7 @@ function renderPlayerList() {
 }
 
 async function selectPlayer(addr) {
+  if (profileOpen) closeProfile();   // picking a token exits the wallet profile
   selectedAddr = addr;
   lastLiveCandle = null;
   currentChartMode = null;
@@ -1048,6 +1167,7 @@ async function loadTrades() {
     const mw = tradesData.myWallet;
     const mwCount = (mw && mw.hasActivity) ? (mw.buys + mw.sells) : 0;
     document.getElementById('tab-mywallet-count').textContent = mwCount ? `(${mwCount})` : '';
+    updateOrdersTabCount();   // Orders tab is per-token — refresh its count too
 
     renderTradesTab();
     renderAvgLines();
@@ -1212,6 +1332,7 @@ function renderMyWalletTab(content, baseUnit) {
 let ordersData = null;
 let ordersArmed = true;
 let orderStatusSeen = {};   // id -> last seen status, drives fill/fail toasts
+let reviewModalShown = new Set();   // review-order ids already surfaced in the modal
 
 async function loadOrders() {
   try {
@@ -1232,54 +1353,82 @@ async function loadOrders() {
     });
     ordersData = data.orders || [];
     ordersArmed = data.armed;
-    const active = ordersData.filter(o => o.status === 'pending' || o.status === 'executing').length;
-    document.getElementById('tab-orders-count').textContent = active ? `(${active})` : '';
+    updateOrdersTabCount();
     if (tradesTab === 'orders') renderOrdersTab(document.getElementById('trades-content'));
+    updateReviewModal();
     if (filled) { fetchWallet(); fetchPlayers(); }
   } catch(e) {}
 }
 
+// Per-token order count for the Orders tab badge (the global list lives in the profile).
+function updateOrdersTabCount() {
+  const el = document.getElementById('tab-orders-count');
+  if (!el) return;
+  if (!ordersData || !selectedAddr) { el.textContent = ''; return; }
+  const n = ordersData.filter(o => o.player.toLowerCase() === selectedAddr.toLowerCase()
+    && ['pending', 'executing', 'review'].includes(o.status)).length;
+  el.textContent = n ? `(${n})` : '';
+}
+
 function renderOrdersTab(content) {
   if (!ordersData) { content.innerHTML = '<div class="no-data">Loading orders…</div>'; loadOrders(); return; }
-  const pending = ordersData.filter(o => o.status === 'pending').length;
+  const player = getSelectedPlayer();
+  if (!selectedAddr || !player) {
+    content.innerHTML = '<div class="no-data">Select a player</div>';
+    return;
+  }
+  // Per-token view — the full cross-token list is in the wallet profile.
+  const orders = ordersData.filter(o => o.player.toLowerCase() === selectedAddr.toLowerCase());
+  const pending = orders.filter(o => o.status === 'pending').length;
+  const reviewN = orders.filter(o => o.status === 'review').length;
 
   let html = `<div class="orders-bar">
-    <span class="ob-info">${ordersData.length} orders · ${pending} pending</span>
+    <span class="ob-info">${orders.length} order(s) for ${player.symbol} · ${pending} pending${reviewN ? ` · ${reviewN} review` : ''}</span>
     <button class="${ordersArmed ? 'arm-toggle on' : 'arm-toggle'}" onclick="toggleArm()">
       <span>Auto-execution ${ordersArmed ? 'on' : 'off'}</span><span class="arm-switch"></span>
     </button>
   </div>`;
   if (!ordersArmed) html += '<div class="orders-warn">⚠ Auto-execution is OFF — pending orders will not fire.</div>';
 
-  if (!ordersData.length) {
-    content.innerHTML = html + '<div class="no-data" style="padding:30px">No limit orders yet</div>';
+  if (!orders.length) {
+    content.innerHTML = html + '<div class="no-data" style="padding:30px">No limit orders for this token</div>';
     return;
   }
 
   html += `<div class="trades-col-header orders-cols">
     <span>Player</span><span>Type</span><span>Target</span><span>Amount</span><span>Status</span><span></span>
   </div>`;
-  const kindLabel = {limit: 'LIMIT BUY', tp: 'TAKE-PROFIT', sl: 'STOP-LOSS'};
-  html += ordersData.map(o => {
+  const kindLabel = {limit: 'LIMIT BUY', tp: 'TAKE-PROFIT'};
+  html += orders.map(o => {
     const amtUnit = o.side === 'buy' ? o.country : o.playerSymbol;
     let status;
     if (o.status === 'filled' && o.tx) {
       status = `<a href="https://basescan.org/tx/0x${o.tx}" target="_blank">FILLED</a>`;
     } else if (o.status === 'failed') {
       status = `<span title="${(o.error || '').replace(/"/g, "'")}">FAILED</span>`;
+    } else if (o.status === 'review') {
+      status = `⚠ REVIEW −${reviewDeviation(o).toFixed(0)}%`;
     } else {
       status = o.status.toUpperCase();
     }
-    const cancelBtn = o.status === 'pending'
-      ? `<button class="order-cancel" title="Cancel order" onclick="cancelOrder(${o.id})">&times;</button>`
-      : '<span></span>';
-    return `<div class="order-row">
+    let acts;
+    if (o.status === 'review') {
+      acts = `<div class="order-acts">
+        <button class="order-btn exec" onclick="executeOrder(${o.id})">Execute</button>
+        <button class="order-btn cxl" onclick="cancelOrder(${o.id})">Cancel</button>
+      </div>`;
+    } else if (o.status === 'pending') {
+      acts = `<div class="order-acts"><button class="order-btn cxl" title="Cancel order" onclick="cancelOrder(${o.id})">&times;</button></div>`;
+    } else {
+      acts = '<span></span>';
+    }
+    return `<div class="order-row${o.status === 'review' ? ' is-review' : ''}">
       <span class="o-player" onclick="selectFromOrder('${o.player}')">${o.playerSymbol}</span>
       <span class="order-kind ${o.kind}">${kindLabel[o.kind] || o.kind}</span>
-      <span>${o.targetPrice.toFixed(4)} ${o.country}</span>
+      <span>${o.targetPrice.toFixed(4)}</span>
       <span>${o.amount} ${amtUnit}</span>
       <span class="o-status ${o.status}">${status}</span>
-      ${cancelBtn}
+      ${acts}
     </div>`;
   }).join('');
   content.innerHTML = html;
@@ -1297,6 +1446,57 @@ async function cancelOrder(id) {
     if (data.error) showToast(data.error, 'failed');
   } catch(e) {}
   loadOrders();
+}
+
+// % the price fell below the order's target when it was held for review.
+function reviewDeviation(o) {
+  if (!o.reviewPrice || !o.targetPrice) return 0;
+  return (o.targetPrice - o.reviewPrice) / o.targetPrice * 100;
+}
+
+async function executeOrder(id) {
+  try {
+    const res = await fetch(`/api/orders/${id}/execute`, {method: 'POST'});
+    const data = await res.json();
+    if (data.error) showToast(data.error, 'failed');
+  } catch(e) {}
+  loadOrders();
+}
+
+// Modal that surfaces limit buys held for review (price fell far below target).
+function showReviewModal(reviewOrders) {
+  document.getElementById('review-modal-body').innerHTML =
+    '<p style="margin:0 0 12px;line-height:1.5">The price dropped well below the target '
+    + 'on these limit buys, so they were <b>not</b> bought automatically. '
+    + 'Execute anyway, or cancel:</p>'
+    + reviewOrders.map(o => `
+      <div class="modal-order">
+        <div>
+          <div class="mo-info">#${o.id} · ${o.playerSymbol} · ${o.amount} ${o.country}</div>
+          <div class="mo-sub">target ${o.targetPrice.toFixed(4)} → paused at ${(o.reviewPrice || 0).toFixed(4)} ${o.country} (−${reviewDeviation(o).toFixed(0)}%)</div>
+        </div>
+        <div class="order-acts">
+          <button class="order-btn exec" onclick="executeOrder(${o.id})">Execute</button>
+          <button class="order-btn cxl" onclick="cancelOrder(${o.id})">Cancel</button>
+        </div>
+      </div>`).join('');
+  document.getElementById('review-modal-overlay').classList.add('show');
+}
+
+function closeReviewModal() {
+  document.getElementById('review-modal-overlay').classList.remove('show');
+}
+
+// Pop the modal when an order newly enters review; refresh or close it as the
+// review orders are acted on.
+function updateReviewModal() {
+  const reviewOrders = (ordersData || []).filter(o => o.status === 'review');
+  const overlay = document.getElementById('review-modal-overlay');
+  const isOpen = overlay.classList.contains('show');
+  if (!reviewOrders.length) { if (isOpen) closeReviewModal(); return; }
+  const hasNew = reviewOrders.some(o => !reviewModalShown.has(o.id));
+  reviewOrders.forEach(o => reviewModalShown.add(o.id));
+  if (hasNew || isOpen) showReviewModal(reviewOrders);
 }
 
 async function toggleArm() {
@@ -1318,6 +1518,212 @@ function showToast(msg, kind) {
   el.className = `order-toast show ${kind || ''}`;
   clearTimeout(toastTimer);
   toastTimer = setTimeout(() => { el.className = 'order-toast'; }, 5000);
+}
+
+// --- Wallet profile (portfolio-wide view of the .env wallet) ---
+let profileOpen = false;
+let profileData = null;
+let profileChart = null;
+
+function toggleProfile() {
+  if (profileOpen) closeProfile();
+  else openProfile();
+}
+
+function openProfile() {
+  profileOpen = true;
+  document.body.classList.add('mode-profile');
+  document.getElementById('wallet-chip').classList.add('active');
+  loadProfile();
+}
+
+function closeProfile() {
+  profileOpen = false;
+  document.body.classList.remove('mode-profile');
+  document.getElementById('wallet-chip').classList.remove('active');
+  if (profileChart) { try { profileChart.remove(); } catch(e) {} profileChart = null; }
+}
+
+async function loadProfile() {
+  const view = document.getElementById('profile-view');
+  view.innerHTML = '<div class="pf-empty">Loading profile…</div>';
+  try {
+    await loadOrders();
+    const res = await fetch('/api/profile');
+    profileData = await res.json();
+  } catch(e) {
+    view.innerHTML = '<div class="pf-empty">Failed to load profile</div>';
+    return;
+  }
+  if (!profileData || !profileData.configured) {
+    view.innerHTML = '<div class="pf-empty">No wallet configured — set WALLET_ADDRESS in .env</div>';
+    return;
+  }
+  renderProfile();
+}
+
+function pfAllocRow(label, val, total) {
+  const pct = total > 0 ? (val / total * 100) : 0;
+  return `<div class="pf-alloc-row">
+    <span class="pf-alloc-label">${label}</span>
+    <div class="pf-alloc-bar"><div style="width:${Math.min(pct, 100)}%"></div></div>
+    <span class="pf-alloc-val">${val.toFixed(1)} PITCH (${pct.toFixed(0)}%)</span>
+  </div>`;
+}
+
+function renderProfile() {
+  const d = profileData;
+  const sign = v => (v >= 0 ? '+' : '') + v.toFixed(2);
+  const cls = v => v > 0 ? 'pf-pos' : (v < 0 ? 'pf-neg' : '');
+  const short = d.address.slice(0, 6) + '..' + d.address.slice(-4);
+  const s = d.summary;
+  const openOrders = (ordersData || []).filter(o => ['pending', 'review', 'executing'].includes(o.status));
+  const total = s.totalValuePitch || 1;
+
+  let h = `<div class="pf-head">
+    <span class="pf-title">Wallet Profile</span>
+    <a class="pf-addr" href="https://basescan.org/address/${d.address}" target="_blank">${short}</a>
+    <div class="pf-actions">
+      <button class="pf-btn" onclick="loadProfile()">⟳ Refresh</button>
+      <button class="pf-btn" onclick="closeProfile()">✕ Close</button>
+    </div>
+  </div>`;
+
+  h += `<div class="pf-section"><div class="pf-cards">
+    <div class="pf-card"><div class="pf-label">Portfolio value</div>
+      <div class="pf-value">${s.totalValuePitch.toFixed(2)}</div><div class="pf-sub">PITCH</div></div>
+    <div class="pf-card"><div class="pf-label">Total PnL</div>
+      <div class="pf-value ${cls(s.totalPnlPitch)}">${sign(s.totalPnlPitch)}</div>
+      <div class="pf-sub">realized ${sign(s.realizedPnlPitch)} · unreal ${sign(s.unrealizedPnlPitch)}</div></div>
+    <div class="pf-card"><div class="pf-label">ROI</div>
+      <div class="pf-value ${cls(s.roiPct)}">${sign(s.roiPct)}%</div></div>
+    <div class="pf-card"><div class="pf-label">Open positions</div>
+      <div class="pf-value">${s.openPositions}</div>
+      <div class="pf-sub">${openOrders.length} open order(s)</div></div>
+    <div class="pf-card"><div class="pf-label">Fees paid</div>
+      <div class="pf-value">${s.feesPaidPitch.toFixed(2)}</div><div class="pf-sub">PITCH</div></div>
+  </div></div>`;
+
+  h += `<div class="pf-section"><h3>Portfolio value over time</h3>
+    <div class="pf-chart" id="pf-chart"></div></div>`;
+
+  h += `<div class="pf-section"><h3>Open positions (${d.positions.length})</h3>`;
+  if (d.positions.length) {
+    h += `<table class="pf-table"><thead><tr>
+      <th>Token</th><th>Qty</th><th>Avg buy</th><th>Price</th>
+      <th>Value (PITCH)</th><th>Unrealized</th><th>Share</th></tr></thead><tbody>`
+      + d.positions.map(p => `<tr class="clickable" onclick="selectFromProfile('${p.token}')">
+        <td><span class="sym">${p.symbol}</span>${p.kind === 'country' ? ' <span style="color:#8b949e">·country</span>' : ''}</td>
+        <td>${p.qty.toFixed(2)}</td><td>${p.avgBuy.toFixed(4)}</td><td>${p.currentPrice.toFixed(4)}</td>
+        <td>${p.valuePitch.toFixed(2)}</td>
+        <td class="${cls(p.unrealizedPnlPitch)}">${sign(p.unrealizedPnlPitch)} (${sign(p.unrealizedPct)}%)</td>
+        <td>${p.sharePct}%</td></tr>`).join('') + `</tbody></table>`;
+  } else h += '<div class="pf-empty">No open positions</div>';
+  h += `</div>`;
+
+  h += `<div class="pf-section"><h3>Open orders (${openOrders.length})</h3>`;
+  if (openOrders.length) {
+    const kl = {limit: 'LIMIT BUY', tp: 'TAKE-PROFIT'};
+    h += `<table class="pf-table"><thead><tr>
+      <th>Player</th><th>Type</th><th>Target</th><th>Amount</th><th>Status</th></tr></thead><tbody>`
+      + openOrders.map(o => `<tr>
+        <td><span class="sym">${o.playerSymbol}</span></td><td>${kl[o.kind] || o.kind}</td>
+        <td>${o.targetPrice.toFixed(4)}</td>
+        <td>${o.amount} ${o.side === 'buy' ? o.country : o.playerSymbol}</td>
+        <td>${o.status === 'review' ? '⚠ REVIEW' : o.status.toUpperCase()}</td></tr>`).join('')
+      + `</tbody></table>`;
+  } else h += '<div class="pf-empty">No open orders</div>';
+  h += `</div>`;
+
+  const alloc = d.allocation;
+  h += `<div class="pf-section"><h3>Allocation</h3>`
+    + pfAllocRow('Players', alloc.players, total)
+    + pfAllocRow('Countries', alloc.countries, total)
+    + `<div style="height:10px"></div>`
+    + Object.entries(alloc.byCountry).slice(0, 12).map(([c, v]) => pfAllocRow(c, v, total)).join('')
+    + `</div>`;
+
+  const st = d.stats;
+  h += `<div class="pf-section"><h3>Statistics</h3><div class="pf-cards">
+    <div class="pf-card"><div class="pf-label">Trades</div><div class="pf-value">${st.totalTrades}</div>
+      <div class="pf-sub"><span class="pf-pos">${st.buys}B</span> / <span class="pf-neg">${st.sells}S</span></div></div>
+    <div class="pf-card"><div class="pf-label">Win rate</div><div class="pf-value">${st.winRatePct}%</div>
+      <div class="pf-sub">${st.closedPositions} closed</div></div>
+    <div class="pf-card"><div class="pf-label">Volume</div><div class="pf-value">${st.volumePitch.toFixed(0)}</div>
+      <div class="pf-sub">PITCH · avg ${st.avgTradePitch.toFixed(2)}</div></div>
+    <div class="pf-card"><div class="pf-label">Best position</div>
+      <div class="pf-value pf-pos">${st.best ? st.best.symbol : '—'}</div>
+      <div class="pf-sub">${st.best ? sign(st.best.pnlPitch) + ' PITCH' : ''}</div></div>
+    <div class="pf-card"><div class="pf-label">Worst position</div>
+      <div class="pf-value pf-neg">${st.worst ? st.worst.symbol : '—'}</div>
+      <div class="pf-sub">${st.worst ? sign(st.worst.pnlPitch) + ' PITCH' : ''}</div></div>
+  </div></div>`;
+
+  const b = d.balances;
+  h += `<div class="pf-section"><h3>On-chain balances</h3><div class="pf-cards">
+    <div class="pf-card"><div class="pf-label">ETH</div><div class="pf-value">${b.eth.toFixed(4)}</div></div>
+    <div class="pf-card"><div class="pf-label">PITCH</div><div class="pf-value">${b.pitch.toFixed(2)}</div></div>
+  </div>`;
+  if (b.countries && b.countries.length) {
+    h += `<div style="margin-top:10px;font-size:12px;color:#8b949e">Country tokens (dry powder): `
+      + b.countries.map(c => `<span style="color:#e6edf3">${c.balance} ${c.symbol}</span>`).join(' · ') + `</div>`;
+  }
+  h += `</div>`;
+
+  h += `<div class="pf-section"><h3>Closed positions (${d.closed.length})</h3>`;
+  if (d.closed.length) {
+    h += `<table class="pf-table"><thead><tr><th>Token</th><th>Trades</th><th>Realized PnL</th></tr></thead><tbody>`
+      + d.closed.map(c => `<tr class="clickable" onclick="selectFromProfile('${c.token}')">
+        <td><span class="sym">${c.symbol}</span></td><td>${c.buys}B / ${c.sells}S</td>
+        <td class="${cls(c.realizedPnlPitch)}">${sign(c.realizedPnlPitch)} PITCH</td></tr>`).join('')
+      + `</tbody></table>`;
+  } else h += '<div class="pf-empty">No fully-closed positions</div>';
+  h += `</div>`;
+
+  h += `<div class="pf-section"><h3>Trade history (${d.trades.length})</h3>`;
+  if (d.trades.length) {
+    h += `<table class="pf-table"><thead><tr>
+      <th>Time</th><th>Token</th><th>Type</th><th>Price</th><th>Amount</th><th>Value (PITCH)</th></tr></thead><tbody>`
+      + d.trades.slice(0, 150).map(t => `<tr>
+        <td>${formatTime(t.timestamp)}</td><td><span class="sym">${t.symbol}</span></td>
+        <td class="${t.type === 'buy' ? 'pf-pos' : 'pf-neg'}">${t.type.toUpperCase()}</td>
+        <td>${t.price.toFixed(4)}</td><td>${t.amount.toFixed(2)}</td>
+        <td><a href="https://basescan.org/tx/0x${t.tx}" target="_blank">${t.valuePitch.toFixed(2)}</a></td></tr>`).join('')
+      + `</tbody></table>`;
+  } else h += '<div class="pf-empty">No trades</div>';
+  h += `</div>`;
+
+  document.getElementById('profile-view').innerHTML = h;
+  buildProfileChart(d.valueSeries);
+}
+
+function buildProfileChart(series) {
+  const el = document.getElementById('pf-chart');
+  if (!el) return;
+  if (profileChart) { try { profileChart.remove(); } catch(e) {} profileChart = null; }
+  if (!series || series.length < 2) {
+    el.innerHTML = '<div class="pf-empty" style="text-align:center;padding:95px 0">Not enough data for a chart</div>';
+    return;
+  }
+  profileChart = LightweightCharts.createChart(el, {
+    width: el.clientWidth, height: 220,
+    layout: { background: {color: '#0d1117'}, textColor: '#8b949e' },
+    grid: { vertLines: {color: '#21262d'}, horzLines: {color: '#21262d'} },
+    timeScale: { timeVisible: true, borderColor: '#30363d' },
+    rightPriceScale: { borderColor: '#30363d' },
+  });
+  const ser = profileChart.addAreaSeries({
+    lineColor: '#58a6ff', topColor: 'rgba(88,166,255,0.4)',
+    bottomColor: 'rgba(88,166,255,0.02)', lineWidth: 2,
+  });
+  ser.setData(series.map(p => ({time: p.time, value: p.value})));
+  profileChart.timeScale().fitContent();
+}
+
+function selectFromProfile(addrLower) {
+  const t = (playersData || []).find(x => x.address.toLowerCase() === addrLower.toLowerCase())
+         || (countriesData || []).find(x => x.address.toLowerCase() === addrLower.toLowerCase());
+  if (t) selectPlayer(t.address);
 }
 
 // --- Trading ---
@@ -1377,8 +1783,8 @@ function onLimitTargetChange() {
       hint.className = 'limit-hint tp';
       hint.textContent = `Take-profit — sells when price rises to ${target.toFixed(4)} ${unit} (now ${spot.toFixed(4)}).`;
     } else {
-      hint.className = 'limit-hint sl';
-      hint.textContent = `Stop-loss — sells when price falls to ${target.toFixed(4)} ${unit} (now ${spot.toFixed(4)}).`;
+      hint.className = 'limit-hint warn';
+      hint.textContent = `⚠ A sell order is take-profit only — target must be above the current price (${spot.toFixed(4)} ${unit}).`;
     }
   }
 }

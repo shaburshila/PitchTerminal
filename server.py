@@ -1054,11 +1054,9 @@ def api_trade():
 
 # --- Limit orders: watcher + API ---
 
-def _order_kind(side, trigger):
-    """Display kind from side+trigger: limit buy / take-profit / stop-loss."""
-    if side == "buy":
-        return "limit"
-    return "tp" if trigger == "above" else "sl"
+def _order_kind(side):
+    """Display kind: limit buy (buy) or take-profit (sell)."""
+    return "limit" if side == "buy" else "tp"
 
 
 def run_order(order_id):
@@ -1098,7 +1096,7 @@ def check_limit_orders():
     """Evaluate pending limit orders against fresh prices — called every price tick."""
     if not orders_state.get("armed", True):
         return
-    triggered = []
+    triggered, reviewed = [], []
     with orders_lock:
         for o in orders_state["orders"]:
             if o["status"] != "pending":
@@ -1108,14 +1106,27 @@ def check_limit_orders():
                 continue
             hit = (price <= o["targetPrice"]) if o["trigger"] == "below" \
                 else (price >= o["targetPrice"])
-            if hit:
-                o["status"] = "executing"
-                triggered.append(o["id"])
-        if triggered:
+            if not hit:
+                continue
+            # Limit buy: if the price has dropped far below target, hold the order
+            # for manual review instead of buying into a possible crash.
+            if o["side"] == "buy":
+                floor = o["targetPrice"] * (1 - config.LIMIT_REVIEW_THRESHOLD_PCT / 100)
+                if price < floor:
+                    o["status"] = "review"
+                    o["reviewPrice"] = round(price, 6)
+                    o["reviewAt"] = round(time.time())
+                    reviewed.append(o["id"])
+                    continue
+            o["status"] = "executing"
+            triggered.append(o["id"])
+        if triggered or reviewed:
             save_orders()
     for oid in triggered:
         threading.Thread(target=run_order, args=(oid,), daemon=True).start()
-    if triggered:
+    for oid in reviewed:
+        print(f"Order #{oid}: HELD FOR REVIEW (price far below target)")
+    if triggered or reviewed:
         broadcast_sse("orders")
 
 
@@ -1154,12 +1165,15 @@ def api_orders_create():
     slippage = int(data.get("slippage", 50))
 
     spot = current_price_of(player_addr)
-    # Buy limits always watch for the price falling to target. Sell limits derive
-    # direction from the target: above spot = take-profit, below spot = stop-loss.
+    # Buy = limit buy (watch for the price falling to target). Sell = take-profit
+    # only — it must trigger above the current price; stop-loss is not supported.
     if side == "buy":
         trigger = "below"
     else:
-        trigger = "above" if target > spot else "below"
+        if target <= spot:
+            return jsonify({"error": "Sell (take-profit) target must be "
+                                     "above the current price"}), 400
+        trigger = "above"
 
     with orders_lock:
         order = {
@@ -1169,7 +1183,7 @@ def api_orders_create():
             "country": player_info.get("country", "?"),
             "side": side,
             "trigger": trigger,
-            "kind": _order_kind(side, trigger),
+            "kind": _order_kind(side),
             "targetPrice": round(target, 6),
             "amount": amount,
             "slippage": slippage,
@@ -1177,6 +1191,7 @@ def api_orders_create():
             "status": "pending",
             "createdAt": round(time.time()),
             "tx": None, "filledPrice": None, "filledAt": None, "error": None,
+            "reviewPrice": None, "reviewAt": None,
         }
         orders_state["orders"].append(order)
         orders_state["nextId"] += 1
@@ -1187,16 +1202,32 @@ def api_orders_create():
 
 @app.route("/api/orders/<int:order_id>", methods=["DELETE"])
 def api_orders_cancel(order_id):
-    """Cancel a pending order."""
+    """Cancel a pending or under-review order."""
     with orders_lock:
         o = next((x for x in orders_state["orders"] if x["id"] == order_id), None)
         if not o:
             return jsonify({"error": "Order not found"}), 404
-        if o["status"] != "pending":
+        if o["status"] not in ("pending", "review"):
             return jsonify({"error": f"Cannot cancel a {o['status']} order"}), 400
         o["status"] = "cancelled"
         save_orders()
     broadcast_sse("orders")
+    return jsonify({"ok": True})
+
+
+@app.route("/api/orders/<int:order_id>/execute", methods=["POST"])
+def api_orders_execute(order_id):
+    """Manually execute an order that was held for review."""
+    with orders_lock:
+        o = next((x for x in orders_state["orders"] if x["id"] == order_id), None)
+        if not o:
+            return jsonify({"error": "Order not found"}), 404
+        if o["status"] != "review":
+            return jsonify({"error": f"Order is {o['status']}, not awaiting review"}), 400
+        o["status"] = "executing"
+        save_orders()
+    broadcast_sse("orders")
+    threading.Thread(target=run_order, args=(order_id,), daemon=True).start()
     return jsonify({"ok": True})
 
 
@@ -1209,6 +1240,251 @@ def api_orders_arm():
         save_orders()
     broadcast_sse("orders")
     return jsonify({"armed": orders_state["armed"]})
+
+
+# --- Wallet profile (portfolio-wide view of the .env wallet) ---
+
+def _token_meta(addr, players_by_addr, countries_by_addr):
+    """Per-token display + pricing metadata. `rate` converts the token's base
+    currency to PITCH (country->PITCH for players; 1 for country tokens)."""
+    p = players_by_addr.get(addr)
+    if p:
+        return {"kind": "player", "symbol": p["symbol"], "country": p.get("country", ""),
+                "role": p.get("role", ""), "basePrice": p.get("priceCountry", 0),
+                "rate": p.get("countryPricePitch", 0), "pricePitch": p.get("pricePitch", 0)}
+    c = countries_by_addr.get(addr)
+    if c:
+        return {"kind": "country", "symbol": c["symbol"], "country": c["symbol"],
+                "role": "country", "basePrice": c.get("pricePitch", 0),
+                "rate": 1.0, "pricePitch": c.get("pricePitch", 0)}
+    return None
+
+
+def _wallet_balances(addr):
+    """ETH + PITCH + country-token balances via Multicall3."""
+    try:
+        w3 = get_w3()
+        eth = float(Decimal(w3.eth.get_balance(Web3.to_checksum_address(addr))) / Decimal(WEI))
+        multicall = w3.eth.contract(address=Web3.to_checksum_address(config.MULTICALL3),
+                                    abi=config.MULTICALL3_ABI)
+        bal_sel = bytes.fromhex("70a08231")
+        addr_padded = bytes.fromhex(addr[2:].lower().zfill(64))
+        countries = TOKEN_DATA["countries"]
+        targets = [config.PITCH_TOKEN] + [c["address"] for c in countries]
+        calls = [(Web3.to_checksum_address(t), True, bal_sel + addr_padded) for t in targets]
+        results = multicall.functions.aggregate3(calls).call()
+
+        def parse(r):
+            return (int.from_bytes(r[1][:32], "big") if r[0] and len(r[1]) >= 32 else 0)
+
+        pitch = float(Decimal(parse(results[0])) / Decimal(WEI))
+        country_bals = []
+        for c, r in zip(countries, results[1:]):
+            bal = float(Decimal(parse(r)) / Decimal(WEI))
+            if bal >= 1e-4:
+                country_bals.append({"symbol": c["symbol"], "balance": round(bal, 4)})
+        country_bals.sort(key=lambda x: -x["balance"])
+        return {"eth": round(eth, 6), "pitch": round(pitch, 4), "countries": country_bals}
+    except Exception as e:
+        print(f"Profile balances error: {e}")
+        return {"eth": 0, "pitch": 0, "countries": [], "error": "balance fetch failed"}
+
+
+@app.route("/api/profile")
+def api_profile():
+    """Portfolio-wide profile for the configured (.env) wallet."""
+    if not DISPLAY_WALLET:
+        return jsonify({"configured": False})
+    w = DISPLAY_WALLET.lower()
+    now = time.time()
+    cur_block = cache.get("current_block", 0)
+    players_by_addr = {p["address"].lower(): p for p in cache.get("players", [])}
+    countries_by_addr = {c["address"].lower(): c for c in cache.get("countries", [])}
+
+    # --- aggregate the wallet's events per token + collect all its trades ---
+    agg = {}
+    wallet_trades = []
+    price_tl = {}  # token -> ([ts...], [basePrice...]) from ALL events, for the value chart
+    for ev in cache["events"]:
+        base = float(Decimal(ev["baseValue"]) / Decimal(WEI))
+        tv = float(Decimal(ev["tokenValue"]) / Decimal(WEI))
+        token = ev["token"].lower()
+        ts = now - (cur_block - ev["block"]) * BASE_BLOCK_TIME
+        if tv > 0:
+            tl = price_tl.setdefault(token, ([], []))
+            tl[0].append(ts)
+            tl[1].append(base / tv)
+        if ev["trader"].lower() != w:
+            continue
+        fee = float(Decimal(ev["fee"]) / Decimal(WEI))
+        a = agg.setdefault(token, {"buys": 0, "sells": 0, "position": 0.0, "spent": 0.0,
+                                   "received": 0.0, "bought": 0.0, "fees": 0.0,
+                                   "firstTs": ts, "lastTs": ts})
+        a["fees"] += fee
+        a["lastTs"] = ts
+        if ev["type"] == "buy":
+            a["buys"] += 1
+            a["position"] += tv
+            a["spent"] += base
+            a["bought"] += tv
+        else:
+            a["sells"] += 1
+            a["position"] -= tv
+            a["received"] += base
+        wallet_trades.append({"token": token, "type": ev["type"], "base": base,
+                              "tv": tv, "ts": ts, "tx": ev["tx"]})
+
+    # --- per-token positions / closed / totals ---
+    positions, closed = [], []
+    realized_pitch = unrealized_pitch = value_pitch = spent_pitch = fees_pitch = 0.0
+    volume_pitch = 0.0
+    closed_count = closed_wins = 0
+    pnl_by_token = {}  # symbol -> total PnL in PITCH (best/worst)
+    alloc_country, alloc_role = {}, {}
+    alloc_players = alloc_countries = 0.0
+
+    for token, a in agg.items():
+        meta = _token_meta(token, players_by_addr, countries_by_addr)
+        if not meta:
+            continue
+        rate = meta["rate"]
+        bought, spent, received = a["bought"], a["spent"], a["received"]
+        position = max(a["position"], 0.0)
+        sold = max(bought - position, 0.0)
+        avg_buy = (spent / bought) if bought > 0 else 0
+        realized = received - avg_buy * sold
+        unreal = position * meta["basePrice"] - avg_buy * position
+        realized_pitch += realized * rate
+        fees_pitch += a["fees"] * rate
+        spent_pitch += spent * rate
+        pnl_by_token[meta["symbol"]] = (realized + unreal) * rate
+        is_open = position > 1e-9
+
+        if is_open:
+            pv = position * meta["pricePitch"]
+            value_pitch += pv
+            unrealized_pitch += unreal * rate
+            cost = avg_buy * position
+            positions.append({
+                "token": token, "symbol": meta["symbol"], "kind": meta["kind"],
+                "country": meta["country"], "role": meta["role"],
+                "qty": round(position, 4), "avgBuy": round(avg_buy, 6),
+                "currentPrice": round(meta["basePrice"], 6),
+                "valuePitch": round(pv, 2),
+                "unrealizedPnlPitch": round(unreal * rate, 2),
+                "unrealizedPct": round((unreal / cost * 100) if cost > 0 else 0, 1),
+            })
+            alloc_country[meta["country"]] = alloc_country.get(meta["country"], 0) + pv
+            alloc_role[meta["role"]] = alloc_role.get(meta["role"], 0) + pv
+            if meta["kind"] == "player":
+                alloc_players += pv
+            else:
+                alloc_countries += pv
+        elif bought > 0:
+            closed_count += 1
+            if realized > 0:
+                closed_wins += 1
+            closed.append({
+                "token": token, "symbol": meta["symbol"], "kind": meta["kind"],
+                "country": meta["country"],
+                "realizedPnlPitch": round(realized * rate, 2),
+                "buys": a["buys"], "sells": a["sells"],
+                "lastTs": round(a["lastTs"]),
+            })
+
+    # --- build the trade list (newest first) ---
+    trades_out = []
+    for tr in reversed(wallet_trades):
+        meta = _token_meta(tr["token"], players_by_addr, countries_by_addr)
+        if not meta:
+            continue
+        vp = tr["base"] * meta["rate"]
+        volume_pitch += vp
+        trades_out.append({
+            "symbol": meta["symbol"], "kind": meta["kind"], "type": tr["type"],
+            "price": round(tr["base"] / tr["tv"], 6) if tr["tv"] > 0 else 0,
+            "amount": round(tr["tv"], 4), "valuePitch": round(vp, 2),
+            "timestamp": round(tr["ts"]), "tx": tr["tx"],
+        })
+
+    positions.sort(key=lambda x: -x["valuePitch"])
+    closed.sort(key=lambda x: -x["lastTs"])
+    for p in positions:
+        p["sharePct"] = round((p["valuePitch"] / value_pitch * 100) if value_pitch > 0 else 0, 1)
+
+    best = max(pnl_by_token.items(), key=lambda kv: kv[1], default=None)
+    worst = min(pnl_by_token.items(), key=lambda kv: kv[1], default=None)
+    total_pnl = realized_pitch + unrealized_pitch
+    buys = sum(a["buys"] for a in agg.values())
+    sells = sum(a["sells"] for a in agg.values())
+
+    # --- portfolio value over time (sampled at each of the wallet's trades) ---
+    def price_at(token, ts):
+        tl = price_tl.get(token)
+        if not tl or not tl[0]:
+            return 0
+        times = tl[0]
+        lo, hi = 0, len(times)
+        while lo < hi:
+            mid = (lo + hi) // 2
+            if times[mid] <= ts:
+                lo = mid + 1
+            else:
+                hi = mid
+        return tl[1][lo - 1] if lo > 0 else tl[1][0]
+
+    holdings = {}
+    series_map = {}
+    for tr in wallet_trades:  # block-sorted -> ascending time
+        holdings[tr["token"]] = holdings.get(tr["token"], 0.0) + (
+            tr["tv"] if tr["type"] == "buy" else -tr["tv"])
+        val = 0.0
+        for tok, qty in holdings.items():
+            if qty <= 1e-9:
+                continue
+            meta = _token_meta(tok, players_by_addr, countries_by_addr)
+            if not meta:
+                continue
+            val += qty * price_at(tok, tr["ts"]) * meta["rate"]
+        series_map[round(tr["ts"])] = round(val, 2)
+    series_map[round(now)] = round(value_pitch, 2)
+    value_series = [{"time": t, "value": v} for t, v in sorted(series_map.items())]
+
+    return jsonify({
+        "configured": True,
+        "address": DISPLAY_WALLET,
+        "summary": {
+            "totalValuePitch": round(value_pitch, 2),
+            "realizedPnlPitch": round(realized_pitch, 2),
+            "unrealizedPnlPitch": round(unrealized_pitch, 2),
+            "totalPnlPitch": round(total_pnl, 2),
+            "roiPct": round((total_pnl / spent_pitch * 100) if spent_pitch > 0 else 0, 1),
+            "openPositions": len(positions),
+            "feesPaidPitch": round(fees_pitch, 2),
+        },
+        "positions": positions,
+        "closed": closed,
+        "trades": trades_out,
+        "stats": {
+            "totalTrades": len(wallet_trades), "buys": buys, "sells": sells,
+            "volumePitch": round(volume_pitch, 2),
+            "avgTradePitch": round(volume_pitch / len(wallet_trades), 2) if wallet_trades else 0,
+            "feesPaidPitch": round(fees_pitch, 2),
+            "closedPositions": closed_count,
+            "winRatePct": round((closed_wins / closed_count * 100) if closed_count else 0, 1),
+            "best": {"symbol": best[0], "pnlPitch": round(best[1], 2)} if best else None,
+            "worst": {"symbol": worst[0], "pnlPitch": round(worst[1], 2)} if worst else None,
+        },
+        "allocation": {
+            "byCountry": {k: round(v, 2) for k, v in sorted(
+                alloc_country.items(), key=lambda kv: -kv[1])},
+            "byRole": {k: round(v, 2) for k, v in alloc_role.items()},
+            "players": round(alloc_players, 2),
+            "countries": round(alloc_countries, 2),
+        },
+        "balances": _wallet_balances(w),
+        "valueSeries": value_series,
+    })
 
 
 @app.route("/api/stream")
