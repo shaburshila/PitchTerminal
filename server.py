@@ -78,6 +78,7 @@ cache_lock = threading.RLock()
 orders_state = {"orders": [], "armed": True, "nextId": 1}
 orders_lock = threading.RLock()   # serializes order-list mutations + writes
 trade_lock = threading.Lock()     # serializes tx sending (nonce safety: manual + auto)
+events_scan_lock = threading.Lock()  # serializes event scans (loop + post-trade)
 # Flips True after the first order check post-startup. That first check is the
 # "catch-up": a limit buy triggered far below target there means the server was down
 # and the market may have changed -> review. Live triggers afterwards just execute.
@@ -351,6 +352,19 @@ def current_price_of(addr: str) -> float:
     return 0
 
 
+def _market_price(ev):
+    """Bonding-curve price of a trade with the 5% fee excluded, in base-currency
+    units. A buy spends `baseValue` incl. fee; a sell receives `baseValue` net of
+    fee — so the curve itself moved `baseValue -/+ fee`."""
+    tv = Decimal(ev["tokenValue"])
+    if tv <= 0:
+        return 0.0
+    base = Decimal(ev["baseValue"])
+    fee = Decimal(ev["fee"])
+    gross = (base - fee) if ev["type"] == "buy" else (base + fee)
+    return float(gross / tv)
+
+
 def build_candles(token_addr: str, timeframe: str = "5m") -> list:
     """Build OHLCV candles from events for a given token."""
     addr = token_addr.lower()
@@ -362,7 +376,7 @@ def build_candles(token_addr: str, timeframe: str = "5m") -> list:
         events = list(cache["events"])
     for ev in events:
         if ev["token"].lower() == addr and ev["tokenValue"] > 0:
-            price = float(Decimal(ev["baseValue"]) / Decimal(ev["tokenValue"]))
+            price = _market_price(ev)  # fee-excluded — the actual curve price
             blocks_ago = current_block - ev["block"]
             ts = now - (blocks_ago * BASE_BLOCK_TIME)
             vol = float(Decimal(ev["baseValue"]) / Decimal(WEI))
@@ -439,7 +453,7 @@ def build_points(token_addr: str) -> list:
         events = list(cache["events"])
     for ev in events:
         if ev["token"].lower() == addr and ev["tokenValue"] > 0:
-            price = float(Decimal(ev["baseValue"]) / Decimal(ev["tokenValue"]))
+            price = _market_price(ev)  # fee-excluded — the actual curve price
             blocks_ago = current_block - ev["block"]
             ts = now - (blocks_ago * BASE_BLOCK_TIME)
             vol = float(Decimal(ev["baseValue"]) / Decimal(WEI))
@@ -485,16 +499,19 @@ def update_prices():
 
 
 def update_events():
-    try:
-        w3 = get_w3()
-        if not w3.is_connected():
-            return
-        new = fetch_new_events(w3)
-        rebuild_player_list()
-        if new:
-            broadcast_sse("events")
-    except Exception as e:
-        print(f"Event update error: {e}")
+    # events_scan_lock serializes scans — the 5s event loop and the post-trade
+    # scan must not run fetch_new_events concurrently (would double-scan a range).
+    with events_scan_lock:
+        try:
+            w3 = get_w3()
+            if not w3.is_connected():
+                return
+            new = fetch_new_events(w3)
+            rebuild_player_list()
+            if new:
+                broadcast_sse("events")
+        except Exception as e:
+            print(f"Event update error: {e}")
 
 
 def rebuild_player_list():
@@ -644,7 +661,7 @@ def price_loop():
 def event_loop():
     while True:
         update_events()
-        time.sleep(60)
+        time.sleep(5)  # ~2 RPC calls per scan — well under any public-RPC limit
 
 
 # --- Routes ---
@@ -716,13 +733,14 @@ def api_trades(token_addr):
         if trader not in wallets:
             wallets[trader] = {"buys": 0, "sells": 0, "position": 0,
                                "spent": 0, "received": 0, "bought": 0,
-                               "fees": 0, "firstTs": None}
+                               "fees": 0, "buyFees": 0, "firstTs": None}
         w = wallets[trader]
         if ev["type"] == "buy":
             w["buys"] += 1
             w["position"] += token_val
             w["spent"] += base_val
             w["bought"] += token_val
+            w["buyFees"] += fee
         else:
             w["sells"] += 1
             w["position"] -= token_val
@@ -737,7 +755,8 @@ def api_trades(token_addr):
             "traderShort": trader[:6] + ".." + trader[-4:],
             "baseValue": round(base_val, 4),
             "tokenValue": round(token_val, 4),
-            "price": round(price, 6),
+            "price": round(price, 6),               # effective (fee-inclusive)
+            "marketPrice": round(_market_price(ev), 6),  # curve price (fee-excluded)
             "fee": round(fee, 4),
             "tx": ev["tx"],
             "timestamp": round(ts),
@@ -753,11 +772,13 @@ def api_trades(token_addr):
         trades.append(t)
 
     # Build wallet summary sorted by position (largest first).
-    # avgBuy = cost basis of all buys (spent / tokens bought).
-    # avgNet = net cost of the current open position ((spent - received) / position).
+    # avgBuy here = the average *market* price bought at (fee excluded) — it's drawn
+    #   as a line on the market-price chart, so it must be in market-price terms.
+    # avgNet = net cost per held token ((spent - received) / position). `spent` already
+    #   includes buy fees and `received` is net of sell fees, so it's fee-inclusive.
     wallet_list = []
     for addr_w, w in wallets.items():
-        avg_buy = (w["spent"] / w["bought"]) if w["bought"] > 0 else 0
+        avg_buy = ((w["spent"] - w["buyFees"]) / w["bought"]) if w["bought"] > 0 else 0
         avg_net = ((w["spent"] - w["received"]) / w["position"]) if w["position"] > 1e-9 else 0
         wallet_list.append({
             "address": addr_w,
@@ -1040,6 +1061,11 @@ def execute_trade(player_addr, side, amount, slippage=50):
             signed_tx = account.sign_transaction(built_tx)
             tx_hash = w3.eth.send_raw_transaction(signed_tx.raw_transaction)
             receipt = w3.eth.wait_for_transaction_receipt(tx_hash, timeout=60)
+
+            if receipt["status"] == 1:
+                # Pull the just-made trade into the event cache now, so its candle +
+                # marker show up immediately instead of waiting for the next scan tick.
+                threading.Thread(target=update_events, daemon=True).start()
 
             return {
                 "success": receipt["status"] == 1,
@@ -1353,7 +1379,7 @@ def api_profile():
             a["position"] -= tv
             a["received"] += base
         wallet_trades.append({"token": token, "type": ev["type"], "base": base,
-                              "tv": tv, "ts": ts, "tx": ev["tx"]})
+                              "tv": tv, "fee": fee, "ts": ts, "tx": ev["tx"]})
 
     # --- per-token positions / closed / totals ---
     positions, closed = [], []
@@ -1421,10 +1447,13 @@ def api_profile():
             continue
         vp = tr["base"] * meta["rate"]
         volume_pitch += vp
+        gross = (tr["base"] - tr["fee"]) if tr["type"] == "buy" else (tr["base"] + tr["fee"])
         trades_out.append({
             "symbol": meta["symbol"], "kind": meta["kind"], "type": tr["type"],
             "price": round(tr["base"] / tr["tv"], 6) if tr["tv"] > 0 else 0,
+            "marketPrice": round(gross / tr["tv"], 6) if tr["tv"] > 0 else 0,
             "amount": round(tr["tv"], 4), "valuePitch": round(vp, 2),
+            "feePitch": round(tr["fee"] * meta["rate"], 4),
             "timestamp": round(tr["ts"]), "tx": tr["tx"],
         })
 

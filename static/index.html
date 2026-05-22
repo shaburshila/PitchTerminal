@@ -214,14 +214,16 @@ a { color: #58a6ff; text-decoration: none; }
   padding: 10px 16px 4px;
 }
 .mw-trade-row {
-  display: grid; grid-template-columns: 44px 1fr 1fr 1.2fr 90px;
-  column-gap: 14px; padding: 4px 16px; border-bottom: 1px solid #21262d;
+  display: grid; grid-template-columns: 40px 1fr 1fr 1fr 1fr 78px;
+  column-gap: 12px; padding: 4px 16px; border-bottom: 1px solid #21262d;
   font-size: 11px; align-items: center;
 }
 .mw-trade-row span { text-align: right; }
 .mw-trade-row span:first-child { text-align: left; }
 .mw-trade-row .buy { color: #3fb950; font-weight: 600; }
 .mw-trade-row .sell { color: #f85149; font-weight: 600; }
+.mw-trade-head { font-size: 9px; text-transform: uppercase; color: #8b949e; border-bottom: 1px solid #30363d; }
+.mw-trade-head span { color: #8b949e; }
 
 /* Orders tab */
 .orders-bar {
@@ -463,6 +465,7 @@ body.mode-profile #profile-view { display: block; }
 .trade-quote .tq-label { color: #8b949e; }
 .trade-quote .tq-value { color: #e6edf3; font-weight: 600; font-size: 14px; }
 .trade-quote .tq-price { color: #8b949e; font-size: 11px; }
+.trade-quote .tq-min { color: #d29922; font-size: 11px; }
 
 .trade-slippage { font-size: 11px; color: #8b949e; display: flex; align-items: center; gap: 6px; }
 .trade-slippage input {
@@ -659,10 +662,11 @@ body.mode-countries .filter-separator { display: none; }
         <span class="tq-label">You receive</span>
         <span class="tq-value" id="tq-out">—</span>
         <span class="tq-price" id="tq-price">—</span>
+        <span class="tq-min" id="tq-min"></span>
       </div>
       <div class="trade-slippage">
         <span>Slippage</span>
-        <input type="number" id="trade-slippage" value="0.5" step="0.1" min="0.1" max="50" />
+        <input type="number" id="trade-slippage" value="0.5" step="0.1" min="0.1" max="50" oninput="renderMinReceived()" />
         <span>%</span>
       </div>
       <button class="trade-submit buy-btn" id="trade-submit" onclick="onTradeSubmit()" disabled>Select a player</button>
@@ -1020,6 +1024,10 @@ function renderChartData(fit = true) {
   if (chartMode === 'candles') renderCandles();
   else renderLine();
   renderAvgLines();
+  // Re-apply the live spot price on top of the freshly rebuilt data. The candles/line
+  // come from the server's event cache, which lags up to 60s behind a fresh trade — without
+  // this, every rebuild would snap the chart back to the last cached event's price.
+  updateChartPrice();
   if (fit) chart.timeScale().fitContent();
 }
 
@@ -1060,11 +1068,11 @@ function renderCandles() {
     if (!isMine && !showAllTrades) continue;
     markers.push({
       time: Math.floor(p.time / interval) * interval,
-      position: p.type === 'buy' ? 'belowBar' : 'aboveBar',
+      position: 'inBar',   // sit on the line/bar at the trade's price, not offset
       color: p.type === 'buy' ? '#3fb950' : '#f85149',
       shape: isMine ? (p.type === 'buy' ? 'arrowUp' : 'arrowDown') : 'circle',
       text: isMine ? (p.type === 'buy' ? 'B' : 'S') : '',
-      size: isMine ? 2 : 1,
+      size: isMine ? 1 : 0.5,
     });
   }
   markers.sort((a, b) => a.time - b.time);
@@ -1103,11 +1111,11 @@ function renderLine() {
     if (!isMine && !showAllTrades) continue;
     markers.push({
       time: lineData[i].time,
-      position: p.type === 'buy' ? 'belowBar' : 'aboveBar',
+      position: 'inBar',   // sit on the line/bar at the trade's price, not offset
       color: p.type === 'buy' ? '#3fb950' : '#f85149',
       shape: isMine ? (p.type === 'buy' ? 'arrowUp' : 'arrowDown') : 'circle',
       text: isMine ? (p.type === 'buy' ? 'B' : 'S') : '',
-      size: isMine ? 2 : 1,
+      size: isMine ? 1 : 0.5,
     });
   }
   mainSeries.setMarkers(markers);
@@ -1226,7 +1234,7 @@ function renderTradesTab() {
     const rows = trades.slice(0, 200).map(e => `
       <div class="trade-row">
         <span class="${e.type}">${e.type.toUpperCase()}</span>
-        <span>${e.price.toFixed(4)}</span>
+        <span>${(e.marketPrice ?? e.price).toFixed(4)}</span>
         <span>${e.tokenValue.toFixed(2)}</span>
         <span>${e.baseValue.toFixed(2)} ${baseUnit}</span>
         <span>${formatTime(e.timestamp)}</span>
@@ -1315,12 +1323,15 @@ function renderMyWalletTab(content, baseUnit) {
     const rows = myTrades.map(e => `
       <div class="mw-trade-row">
         <span class="${e.type}">${e.type.toUpperCase()}</span>
-        <span>${e.price.toFixed(4)}</span>
+        <span>${(e.marketPrice ?? e.price).toFixed(4)}</span>
         <span>${e.tokenValue.toFixed(2)}</span>
         <span>${e.baseValue.toFixed(2)} ${baseUnit}</span>
+        <span>${e.fee.toFixed(3)} fee</span>
         <span>${formatTime(e.timestamp)}</span>
       </div>`).join('');
-    tradesHtml = `<div class="mw-trades-title">My trades (${myTrades.length})</div>` + rows;
+    tradesHtml = `<div class="mw-trades-title">My trades (${myTrades.length}) — price excl. fee</div>`
+      + `<div class="mw-trade-row mw-trade-head"><span></span><span>Price</span><span>Amount</span>`
+      + `<span>Total</span><span>Fee</span><span>Time</span></div>` + rows;
   }
 
   content.innerHTML = `<div class="mw-section">`
@@ -1694,14 +1705,16 @@ function renderProfile() {
   } else h += '<div class="pf-empty">No fully-closed positions</div>';
   h += `</div>`;
 
-  h += `<div class="pf-section"><h3>Trade history (${d.trades.length})</h3>`;
+  h += `<div class="pf-section"><h3>Trade history (${d.trades.length}) — price excl. fee</h3>`;
   if (d.trades.length) {
     h += `<table class="pf-table"><thead><tr>
-      <th>Time</th><th>Token</th><th>Type</th><th>Price</th><th>Amount</th><th>Value (PITCH)</th></tr></thead><tbody>`
+      <th>Time</th><th>Token</th><th>Type</th><th>Price</th><th>Amount</th>
+      <th>Fee (PITCH)</th><th>Value (PITCH)</th></tr></thead><tbody>`
       + d.trades.slice(0, 150).map(t => `<tr>
         <td>${formatTime(t.timestamp)}</td><td><span class="sym">${t.symbol}</span></td>
         <td class="${t.type === 'buy' ? 'pf-pos' : 'pf-neg'}">${t.type.toUpperCase()}</td>
-        <td>${t.price.toFixed(4)}</td><td>${t.amount.toFixed(2)}</td>
+        <td>${(t.marketPrice ?? t.price).toFixed(4)}</td><td>${t.amount.toFixed(2)}</td>
+        <td>${(t.feePitch ?? 0).toFixed(2)}</td>
         <td><a href="https://basescan.org/tx/0x${t.tx}" target="_blank">${t.valuePitch.toFixed(2)}</a></td></tr>`).join('')
       + `</tbody></table>`;
   } else h += '<div class="pf-empty">No trades</div>';
@@ -1930,6 +1943,8 @@ function onTradeAmountChange() {
   quoteTimer = setTimeout(() => fetchQuote(amount), 300);
 }
 
+let lastQuote = null;   // {amountOut, unit} of the last fetched quote — drives "min received"
+
 async function fetchQuote(amount) {
   if (!selectedAddr) return;
   const player = getSelectedPlayer();
@@ -1940,6 +1955,7 @@ async function fetchQuote(amount) {
     const data = await res.json();
     if (data.error) {
       document.getElementById('trade-quote').style.display = 'none';
+      lastQuote = null;
       return;
     }
 
@@ -1950,9 +1966,25 @@ async function fetchQuote(amount) {
     document.getElementById('tq-out').textContent = `${data.amountOut.toFixed(4)} ${outUnit}`;
     document.getElementById('tq-price').textContent =
       tradeSide === 'buy'
-        ? `Price: ${data.price.toFixed(4)} ${player.country}/${player.symbol}`
-        : `Price: ${(1/data.price).toFixed(4)} ${player.country}/${player.symbol}`;
+        ? `Your price (incl. 5% fee): ${data.price.toFixed(4)} ${player.country}/${player.symbol}`
+        : `Your price (incl. 5% fee): ${(1/data.price).toFixed(4)} ${player.country}/${player.symbol}`;
+    lastQuote = { amountOut: data.amountOut, unit: outUnit };
+    renderMinReceived();
   } catch(e) {}
+}
+
+// Minimum you're guaranteed to receive after slippage — the actual on-chain floor
+// (if the price moves more than this between now and the tx landing, it reverts).
+function renderMinReceived() {
+  const el = document.getElementById('tq-min');
+  if (!el) return;
+  if (!lastQuote || document.getElementById('trade-quote').style.display === 'none') {
+    el.textContent = '';
+    return;
+  }
+  const slippagePct = parseFloat(document.getElementById('trade-slippage').value) || 0.5;
+  const min = lastQuote.amountOut * (1 - slippagePct / 100);
+  el.textContent = `Min received: ${min.toFixed(4)} ${lastQuote.unit} · ${slippagePct}% slippage`;
 }
 
 async function executeTrade() {
@@ -1987,7 +2019,11 @@ async function executeTrade() {
 
     if (data.error) {
       statusEl.className = 'trade-status error';
-      statusEl.textContent = data.error;
+      // A revert here almost always means the price moved past your slippage.
+      statusEl.textContent = /revert/i.test(data.error)
+        ? 'Price moved — trade exceeded your slippage. Retry, or raise slippage.'
+        : data.error;
+      statusEl.title = data.error;
     } else if (data.success) {
       statusEl.className = 'trade-status success';
       statusEl.textContent = `Done! Got ${data.expectedOut.toFixed(4)}`;
@@ -1997,7 +2033,7 @@ async function executeTrade() {
       fetchPlayers();
     } else {
       statusEl.className = 'trade-status error';
-      statusEl.textContent = 'Transaction reverted';
+      statusEl.textContent = 'Price moved — trade exceeded your slippage. Retry, or raise slippage.';
     }
   } catch(e) {
     statusEl.className = 'trade-status error';
@@ -2070,6 +2106,7 @@ function connectSSE() {
     if (type === 'prices') {
       await fetchPlayers();
       updateChartPrice();
+      onTradeAmountChange();   // keep the trade-panel quote fresh (re-quotes if amount set)
     } else if (type === 'events' && selectedAddr) {
       await loadChart(false);
     } else if (type === 'orders') {
