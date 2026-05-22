@@ -741,6 +741,15 @@ function isCountrySelected() {
   return !!t && t.kind === 'country';
 }
 
+// Trade base currency for a token: country symbol for players, PITCH for countries.
+function tradeBase(tok) {
+  return tok.kind === 'country' ? 'PITCH' : tok.country;
+}
+// Spot price of a token in its trade base units.
+function spotOf(tok) {
+  return tok.kind === 'country' ? (tok.pricePitch || 0) : (tok.priceCountry || 0);
+}
+
 // Label for the price axis / tooltips given the current selection + unit toggle.
 function unitLabel() {
   if (isCountrySelected()) return 'PITCH';
@@ -1372,6 +1381,12 @@ async function loadOrders() {
 }
 
 // Per-token order count for the Orders tab badge (the global list lives in the profile).
+// Display label for an order status. Internal value stays `pending` (used as the key
+// in limit_orders.json / the API); the user sees "ACTIVE" — it's placed and watched.
+function orderStatusLabel(s) {
+  return s === 'pending' ? 'ACTIVE' : s.toUpperCase();
+}
+
 function updateOrdersTabCount() {
   const el = document.getElementById('tab-orders-count');
   if (!el) return;
@@ -1394,12 +1409,12 @@ function renderOrdersTab(content) {
   const reviewN = orders.filter(o => o.status === 'review').length;
 
   let html = `<div class="orders-bar">
-    <span class="ob-info">${orders.length} order(s) for ${player.symbol} · ${pending} pending${reviewN ? ` · ${reviewN} review` : ''}</span>
+    <span class="ob-info">${orders.length} order(s) for ${player.symbol} · ${pending} active${reviewN ? ` · ${reviewN} review` : ''}</span>
     <button class="${ordersArmed ? 'arm-toggle on' : 'arm-toggle'}" onclick="toggleArm()">
       <span>Auto-execution ${ordersArmed ? 'on' : 'off'}</span><span class="arm-switch"></span>
     </button>
   </div>`;
-  if (!ordersArmed) html += '<div class="orders-warn">⚠ Auto-execution is OFF — pending orders will not fire.</div>';
+  if (!ordersArmed) html += '<div class="orders-warn">⚠ Auto-execution is OFF — active orders will not fire.</div>';
 
   if (!orders.length) {
     content.innerHTML = html + '<div class="no-data" style="padding:30px">No limit orders for this token</div>';
@@ -1411,7 +1426,7 @@ function renderOrdersTab(content) {
   </div>`;
   const kindLabel = {limit: 'LIMIT BUY', tp: 'TAKE-PROFIT'};
   html += orders.map(o => {
-    const amtUnit = o.side === 'buy' ? o.country : o.playerSymbol;
+    const amtUnit = o.side === 'buy' ? (o.baseSymbol || o.country) : o.playerSymbol;
     let status;
     if (o.status === 'filled' && o.tx) {
       status = `<a href="https://basescan.org/tx/0x${o.tx}" target="_blank">FILLED</a>`;
@@ -1420,7 +1435,7 @@ function renderOrdersTab(content) {
     } else if (o.status === 'review') {
       status = `⚠ REVIEW −${reviewDeviation(o).toFixed(0)}%`;
     } else {
-      status = o.status.toUpperCase();
+      status = orderStatusLabel(o.status);
     }
     let acts;
     if (o.status === 'review') {
@@ -1483,8 +1498,8 @@ function showReviewModal(reviewOrders) {
     + reviewOrders.map(o => `
       <div class="modal-order">
         <div>
-          <div class="mo-info">#${o.id} · ${o.playerSymbol} · ${o.amount} ${o.country}</div>
-          <div class="mo-sub">target ${o.targetPrice.toFixed(4)} → paused at ${(o.reviewPrice || 0).toFixed(4)} ${o.country} (−${reviewDeviation(o).toFixed(0)}%)</div>
+          <div class="mo-info">#${o.id} · ${o.playerSymbol} · ${o.amount} ${o.baseSymbol || o.country}</div>
+          <div class="mo-sub">target ${o.targetPrice.toFixed(4)} → paused at ${(o.reviewPrice || 0).toFixed(4)} ${o.baseSymbol || o.country} (−${reviewDeviation(o).toFixed(0)}%)</div>
         </div>
         <div class="order-acts">
           <button class="order-btn exec" onclick="executeOrder(${o.id})">Execute</button>
@@ -1653,8 +1668,8 @@ function renderProfile() {
       + openOrders.map(o => `<tr>
         <td><span class="sym">${o.playerSymbol}</span></td><td>${kl[o.kind] || o.kind}</td>
         <td>${o.targetPrice.toFixed(4)}</td>
-        <td>${o.amount} ${o.side === 'buy' ? o.country : o.playerSymbol}</td>
-        <td class="${o.status === 'review' ? 'pf-neg' : ''}">${o.status === 'review' ? '⚠ REVIEW' : o.status.toUpperCase()}</td>
+        <td>${o.amount} ${o.side === 'buy' ? (o.baseSymbol || o.country) : o.playerSymbol}</td>
+        <td class="${o.status === 'review' ? 'pf-neg' : ''}">${o.status === 'review' ? '⚠ REVIEW' : orderStatusLabel(o.status)}</td>
         <td>${pfOrderActs(o)}</td></tr>`).join('')
       + `</tbody></table>`;
   } else h += '<div class="pf-empty">No open orders</div>';
@@ -1789,9 +1804,9 @@ function setTradeMode(mode) {
 function onLimitTargetChange() {
   const hint = document.getElementById('limit-hint');
   const player = getSelectedPlayer();
-  if (!player || player.kind === 'country') { hint.className = 'limit-hint'; hint.textContent = 'Select a player'; return; }
-  const unit = player.country;
-  const spot = player.priceCountry || 0;
+  if (!player) { hint.className = 'limit-hint'; hint.textContent = 'Select a token'; return; }
+  const unit = tradeBase(player);
+  const spot = spotOf(player);
   const target = parseFloat(document.getElementById('limit-target').value) || 0;
   document.getElementById('limit-target-label').textContent = `Target price (${unit})`;
   document.getElementById('limit-target-suffix').textContent = unit;
@@ -1831,18 +1846,10 @@ function updateTradeUI() {
     return;
   }
 
-  if (player.kind === 'country') {
-    label.textContent = 'Amount';
-    suffix.textContent = '—';
-    submitBtn.textContent = 'Country (view only)';
-    submitBtn.disabled = true;
-    updateAvail();
-    return;
-  }
-
+  const base = tradeBase(player);
   if (tradeSide === 'buy') {
-    label.textContent = `Spend (${player.country})`;
-    suffix.textContent = player.country;
+    label.textContent = `Spend (${base})`;
+    suffix.textContent = base;
     submitBtn.textContent = `Buy ${player.symbol}`;
   } else {
     label.textContent = `Sell (${player.symbol})`;
@@ -1867,12 +1874,12 @@ function availBalance() {
 function updateAvail() {
   const el = document.getElementById('trade-avail');
   const player = getSelectedPlayer();
-  if (!player || player.kind === 'country' || !walletInfo || !walletInfo.connected
+  if (!player || !walletInfo || !walletInfo.connected
       || walletInfo.countryBalance === undefined) {
     el.textContent = ''; el.className = 'trade-avail'; return;
   }
   const bal = availBalance();
-  const unit = tradeSide === 'buy' ? player.country : player.symbol;
+  const unit = tradeSide === 'buy' ? tradeBase(player) : player.symbol;
   const amount = parseFloat(document.getElementById('trade-amount').value) || 0;
   const over = amount > bal + 1e-4;
   el.className = 'trade-avail' + (over ? ' over' : '');
@@ -1888,7 +1895,7 @@ function balanceError(amount) {
   if (!player || !walletInfo || !walletInfo.connected) return null;
   const bal = availBalance();
   if (amount > bal + 1e-4) {
-    const unit = tradeSide === 'buy' ? player.country : player.symbol;
+    const unit = tradeSide === 'buy' ? tradeBase(player) : player.symbol;
     return `Not enough ${unit}: you have ${bal.toFixed(4)}`;
   }
   return null;
@@ -1913,10 +1920,13 @@ function renderWalletInfo() {
 
   let html = `<div class="trade-wallet">
     <div class="wallet-addr">${walletInfo.addressShort}</div>
-    <div class="wallet-bal">ETH: <span>${walletInfo.ethBalance.toFixed(4)}</span></div>`;
+    <div class="wallet-bal">PITCH: <span>${(walletInfo.pitchBalance || 0).toFixed(4)}</span></div>`;
 
   if (walletInfo.countryBalance !== undefined) {
-    html += `<div class="wallet-bal">${walletInfo.countrySymbol}: <span>${walletInfo.countryBalance.toFixed(4)}</span></div>`;
+    // countrySymbol is the buy currency — skip it when it's PITCH (already shown above)
+    if (walletInfo.countrySymbol !== 'PITCH') {
+      html += `<div class="wallet-bal">${walletInfo.countrySymbol}: <span>${walletInfo.countryBalance.toFixed(4)}</span></div>`;
+    }
     html += `<div class="wallet-bal">${walletInfo.playerSymbol}: <span>${walletInfo.playerBalance.toFixed(4)}</span></div>`;
   }
   html += '</div>';
@@ -1936,7 +1946,7 @@ function onTradeAmountChange() {
   clearTimeout(quoteTimer);
   updateAvail();
   const amount = parseFloat(document.getElementById('trade-amount').value) || 0;
-  if (amount <= 0 || !selectedAddr || isCountrySelected() || tradeMode === 'limit') {
+  if (amount <= 0 || !selectedAddr || tradeMode === 'limit') {
     document.getElementById('trade-quote').style.display = 'none';
     return;
   }
@@ -1962,12 +1972,13 @@ async function fetchQuote(amount) {
     const quoteEl = document.getElementById('trade-quote');
     quoteEl.style.display = 'flex';
 
-    const outUnit = tradeSide === 'buy' ? player.symbol : player.country;
+    const base = tradeBase(player);
+    const outUnit = tradeSide === 'buy' ? player.symbol : base;
     document.getElementById('tq-out').textContent = `${data.amountOut.toFixed(4)} ${outUnit}`;
     document.getElementById('tq-price').textContent =
       tradeSide === 'buy'
-        ? `Your price (incl. 5% fee): ${data.price.toFixed(4)} ${player.country}/${player.symbol}`
-        : `Your price (incl. 5% fee): ${(1/data.price).toFixed(4)} ${player.country}/${player.symbol}`;
+        ? `Your price (incl. 5% fee): ${data.price.toFixed(4)} ${base}/${player.symbol}`
+        : `Your price (incl. 5% fee): ${(1 / data.price).toFixed(4)} ${base}/${player.symbol}`;
     lastQuote = { amountOut: data.amountOut, unit: outUnit };
     renderMinReceived();
   } catch(e) {}

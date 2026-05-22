@@ -880,43 +880,55 @@ def api_wallet():
     w3 = get_w3()
     player_addr = request.args.get("player", "").strip()
 
-    # ETH balance
+    # ETH balance (gas) + PITCH balance (the core trading currency)
     eth_balance = float(Decimal(w3.eth.get_balance(addr)) / Decimal(WEI))
+    try:
+        pitch = w3.eth.contract(address=Web3.to_checksum_address(config.PITCH_TOKEN),
+                                abi=config.ERC20_ABI)
+        pitch_balance = float(Decimal(pitch.functions.balanceOf(addr).call()) / Decimal(WEI))
+    except Exception:
+        pitch_balance = 0.0
 
-    # If player specified, get country token + player token balances and allowances
     result = {
         "connected": True,
         "address": addr,
         "addressShort": addr[:6] + ".." + addr[-4:],
         "ethBalance": round(eth_balance, 6),
+        "pitchBalance": round(pitch_balance, 4),
     }
 
     if player_addr:
-        player = PLAYERS_BY_ADDR.get(player_addr.lower(), {})
-        if player:
-            country = COUNTRIES.get(player.get("country", ""), {})
-            country_addr = country.get("address", "")
+        addr_low = player_addr.lower()
+        p = PLAYERS_BY_ADDR.get(addr_low)
+        c = COUNTRIES_BY_ADDR.get(addr_low)
+        # The selected token has a "pay currency" (spent when buying) and the token
+        # itself. Player: pay = country token via Player Router. Country: pay = PITCH
+        # via Country Router. Fields are reused: country* = pay currency, player* = token.
+        venue = None
+        if p:
+            venue = (COUNTRIES.get(p.get("country", ""), {}).get("address", ""),
+                     p.get("country", "?"), player_addr, p.get("symbol", "?"), config.ROUTER)
+        elif c:
+            venue = (config.PITCH_TOKEN, "PITCH",
+                     player_addr, c.get("symbol", "?"), config.COUNTRY_ROUTER)
 
+        if venue:
+            pay_addr, pay_sym, tok_addr, tok_sym, router = venue
             multicall = w3.eth.contract(
                 address=Web3.to_checksum_address(config.MULTICALL3),
                 abi=config.MULTICALL3_ABI,
             )
-
-            bal_sel = bytes.fromhex("70a08231")  # balanceOf(address)
+            bal_sel = bytes.fromhex("70a08231")    # balanceOf(address)
             allow_sel = bytes.fromhex("dd62ed3e")  # allowance(owner, spender)
             addr_padded = bytes.fromhex(addr[2:].lower().zfill(64))
-            router_padded = bytes.fromhex(config.ROUTER[2:].lower().zfill(64))
+            router_padded = bytes.fromhex(router[2:].lower().zfill(64))
 
-            calls = []
-            # 0: country token balance
-            calls.append((Web3.to_checksum_address(country_addr), True, bal_sel + addr_padded))
-            # 1: player token balance
-            calls.append((Web3.to_checksum_address(player_addr), True, bal_sel + addr_padded))
-            # 2: country token allowance for router
-            calls.append((Web3.to_checksum_address(country_addr), True, allow_sel + addr_padded + router_padded))
-            # 3: player token allowance for router
-            calls.append((Web3.to_checksum_address(player_addr), True, allow_sel + addr_padded + router_padded))
-
+            calls = [
+                (Web3.to_checksum_address(pay_addr), True, bal_sel + addr_padded),
+                (Web3.to_checksum_address(tok_addr), True, bal_sel + addr_padded),
+                (Web3.to_checksum_address(pay_addr), True, allow_sel + addr_padded + router_padded),
+                (Web3.to_checksum_address(tok_addr), True, allow_sel + addr_padded + router_padded),
+            ]
             results = multicall.functions.aggregate3(calls).call()
 
             def parse_uint(r):
@@ -928,8 +940,8 @@ def api_wallet():
             result["playerBalance"] = float(Decimal(parse_uint(results[1])) / Decimal(WEI))
             result["countryAllowance"] = float(Decimal(parse_uint(results[2])) / Decimal(WEI))
             result["playerAllowance"] = float(Decimal(parse_uint(results[3])) / Decimal(WEI))
-            result["countrySymbol"] = player.get("country", "?")
-            result["playerSymbol"] = player.get("symbol", "?")
+            result["countrySymbol"] = pay_sym
+            result["playerSymbol"] = tok_sym
 
     return jsonify(result)
 
@@ -949,9 +961,17 @@ def api_quote():
     if amount_wei <= 0:
         return jsonify({"error": "Amount must be > 0"}), 400
 
+    addr_low = player_addr.lower()
+    if addr_low in PLAYERS_BY_ADDR:
+        hook_addr = config.HOOK
+    elif addr_low in COUNTRIES_BY_ADDR:
+        hook_addr = COUNTRY_HOOK
+    else:
+        return jsonify({"error": "Unknown token"}), 400
+
     w3 = get_w3()
     hook = w3.eth.contract(
-        address=Web3.to_checksum_address(config.HOOK),
+        address=Web3.to_checksum_address(hook_addr),
         abi=config.HOOK_ABI,
     )
 
@@ -973,7 +993,8 @@ def api_quote():
 
 
 def execute_trade(player_addr, side, amount, slippage=50):
-    """Quote -> (approve) -> swap on the Router. Players only.
+    """Quote -> (approve) -> swap. Works for players (Player Router/Hook, paid in the
+    country token) and country tokens (Country Router/Hook, paid in PITCH).
 
     Shared by the manual /api/trade endpoint and the limit-order watcher.
     Serialized by trade_lock so manual trades and auto-fired orders never race
@@ -996,24 +1017,31 @@ def execute_trade(player_addr, side, amount, slippage=50):
     except (TypeError, ValueError):
         slippage = 50
 
-    player_info = PLAYERS_BY_ADDR.get(str(player_addr).lower())
-    if not player_info:
-        return {"error": "Unknown player token"}
+    # Pick the trade venue by token kind: players trade via the Player Router/Hook
+    # paying the country token; countries via the Country Router/Hook paying PITCH.
+    addr_low = str(player_addr).lower()
+    if addr_low in PLAYERS_BY_ADDR:
+        router_addr, hook_addr = config.ROUTER, config.HOOK
+        base_token = COUNTRIES.get(PLAYERS_BY_ADDR[addr_low].get("country", ""), {}).get("address", "")
+    elif addr_low in COUNTRIES_BY_ADDR:
+        router_addr, hook_addr = config.COUNTRY_ROUTER, COUNTRY_HOOK
+        base_token = config.PITCH_TOKEN
+    else:
+        return {"error": "Unknown token"}
 
     with trade_lock:
         try:
             w3 = get_w3()
             account = w3.eth.account.from_key(config.PRIVATE_KEY)
             player_cs = Web3.to_checksum_address(player_addr)
-            hook = w3.eth.contract(address=Web3.to_checksum_address(config.HOOK),
+            router_cs = Web3.to_checksum_address(router_addr)
+            hook = w3.eth.contract(address=Web3.to_checksum_address(hook_addr),
                                    abi=config.HOOK_ABI)
-            router = w3.eth.contract(address=Web3.to_checksum_address(config.ROUTER),
-                                     abi=config.ROUTER_ABI)
-            country = COUNTRIES.get(player_info.get("country", ""), {})
+            router = w3.eth.contract(address=router_cs, abi=config.ROUTER_ABI)
 
-            # Token paid in: country token when buying, player token when selling
+            # Token paid in: the base currency when buying, the token itself when selling
             if side == "buy":
-                pay_token = Web3.to_checksum_address(country.get("address", ""))
+                pay_token = Web3.to_checksum_address(base_token)
             else:
                 pay_token = player_cs
             erc20 = w3.eth.contract(address=pay_token, abi=config.ERC20_ABI)
@@ -1031,15 +1059,14 @@ def execute_trade(player_addr, side, amount, slippage=50):
                 quote_out = hook.functions.quoteSell(player_cs, amount_wei).call()
             min_out = quote_out * (10000 - slippage) // 10000
 
-            allowance = erc20.functions.allowance(
-                account.address, Web3.to_checksum_address(config.ROUTER)).call()
+            allowance = erc20.functions.allowance(account.address, router_cs).call()
             # 'pending' count so a tx already in the mempool isn't reused
             nonce = w3.eth.get_transaction_count(account.address, "pending")
             gas_price = int(w3.eth.gas_price * config.GAS_MULTIPLIER)
 
             if allowance < amount_wei:
                 approve_tx = erc20.functions.approve(
-                    Web3.to_checksum_address(config.ROUTER), 2**256 - 1
+                    router_cs, 2**256 - 1
                 ).build_transaction({
                     "from": account.address, "nonce": nonce,
                     "gasPrice": gas_price, "gas": 80_000, "chainId": config.CHAIN_ID,
@@ -1195,9 +1222,16 @@ def api_orders_create():
     data = request.get_json() or {}
     player_addr = str(data.get("player", "")).lower()
     side = data.get("side", "buy")
+    # Players: token = player, base = the country token. Countries: token = country,
+    # base = PITCH. `symbol`/`baseSymbol` drive the order display.
     player_info = PLAYERS_BY_ADDR.get(player_addr)
-    if not player_info:
-        return jsonify({"error": "Limit orders are for player tokens only"}), 400
+    country_info = COUNTRIES_BY_ADDR.get(player_addr)
+    if player_info:
+        token_symbol, base_symbol = player_info.get("symbol", "?"), player_info.get("country", "?")
+    elif country_info:
+        token_symbol, base_symbol = country_info.get("symbol", "?"), "PITCH"
+    else:
+        return jsonify({"error": "Unknown token"}), 400
     if side not in ("buy", "sell"):
         return jsonify({"error": "Invalid side"}), 400
     try:
@@ -1224,8 +1258,9 @@ def api_orders_create():
         order = {
             "id": orders_state["nextId"],
             "player": player_addr,
-            "playerSymbol": player_info.get("symbol", "?"),
-            "country": player_info.get("country", "?"),
+            "playerSymbol": token_symbol,
+            "country": base_symbol,
+            "baseSymbol": base_symbol,
             "side": side,
             "trigger": trigger,
             "kind": _order_kind(side),

@@ -22,9 +22,9 @@ the next start. See [How limit orders run](#how-limit-orders-run).
 
 - **Charts** — candlestick / line charts for all 144 player and 48 country tokens, with
   multiple timeframes, your-vs-others trade markers, and avg-entry price lines.
-- **Market trading** — buy / sell player tokens on-chain through the Router (bonding
-  curve via Uniswap V4 hooks): live quotes, slippage control, and a balance check before
-  the transaction is sent.
+- **Market trading** — buy / sell player *and* country tokens on-chain (bonding curve
+  via Uniswap V4 hooks): live quotes, slippage control, and a balance check before the
+  transaction is sent. Players trade against their country token; countries against PITCH.
 - **Limit orders** — set a target price and a server-side watcher auto-executes the
   trade when the price crosses it. Two kinds: **limit buy** and **take-profit**.
   - *Catch-up guard* — after a server downtime, a limit buy that would fill far below
@@ -128,7 +128,8 @@ place to see every order across all tokens.
 ## Notes
 
 - Limit orders are a local watcher — pitchwc has no on-chain order book.
-- Country tokens are view-only; trading is for player tokens.
+- Both player and country tokens are tradable — players via the Player Router (paid in
+  the country token), countries via the Country Router (paid in PITCH).
 - No paid RPC required — gas price is bumped 1.5× to compensate for the public RPC.
 - Unofficial tool — not affiliated with pitchwc.app.
 
